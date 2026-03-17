@@ -108,7 +108,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 @media(max-width:768px){.ph{flex-wrap:wrap}.ps{width:100%;text-align:left;margin-top:3px}}
 
 /* ═══ NEWS TICKER ═══ */
-.ticker-wrap{overflow:hidden;background:#0a0d12;border-bottom:1px solid rgba(226,168,75,.15);white-space:nowrap;position:relative}
+.ticker-wrap{overflow:hidden;position:relative;z-index:10;background:#0a0d12;border-bottom:1px solid rgba(226,168,75,.15);white-space:nowrap;position:relative}
 .ticker-label{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:.68rem;
   padding:6px 12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.5px;
   position:relative;z-index:2;flex-shrink:0;vertical-align:middle}
@@ -171,7 +171,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <audio id="aud" loop preload="none"><source src="forge_ambiance.mp3" type="audio/mpeg"></audio></div>
 <div id="pbar"><span id="pbs"></span><span id="pbx"></span></div>
 <div class="mw"><div class="cm" id="app"></div>
-<div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">\u{1F3A7} Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D\u00e9posez podcast1.mp3 \u00e0 podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
+<div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">&#x1F3A7; Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D&eacute;posez podcast1.mp3 &agrave; podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
 <div id="toast"></div><button id="afab" onclick="oA()">&#x2699; Admin</button>
 <div id="aov"><div id="abx"><h3>&#x2699; Administration La Forge</h3>
 <div id="alog"><p style="font-size:.78rem;color:var(--muted);margin-bottom:8px">Code CPE requis.</p>

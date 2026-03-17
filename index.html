@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PIX AED — La Forge</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--bg:#0c0f14;--card:#151921;--border:rgba(255,255,255,.06);--text:#dce4f0;--muted:#6b7a94;
+  --accent:#e2a84b;--steel:#3b82f6;--emerald:#10b981;--fire:#f97316;--violet:#8b5cf6;--gold:#e2a84b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg{width:100%;height:200px;background:linear-gradient(135deg,#1a1510,#0f1318 50%,#1a1510);
+  display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center}
+.hero-bg span{font-size:3rem;opacity:.12}
+.hero-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,rgba(12,15,20,.3),rgba(12,15,20,.85));padding:20px}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,5vw,2.4rem);color:var(--accent);
+  letter-spacing:1px;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.hero h1 span{color:#fff;font-weight:400}
+.hero-sub{color:rgba(255,255,255,.6);font-size:.82rem;margin-top:4px;letter-spacing:.5px}
+.abar{display:flex;align-items:center;gap:10px;padding:8px 20px;background:rgba(226,168,75,.03);
+  border-bottom:1px solid var(--border);font-size:.75rem;flex-wrap:wrap}
+.abar label{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.5px}
+.abtn{background:none;border:1px solid var(--border);color:var(--muted);padding:4px 10px;border-radius:4px;
+  cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:.62rem;transition:.2s}
+.abtn:hover,.abtn.on{background:rgba(226,168,75,.12);color:var(--accent);border-color:var(--accent)}
+.avol{width:80px;height:3px;accent-color:var(--accent);cursor:pointer}
+#pbar{display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 20px;
+  background:rgba(226,168,75,.04);border-bottom:1px solid var(--border);font-size:.82rem;flex-wrap:wrap}
+.pbn{font-weight:700;color:#fff}.pbc{color:var(--emerald)}.pbd{color:#ef4444}
+.mw{max-width:1100px;margin:0 auto;padding:24px 16px 80px;display:grid;grid-template-columns:1fr 280px;gap:20px}
+@media(max-width:860px){.mw{grid-template-columns:1fr}}
+.cm{min-width:0}.cs{display:flex;flex-direction:column;gap:16px}
+.dash{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}
+.dt{font-family:'DM Serif Display',serif;font-size:.95rem;color:var(--accent);margin-bottom:12px}
+.dr{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.78rem}
+.dr:last-of-type{border-bottom:none}
+.dl{color:var(--muted)}.dv{font-weight:700;font-family:'JetBrains Mono',monospace}
+.cg{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.cc{font-size:.58rem;padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:var(--muted)}
+.cc.e{background:rgba(226,168,75,.1);border-color:rgba(226,168,75,.3);color:var(--accent)}
+.bb{background:var(--card);border:1px solid rgba(16,185,129,.2);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.bb::before{content:'BONUS';position:absolute;top:-6px;right:-4px;font-family:'DM Serif Display';font-size:2rem;opacity:.04;color:var(--emerald);transform:rotate(-8deg)}
+.bt{font-family:'DM Serif Display',serif;font-size:.9rem;color:var(--emerald);margin-bottom:6px}
+.bd{font-size:.72rem;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.bm{display:flex;align-items:center;gap:10px;padding:10px;border-radius:6px;cursor:pointer;transition:.15s;
+  border:1px solid rgba(255,255,255,.05);margin-bottom:6px}
+.bm:hover{background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.2)}
+.bi{font-size:1.1rem;flex-shrink:0}.bn{flex:1;font-size:.78rem;line-height:1.4}
+.bnn{font-weight:600}.bns{color:var(--muted);font-size:.65rem;font-family:'JetBrains Mono',monospace}
+.bc{font-size:.56rem;color:var(--emerald);font-family:'JetBrains Mono',monospace;background:rgba(16,185,129,.08);
+  padding:2px 6px;border-radius:3px;white-space:nowrap}
+.pb{margin-bottom:16px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--card);transition:box-shadow .3s}
+.pb:hover{box-shadow:0 0 24px rgba(0,0,0,.25)}
+.ph{padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.pi{font-size:1.5rem;flex-shrink:0;width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  border-radius:9px;background:rgba(255,255,255,.03)}
+.pf{flex:1}.pt{font-family:'DM Serif Display',serif;font-weight:400;font-size:1rem}
+.pe{color:var(--muted);font-size:.72rem;margin-top:2px}
+.ps{text-align:right;flex-shrink:0}
+.pk{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.pp{font-size:.85rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+.po{height:2px;background:rgba(255,255,255,.04)}.px{height:2px;transition:width .5s}
+.ml{padding:2px 0}
+.mr{display:flex;align-items:center;gap:12px;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.025);transition:.12s}
+.mr:last-child{border-bottom:none}.mr.cl{cursor:pointer}.mr.cl:hover{background:rgba(255,255,255,.025)}
+.mr.lk{opacity:.28;cursor:not-allowed}
+.mn{width:30px;height:30px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;flex-shrink:0;border:2px solid currentColor;font-family:'JetBrains Mono',monospace}
+.mf{flex:1}.mm{font-weight:600;font-size:.84rem}
+.ms{font-size:.68rem;color:var(--muted);margin-top:1px;font-family:'JetBrains Mono',monospace}
+.cr{display:flex;gap:4px;margin-top:3px;flex-wrap:wrap}
+.cb{font-size:.56rem;padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;
+  background:rgba(255,255,255,.04);color:var(--muted);border:1px solid rgba(255,255,255,.06)}
+.mi{font-size:.95rem;flex-shrink:0}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#1e293b;border:1px solid var(--accent);
+  color:#fff;padding:10px 20px;border-radius:10px;font-size:.82rem;z-index:900;opacity:0;pointer-events:none;transition:opacity .25s}
+#toast.show{opacity:1}
+#afab{position:fixed;bottom:18px;right:16px;background:rgba(255,255,255,.05);border:1px solid var(--border);
+  color:var(--muted);padding:7px 13px;border-radius:8px;font-size:.72rem;cursor:pointer;z-index:800;font-family:'JetBrains Mono',monospace}
+#afab:hover{background:rgba(255,255,255,.1)}
+#aov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:950;align-items:center;justify-content:center}
+#aov.open{display:flex}
+#abx{background:#1a1f2a;border:1px solid var(--border);border-radius:14px;padding:22px;width:min(460px,93vw);max-height:88vh;overflow-y:auto}
+#abx h3{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:12px;color:var(--accent)}
+.ai{width:100%;padding:10px 12px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text);
+  border-radius:8px;font-size:.85rem;margin-bottom:10px;font-family:'IBM Plex Sans',sans-serif}
+.ai:focus{outline:none;border-color:var(--accent)}
+.aw{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ax{padding:8px 14px;border-radius:7px;border:none;cursor:pointer;font-weight:700;font-size:.78rem}
+.xp{background:var(--accent);color:#000}.xg{background:var(--emerald);color:#000}
+.xr{background:#ef4444;color:#fff}.xn{background:rgba(255,255,255,.1);color:var(--text)}
+.as{margin-top:12px;border-top:1px solid var(--border);padding-top:10px}
+.as h4{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;font-family:'JetBrains Mono',monospace}
+.al{display:flex;flex-direction:column;gap:2px;max-height:300px;overflow-y:auto}
+.ac{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,.02);cursor:pointer;transition:.1s}
+.ac:hover{background:rgba(255,255,255,.05)}
+.ac input{accent-color:var(--accent);width:14px;height:14px;cursor:pointer}
+.acl{font-size:.78rem;flex:1}.acd{color:var(--emerald);font-size:.65rem;margin-left:4px}
+.sep{font-size:.62rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;
+  padding:8px 4px 3px;border-top:1px solid var(--border);margin-top:3px;font-family:'JetBrains Mono',monospace}
+.sep:first-child{border-top:none;padding-top:0}
+.aer{color:#ef4444;font-size:.76rem;margin-top:6px}.aok{color:var(--emerald);font-size:.76rem;margin-top:6px}
+.apl{font-size:.76rem;padding:7px 10px;background:rgba(226,168,75,.06);border:1px solid rgba(226,168,75,.2);
+  border-radius:6px;color:var(--accent);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+@media(max-width:768px){.ph{flex-wrap:wrap}.ps{width:100%;text-align:left;margin-top:3px}}
+</style></head><body>
+<div class="hero"><div class="hero-bg" id="hbg"><span>&#x2692; LA FORGE &#x2692;</span></div>
+<div class="hero-ov"><h1>LA FORGE <span>///</span> PIX AED</h1>
+<p class="hero-sub">Autoformation Vie Scolaire &middot; Coll&egrave;ge Ch&acirc;teau Rance</p></div></div>
+<div class="abar"><label>&#x266B; Ambiance</label>
+<button class="abtn" id="abtn" onclick="tA()">OFF</button>
+<input type="range" class="avol" id="avol" min="0" max="100" value="30" oninput="sV(this.value)">
+<audio id="aud" loop preload="none"><source src="forge_ambiance.mp3" type="audio/mpeg"></audio></div>
+<div id="pbar"><span id="pbs"></span><span id="pbx"></span></div>
+<div class="mw"><div class="cm" id="app"></div>
+<div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div></div></div>
+<div id="toast"></div><button id="afab" onclick="oA()">&#x2699; Admin</button>
+<div id="aov"><div id="abx"><h3>&#x2699; Administration La Forge</h3>
+<div id="alog"><p style="font-size:.78rem;color:var(--muted);margin-bottom:8px">Code CPE requis.</p>
+<input class="ai" type="password" id="apw" placeholder="Code administrateur..." onkeydown="if(event.key==='Enter')aL()"/>
+<div class="aw"><button class="ax xp" onclick="aL()">Connexion</button><button class="ax xn" onclick="cA()">Annuler</button></div>
+<div class="aer" id="aerr"></div></div>
+<div id="apnl" style="display:none"><div class="apl" id="api"></div>
+<div class="as"><h4>Modules</h4><div class="al" id="aml"></div></div>
+<div class="as"><div class="aw"><button class="ax xg" onclick="aVS()">&#x2713; Valider</button>
+<button class="ax xr" onclick="aRA()">Reset</button><button class="ax xn" onclick="cA()">Fermer</button></div>
+<div id="afb"></div></div></div></div></div>
+<script>
+var AP='CPE59!-Chateau-70+',HI='forge_hero.jpg';
+var P=[
+{i:'\u{1F6E1}',c:'#3b82f6',k:'POS',t:'Posture & D\u00e9ontologie',d:'Autorit\u00e9 \u00e9ducative, juste distance, cadre l\u00e9gal, signalements, la\u00efcit\u00e9',m:[
+{id:'AED_POS01',f:'AED_POS01.html',n:'Autorit\u00e9 \u00e9ducative vs autoritarisme',x:80,co:['Posture','Cadrage']},
+{id:'AED_POS02',f:'AED_POS02.html',n:'La juste distance professionnelle',x:80,co:['D\u00e9onto','Posture']},
+{id:'AED_POS03',f:'AED_POS03.html',n:'Cadre l\u00e9gal : droits, devoirs, limites',x:80,co:['Juridique','D\u00e9onto']},
+{id:'AED_POS04',f:'AED_POS04.html',n:'Rep\u00e9rer et transmettre : la cha\u00eene de signalement',x:100,co:['Signalement','Observation']},
+{id:'AED_POS05',f:'AED_POS05.html',n:'La\u00efcit\u00e9 v\u00e9cue au quotidien',x:100,co:['La\u00efcit\u00e9','Posture']}]},
+{i:'\u{1F9E0}',c:'#10b981',k:'NEU',t:'Cerveau Ado & Empathie',d:'Neurosciences ado, r\u00e9gulation \u00e9motionnelle, empathie active',m:[
+{id:'AED_NEU01',f:'AED_NEU01.html',n:'Le cerveau ado en chantier',x:80,co:['Neuro','Compr\u00e9hension']},
+{id:'AED_NEU02',f:'AED_NEU02.html',n:'\u00c9motions : signaux, pas probl\u00e8mes',x:80,co:['Empathie','R\u00e9gulation']},
+{id:'AED_NEU03',f:'AED_NEU03.html',n:'Ma propre r\u00e9gulation face \u00e0 la provocation',x:100,co:['R\u00e9gulation','Posture']},
+{id:'AED_NEU04',f:'AED_NEU04.html',n:'Besoins particuliers : TDAH, TSA, DYS',x:100,co:['Inclusion','Adaptation']},
+{id:'AED_NEU05',f:'AED_NEU05.html',n:'L\u2019empathie comme outil professionnel',x:120,co:['Empathie','Compr\u00e9hension']}]},
+{i:'\u{1F525}',c:'#f97316',k:'CRI',t:'Gestion de Crise & M\u00e9diation',d:'D\u00e9sescalade, micro-conflits, protocoles pHARe',m:[
+{id:'AED_CRI01',f:'AED_CRI01.html',n:'D\u00e9sescalade verbale : les 5 r\u00e8gles',x:80,co:['D\u00e9sescalade','Communication']},
+{id:'AED_CRI02',f:'AED_CRI02.html',n:'La cour : lire les dynamiques',x:80,co:['Observation','Anticipation']},
+{id:'AED_CRI03',f:'AED_CRI03.html',n:'Protocole pHARe en situation',x:100,co:['pHARe','Signalement']},
+{id:'AED_CRI04',f:'AED_CRI04.html',n:'Parent agressif au portail',x:100,co:['D\u00e9sescalade','Cadrage']},
+{id:'AED_CRI05',f:'AED_CRI05.html',n:'Sc\u00e9narios complexes : la cascade',x:120,co:['Synth\u00e8se','D\u00e9cision']}]},
+{i:'\u{1F50D}',c:'#8b5cf6',k:'DET',t:'D\u00e9tection & Signaux Faibles',d:'D\u00e9crocheurs, harc\u00e8lement invisible, troubles cognitifs',m:[
+{id:'AED_DET01',f:'AED_DET01.html',n:'L\u2019\u0153il du clinicien',x:80,co:['Observation','Rigueur']},
+{id:'AED_DET02',f:'AED_DET02.html',n:'Le harc\u00e8lement qui ne se voit pas',x:80,co:['D\u00e9tection','pHARe']},
+{id:'AED_DET03',f:'AED_DET03.html',n:'D\u00e9crochage : rep\u00e9rer avant la chute',x:100,co:['D\u00e9tection','Transmission']},
+{id:'AED_DET04',f:'AED_DET04.html',n:'Troubles cognitifs en vie scolaire',x:100,co:['Inclusion','Adaptation']},
+{id:'AED_DET05',f:'AED_DET05.html',n:'Construire une fiche d\u2019observation',x:120,co:['Observation','Transmission']}]},
+{i:'\u2728',c:'#e2a84b',k:'ING',t:'Ing\u00e9nierie de la Bienveillance',d:'Game design \u00e9ducatif, Favre/Prairat/Condette',m:[
+{id:'AED_ING01',f:'AED_ING01.html',n:'Pourquoi le Super-Hub fonctionne',x:80,co:['Syst\u00e9mique','Compr\u00e9hension']},
+{id:'AED_ING02',f:'AED_ING02.html',n:'Motivation : de l\u2019XP \u00e0 la joie intrins\u00e8que',x:80,co:['Neuro','P\u00e9dagogie']},
+{id:'AED_ING03',f:'AED_ING03.html',n:'Qu\u00eates de R\u00e9demption : la sanction \u00e9ducative',x:100,co:['Posture','\u00c9thique']},
+{id:'AED_ING04',f:'AED_ING04.html',n:'Preuve sociale et m\u00e9diation par les pairs',x:100,co:['M\u00e9diation','Syst\u00e9mique']},
+{id:'AED_ING05',f:'AED_ING05.html',n:'Devenir architecte du climat scolaire',x:120,co:['Synth\u00e8se','Leadership']}]}
+];
+var B=[
+{id:'AED_REV01',f:'AED_REV01.html',n:'Maths coll\u00e8ge : les bases pour aider',x:60,i:'\u{1F4D0}',cf:1.5},
+{id:'AED_REV02',f:'AED_REV02.html',n:'Fran\u00e7ais : orthographe & r\u00e9daction',x:60,i:'\u{1F4DD}',cf:1.5},
+{id:'AED_REV03',f:'AED_REV03.html',n:'M\u00e9thodologie : apprendre \u00e0 apprendre',x:60,i:'\u{1F9E9}',cf:1.5},
+{id:'AED_REV04',f:'AED_REV04.html',n:'Sciences & Culture G : rep\u00e8res',x:60,i:'\u{1F30D}',cf:1.5}
+];
+var AC=['Posture','Cadrage','D\u00e9onto','Juridique','Signalement','Observation','La\u00efcit\u00e9',
+'Neuro','Compr\u00e9hension','Empathie','R\u00e9gulation','Inclusion','Adaptation',
+'D\u00e9sescalade','Communication','Anticipation','pHARe','Rigueur','D\u00e9tection','Transmission',
+'Syst\u00e9mique','P\u00e9dagogie','\u00c9thique','M\u00e9diation','Synth\u00e8se','D\u00e9cision','Leadership'];
+// Audio
+var aOn=false;
+function tA(){var a=document.getElementById('aud'),b=document.getElementById('abtn');
+if(!aOn){a.volume=document.getElementById('avol').value/100;a.play().catch(function(){});b.textContent='ON';b.classList.add('on');aOn=true;}
+else{a.pause();b.textContent='OFF';b.classList.remove('on');aOn=false;}}
+function sV(v){document.getElementById('aud').volume=v/100;}
+// Hero
+function tH(){var img=new Image();img.onload=function(){var bg=document.getElementById('hbg');bg.innerHTML='';
+bg.style.backgroundImage='url('+HI+')';};img.src=HI;}
+// Player
+function iP(){var u=new URLSearchParams(window.location.search),p=u.get('player');
+if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);}}
+function gP(){return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'';}
+// Certs
+function ck(id){return'CERT_AED_'+id;}function iD(id){return!!localStorage.getItem(ck(id));}
+function iU(pil,idx){return idx===0||iD(pil.m[idx-1].id);}
+function dC(){var n=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))n++;});});return n;}
+function bC(){var n=0;B.forEach(function(m){if(iD(m.id))n++;});return n;}
+function tX(){var x=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))x+=m.x;});});
+B.forEach(function(m){if(iD(m.id))x+=Math.round(m.x*(m.cf||1));});return x;}
+function eC(){var s=new Set();P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id)&&m.co)m.co.forEach(function(c){s.add(c);});});});return s;}
+// Validate
+function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,f:true}));pB(mid);R();if(!sl)toast('\u2705 '+mid);}
+function pB(mid){try{var evts=JSON.parse(localStorage.getItem('pvs_bridge_events')||'[]');
+evts.push({id:'AED-'+mid+'-'+Date.now(),type:'AED_PROGRESS',player:gP(),module:mid,cpTotal:dC()+bC(),hubXpTotal:tX(),d:new Date().toISOString()});
+if(evts.length>500)evts.splice(0,evts.length-500);localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
+window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));}catch(e){}}
+function oM(file,mid){var pl=gP();if(pl){localStorage.setItem('pvs_current_player',pl);localStorage.setItem('pvs_aed_player',pl);}
+var sep=file.includes('?')?'&':'?';window.location.href=pl?file+sep+'player='+encodeURIComponent(pl):file;}
+// Render
+function R(){
+var pl=gP(),xp=tX(),dn=dC(),bn=bC(),tot=P.reduce(function(s,p){return s+p.m.length;},0);
+var pbs=document.getElementById('pbs'),pbx=document.getElementById('pbx');
+if(pl){pbs.innerHTML='<span class="pbc">\u2705</span> <span class="pbn">'+pl+'</span>';
+pbx.textContent=xp+' XP \u00B7 '+(dn+bn)+'/'+(tot+B.length)+' modules';}
+else{pbs.innerHTML='<span class="pbd">\u26A0\uFE0F Connecte-toi depuis le Portail</span>';pbx.textContent='';}
+// Pillars
+var app=document.getElementById('app');app.innerHTML='';
+P.forEach(function(pil){var dN=pil.m.filter(function(m){return iD(m.id);}).length,tN=pil.m.length,pct=Math.round(dN/tN*100);
+var bl=document.createElement('div');bl.className='pb';
+var hd=document.createElement('div');hd.className='ph';
+hd.innerHTML='<div class="pi" style="border:1px solid '+pil.c+'30">'+pil.i+'</div>'+
+'<div class="pf"><div class="pt" style="color:'+pil.c+'">'+pil.t+'</div><div class="pe">'+pil.d+'</div></div>'+
+'<div class="ps"><div class="pk">'+dN+'/'+tN+'</div><div class="pp" style="color:'+pil.c+'">'+pct+'%</div></div>';
+bl.appendChild(hd);
+var po=document.createElement('div');po.className='po';var px=document.createElement('div');px.className='px';
+px.style.cssText='width:'+pct+'%;background:'+pil.c;po.appendChild(px);bl.appendChild(po);
+var ls=document.createElement('div');ls.className='ml';
+pil.m.forEach(function(mod,idx){var dm=iD(mod.id),ul=iU(pil,idx),col=(dm||ul)?pil.c:'#374151';
+var rw=document.createElement('div');rw.className='mr'+((ul||dm)?' cl':' lk');
+var ch='';if(mod.co){ch='<div class="cr">'+mod.co.map(function(c){return'<span class="cb">'+c+'</span>';}).join('')+'</div>';}
+rw.innerHTML='<div class="mn" style="color:'+col+';border-color:'+col+'">'+(dm?'\u2713':(idx+1))+'</div>'+
+'<div class="mf"><div class="mm">'+mod.n+'</div><div class="ms">'+mod.x+' XP'+(!ul&&!dm?' \u00B7 \u{1F512}':'')+'</div>'+ch+'</div>'+
+'<div class="mi">'+(dm?'\u{1F3C5}':(ul?'\u25B6':'\u{1F512}'))+'</div>';
+if(ul||dm){(function(f,mid){rw.addEventListener('click',function(){oM(f,mid);});})(mod.f,mod.id);}
+ls.appendChild(rw);});bl.appendChild(ls);app.appendChild(bl);});
+// Dashboard
+var ec=eC(),dsh=document.getElementById('dash');
+dsh.innerHTML='<div class="dt">\u{1F4CA} Tableau de bord</div>'+
+'<div class="dr"><span class="dl">XP total</span><span class="dv" style="color:var(--gold)">'+xp+'</span></div>'+
+'<div class="dr"><span class="dl">Modules</span><span class="dv">'+(dn+bn)+'/'+(tot+B.length)+'</span></div>'+
+'<div class="dr"><span class="dl">Comp\u00e9tences</span><span class="dv" style="color:var(--steel)">'+ec.size+'/'+AC.length+'</span></div>'+
+'<div class="dr"><span class="dl">Bonus</span><span class="dv" style="color:var(--emerald)">'+bn+'/'+B.length+'</span></div>'+
+'<div class="cg">'+AC.map(function(c){return'<span class="cc'+(ec.has(c)?' e':'')+'">'+c+'</span>';}).join('')+'</div>';
+// Bonus
+var bel=document.getElementById('bonus');
+bel.innerHTML='<div class="bt">\u{1F4DA} Bonus R\u00e9visions Coll\u00e8ge</div>'+
+'<div class="bd">Renforcez vos bases pour mieux aider aux devoirs. Coefficient \u00d71.5 !</div>';
+B.forEach(function(mod){var dm=iD(mod.id);var dv=document.createElement('div');dv.className='bm';
+dv.innerHTML='<div class="bi">'+(dm?'\u{1F3C5}':mod.i)+'</div>'+
+'<div class="bn"><div class="bnn">'+mod.n+'</div><div class="bns">'+Math.round(mod.x*(mod.cf||1))+' XP</div></div>'+
+'<div class="bc">'+(dm?'\u2713':'x'+mod.cf)+'</div>';
+dv.addEventListener('click',function(){oM(mod.f,mod.id);});bel.appendChild(dv);});}
+// Admin
+var aU=false;
+function oA(){aU=false;document.getElementById('alog').style.display='block';document.getElementById('apnl').style.display='none';
+document.getElementById('apw').value='';document.getElementById('aerr').textContent='';document.getElementById('afb').textContent='';
+document.getElementById('aov').classList.add('open');setTimeout(function(){document.getElementById('apw').focus();},80);}
+function cA(){document.getElementById('aov').classList.remove('open');aU=false;}
+function aL(){if(document.getElementById('apw').value.trim()!==AP){document.getElementById('aerr').textContent='\u274C Code incorrect';return;}
+aU=true;document.getElementById('alog').style.display='none';document.getElementById('apnl').style.display='block';bAL();}
+function bAL(){document.getElementById('api').textContent=gP()?'Agent : '+gP():'\u26A0\uFE0F Aucun agent';
+var ls=document.getElementById('aml');ls.innerHTML='';
+P.forEach(function(pil){var sp=document.createElement('div');sp.className='sep';sp.textContent=pil.i+' '+pil.t;ls.appendChild(sp);
+pil.m.forEach(function(mod){aK(ls,mod);});});
+var bs=document.createElement('div');bs.className='sep';bs.textContent='\u{1F4DA} Bonus';ls.appendChild(bs);
+B.forEach(function(mod){aK(ls,mod);});}
+function aK(ls,mod){var dm=iD(mod.id);var w=document.createElement('label');w.className='ac';
+var ch=document.createElement('input');ch.type='checkbox';ch.value=mod.id;ch.checked=dm;
+var lb=document.createElement('span');lb.className='acl';lb.innerHTML=mod.n+(dm?'<span class="acd">\u2713</span>':'');
+w.appendChild(ch);w.appendChild(lb);ls.appendChild(w);}
+function aVS(){if(!aU)return;var bx=document.querySelectorAll('#aml input[type=checkbox]'),ct=0;
+bx.forEach(function(ch){if(ch.checked&&!iD(ch.value)){vM(ch.value,true);ct++;}});
+var fb=document.getElementById('afb');if(ct>0){fb.className='aok';fb.textContent='\u2705 '+ct+' valid\u00e9(s)';bAL();}
+else{fb.className='aer';fb.textContent='Aucun nouveau module';}}
+function aRA(){if(!aU||!confirm('Supprimer toute la progression AED ?'))return;
+P.forEach(function(p){p.m.forEach(function(m){localStorage.removeItem(ck(m.id));});});
+B.forEach(function(m){localStorage.removeItem(ck(m.id));});
+document.getElementById('afb').className='aok';document.getElementById('afb').textContent='Progression supprim\u00e9e';bAL();R();}
+// Toast
+var _tt;function toast(msg,ms){var t=document.getElementById('toast');t.textContent=msg||'';t.classList.add('show');
+clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},ms||3000);}
+window.addEventListener('focus',function(){R();});
+window.addEventListener('storage',function(e){if(!e.key||e.key.startsWith('CERT_AED_')||e.key==='pvs_bridge_events')R();});
+iP();tH();R();
+</script></body></html>

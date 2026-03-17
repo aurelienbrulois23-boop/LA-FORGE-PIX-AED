@@ -106,7 +106,62 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .apl{font-size:.76rem;padding:7px 10px;background:rgba(226,168,75,.06);border:1px solid rgba(226,168,75,.2);
   border-radius:6px;color:var(--accent);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
 @media(max-width:768px){.ph{flex-wrap:wrap}.ps{width:100%;text-align:left;margin-top:3px}}
+
+/* ═══ NEWS TICKER ═══ */
+.ticker-wrap{overflow:hidden;background:#0a0d12;border-bottom:1px solid rgba(226,168,75,.15);white-space:nowrap;position:relative}
+.ticker-label{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:.68rem;
+  padding:6px 12px;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.5px;
+  position:relative;z-index:2;flex-shrink:0;vertical-align:middle}
+.ticker-inner{display:inline-block;animation:ticker-scroll 45s linear infinite;padding-left:100%;vertical-align:middle}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-item{display:inline-block;padding:6px 28px;font-size:.72rem;color:rgba(255,255,255,.7);
+  font-family:'IBM Plex Sans',sans-serif;letter-spacing:.2px}
+.ticker-item strong{color:var(--accent)}
+.ticker-sep{display:inline-block;color:rgba(226,168,75,.3);padding:0 6px;font-size:.6rem}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* ═══ PODCASTS ═══ */
+.pod-block{background:var(--card);border:1px solid rgba(249,115,22,.2);border-radius:10px;padding:16px;position:relative;overflow:hidden}
+.pod-block::before{content:'PODCAST';position:absolute;top:-6px;right:-4px;font-family:'DM Serif Display';font-size:2rem;opacity:.04;color:var(--fire);transform:rotate(-8deg)}
+.pod-title{font-family:'DM Serif Display',serif;font-size:.9rem;color:var(--fire);margin-bottom:4px}
+.pod-desc{font-size:.7rem;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.pod-list{display:flex;flex-direction:column;gap:6px;max-height:320px;overflow-y:auto}
+.pod-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;
+  border:1px solid rgba(255,255,255,.04);transition:.15s}
+.pod-item:hover{background:rgba(249,115,22,.04);border-color:rgba(249,115,22,.15)}
+.pod-num{font-size:.6rem;font-weight:700;color:var(--fire);font-family:'JetBrains Mono',monospace;
+  min-width:20px;text-align:center}
+.pod-audio{flex:1}
+.pod-audio audio{width:100%;height:28px}
+.pod-name{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:2px}
+.pod-empty{font-size:.72rem;color:var(--muted);text-align:center;padding:20px 0;font-style:italic}
+.pod-loading{font-size:.68rem;color:var(--muted);text-align:center;padding:8px 0}
 </style></head><body>
+
+<!-- ═══ NEWS TICKER ═══ -->
+<div class="ticker-wrap">
+  <span class="ticker-label">&#x1F4E2; INFO</span><div style="display:inline-block;overflow:hidden;width:calc(100% - 80px);vertical-align:middle">
+  <div class="ticker-inner">
+    <!-- ╔══════════════════════════════════════════════════════════════════╗ -->
+    <!-- ║  ZONE D'ÉDITION DES NEWS — Modifiez le texte entre guillemets  ║ -->
+    <!-- ║  Copiez une ligne .ticker-item pour ajouter une news           ║ -->
+    <!-- ╚══════════════════════════════════════════════════════════════════╝ -->
+    <span class="ticker-item"><strong>LA FORGE</strong> &mdash; Nouveau dispositif d&rsquo;autoformation AED du Coll&egrave;ge Ch&acirc;teau Rance, acad&eacute;mie de Besan&ccedil;on</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>5 PILIERS</strong> &mdash; Posture &amp; D&eacute;ontologie &bull; Cerveau Ado &bull; Gestion de Crise &bull; D&eacute;tection &bull; Ing&eacute;nierie de la Bienveillance</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>MODULES 01 &amp; 02</strong> accessibles &mdash; Formation progressive par sc&eacute;narios-embranchements</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>BONUS R&Eacute;VISIONS</strong> &mdash; Renforcez vos bases coll&egrave;ge pour mieux accompagner les &eacute;l&egrave;ves aux devoirs (coeff. &times;1.5)</span>
+    <span class="ticker-sep">&bull;</span>
+    <span class="ticker-item"><strong>PODCASTS</strong> &mdash; &Eacute;coutez les capsules de formation en bas de page, nouvelles capsules ajout&eacute;es r&eacute;guli&egrave;rement</span>
+    <span class="ticker-sep">&bull;</span>
+    <!-- ═══ AJOUTEZ VOS NEWS CI-DESSOUS ═══ -->
+    <span class="ticker-item">&laquo; Placez ici vos informations fra&icirc;ches &raquo;</span>
+    <span class="ticker-sep">&bull;</span>
+    <!-- ═══ FIN ZONE NEWS ═══ -->
+  </div></div>
+</div>
 <div class="hero"><div class="hero-bg" id="hbg"><span>&#x2692; LA FORGE &#x2692;</span></div>
 <div class="hero-ov"><h1>LA FORGE <span>///</span> PIX AED</h1>
 <p class="hero-sub">Autoformation Vie Scolaire &middot; Coll&egrave;ge Ch&acirc;teau Rance</p></div></div>
@@ -116,7 +171,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <audio id="aud" loop preload="none"><source src="forge_ambiance.mp3" type="audio/mpeg"></audio></div>
 <div id="pbar"><span id="pbs"></span><span id="pbx"></span></div>
 <div class="mw"><div class="cm" id="app"></div>
-<div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div></div></div>
+<div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">\u{1F3A7} Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D\u00e9posez podcast1.mp3 \u00e0 podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
 <div id="toast"></div><button id="afab" onclick="oA()">&#x2699; Admin</button>
 <div id="aov"><div id="abx"><h3>&#x2699; Administration La Forge</h3>
 <div id="alog"><p style="font-size:.78rem;color:var(--muted);margin-bottom:8px">Code CPE requis.</p>
@@ -276,5 +331,69 @@ var _tt;function toast(msg,ms){var t=document.getElementById('toast');t.textCont
 clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},ms||3000);}
 window.addEventListener('focus',function(){R();});
 window.addEventListener('storage',function(e){if(!e.key||e.key.startsWith('CERT_AED_')||e.key==='pvs_bridge_events')R();});
-iP();tH();R();
+
+// ── Podcast auto-detection ──
+function loadPodcasts(){
+  var container=document.getElementById('pod-list');
+  if(!container)return;
+  container.innerHTML='<div class="pod-loading">Recherche des podcasts...</div>';
+  var found=[];var checking=0;var maxCheck=200;var doneChecking=false;
+  function checkNext(n){
+    if(n>maxCheck){finalize();return;}
+    var audio=new Audio();
+    audio.preload='none';
+    var src='podcast'+n+'.mp3';
+    checking++;
+    var resolved=false;
+    var timeout=setTimeout(function(){
+      if(!resolved){resolved=true;checking--;if(checking<=0&&doneChecking)finalize();}
+    },1500);
+    audio.addEventListener('canplaythrough',function(){
+      if(!resolved){resolved=true;clearTimeout(timeout);found.push(n);checking--;if(checking<=0&&doneChecking)finalize();}
+    },{once:true});
+    audio.addEventListener('error',function(){
+      if(!resolved){resolved=true;clearTimeout(timeout);checking--;if(checking<=0&&doneChecking)finalize();}
+    },{once:true});
+    audio.src=src;
+    // Check next immediately (parallel)
+    if(n<=maxCheck)checkNext(n+1);
+  }
+  // Check in batches to avoid overwhelming
+  var batchSize=10;var current=1;
+  function nextBatch(){
+    var end=Math.min(current+batchSize-1,maxCheck);
+    for(var i=current;i<=end;i++){
+      var audio=new Audio();
+      (function(num){
+        var a=new Audio();a.preload='none';
+        var src='podcast'+num+'.mp3';
+        var resolved=false;
+        checking++;
+        var timeout=setTimeout(function(){if(!resolved){resolved=true;checking--;tryFinalize();}},2000);
+        a.addEventListener('canplaythrough',function(){if(!resolved){resolved=true;clearTimeout(timeout);found.push(num);checking--;tryFinalize();}},{once:true});
+        a.addEventListener('error',function(){if(!resolved){resolved=true;clearTimeout(timeout);checking--;tryFinalize();}},{once:true});
+        a.src=src;
+      })(i);
+    }
+    current=end+1;
+    if(current<=maxCheck){setTimeout(nextBatch,300);}
+    else{doneChecking=true;tryFinalize();}
+  }
+  function tryFinalize(){if(doneChecking&&checking<=0)finalize();}
+  function finalize(){
+    found.sort(function(a,b){return a-b;});
+    if(found.length===0){container.innerHTML='<div class="pod-empty">Aucun podcast d\u00e9tect\u00e9. D\u00e9posez vos fichiers podcast1.mp3, podcast2.mp3... dans le m\u00eame dossier.</div>';return;}
+    container.innerHTML='';
+    found.forEach(function(n){
+      var item=document.createElement('div');item.className='pod-item';
+      item.innerHTML='<div class="pod-num">#'+n+'</div>'+
+        '<div class="pod-audio"><div class="pod-name">podcast'+n+'.mp3</div>'+
+        '<audio controls preload="none" style="width:100%;height:28px"><source src="podcast'+n+'.mp3" type="audio/mpeg"></audio></div>';
+      container.appendChild(item);
+    });
+  }
+  nextBatch();
+}
+
+iP();tH();R();loadPodcasts();
 </script></body></html>

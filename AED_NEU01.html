@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LA FORGE | AED_NEU01 \u2014 Le cerveau ado en chantier</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--bg:#0c0f14;--acc:#10b981;--acc-d:#047857;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.06) 0%,transparent 55%)}
+#root{width:100%;max-width:820px;position:relative;z-index:1}
+.card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
+h1,h2{font-family:'DM Serif Display',serif;color:var(--acc);text-align:center;margin-bottom:12px}
+h1{font-size:1.45rem}h2{font-size:1.15rem}
+p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
+.quote{font-style:italic;color:var(--muted);border-left:3px solid var(--acc);padding-left:14px;margin-bottom:18px;line-height:1.7;font-size:.88rem}
+.tag{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px;text-align:center}
+.xp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(226,168,75,.08);border:1px solid rgba(226,168,75,.25);padding:4px 12px;border-radius:20px;font-size:.68rem;color:var(--gold);font-family:'JetBrains Mono',monospace}
+.comp-earn{display:inline-flex;align-items:center;gap:4px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:3px 10px;border-radius:12px;font-size:.62rem;color:var(--acc);font-family:'JetBrains Mono',monospace;margin:2px}
+.player-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.btn{background:var(--acc);color:#fff;border:none;padding:12px 26px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:.25s;display:block;margin:18px auto 0;border-radius:6px;font-size:.82rem;font-family:'IBM Plex Sans',sans-serif}
+.btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.progress{height:2px;background:rgba(255,255,255,.05);margin-bottom:22px;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));border-radius:2px;transition:width .5s}
+.step-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);color:var(--text);padding:16px 18px;margin:10px 0;cursor:pointer;transition:.2s;border-radius:6px;font-size:.86rem;line-height:1.6;font-family:'IBM Plex Sans',sans-serif}
+.opt:hover{background:rgba(255,255,255,.05);border-color:var(--acc)}
+.opt-label{font-weight:700;color:var(--acc);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-family:'JetBrains Mono',monospace}
+.summary-box{background:rgba(255,255,255,.02);border-left:3px solid var(--acc);padding:16px 18px;margin:16px 0;line-height:1.8}
+.summary-box p{margin-bottom:8px;font-size:.84rem;color:#a0b4cc}
+.insight-box{background:rgba(226,168,75,.04);border:1px solid rgba(226,168,75,.15);padding:14px 16px;border-radius:6px;margin:12px 0;font-size:.82rem;line-height:1.7;color:#d4c4a0}
+.insight-box strong{color:var(--gold)}
+.seal{text-align:center;font-size:2.6rem;margin:14px 0}
+.nav-back{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);padding:6px 12px;cursor:pointer;border-radius:4px;font-size:.68rem;font-weight:600;transition:.2s;margin-bottom:16px;font-family:'IBM Plex Sans',sans-serif}
+.nav-back:hover{background:rgba(255,255,255,.08);color:#fff}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.scenario-ctx{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);padding:14px 16px;border-radius:6px;margin-bottom:14px;font-size:.86rem;line-height:1.7}
+.scenario-ctx strong{color:var(--acc)}
+.fb-box{background:rgba(255,255,255,.03);border-left:3px solid var(--acc);padding:14px 16px;margin:14px 0;font-size:.84rem;line-height:1.7;border-radius:0 6px 6px 0}
+.fb-box.good{border-left-color:#10b981;background:rgba(16,185,129,.04)}
+.fb-box.warn{border-left-color:#f97316;background:rgba(249,115,22,.04)}
+</style></head>
+<body><div id="root"></div>
+<script>
+var e = React.createElement;
+var MODULE_ID = 'AED_NEU01';
+var CERT_KEY  = 'CERT_AED_AED_NEU01';
+var BACK_URL  = 'index_PIX_AED.html';
+
+var SCENARIOS = [
+  {
+    ctx: "R\\u00e9cr\\u00e9ation. Yanis (3\\u00e8me) balance son sac \\u00e0 travers la cour en hurlant apr\\u00e8s avoir re\\u00e7u une mauvaise note. Les autres \\u00e9l\\u00e8ves reculent.",
+    q: "Comment intervenez-vous ?",
+    options: [
+      {
+        label: "Co-r\\u00e9gulation",
+        text: "Je m'approche calmement, voix basse : 'Yanis, je vois que c'est dur. Viens l\\u00e0, on respire deux secondes.' Je ne parle pas de la note. Je ne juge pas. Je sers de r\\u00e9gulateur externe le temps que l'amygdale redescende.",
+        score: 3,
+        fb: "Le cerveau en surcharge amygdalienne ne peut pas raisonner. Toute tentative de dialogue rationnel \\u00e0 ce stade est vou\\u00e9e \\u00e0 l'\\u00e9chec. La co-r\\u00e9gulation (pr\\u00e9sence calme + voix basse + pas de jugement) abaisse le cortisol et permet au pr\\u00e9frontal de reprendre la main. Vous \\u00eates litt\\u00e9ralement son cortex pr\\u00e9frontal externe.",
+        good: true
+      },
+      {
+        label: "Recadrage imm\\u00e9diat",
+        text: "'Yanis ! On ne jette pas ses affaires ! Ramasse ton sac et calme-toi.'",
+        score: 1,
+        fb: "L'injonction 'calme-toi' est neurologiquement absurde : elle demande au pr\\u00e9frontal d'inhiber l'amygdale alors que le pr\\u00e9frontal est hors-ligne. C'est comme demander \\u00e0 un ordinateur en surchauffe de se refroidir tout seul.",
+        good: false
+      },
+      {
+        label: "Sanction directe",
+        text: "'C'est un carnet. On ne se comporte pas comme \\u00e7a dans un \\u00e9tablissement.'",
+        score: 0,
+        fb: "La sanction sur le moment amplifie le cortisol et ancre l'association \\u00e9cole = agression. La sanction viendra, mais apr\\u00e8s le retour au calme, quand Yanis pourra comprendre pourquoi.",
+        good: false
+      },
+    ]
+  },
+  {
+    ctx: "Apr\\u00e8s 10 minutes, Yanis est calm\\u00e9. Il est assis sur un banc, t\\u00eate basse. Il dit : 'De toute fa\\u00e7on je suis nul.'",
+    q: "Que r\\u00e9pondez-vous ?",
+    options: [
+      {
+        label: "Validation + recadrage doux",
+        text: "'Ce que tu ressens l\\u00e0, c'est la d\\u00e9ception \\u2014 pas la r\\u00e9alit\\u00e9. Une mauvaise note, c'est une photo d'un instant, pas un portrait de qui tu es. Par contre, le sac dans la cour, \\u00e7a on en reparle demain calmement.'",
+        score: 3,
+        fb: "Nommer l'\\u00e9motion (d\\u00e9ception) permet au cerveau de la traiter cognitivement. S\\u00e9parer l'\\u00e9v\\u00e9nement (note) de l'identit\\u00e9 (nul) est crucial \\u00e0 l'adolescence o\\u00f9 le self-concept est fragile. Reporter la cons\\u00e9quence \\u00e0 demain respecte le temps neurologique de r\\u00e9cup\\u00e9ration.",
+        good: true
+      },
+      {
+        label: "Encouragement g\\u00e9n\\u00e9rique",
+        text: "'Mais non t'es pas nul, allez, \\u00e7a va aller !'",
+        score: 1,
+        fb: "Le d\\u00e9ni de l'\\u00e9motion ('mais non') invalide le v\\u00e9cu de l'ado. Il ne se sent pas entendu, donc il ne vous entend pas non plus. L'encouragement vide est le fast-food de l'empathie : \\u00e7a remplit sur le moment, \\u00e7a ne nourrit pas.",
+        good: false
+      },
+      {
+        label: "Leon de morale",
+        text: "'Tu vois, si tu travaillais plus, tu n'aurais pas de mauvaises notes.'",
+        score: 0,
+        fb: "Le lien causal simpliste (travail = bonne note) est souvent faux, et le moment est le pire possible pour le servir. L'ado entend : 'C'est ta faute.' Son amygdale se r\\u00e9active. Retour \\u00e0 la case d\\u00e9part.",
+        good: false
+      },
+    ]
+  },
+  {
+    ctx: "Le lendemain, vous devez g\\u00e9rer les cons\\u00e9quences du sac lanc\\u00e9 dans la cour. Le CPE vous demande votre avis.",
+    q: "Que proposez-vous ?",
+    options: [
+      {
+        label: "Cons\\u00e9quence + compr\\u00e9hension",
+        text: "'Je proposerais qu'on le re\\u00e7oive pour comprendre ce qui l'a fait exploser, puis une cons\\u00e9quence li\\u00e9e \\u00e0 l'acte (ranger la cour pendant une r\\u00e9cr\\u00e9, par exemple). Et qu'on v\\u00e9rifie s'il y a un pattern \\u2014 c'est peut-\\u00eatre pas juste une note.'",
+        score: 3,
+        fb: "Proposer de chercher la fonction du comportement (pas juste le punir), lier la cons\\u00e9quence \\u00e0 l'acte (r\\u00e9paratrice), et sugg\\u00e9rer un regard syst\\u00e9mique (pattern). C'est exactement le r\\u00f4le de l'AED : \\u00e9clairer le CPE avec l'observation de terrain.",
+        good: true
+      },
+      {
+        label: "Sanction standard",
+        text: "'Heure de colle, comme pour tout le monde.'",
+        score: 1,
+        fb: "L'\\u00e9galit\\u00e9 de traitement n'est pas l'\\u00e9quit\\u00e9. Si Yanis a un trouble sous-jacent, la colle ne r\\u00e9sout rien et rate une opportunit\\u00e9 de d\\u00e9tection.",
+        good: false
+      },
+      {
+        label: "Minimisation",
+        text: "'Bof, c'est un ado, \\u00e7a arrive. On laisse passer.'",
+        score: 0,
+        fb: "Minimiser, c'est ne pas prendre l'\\u00e9l\\u00e8ve au s\\u00e9rieux. Il a besoin qu'un adulte pose un cadre ET s'int\\u00e9resse \\u00e0 ce qui se passe. L'absence de r\\u00e9ponse est aussi un message \\u2014 et pas le bon.",
+        good: false
+      },
+    ]
+  },
+];
+
+var SYNTHESIS = [
+  {icon:"\u{1F9E0}", t:"Pr\\u00e9frontal vs amygdale :", v:"L'ado r\\u00e9agit d'abord, raisonne ensuite. Ce n'est pas un choix \\u2014 c'est de la neurobiologie. Votre calme est son cortex externe."},
+  {icon:"\u23F3", t:"Timing :", v:"Pas de le\\u00e7on pendant la crise. Pas de sanction \\u00e0 chaud. Le cerveau en surchauffe ne peut pas apprendre."},
+  {icon:"\u{1F5E3}", t:"Nommer l'\\u00e9motion :", v:"Mettre un mot sur ce qu'il ressent active le pr\\u00e9frontal. C'est de la neuro-\\u00e9ducation, pas de la psychologie de comptoir."},
+  {icon:"\u{1F50D}", t:"Chercher le pattern :", v:"Un \\u00e9clat isol\\u00e9 est un incident. Un pattern r\\u00e9p\\u00e9t\\u00e9 est un signal. L'AED est le premier maillon de la d\\u00e9tection."},
+];
+
+
+function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function awardXP(){
+  try{
+    var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
+    evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Le cerveau ado en chantier',d:new Date().toISOString()});
+    if(evts.length>700)evts.splice(0,evts.length-700);
+    localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
+    window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
+  }catch(ex){}
+}
+
+function App(){
+  var _s=React.useState,_step=_s('intro'),step=_step[0],setStep=_step[1];
+  var _si=_s(0),sIdx=_si[0],setSIdx=_si[1];
+  var _sc=_s(0),score=_sc[0],setScore=_sc[1];
+  var _fb=_s(null),feedback=_fb[0],setFeedback=_fb[1];
+
+  var finish=function(){
+    var cert={v:2,d:new Date().toISOString(),m:MODULE_ID,n:getPlayer(),f:true};
+    localStorage.setItem(CERT_KEY,JSON.stringify(cert));
+    awardXP();setStep('complete');
+  };
+  var goBack=function(){window.location.href=BACK_URL;};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
+  var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
+
+  var renderIntro=function(){return e('div',{className:'card'},
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Cerveau Ado & Empathie \u00B7 Module 1/5'),
+    e('h1',null,"Le cerveau ado en chantier"),
+    e('p',{className:'quote'},'"'+"L'adolescent n'est pas un adulte en miniature, c'est un cerveau en pleine reconstruction."+'" \u2014 Daniel Siegel'),
+    e('p',null,"Le cortex pr\\u00e9frontal \\u2014 si\\u00e8ge du contr\\u00f4le des impulsions, de la planification et du jugement \\u2014 n'est pas mature avant 25 ans. L'amygdale, elle, est d\\u00e9j\\u00e0 op\\u00e9rationnelle. R\\u00e9sultat : l'ado r\\u00e9agit d'abord \\u00e9motionnellement, puis raisonne (quand il y arrive)."),
+    e('p',null,"Comprendre cette asym\\u00e9trie de maturation change tout dans la posture de l'AED : un ado qui explose n'est pas 'mal \\u00e9lev\\u00e9' \\u2014 il est neurologiquement mal \\u00e9quip\\u00e9 pour g\\u00e9rer la surcharge. Votre r\\u00f4le : \\u00eatre le cortex pr\\u00e9frontal externe le temps que le sien se construise."),
+    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Daniel Siegel, Le cerveau de l'adolescent \\u2014 Sarah-Jayne Blakemore, L'invention de soi \\u2014 Daniel Favre, Cessons de d\\u00e9motiver les \\u00e9l\\u00e8ves"),
+    e('div',{style:{textAlign:'center',margin:'12px 0'}},
+      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),
+      e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+Neuro'),e('div',{className:'comp-earn'},'+Compr\u00e9hension'),
+      null),
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+  );};
+
+  var renderScenario=function(){
+    var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
+    return e('div',{className:'card'},
+      e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
+      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('h2',null,sc.q),
+      !feedback?
+        sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
+          e('div',{className:'opt-label'},opt.label),opt.text);})
+        :e('div',null,
+          e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
+            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+    );
+  };
+
+  var renderSynthesis=function(){
+    var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
+    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    return e('div',{className:'card'},
+      e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
+      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
+        return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
+      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+    );
+  };
+
+  var renderComplete=function(){return e('div',{className:'card'},
+    e('div',{className:'seal'},'\u{1F9E0}'),
+    e('h1',null,"Module valid\u00e9 !"),
+    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{style:{textAlign:'center',margin:'10px 0'}},
+      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Neuro'),e('div',{className:'comp-earn'},'+1 Compr\u00e9hension'),
+      null),
+    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+  );};
+
+  switch(step){
+    case 'intro':return renderIntro();case 'scenario':return renderScenario();
+    case 'synthesis':return renderSynthesis();case 'complete':return renderComplete();
+    default:return renderIntro();
+  }
+}
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+</script></body></html>

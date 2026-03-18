@@ -249,6 +249,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   cursor:pointer;font-weight:700;font-size:.8rem;font-family:'IBM Plex Sans',sans-serif;transition:.2s}
 .chat-send:hover{filter:brightness(1.15)}
 .chat-send:disabled{opacity:.3;cursor:not-allowed}
+
+/* ═══ ÉPICTÈTE TSS ═══ */
+.chat-tss{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap;padding:8px 14px;border-top:1px solid var(--border);
+  background:rgba(255,255,255,.02)}
+.tss-pill{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;
+  border:1px solid rgba(16,185,129,.35);background:rgba(16,185,129,.10);color:#9ff0d0;
+  font-size:.62rem;font-weight:700;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.5px}
+.tss-desc{font-size:.68rem;line-height:1.45;color:var(--muted);max-width:100%}
+
 </style></head><body>
 
 <!-- ═══ LOGIN SCREEN ═══ -->
@@ -310,11 +319,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <div class="chat-avatar">&#x1F9D1;&#x200D;&#x1F3EB;</div>
     <div class="chat-hinfo">
       <div class="chat-hname">&#xC9;pict&#xe8;te &mdash; Assistant Formation</div>
-      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; Mistral Small (FR)</div>
+      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; TSS actif &bull; Mistral Small (FR)</div>
     </div>
     <button class="chat-close" onclick="toggleChat()">&times;</button>
   </div>
   <div class="chat-body" id="chat-body"></div>
+  <div class="chat-tss">
+    <span class="tss-pill">TSS actif</span>
+    <div class="tss-desc">Tronc = hub La Forge d'abord • Sources = pas d'affirmation gratuite • Satellites = compléments utiles et reliés au sujet.</div>
+  </div>
   <div class="chat-input-row">
     <textarea class="chat-input" id="chat-input" rows="1" placeholder="Posez votre question..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
     <button class="chat-send" id="chat-send" onclick="sendChat()">Envoyer</button>
@@ -742,12 +755,25 @@ var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
 var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
 
 var SYSTEM_PROMPT='';
-var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Aide les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, et les 29 modules de formation. Ton ton est direct, pro, bienveillant. Tu cites Favre, Prairat, Condette.';
+var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, et les 29 modules de formation. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
+var TSS_APPENDIX=[
+  '═══ PROTOCOLE TSS INTÉGRÉ À ÉPICTÈTE ═══',
+  '- T = TRONC : réponds d\'abord depuis le contenu explicite du hub La Forge, de son architecture, de ses modules et de son référentiel.',
+  '- S = SOURCES : n\'avance aucun fait incertain comme certain. Rattache les réponses aux auteurs, cadres et repères disponibles quand c\'est possible.',
+  '- S = SATELLITES : ajoute seulement des compléments utiles directement reliés au sujet : cadre légal, neurosciences, climat scolaire, prévention, orientation, méthodologie.',
+  '- N\'invente ni module, ni procédure, ni citation, ni donnée, ni source. Si l\'info manque, dis-le clairement.',
+  '- Tu n\'as pas d\'accès web en direct : ne prétends jamais connaître une mise à jour externe non fournie dans le hub.',
+  '- Quand c\'est utile, distingue : Dans La Forge / En pratique AED / Point de vigilance / Complément utile.'
+].join('\n');
+function getEffectiveSystemPrompt(){
+  var base=(SYSTEM_PROMPT&&SYSTEM_PROMPT.trim()?SYSTEM_PROMPT:SYSTEM_PROMPT_FALLBACK).trim();
+  return base+'\n\n'+TSS_APPENDIX;
+}
 
 // Load external system prompt from epictete_system.txt
 async function loadSystemPrompt(){
   try{
-    var res=await fetch('epictete_system.txt',{cache:'no-store'});
+    var res=await fetch('epictete_system_tss.txt',{cache:'no-store'});
     if(res.ok){
       SYSTEM_PROMPT=await res.text();
       console.log('Épictète: system prompt loaded ('+SYSTEM_PROMPT.length+' chars)');
@@ -782,7 +808,7 @@ function addWelcome(){
   var name=player||'collègue';
   var adult=ADULTS.find(function(a){return a.code===player;});
   if(adult&&adult.prenom&&adult.nom!=='---')name=adult.prenom;
-  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Pose-moi tes questions sur les modules, la posture AED, le cadre légal, les neurosciences ado, le protocole pHARe — ou n\'importe quoi d\'autre lié à ton métier. Je suis là pour ça.');
+  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Je réponds en mode TSS : Tronc pour le contenu du hub, Sources pour éviter les affirmations gratuites, Satellites pour les compléments utiles. Pose-moi tes questions sur les modules, la posture AED, le cadre légal, les neurosciences ado, le protocole pHARe — ou n\'importe quoi d\'autre lié à ton métier.');
 }
 
 function addMsg(role,text){
@@ -849,7 +875,7 @@ async function sendChat(){
   try{
     // Build messages for Mistral
     // Build messages in OpenAI format (Mistral-compatible)
-    var messages=[{role:'system',content:SYSTEM_PROMPT}];
+    var messages=[{role:'system',content:getEffectiveSystemPrompt()}];
     chatHistory.forEach(function(m){
       var role=m.role==='model'?'assistant':'user';
       var text=m.parts?m.parts[0].text:(m.content||'');
@@ -861,7 +887,7 @@ async function sendChat(){
       body:JSON.stringify({
         model:'mistral-small-latest',
         messages:messages,
-        temperature:0.7,
+        temperature:0.35,
         max_tokens:2048
       })
     });

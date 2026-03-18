@@ -310,7 +310,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <div class="chat-avatar">&#x1F9D1;&#x200D;&#x1F3EB;</div>
     <div class="chat-hinfo">
       <div class="chat-hname">&#xC9;pict&#xe8;te &mdash; Assistant Formation</div>
-      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; Gemini 2.0 Flash</div>
+      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; Mistral Small (FR)</div>
     </div>
     <button class="chat-close" onclick="toggleChat()">&times;</button>
   </div>
@@ -738,8 +738,8 @@ function renderLeaderboard(){
 }
 
 // ═══ ÉPICTÈTE — AI ASSISTANT ═══
-var GEMINI_KEY='AIzaSyCw59dX2ltPMnTirBvpJ-UiMN8DUoDl_Yg';
-var GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key='+GEMINI_KEY;
+var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
+var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
 
 var SYSTEM_PROMPT=`Tu es Épictète, assistant de formation intégré à "La Forge", dispositif d'autoformation des AED (Assistants d'Éducation) du Collège Château Rance à Scey-sur-Saône (académie de Besançon, Haute-Saône, Bourgogne-Franche-Comté).
 
@@ -935,23 +935,32 @@ async function sendChat(){
   var typing=document.createElement('div');typing.className='chat-typing';typing.id='typing';
   typing.textContent='Épictète réfléchit...';body.appendChild(typing);body.scrollTop=body.scrollHeight;
   try{
-    // Build messages for Gemini
-    var contents=chatHistory.map(function(m){return{role:m.role,parts:m.parts};});
-    var res=await fetch(GEMINI_URL,{
+    // Build messages for Mistral
+    // Build messages in OpenAI format (Mistral-compatible)
+    var messages=[{role:'system',content:SYSTEM_PROMPT}];
+    chatHistory.forEach(function(m){
+      var role=m.role==='model'?'assistant':'user';
+      var text=m.parts?m.parts[0].text:(m.content||'');
+      messages.push({role:role,content:text});
+    });
+    var res=await fetch(MISTRAL_URL,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
       body:JSON.stringify({
-        system_instruction:{parts:[{text:SYSTEM_PROMPT}]},
-        contents:contents,
-        generationConfig:{temperature:0.7,maxOutputTokens:2048}
+        model:'mistral-small-latest',
+        messages:messages,
+        temperature:0.7,
+        max_tokens:2048
       })
     });
     var data=await res.json();
     var reply='';
-    if(data.candidates&&data.candidates[0]&&data.candidates[0].content){
-      reply=data.candidates[0].content.parts.map(function(p){return p.text||'';}).join('');
+    if(data.choices&&data.choices[0]&&data.choices[0].message){
+      reply=data.choices[0].message.content||'';
+    }else if(data.message){
+      reply='Erreur API : '+(data.message||'inconnue');
     }else if(data.error){
-      reply='Erreur API : '+(data.error.message||'inconnue');
+      reply='Erreur API : '+(data.error.message||JSON.stringify(data.error));
     }else{reply='Pas de réponse. Réessaie.';}
     var t=document.getElementById('typing');if(t)t.remove();
     addMsg('ai',reply);

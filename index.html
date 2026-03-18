@@ -136,6 +136,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .pod-name{font-size:.68rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:2px}
 .pod-empty{font-size:.72rem;color:var(--muted);text-align:center;padding:20px 0;font-style:italic}
 .pod-loading{font-size:.68rem;color:var(--muted);text-align:center;padding:8px 0}
+
+/* ═══ LEADERBOARD ═══ */
+.lb{background:var(--card);border:1px solid rgba(226,168,75,.15);border-radius:10px;padding:14px 16px;margin-bottom:16px}
+.lb-title{font-family:'DM Serif Display',serif;font-size:.9rem;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.lb-sub{font-size:.62rem;color:var(--muted);margin-bottom:10px;line-height:1.5;font-style:italic}
+.lb-row{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:6px;margin-bottom:3px;transition:.15s}
+.lb-row:hover{background:rgba(255,255,255,.03)}
+.lb-row.me{background:rgba(226,168,75,.06);border:1px solid rgba(226,168,75,.15)}
+.lb-rank{width:22px;text-align:center;font-weight:700;font-size:.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.lb-rank.top{color:var(--accent)}
+.lb-name{flex:1;font-size:.78rem;font-weight:500}
+.lb-name small{color:var(--muted);font-weight:400;font-size:.65rem}
+.lb-bar-wrap{width:80px;height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;flex-shrink:0}
+.lb-bar{height:100%;border-radius:3px;transition:width .5s}
+.lb-count{font-size:.68rem;font-weight:700;font-family:'JetBrains Mono',monospace;min-width:36px;text-align:right}
+.lb-empty{font-size:.72rem;color:var(--muted);text-align:center;padding:12px 0;font-style:italic}
 </style></head><body>
 
 <!-- ═══ NEWS TICKER ═══ -->
@@ -170,7 +186,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <input type="range" class="avol" id="avol" min="0" max="100" value="30" oninput="sV(this.value)">
 <audio id="aud" loop preload="none"><source src="forge_ambiance.mp3" type="audio/mpeg"></audio></div>
 <div id="pbar"><span id="pbs"></span><span id="pbx"></span></div>
-<div class="mw"><div class="cm" id="app"></div>
+<div class="mw"><div class="cm"><div class="lb" id="leaderboard"></div><div id="app"></div></div>
 <div class="cs"><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">&#x1F3A7; Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D&eacute;posez podcast1.mp3 &agrave; podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
 <div id="toast"></div><button id="afab" onclick="oA()">&#x2699; Admin</button>
 <div id="aov"><div id="abx"><h3>&#x2699; Administration La Forge</h3>
@@ -227,6 +243,31 @@ var AC=['Posture','Cadrage','D\u00e9onto','Juridique','Signalement','Observation
 'Neuro','Compr\u00e9hension','Empathie','R\u00e9gulation','Inclusion','Adaptation',
 'D\u00e9sescalade','Communication','Anticipation','pHARe','Rigueur','D\u00e9tection','Transmission',
 'Syst\u00e9mique','P\u00e9dagogie','\u00c9thique','M\u00e9diation','Synth\u00e8se','D\u00e9cision','Leadership'];
+
+var ADULTS=[
+{nom:'ERNWEIN',prenom:'Carole',code:'Panda-Z\u00e9l\u00e9-01'},
+{nom:'BEREIZAT',prenom:'L\u00e9o',code:'Tigre-Malin-02'},
+{nom:'GARNERY',prenom:'Laura',code:'Loutre-Zen-03'},
+{nom:'BORNE',prenom:'Anne',code:'Hibou-Savoyard-04'},
+{nom:'NOZERET',prenom:'Aur\u00e9lia',code:'Lama-P\u00e9tillant-05'},
+{nom:'BOUVINET',prenom:'Lucas',code:'Faucon-Agile-06'},
+{nom:'HAYOTTE',prenom:'R\u00e9mi',code:'Lynx-Attentif-07'},
+{nom:'ROUSSEL',prenom:'Lauryne',code:'Z\u00e8bre-Dynamique-08'},
+{nom:'SCHMIDT',prenom:'Ludivine',code:'Chat-Explorateur-09'},
+{nom:'SAUZAY',prenom:'Fran\u00e7ois',code:'Lion-Responsable-10'},
+{nom:'---',prenom:'Disponible',code:'Aigle-Vigilant-11'},
+{nom:'---',prenom:'Disponible',code:'Phoque-Jovial-12'},
+{nom:'---',prenom:'Disponible',code:'Cerf-Serein-13'},
+{nom:'---',prenom:'Disponible',code:'Colibri-Vif-14'},
+{nom:'---',prenom:'Disponible',code:'Bison-Solide-15'},
+{nom:'---',prenom:'Disponible',code:'Cigogne-Sage-16'},
+{nom:'---',prenom:'Disponible',code:'Tortue-Endurante-17'},
+{nom:'---',prenom:'Disponible',code:'Jaguar-Discret-18'},
+{nom:'---',prenom:'Disponible',code:'Marmotte-Fiable-19'},
+{nom:'---',prenom:'Disponible',code:'Ara-Lumineux-20'}
+];
+function findAdult(code){return ADULTS.find(function(a){return a.code===code;});}
+
 // Audio
 var aOn=false;
 function tA(){var a=document.getElementById('aud'),b=document.getElementById('abtn');
@@ -237,8 +278,42 @@ function sV(v){document.getElementById('aud').volume=v/100;}
 function tH(){var img=new Image();img.onload=function(){var bg=document.getElementById('hbg');bg.innerHTML='';
 bg.style.backgroundImage='url('+HI+')';};img.src=HI;}
 // Player
-function iP(){var u=new URLSearchParams(window.location.search),p=u.get('player');
-if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);}}
+function iP(){
+  var u=new URLSearchParams(window.location.search),p=u.get('player');
+  if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);}
+  // If no player, show login
+  if(!gP()){showLogin();}
+}
+function showLogin(){
+  var hero=document.querySelector('.hero-ov');
+  if(!hero)return;
+  var loginBox=document.createElement('div');
+  loginBox.id='login-box';
+  loginBox.innerHTML='<div style="margin-top:14px;background:rgba(0,0,0,.5);border:1px solid rgba(226,168,75,.3);border-radius:8px;padding:14px 18px;max-width:340px">'+
+    '<div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-bottom:6px;font-family:JetBrains Mono,monospace">CONNEXION AGENT</div>'+
+    '<select id="agent-select" style="width:100%;padding:8px;background:#1a1f2a;color:#dce4f0;border:1px solid rgba(226,168,75,.3);border-radius:6px;font-size:.82rem;font-family:IBM Plex Sans,sans-serif;cursor:pointer">'+
+    '<option value="">Choisissez votre identifiant...</option>'+
+    ADULTS.filter(function(a){return a.nom!=="---";}).map(function(a){
+      return '<option value="'+a.code+'">'+a.prenom+' '+a.nom+' ('+a.code+')</option>';
+    }).join('')+
+    '<option disabled>\u2500\u2500\u2500 Codes r\u00e9serv\u00e9s \u2500\u2500\u2500</option>'+
+    ADULTS.filter(function(a){return a.nom==="---";}).map(function(a){
+      return '<option value="'+a.code+'">'+a.code+'</option>';
+    }).join('')+
+    '</select>'+
+    '<button onclick="loginAgent()" style="margin-top:8px;width:100%;padding:8px;background:var(--accent);color:#000;border:none;border-radius:6px;font-weight:700;font-size:.8rem;cursor:pointer;font-family:IBM Plex Sans,sans-serif">Entrer dans La Forge</button>'+
+    '</div>';
+  hero.appendChild(loginBox);
+}
+function loginAgent(){
+  var sel=document.getElementById('agent-select');
+  if(!sel||!sel.value)return;
+  localStorage.setItem('pvs_current_player',sel.value);
+  localStorage.setItem('pvs_aed_player',sel.value);
+  var lb=document.getElementById('login-box');
+  if(lb)lb.remove();
+  R();toast('\u2705 Connect\u00e9 : '+sel.value);
+}
 function gP(){return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'';}
 // Certs
 function ck(id){return'CERT_AED_'+id;}function iD(id){return!!localStorage.getItem(ck(id));}
@@ -249,7 +324,7 @@ function tX(){var x=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))
 B.forEach(function(m){if(iD(m.id))x+=Math.round(m.x*(m.cf||1));});return x;}
 function eC(){var s=new Set();P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id)&&m.co)m.co.forEach(function(c){s.add(c);});});});return s;}
 // Validate
-function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,f:true}));pB(mid);R();if(!sl)toast('\u2705 '+mid);}
+function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:gP(),f:true}));pB(mid);R();if(!sl)toast('\u2705 '+mid);}
 function pB(mid){try{var evts=JSON.parse(localStorage.getItem('pvs_bridge_events')||'[]');
 evts.push({id:'AED-'+mid+'-'+Date.now(),type:'AED_PROGRESS',player:gP(),module:mid,cpTotal:dC()+bC(),hubXpTotal:tX(),d:new Date().toISOString()});
 if(evts.length>500)evts.splice(0,evts.length-500);localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
@@ -299,7 +374,10 @@ B.forEach(function(mod){var dm=iD(mod.id);var dv=document.createElement('div');d
 dv.innerHTML='<div class="bi">'+(dm?'\u{1F3C5}':mod.i)+'</div>'+
 '<div class="bn"><div class="bnn">'+mod.n+'</div><div class="bns">'+Math.round(mod.x*(mod.cf||1))+' XP</div></div>'+
 '<div class="bc">'+(dm?'\u2713':'x'+mod.cf)+'</div>';
-dv.addEventListener('click',function(){oM(mod.f,mod.id);});bel.appendChild(dv);});}
+dv.addEventListener('click',function(){oM(mod.f,mod.id);});bel.appendChild(dv);});
+// Leaderboard
+renderLeaderboard();
+}
 // Admin
 var aU=false;
 function oA(){aU=false;document.getElementById('alog').style.display='block';document.getElementById('apnl').style.display='none';
@@ -361,6 +439,76 @@ async function loadPodcasts(){
       '<source src="podcast'+n+'.mp3" type="audio/mpeg"></audio></div>';
     container.appendChild(item);
   });
+}
+
+// ── Leaderboard ──
+function getAgentProgress(){
+  var results=[];
+  ADULTS.forEach(function(a){
+    if(a.nom==='---')return;
+    // Check if this agent has any certs
+    var count=0;var totalMods=0;
+    P.forEach(function(p){p.m.forEach(function(m){
+      totalMods++;
+      var key='CERT_AED_'+m.id;
+      try{var cert=localStorage.getItem(key);
+        if(cert){var obj=JSON.parse(cert);if(obj&&obj.n===a.code)count++;}
+      }catch(e){}
+    });});
+    B.forEach(function(m){
+      totalMods++;
+      var key='CERT_AED_'+m.id;
+      try{var cert=localStorage.getItem(key);
+        if(cert){var obj=JSON.parse(cert);if(obj&&obj.n===a.code)count++;}
+      }catch(e){}
+    });
+    // Also count by checking if player matches
+    if(count===0){
+      // Fallback: count all CERT_AED_ keys where this player name is stored
+      P.forEach(function(p){p.m.forEach(function(m){
+        try{var raw=localStorage.getItem('CERT_AED_'+m.id);
+          if(raw){var o=JSON.parse(raw);if(o.n===a.code)count++;}
+        }catch(e){}
+      });});
+    }
+    results.push({nom:a.nom,prenom:a.prenom,code:a.code,count:count});
+  });
+  // Sort by count desc, then alpha
+  results.sort(function(a,b){return b.count-a.count||(a.nom<b.nom?-1:1);});
+  return results;
+}
+
+function renderLeaderboard(){
+  var el=document.getElementById('leaderboard');
+  if(!el)return;
+  var player=gP();
+  var data=getAgentProgress();
+  var totalMods=P.reduce(function(s,p){return s+p.m.length;},0)+B.length;
+  var anyActivity=data.some(function(d){return d.count>0;});
+
+  var html='<div class="lb-title">\u{1F3C6} Parcours de l\u2019\u00e9quipe</div>';
+  html+='<div class="lb-sub">Progression collective \u2014 chaque module compt\u00e9 compte, pas de comp\u00e9tition mais de l\u2019\u00e9mulation. Avancez ensemble !</div>';
+
+  if(!anyActivity){
+    html+='<div class="lb-empty">Aucune progression enregistr\u00e9e pour le moment. Lancez-vous !</div>';
+  }else{
+    data.forEach(function(d,i){
+      if(d.count===0)return;
+      var pct=Math.round((d.count/totalMods)*100);
+      var isMe=d.code===player;
+      var rankClass=i<3?'lb-rank top':'lb-rank';
+      var medals=['\u{1F947}','\u{1F948}','\u{1F949}'];
+      var rankTxt=i<3?medals[i]:''+(i+1);
+      var color=pct>=80?'var(--accent)':pct>=50?'var(--emerald)':'var(--steel)';
+      html+='<div class="lb-row'+(isMe?' me':'')+'">'+
+        '<div class="'+rankClass+'">'+rankTxt+'</div>'+
+        '<div class="lb-name">'+d.prenom+' <small>'+d.nom+'</small></div>'+
+        '<div class="lb-bar-wrap"><div class="lb-bar" style="width:'+pct+'%;background:'+color+'"></div></div>'+
+        '<div class="lb-count" style="color:'+color+'">'+d.count+'/'+totalMods+'</div>'+
+        '</div>';
+    });
+  }
+  el.innerHTML=html;
 }
 
 iP();tH();R();loadPodcasts();

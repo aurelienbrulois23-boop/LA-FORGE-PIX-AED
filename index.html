@@ -750,6 +750,222 @@ function renderLeaderboard(){
   el.innerHTML=html;
 }
 
+
+// ═══ ÉPICTÈTE — HUB GROUNDING / TSS RUNTIME ═══
+var HUB_DOCS=[];
+var HUB_INDEX_PROMISE=null;
+var HUB_FILE_CACHE={};
+var HUB_STOPWORDS=['le','la','les','de','des','du','d','un','une','et','ou','au','aux','en','dans','sur','pour','par','avec','sans','que','qui','quoi','quel','quelle','quelles','quels','comment','quand','est','sont','a','ai','as','avoir','il','elle','on','nous','vous','ils','elles','ce','cet','cette','ces','mon','ma','mes','ton','ta','tes','son','sa','ses','notre','votre','leur','leurs','je','tu','me','te','se','ne','pas','plus','moins','ça','cela','ici','là','y','ou','où','dans','vers','ainsi','donc'];
+
+function normalizeHubText(s){
+  return (s||'')
+    .toString()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/œ/g,'oe')
+    .replace(/æ/g,'ae')
+    .replace(/[^a-z0-9\s\-]/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+function hubTokens(s){
+  return normalizeHubText(s).split(' ').filter(function(tok){
+    return tok && tok.length>1 && HUB_STOPWORDS.indexOf(tok)===-1;
+  });
+}
+function clipHubText(s,maxLen){
+  s=(s||'').replace(/\s+/g,' ').trim();
+  if(!s)return '';
+  return s.length<=maxLen?s:(s.slice(0,maxLen-1)+'…');
+}
+function decodeSourceEscapes(s){
+  return (s||'')
+    .replace(/^["']|["']$/g,'')
+    .replace(/\\u([0-9a-fA-F]{4})/g,function(_,h){return String.fromCharCode(parseInt(h,16));})
+    .replace(/\\n/g,' ')
+    .replace(/\\r/g,' ')
+    .replace(/\\t/g,' ')
+    .replace(/\\"/g,'"')
+    .replace(/\\'/g,"'")
+    .replace(/\\\\/g,'\\')
+    .replace(/\\([^\dunrt"'\\])/g,'$1')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+function buildStaticHubDocs(){
+  var docs=[];
+  PALIERS.forEach(function(pal,idx){
+    docs.push({
+      kind:'palier',
+      id:'PALIER_'+(idx+1),
+      title:'Palier collectif '+pal.name,
+      file:'index',
+      tags:['palier','collectif','equipe','reward','recompense','xp','cpe',pal.name,pal.reward],
+      text: pal.name+' : '+pal.desc+'. Récompense : '+pal.reward+'.',
+      excerpt: pal.name+' — '+pal.desc+' — Récompense : '+pal.reward+'.'
+    });
+  });
+  P.forEach(function(pil){
+    pil.m.forEach(function(mod){
+      docs.push({
+        kind:'module',
+        id:mod.id,
+        title:mod.id+' — '+mod.n,
+        file:mod.f,
+        pillar:pil.t,
+        tags:[pil.k,pil.t,pil.d].concat(mod.co||[]),
+        text:(pil.t+' — '+pil.d+' — '+mod.n+' — '+(mod.co||[]).join(' • ')).trim(),
+        excerpt:(mod.id+' — '+mod.n+' (Pilier : '+pil.t+')').trim()
+      });
+    });
+  });
+  if(typeof B!=='undefined' && Array.isArray(B)){
+    B.forEach(function(mod){
+      docs.push({
+        kind:'bonus',
+        id:mod.id,
+        title:mod.id+' — '+mod.n,
+        file:mod.f,
+        pillar:'Bonus Révisions',
+        tags:['bonus','revision','college',mod.n],
+        text:'Bonus Révisions — '+mod.n,
+        excerpt:mod.id+' — '+mod.n+' (Bonus Révisions)'
+      });
+    });
+  }
+  docs.forEach(function(doc){
+    doc.searchText=normalizeHubText([doc.id,doc.title,doc.pillar||'',doc.text||'',(doc.tags||[]).join(' ')].join(' '));
+  });
+  return docs;
+}
+async function fetchHubFile(file){
+  if(HUB_FILE_CACHE[file])return HUB_FILE_CACHE[file];
+  try{
+    var res=await fetch(file,{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    var txt=await res.text();
+    HUB_FILE_CACHE[file]=txt;
+    return txt;
+  }catch(e){
+    HUB_FILE_CACHE[file]='';
+    return '';
+  }
+}
+function extractHubTextFromSource(src){
+  var bits=[];
+  var titleMatch=src.match(/<title>([\s\S]*?)<\/title>/i);
+  if(titleMatch&&titleMatch[1])bits.push(titleMatch[1].replace(/<[^>]+>/g,' ').trim());
+
+  var fieldRe=/(?:ctx|q|label|text|fb|quote|subtitle|desc|intro|outro)\s*:\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')/g;
+  var m;
+  while((m=fieldRe.exec(src))){
+    var v=decodeSourceEscapes(m[1]);
+    if(v && v.length>8)bits.push(v);
+  }
+
+  var varStrRe=/var\s+[A-Z_]+\s*=\s*("([^"\\]|\\.)*"|'([^'\\]|\\.)*')/g;
+  while((m=varStrRe.exec(src))){
+    var v2=decodeSourceEscapes(m[1]);
+    if(v2 && /[A-Za-zÀ-ÿ]{4}/.test(v2) && v2.length>10)bits.push(v2);
+  }
+
+  var paraRe=/<p[^>]*>([\s\S]*?)<\/p>/gi;
+  while((m=paraRe.exec(src))){
+    var p=m[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+    if(p && p.length>20)bits.push(p);
+  }
+
+  var uniq=[], seen={};
+  bits.forEach(function(b){
+    var key=normalizeHubText(b).slice(0,180);
+    if(!key||seen[key])return;
+    seen[key]=true;
+    uniq.push(b);
+  });
+  return uniq.slice(0,22).join(' ');
+}
+async function buildHubIndex(){
+  if(HUB_DOCS.length)return HUB_DOCS;
+  if(HUB_INDEX_PROMISE)return HUB_INDEX_PROMISE;
+  HUB_INDEX_PROMISE=(async function(){
+    HUB_DOCS=buildStaticHubDocs();
+    var tasks=HUB_DOCS.filter(function(doc){return !!doc.file && doc.file!=='index';}).map(async function(doc){
+      var src=await fetchHubFile(doc.file);
+      if(!src)return;
+      var extracted=extractHubTextFromSource(src);
+      if(extracted){
+        doc.text=((doc.text||'')+' '+extracted).trim();
+        doc.excerpt=clipHubText(extracted,700);
+        doc.searchText=normalizeHubText([doc.id,doc.title,doc.pillar||'',doc.text||'',(doc.tags||[]).join(' ')].join(' '));
+      }
+    });
+    await Promise.all(tasks);
+    return HUB_DOCS;
+  })();
+  return HUB_INDEX_PROMISE;
+}
+function scoreHubDoc(query,doc){
+  var qNorm=normalizeHubText(query);
+  var toks=hubTokens(query);
+  var hay=doc.searchText||'';
+  var score=0;
+  if(!hay)return score;
+  if(qNorm && hay.indexOf(qNorm)!==-1)score+=140;
+  toks.forEach(function(tok){
+    if(doc.id && normalizeHubText(doc.id).indexOf(tok)!==-1)score+=40;
+    if(doc.title && normalizeHubText(doc.title).indexOf(tok)!==-1)score+=24;
+    if(doc.pillar && normalizeHubText(doc.pillar).indexOf(tok)!==-1)score+=14;
+    if(hay.indexOf(tok)!==-1)score+=6;
+  });
+  if(/petit dejeuner|petit dej|dejeuner|dejeune|petit-dejeuner/.test(qNorm) && /petit dejeuner/.test(hay))score+=180;
+  if(/palier|collectif|equipe|reward|recompense/.test(qNorm) && /palier|collectif|recompense|equipe/.test(hay))score+=55;
+  if(/shadow/.test(qNorm) && /shadow xp/.test(hay))score+=120;
+  if(/quete|redemption|reparation/.test(qNorm) && /quete de redemption|reparation/.test(hay))score+=95;
+  if(/phare|harcelement/.test(qNorm) && /phare|harcelement/.test(hay))score+=60;
+  return score;
+}
+function buildHubContextBlock(query, docs){
+  var lines=['═══ CONTEXTE HUB RÉCUPÉRÉ (source locale La Forge) ═══'];
+  docs.forEach(function(doc,idx){
+    lines.push('['+(idx+1)+'] '+doc.title);
+    if(doc.pillar)lines.push('Pilier : '+doc.pillar);
+    if(doc.file && doc.file!=='index')lines.push('Fichier : '+doc.file);
+    lines.push(clipHubText(doc.excerpt||doc.text||'',850));
+    lines.push('');
+  });
+  if(/palier|collectif|equipe|modules?|petit\s*-?\s*dej|dejeuner|dejeuner|cpe/.test(normalizeHubText(query))){
+    try{
+      var stats=getCollectiveStats();
+      lines.push('ÉTAT COLLECTIF CALCULÉ DANS CETTE INSTANCE DU HUB');
+      PALIERS.forEach(function(pal){
+        var qualified=stats.agents.filter(function(a){return a.count>=pal.minMods;}).length;
+        var needed=Math.ceil(stats.totalAgents*pal.threshold/100);
+        lines.push('- '+pal.name+' : '+qualified+'/'+needed+' agents qualifiés dans cette instance ; condition = '+pal.desc+' ; récompense = '+pal.reward+'.');
+      });
+      lines.push('');
+    }catch(e){}
+  }
+  return lines.join('\n');
+}
+async function retrieveHubContext(query){
+  var docs=await buildHubIndex();
+  var scored=docs.map(function(doc){
+    return {doc:doc,score:scoreHubDoc(query,doc)};
+  }).filter(function(x){return x.score>0;})
+    .sort(function(a,b){return b.score-a.score;});
+  var chosen=scored.slice(0,4).map(function(x){return x.doc;});
+  if(chosen.length===0){
+    chosen=docs.filter(function(doc){return doc.kind==='module';}).slice(0,2);
+  }
+  return {
+    docs:chosen,
+    context:buildHubContextBlock(query,chosen),
+    refs:chosen.map(function(doc){return doc.title;})
+  };
+}
+
+
 // ═══ ÉPICTÈTE — AI ASSISTANT ═══
 var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
 var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
@@ -773,7 +989,7 @@ function getEffectiveSystemPrompt(){
 // Load external system prompt from epictete_system.txt
 async function loadSystemPrompt(){
   try{
-    var res=await fetch('epictete_system_tss.txt',{cache:'no-store'});
+    var res=await fetch('epictete_system_tss_grounded.txt',{cache:'no-store'});
     if(res.ok){
       SYSTEM_PROMPT=await res.text();
       console.log('Épictète: system prompt loaded ('+SYSTEM_PROMPT.length+' chars)');
@@ -808,7 +1024,7 @@ function addWelcome(){
   var name=player||'collègue';
   var adult=ADULTS.find(function(a){return a.code===player;});
   if(adult&&adult.prenom&&adult.nom!=='---')name=adult.prenom;
-  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Je réponds en mode TSS : Tronc pour le contenu du hub, Sources pour éviter les affirmations gratuites, Satellites pour les compléments utiles. Pose-moi tes questions sur les modules, la posture AED, le cadre légal, les neurosciences ado, le protocole pHARe — ou n\'importe quoi d\'autre lié à ton métier.');
+  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Je réponds en mode TSS ancré au hub : je vérifie d\'abord les contenus locaux, je n\'attribue pas un module au doigt mouillé, et si l\'info manque je te le dis franchement.');
 }
 
 function addMsg(role,text){
@@ -871,24 +1087,36 @@ async function sendChat(){
   // Show typing
   var body=document.getElementById('chat-body');
   var typing=document.createElement('div');typing.className='chat-typing';typing.id='typing';
-  typing.textContent='Épictète réfléchit...';body.appendChild(typing);body.scrollTop=body.scrollHeight;
+  typing.textContent='Épictète vérifie le hub...';body.appendChild(typing);body.scrollTop=body.scrollHeight;
   try{
-    // Build messages for Mistral
-    // Build messages in OpenAI format (Mistral-compatible)
-    var messages=[{role:'system',content:getEffectiveSystemPrompt()}];
-    chatHistory.forEach(function(m){
-      var role=m.role==='model'?'assistant':'user';
-      var text=m.parts?m.parts[0].text:(m.content||'');
-      messages.push({role:role,content:text});
-    });
+    var hub=await retrieveHubContext(text);
+    var runtimeRules=[
+      '═══ GARDE-FOUS D’EXÉCUTION TSS ═══',
+      '- Quand la question porte sur La Forge, ses modules, ses règles, ses récompenses, ses XP, ses procédures ou son organisation interne, tu réponds UNIQUEMENT à partir du CONTEXTE HUB RÉCUPÉRÉ.',
+      '- Tu n’as PAS le droit de citer un module, un palier, une récompense, un chiffre, un nom propre ou une procédure absents du CONTEXTE HUB RÉCUPÉRÉ.',
+      '- Les anciens messages assistant peuvent contenir des erreurs : ne les reprends jamais sans preuve dans le contexte récupéré.',
+      '- Si le contexte récupéré ne suffit pas pour trancher, tu le dis clairement au lieu d’inventer.',
+      '- Pour toute réponse factuelle sur le hub, ajoute une dernière ligne : Source hub : ... en citant uniquement les éléments présents dans le contexte récupéré.',
+      '- Réponse attendue : réponse directe d’abord ; puis éventuel complément utile bref ; pas de roman.'
+    ].join('\n');
+
+    var messages=[{role:'system',content:getEffectiveSystemPrompt()+'\n\n'+runtimeRules+'\n\n'+hub.context}];
+    chatHistory
+      .filter(function(m){return m.role==='user';})
+      .slice(-6)
+      .forEach(function(m){
+        var userText=m.parts?m.parts[0].text:(m.content||'');
+        messages.push({role:'user',content:userText});
+      });
+
     var res=await fetch(MISTRAL_URL,{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
       body:JSON.stringify({
         model:'mistral-small-latest',
         messages:messages,
-        temperature:0.35,
-        max_tokens:2048
+        temperature:0.2,
+        max_tokens:900
       })
     });
     var data=await res.json();
@@ -904,7 +1132,7 @@ async function sendChat(){
     addMsg('ai',reply);
   }catch(e){
     var t2=document.getElementById('typing');if(t2)t2.remove();
-    addMsg('ai','Erreur de connexion. Vérifie ta connexion internet et réessaie.');
+    addMsg('ai','Erreur de connexion ou d’indexation locale du hub. Vérifie que tous les fichiers La Forge sont dans le même dossier, puis réessaie.');
   }
   btn.disabled=false;
   input.focus();
@@ -913,5 +1141,5 @@ async function sendChat(){
 // Load history on init
 function initChat(){loadChatHistory();}
 
-loadSystemPrompt().then(function(){iP();tH();R();loadPodcasts();initChat();});
+loadSystemPrompt().then(function(){iP();tH();R();loadPodcasts();initChat();buildHubIndex().catch(function(){console.warn('Épictète: index hub non préchargé');});});
 </script></body></html>

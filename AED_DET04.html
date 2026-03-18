@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU03 — Ma propre régulation face à la provocation</title>
+<title>LA FORGE | AED_DET04 — Troubles cognitifs en vie scolaire</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-:root{--bg:#0c0f14;--acc:#10b981;--acc-d:#047857;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
+:root{--bg:#0c0f14;--acc:#8b5cf6;--acc-d:#6d28d9;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.06) 0%,transparent 55%)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.06) 0%,transparent 55%)}
 #root{width:100%;max-width:820px;position:relative;z-index:1}
 .card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
 .card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
@@ -47,88 +47,88 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 <body><div id="root"></div>
 <script>
 var e = React.createElement;
-var MODULE_ID = 'AED_NEU03';
-var CERT_KEY  = 'CERT_AED_AED_NEU03';
+var MODULE_ID = 'AED_DET04';
+var CERT_KEY  = 'CERT_AED_AED_DET04';
 var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \él\ève de 3\ème vous dit, devant ses copains : \«De toute fa\çon t\’es qu\’un pion, t\’as m\ême pas le bac.\» Les autres rient.",
-    q: "Premi\ère r\éaction : que se passe-t-il en vous ?",
+    ctx: "En \étude, Cl\ément (5\ème) met 20 minutes \à recopier 5 lignes. Son \écriture est tr\ès lente, irr\éguli\ère, et il s\’\énerve contre lui-m\ême. Il n\’a pas de PAP \à votre connaissance.",
+    q: "Comment r\éagissez-vous ?",
     options: [
       {
-        label: "Reconna\ître le signal + ne pas r\éagir \à chaud",
-        text: "Je sens la mont\ée (chaleur, tension). Je la reconnais : c\’est mon \égo qui r\éagit, pas ma fonction. Je respire une seconde, puis : \«T\’as le droit de penser ce que tu veux de mon poste. Mais l\à, maintenant, c\’est moi qui g\ère cette cour \— et c\’est \ça qui compte.\»",
+        label: "Adapter + noter + transmettre",
+        text: "Je ne le force pas \à finir la copie. \«Cl\ément, concentre-toi sur les 3 premi\ères lignes, c\’est d\éj\à bien.\» Je note la lenteur et l\’irr\égularit\é de l\’\écriture comme observation factuelle. Je transmets au CPE : \«suspicion possible de trouble graphique, \à croiser avec les enseignants.\»",
         score: 3,
-        fb: "La provocation vise l\’identit\é personnelle pour d\éstabiliser la fonction. La cl\é : s\éparer l\’ego de la posture professionnelle. R\épondre depuis la fonction (\«je g\ère cette cour\») et non depuis l\’ego bless\é (\«comment tu me parles\») d\ésamorce la provocation.",
+        fb: "La lenteur de copie associ\ée \à une \écriture irr\éguli\ère et \à de la frustration peut signaler une dysgraphie ou une dyspraxie non diagnostiqu\ée. L\’AED n\’a pas \à diagnostiquer \— mais ses observations en \étude sont un mat\ériau pr\écieux pour les enseignants et le m\édecin scolaire.",
         good: true
       },
       {
-        label: "R\épondre sur le fond",
-        text: "\«Figure-toi que j\’ai le bac, et m\ême plus.\»",
-        score: 1,
-        fb: "Se justifier sur le fond, c\’est accepter le terrain de l\’ado. Il ne s\’int\éresse pas \à votre dipl\ôme \— il teste votre r\éaction. R\épondre, c\’est valider l\’attaque comme l\égitime.",
+        label: "Pousser",
+        text: "\«Tu dois finir ta copie comme les autres. Fais un effort.\»",
+        score: 0,
+        fb: "Si Cl\ément est dysgraphique, l\’\«effort\» ne suffira pas. C\’est comme demander \à un \él\ève myope de mieux regarder. La pression aggrave la frustration sans r\ésoudre le probl\ème sous-jacent.",
         good: false
       },
       {
-        label: "Exploser",
-        text: "\«R\ép\ète un peu ce que t\’as dit ?! Tu vas voir si je suis qu\’un pion !\»",
-        score: 0,
-        fb: "L\’explosion est exactement ce que la provocation cherche. L\’ado a prouv\é que l\’adulte n\’est pas fiable \émotionnellement. Le message pour les t\émoins : \«cet AED peut \être d\éstabilis\é\» \— et ils s\’en serviront.",
+        label: "Ne rien faire",
+        text: "Certains \él\èves sont juste lents, c\’est pas un trouble.",
+        score: 1,
+        fb: "Peut-\être. Mais 20 minutes pour 5 lignes avec de la frustration visible m\érite au minimum une note et une transmission. C\’est au m\édecin scolaire de trancher \— pas \à l\’AED de diagnostiquer, ni de ne pas transmettre.",
         good: false
       },
     ]
   },
   {
-    ctx: "Apr\ès cette sc\ène, vous rentrez au bureau vie scolaire. Vous \êtes encore en col\ère. Un coll\ègue vous demande si \ça va.",
-    q: "Comment g\érez-vous votre propre \émotion ?",
+    ctx: "A\ïcha (6\ème, dyslexique, PAP) a du mal \à lire la consigne d\’un exercice en \étude. Elle vous demande : \«Vous pouvez me lire la consigne ?\»",
+    q: "Que faites-vous ?",
     options: [
       {
-        label: "Verbaliser + analyser",
-        text: "\«Ouais, un 3\ème m\’a balanc\é un truc qui m\’a touch\é. J\’ai g\ér\é sur le moment, mais l\à j\’ai besoin de souffler. C\’est quoi qui m\’a touch\é l\à-dedans ? Le \‘pion\’ ? Le \‘bac\’ ? Pourquoi ?\»",
+        label: "Lire + reformuler",
+        text: "Je lis la consigne \à voix basse. Puis je reformule : \«En gros, on te demande de...\» V\érifier qu\’elle a compris. Ce n\’est pas \«lui m\âcher le travail\» \— c\’est compenser un trouble d\’acc\ès \à l\’\écrit. Son intelligence n\’est pas en cause, c\’est le canal d\’entr\ée qui est obstru\é.",
         score: 3,
-        fb: "Verbaliser l\’\émotion entre coll\ègues est un acte de r\égulation professionnel. Analyser ce qui a touch\é (\«pourquoi le mot pion me blesse\») permet de d\ésamorcer le d\éclencheur pour la prochaine fois. C\’est du d\ébriefing \émotionnel \— pas de la faiblesse.",
+        fb: "La dyslexie n\’est pas un probl\ème d\’intelligence \— c\’est un probl\ème de d\écodage. Lire la consigne \à l\’oral est un am\énagement standard du PAP. L\’AED qui le fait en \étude est un relais direct du dispositif d\’inclusion.",
         good: true
       },
       {
-        label: "Minimiser",
-        text: "\«Non non, \ça va, c\’est rien. Un gamin quoi.\»",
-        score: 1,
-        fb: "Nier l\’impact ne le supprime pas \— \ça le comprime. L\’\émotion non trait\ée se stocke et explose au prochain incident mineur (effet cocotte-minute).",
+        label: "Refuser",
+        text: "\«C\’est ton exercice, tu dois le faire toi-m\ême.\»",
+        score: 0,
+        fb: "Refuser de lire la consigne \à un \él\ève dyslexique, c\’est refuser les lunettes \à un myope. Le PAP pr\évoit explicitement cette aide. L\’autonomie de l\’\él\ève porte sur la r\éflexion, pas sur le d\écodage.",
         good: false
       },
       {
-        label: "Ruminer seul",
-        text: "Je ne dis rien et je rumine en regardant mon t\él\éphone.",
-        score: 0,
-        fb: "La rumination (rejouer la sc\ène en boucle) amplifie l\’\émotion au lieu de la traiter. Le cerveau revit la situation \à chaque replay comme si elle se passait maintenant \— avec la m\ême d\écharge de cortisol.",
+        label: "Faire l\’exercice",
+        text: "Je lui explique directement la r\éponse pour aller plus vite.",
+        score: 1,
+        fb: "Lire la consigne \≠ faire l\’exercice. La distinction est cruciale : on compense l\’acc\ès, pas la r\éflexion. A\ïcha doit chercher la r\éponse elle-m\ême \— mais avec une consigne qu\’elle comprend.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le lendemain, le m\ême \él\ève semble chercher \à nouveau la provocation. Il vous fixe du regard en traversant la cour.",
-    q: "Comment abordez-vous cette nouvelle interaction ?",
+    ctx: "Un enseignant vous dit : \«Ne l\’aidez pas trop, sinon elle ne progressera jamais. Elle doit apprendre \à se d\ébrouiller.\»",
+    q: "Comment r\éagissez-vous ?",
     options: [
       {
-        label: "Initiative relationnelle calme",
-        text: "Je le salue normalement : \«Salut, Mehdi.\» Pas de rappel d\’hier, pas de rancune affich\ée. Le message : \«tu ne m\’as pas entam\é, et je ne t\’ai pas lach\é.\» Si le regard insistant continue, j\’ajoute calmement : \«T\’as besoin de quelque chose ?\»",
+        label: "Expliquer la compensation",
+        text: "\«Je comprends l\’intention, mais la dyslexie ne \«gu\érit\» pas par l\’effort. Lire la consigne, c\’est pas lui m\âcher le travail \— c\’est lui donner acc\ès au travail. C\’est pr\évu dans son PAP. Sans \ça, elle ne travaille pas du tout.\»",
         score: 3,
-        fb: "L\’initiative relationnelle apr\ès un conflit est la signature de l\’adulte r\égul\é. Le message implicite est d\évastateur (positivement) pour l\’ado : \«ta provocation n\’a pas march\é, et je suis toujours l\à.\» C\’est la d\émonstration vivante de la stabilit\é \émotionnelle.",
+        fb: "La confusion entre aide excessive et compensation est fr\équente. L\’AED peut (et doit) expliquer la diff\érence : compenser l\’acc\ès \≠ supprimer la difficult\é. Le PAP est le cadre l\égal qui l\égitime l\’am\énagement.",
         good: true
       },
       {
-        label: "\Évitement",
-        text: "Je l\’\évite pour ne pas recr\éer de tension.",
+        label: "Ob\éir",
+        text: "\«OK, je n\’interviens plus.\»",
         score: 0,
-        fb: "L\’\évitement est lu par l\’ado comme de la peur ou de la rancune. Les deux lui donnent du pouvoir. Un adulte qui \évite un ado apr\ès une provocation a perdu.",
+        fb: "Ob\éir \à une consigne qui contredit le PAP, c\’est laisser l\’\él\ève sans am\énagement. Le PAP est un document officiel \— il s\’impose \à tous les adultes de l\’\établissement.",
         good: false
       },
       {
-        label: "Pr\évenir",
-        text: "\«Je te pr\éviens, si tu recommences comme hier...\»",
+        label: "Confronter",
+        text: "\«C\’est pas \à vous de d\écider, le PAP dit le contraire.\»",
         score: 1,
-        fb: "La menace pr\éventive remet l\’ado en position de pouvoir : il sait qu\’il vous a touch\é hier et que vous y pensez encore. C\’est exactement le signal qu\’il ne faut pas envoyer.",
+        fb: "Le fond est juste mais la forme est frontale. Expliquer le m\écanisme de la compensation (acc\ès \≠ facilit\é) est plus efficace que brandir le PAP comme un bouclier.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🌡", t:"Reconna\ître le signal :", v:"Chaleur, tension, envie de r\épondre vite \— c\’est votre amygdale. La reconna\ître, c\’est d\éj\à reprendre le contr\ôle."},
-  {icon:"🎭", t:"Ego vs fonction :", v:"La provocation vise l\’ego. R\épondre depuis la fonction d\ésamorce. \«Je g\ère cette cour\» vs \«Comment tu me parles\»."},
-  {icon:"🗣", t:"D\ébriefing :", v:"Verbaliser entre coll\ègues n\’est pas de la faiblesse \— c\’est de l\’hygi\ène \émotionnelle professionnelle."},
-  {icon:"🤝", t:"Le lendemain :", v:"Saluer normalement apr\ès un conflit dit : \«tu ne m\’as pas entam\é\». C\’est la meilleure r\éponse \à la provocation."},
+  {icon:"📝", t:"DYS \≠ paresse :", v:"Dyslexie, dysgraphie, dyscalculie : troubles neurologiques du traitement, pas manque de volont\é. L\’effort ne compense pas un trouble."},
+  {icon:"🔍", t:"D\étecter en \étude :", v:"Lenteur anormale, frustration, \écriture irr\éguli\ère, difficult\é de lecture : noter et transmettre. L\’AED voit ce que le prof ne voit pas."},
+  {icon:"⚖️", t:"Compenser \≠ faciliter :", v:"Lire la consigne = donner acc\ès. Donner la r\éponse = supprimer l\’apprentissage. Distinction fondamentale."},
+  {icon:"📄", t:"PAP/PPS :", v:"Documents officiels qui s\’imposent \à tous. L\’AED est un relais du dispositif d\’inclusion, pas un ex\écutant optionnel."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Ma propre r\égulation face \à la provocation',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Troubles cognitifs en vie scolaire',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -173,16 +173,16 @@ function App(){
 
   var renderIntro=function(){return e('div',{className:'card'},
     e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
-    e('h1',null,"Ma propre r\égulation face \à la provocation"),
-    e('p',{className:'quote'},'"'+"Si tu ne contr\ôles pas tes \émotions, tes \émotions te contr\ôleront \— et l\’ado le sentira."+'" — Daniel Goleman (adapt\é)'),
-    e('p',null,"L\’ado provoque. C\’est son job d\éveloppemental : tester les limites, v\érifier que l\’adulte tient. Le probl\ème, c\’est quand l\’adulte ne tient plus \— quand la provocation touche quelque chose de personnel et que l\’AED r\éagit \à chaud."),
-    e('p',null,"Ce module ne vous apprend pas \à \«ne rien ressentir\» \— c\’est impossible et inutile. Il vous apprend \à reconna\ître vos propres signaux de mont\ée \émotionnelle et \à activer des strat\égies avant que la r\éaction automatique ne prenne le dessus."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Goleman, L\’intelligence \émotionnelle \— Christophe Andr\é, Imparfaits, libres et heureux \— Recherche sur la co-r\égulation adulte-ado"),
+    e('div',{className:'tag'},'Détection & Signaux Faibles · Module 1/5'),
+    e('h1',null,"Troubles cognitifs en vie scolaire"),
+    e('p',{className:'quote'},'"'+"Un \él\ève qui ne comprend pas la consigne n\’est pas un \él\ève qui ne veut pas travailler."+'" — Guide inclusion scolaire'),
+    e('p',null,"Dyslexie, dyscalculie, dyspraxie, dysorthographie, trouble du langage oral : ces troubles affectent 6 \à 8% des \él\èves. L\’AED les rencontre surtout en \étude \— l\à o\ù l\’\él\ève se retrouve seul face \à la t\âche, sans l\’\étayage du prof."),
+    e('p',null,"Ce module vous donne les cl\és pour reconna\ître les difficult\és li\ées aux troubles DYS en situation de vie scolaire, adapter votre aide sans infantiliser, et transmettre vos observations pour enrichir le suivi."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"INSERM, Troubles des apprentissages \— HAS, Trouble sp\écifique du langage \— Guide AED inclusion"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Régulation'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+Inclusion'),e('div',{className:'comp-earn'},'+Adaptation'),
       null),
     e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
@@ -219,12 +219,12 @@ function App(){
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🌡'),
+    e('div',{className:'seal'},'📝'),
     e('h1',null,"Module validé !"),
     e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Régulation'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'comp-earn'},'+1 Inclusion'),e('div',{className:'comp-earn'},'+1 Adaptation'),
       null),
     e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};

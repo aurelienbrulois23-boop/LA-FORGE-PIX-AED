@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_CRI02 \u2014 La cour de r\u00e9cr\u00e9ation : lire les dynamiques</title>
+<title>LA FORGE | AED_CRI02 — La cour de récréation : lire les dynamiques</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Vous prenez votre poste en cour. Vous remarquez qu\\u2019un \\u00e9l\\u00e8ve de 6\\u00e8me, Noah, fait syst\\u00e9matiquement un d\\u00e9tour pour \\u00e9viter le coin pr\\u00e8s des toilettes o\\u00f9 tra\\u00eene un groupe de 4\\u00e8me.",
-    q: "Qu\\u2019en faites-vous ?",
+    ctx: "Vous prenez votre poste en cour. Vous remarquez qu\’un \él\ève de 6\ème, Noah, fait syst\ématiquement un d\étour pour \éviter le coin pr\ès des toilettes o\ù tra\îne un groupe de 4\ème.",
+    q: "Qu\’en faites-vous ?",
     options: [
       {
         label: "Observer + noter + se positionner",
-        text: "Je note mentalement le pattern (3\\u00e8me jour cons\\u00e9cutif). Je modifie ma circulation pour passer r\\u00e9guli\\u00e8rement par cette zone. Et je transmets au CPE : \\u00abNoah \\u00e9vite syst\\u00e9matiquement le coin toilettes quand le groupe de X est l\\u00e0.\\u00bb",
+        text: "Je note mentalement le pattern (3\ème jour cons\écutif). Je modifie ma circulation pour passer r\éguli\èrement par cette zone. Et je transmets au CPE : \«Noah \évite syst\ématiquement le coin toilettes quand le groupe de X est l\à.\»",
         score: 3,
-        fb: "Le changement de trajectoire r\\u00e9p\\u00e9t\\u00e9 d\\u2019un 6\\u00e8me est un signal fort. Trois actions compl\\u00e9mentaires : observer le pattern pour \\u00e9tablir sa r\\u00e9gularit\\u00e9, modifier votre propre circulation pour s\\u00e9curiser la zone (pr\\u00e9sence = dissuasion), et transmettre factuellement.",
+        fb: "Le changement de trajectoire r\ép\ét\é d\’un 6\ème est un signal fort. Trois actions compl\émentaires : observer le pattern pour \établir sa r\égularit\é, modifier votre propre circulation pour s\écuriser la zone (pr\ésence = dissuasion), et transmettre factuellement.",
         good: true
       },
       {
         label: "Interroger Noah",
-        text: "\\u00abNoah, pourquoi tu passes jamais par l\\u00e0 ?\\u00bb",
+        text: "\«Noah, pourquoi tu passes jamais par l\à ?\»",
         score: 1,
-        fb: "La question directe en public peut exposer Noah (si le groupe l\\u2019observe) et le mettre en position de devoir nier (peur des repr\\u00e9sailles). Mieux vaut s\\u00e9curiser d\\u2019abord par la pr\\u00e9sence, puis transmettre pour qu\\u2019un adulte de confiance \\u00e9change avec lui dans un cadre priv\\u00e9.",
+        fb: "La question directe en public peut exposer Noah (si le groupe l\’observe) et le mettre en position de devoir nier (peur des repr\ésailles). Mieux vaut s\écuriser d\’abord par la pr\ésence, puis transmettre pour qu\’un adulte de confiance \échange avec lui dans un cadre priv\é.",
         good: false
       },
       {
-        label: "Pas d\\u2019action",
-        text: "C\\u2019est peut-\\u00eatre juste son chemin habituel, je ne vais pas sur-interpr\\u00e9ter.",
+        label: "Pas d\’action",
+        text: "C\’est peut-\être juste son chemin habituel, je ne vais pas sur-interpr\éter.",
         score: 0,
-        fb: "Un changement de trajectoire r\\u00e9p\\u00e9t\\u00e9 n\\u2019est jamais anodin \\u00e0 cet \\u00e2ge. Le r\\u00f4le de l\\u2019AED est pr\\u00e9cis\\u00e9ment de rep\\u00e9rer ces signaux que les enseignants ne voient pas depuis leur salle.",
+        fb: "Un changement de trajectoire r\ép\ét\é n\’est jamais anodin \à cet \âge. Le r\ôle de l\’AED est pr\écis\ément de rep\érer ces signaux que les enseignants ne voient pas depuis leur salle.",
         good: false
       },
     ]
   },
   {
-    ctx: "En pleine r\\u00e9cr\\u00e9ation, vous observez un cercle d\\u2019\\u00e9l\\u00e8ves qui s\\u2019est form\\u00e9 dans un coin. Des cris et des rires. Impossible de voir ce qui se passe au centre.",
+    ctx: "En pleine r\écr\éation, vous observez un cercle d\’\él\èves qui s\’est form\é dans un coin. Des cris et des rires. Impossible de voir ce qui se passe au centre.",
     q: "Comment intervenez-vous ?",
     options: [
       {
-        label: "Approche imm\\u00e9diate + dispersion calme",
-        text: "Je m\\u2019approche d\\u00e9lib\\u00e9r\\u00e9ment vers le cercle. Voix pos\\u00e9e : \\u00abOn s\\u2019\\u00e9carte, je veux voir.\\u00bb Je ne crie pas \\u2014 j\\u2019impose ma pr\\u00e9sence physique. Un cercle qui se forme cache souvent un conflit, un jeu dangereux ou une humiliation.",
+        label: "Approche imm\édiate + dispersion calme",
+        text: "Je m\’approche d\élib\ér\ément vers le cercle. Voix pos\ée : \«On s\’\écarte, je veux voir.\» Je ne crie pas \— j\’impose ma pr\ésence physique. Un cercle qui se forme cache souvent un conflit, un jeu dangereux ou une humiliation.",
         score: 3,
-        fb: "Le cercle est le signal classique : quelque chose se passe qu\\u2019on ne veut pas que les adultes voient. L\\u2019approche d\\u00e9lib\\u00e9r\\u00e9e et calme suffit souvent \\u00e0 disperser. Ne pas s\\u2019approcher, c\\u2019est laisser le champ libre.",
+        fb: "Le cercle est le signal classique : quelque chose se passe qu\’on ne veut pas que les adultes voient. L\’approche d\élib\ér\ée et calme suffit souvent \à disperser. Ne pas s\’approcher, c\’est laisser le champ libre.",
         good: true
       },
       {
         label: "Observer de loin",
-        text: "J\\u2019observe de loin pour \\u00e9valuer avant d\\u2019intervenir.",
+        text: "J\’observe de loin pour \évaluer avant d\’intervenir.",
         score: 1,
-        fb: "L\\u2019observation \\u00e0 distance a du sens pour un groupe dispers\\u00e9. Mais un cercle ferm\\u00e9 est par d\\u00e9finition opaque \\u2014 vous ne verrez rien de loin. Le temps d\\u2019observation est du temps o\\u00f9 un \\u00e9l\\u00e8ve peut \\u00eatre bless\\u00e9 ou humili\\u00e9.",
+        fb: "L\’observation \à distance a du sens pour un groupe dispers\é. Mais un cercle ferm\é est par d\éfinition opaque \— vous ne verrez rien de loin. Le temps d\’observation est du temps o\ù un \él\ève peut \être bless\é ou humili\é.",
         good: false
       },
       {
         label: "Crier de loin",
-        text: "\\u00abEh ! Qu\\u2019est-ce qui se passe l\\u00e0-bas ?! Dispersez-vous !\\u00bb",
+        text: "\«Eh ! Qu\’est-ce qui se passe l\à-bas ?! Dispersez-vous !\»",
         score: 1,
-        fb: "Le cri \\u00e0 distance pr\\u00e9vient mais ne r\\u00e9sout pas. Les \\u00e9l\\u00e8ves se dispersent \\u2014 et recommencent 5 minutes plus tard dans un autre angle mort. La pr\\u00e9sence physique est plus dissuasive que la voix.",
+        fb: "Le cri \à distance pr\évient mais ne r\ésout pas. Les \él\èves se dispersent \— et recommencent 5 minutes plus tard dans un autre angle mort. La pr\ésence physique est plus dissuasive que la voix.",
         good: false
       },
     ]
   },
   {
-    ctx: "Fin de r\\u00e9cr\\u00e9ation. Vous remarquez qu\\u2019une \\u00e9l\\u00e8ve, Inaya, est syst\\u00e9matiquement la derni\\u00e8re \\u00e0 rentrer, tra\\u00eenant les pieds. Elle ne parle \\u00e0 personne.",
-    q: "Quel est votre r\\u00e9flexe ?",
+    ctx: "Fin de r\écr\éation. Vous remarquez qu\’une \él\ève, Inaya, est syst\ématiquement la derni\ère \à rentrer, tra\înant les pieds. Elle ne parle \à personne.",
+    q: "Quel est votre r\éflexe ?",
     options: [
       {
         label: "Pattern + transmission",
-        text: "Je note le pattern sur plusieurs jours. Si c\\u2019est r\\u00e9current : \\u00abInaya rentre syst\\u00e9matiquement en derni\\u00e8re, seule, sans interaction visible.\\u00bb Transmission au CPE. En parall\\u00e8le, un geste simple : \\u00abInaya, \\u00e7a va ? On rentre ensemble ?\\u00bb",
+        text: "Je note le pattern sur plusieurs jours. Si c\’est r\écurrent : \«Inaya rentre syst\ématiquement en derni\ère, seule, sans interaction visible.\» Transmission au CPE. En parall\èle, un geste simple : \«Inaya, \ça va ? On rentre ensemble ?\»",
         score: 3,
-        fb: "L\\u2019isolement syst\\u00e9matique est le signal faible le plus fr\\u00e9quent du harc\\u00e8lement, du d\\u00e9crochage ou de la d\\u00e9tresse silencieuse. Le combiner avec un geste de lien (marcher avec elle) est la double action : d\\u00e9tecter ET humaniser.",
+        fb: "L\’isolement syst\ématique est le signal faible le plus fr\équent du harc\èlement, du d\écrochage ou de la d\étresse silencieuse. Le combiner avec un geste de lien (marcher avec elle) est la double action : d\étecter ET humaniser.",
         good: true
       },
       {
         label: "Ne rien faire",
-        text: "Certains \\u00e9l\\u00e8ves sont introvertis, c\\u2019est pas forc\\u00e9ment un probl\\u00e8me.",
+        text: "Certains \él\èves sont introvertis, c\’est pas forc\ément un probl\ème.",
         score: 0,
-        fb: "L\\u2019introversion existe, mais l\\u2019isolement syst\\u00e9matique est diff\\u00e9rent. Un introverti a un ou deux liens stables. Un \\u00e9l\\u00e8ve qui ne parle \\u00e0 personne pendant des semaines est en difficult\\u00e9 sociale. Ne pas le voir, c\\u2019est le rendre invisible.",
+        fb: "L\’introversion existe, mais l\’isolement syst\ématique est diff\érent. Un introverti a un ou deux liens stables. Un \él\ève qui ne parle \à personne pendant des semaines est en difficult\é sociale. Ne pas le voir, c\’est le rendre invisible.",
         good: false
       },
       {
-        label: "Forcer l\\u2019int\\u00e9gration",
-        text: "\\u00abInaya, va jouer avec les autres au lieu de tra\\u00eener !\\u00bb",
+        label: "Forcer l\’int\égration",
+        text: "\«Inaya, va jouer avec les autres au lieu de tra\îner !\»",
         score: 0,
-        fb: "Forcer un \\u00e9l\\u00e8ve isol\\u00e9 \\u00e0 rejoindre un groupe sans pr\\u00e9paration, c\\u2019est l\\u2019exposer \\u00e0 un rejet suppl\\u00e9mentaire. Le lien se construit par l\\u2019invitation, pas par l\\u2019injonction.",
+        fb: "Forcer un \él\ève isol\é \à rejoindre un groupe sans pr\éparation, c\’est l\’exposer \à un rejet suppl\émentaire. Le lien se construit par l\’invitation, pas par l\’injonction.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u{1F5FA}", t:"Zones mortes :", v:"Toilettes, angles, escaliers, derri\\u00e8re les b\\u00e2timents. Les conna\\u00eetre et y circuler r\\u00e9guli\\u00e8rement est la premi\\u00e8re pr\\u00e9vention."},
-  {icon:"\u2B55", t:"Le cercle :", v:"Un cercle d\\u2019\\u00e9l\\u00e8ves = intervention imm\\u00e9diate. Il cache toujours quelque chose qu\\u2019on ne veut pas que vous voyiez."},
-  {icon:"\u{1F6B6}", t:"Trajectoires :\\u00bb", v:"Un \\u00e9l\\u00e8ve qui change de chemin pour \\u00e9viter un lieu ou un groupe est un signal fort \\u2014 surtout s\\u2019il est r\\u00e9p\\u00e9t\\u00e9."},
-  {icon:"\u{1F465}", t:"Isolement syst\\u00e9matique :", v:"Toujours seul, toujours en dernier, jamais en interaction. C\\u2019est le signal faible le plus fr\\u00e9quent et le plus ignor\\u00e9."},
+  {icon:"🗺", t:"Zones mortes :", v:"Toilettes, angles, escaliers, derri\ère les b\âtiments. Les conna\ître et y circuler r\éguli\èrement est la premi\ère pr\évention."},
+  {icon:"⭕", t:"Le cercle :", v:"Un cercle d\’\él\èves = intervention imm\édiate. Il cache toujours quelque chose qu\’on ne veut pas que vous voyiez."},
+  {icon:"🚶", t:"Trajectoires :\»", v:"Un \él\ève qui change de chemin pour \éviter un lieu ou un groupe est un signal fort \— surtout s\’il est r\ép\ét\é."},
+  {icon:"👥", t:"Isolement syst\ématique :", v:"Toujours seul, toujours en dernier, jamais en interaction. C\’est le signal faible le plus fr\équent et le plus ignor\é."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : La cour de r\\u00e9cr\\u00e9ation : lire les dynamiques',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : La cour de r\écr\éation : lire les dynamiques',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Gestion de Crise & M\u00e9diation \u00B7 Module 1/5'),
-    e('h1',null,"La cour de r\\u00e9cr\\u00e9ation : lire les dynamiques"),
-    e('p',{className:'quote'},'"'+"La cour est le lieu o\\u00f9 tout se joue \\u2014 et le dernier endroit o\\u00f9 on regarde."+'" \u2014 Sylvie Condette'),
-    e('p',null,"La cour de r\\u00e9cr\\u00e9ation est le principal terrain de jeu social des \\u00e9l\\u00e8ves \\u2014 et le principal point aveugle des adultes. Harc\\u00e8lement, isolement, micro-violences, rackets, jeux dangereux : 80% se passent l\\u00e0."),
-    e('p',null,"Ce module vous apprend \\u00e0 lire la cour comme un terrain tactique : rep\\u00e9rer les zones mortes (angles invisibles), les dynamiques de groupe (qui est au centre, qui est en p\\u00e9riph\\u00e9rie), et les signaux faibles (un \\u00e9l\\u00e8ve qui change de trajectoire pour \\u00e9viter un groupe)."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Sylvie Condette, M\\u00e9diation scolaire \\u2014 Protocole pHARe \\u2014 Observatoire europ\\u00e9en de la violence scolaire"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Gestion de Crise & Médiation · Module 1/5'),
+    e('h1',null,"La cour de r\écr\éation : lire les dynamiques"),
+    e('p',{className:'quote'},'"'+"La cour est le lieu o\ù tout se joue \— et le dernier endroit o\ù on regarde."+'" — Sylvie Condette'),
+    e('p',null,"La cour de r\écr\éation est le principal terrain de jeu social des \él\èves \— et le principal point aveugle des adultes. Harc\èlement, isolement, micro-violences, rackets, jeux dangereux : 80% se passent l\à."),
+    e('p',null,"Ce module vous apprend \à lire la cour comme un terrain tactique : rep\érer les zones mortes (angles invisibles), les dynamiques de groupe (qui est au centre, qui est en p\ériph\érie), et les signaux faibles (un \él\ève qui change de trajectoire pour \éviter un groupe)."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Sylvie Condette, M\édiation scolaire \— Protocole pHARe \— Observatoire europ\éen de la violence scolaire"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),
+      e('div',{className:'xp-badge'},'⚡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Observation'),e('div',{className:'comp-earn'},'+Anticipation'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u{1F5FA}'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'🗺'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'xp-badge'},'⚡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Observation'),e('div',{className:'comp-earn'},'+1 Anticipation'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

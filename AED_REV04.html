@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_REV04 \u2014 Sciences & Culture G : rep\u00e8res essentiels</title>
+<title>LA FORGE | AED_REV04 — Sciences & Culture G : repères essentiels</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Nora (6\\u00e8me) r\\u00e9vise son cours d\\u2019histoire. Elle vous demande : \\u00abC\\u2019est quoi la diff\\u00e9rence entre la R\\u00e9volution fran\\u00e7aise et la R\\u00e9publique ?\\u00bb",
+    ctx: "Nora (6\ème) r\évise son cours d\’histoire. Elle vous demande : \«C\’est quoi la diff\érence entre la R\évolution fran\çaise et la R\épublique ?\»",
     q: "Comment expliquez-vous simplement ?",
     options: [
       {
         label: "Explication claire + chronologie",
-        text: "\\u00abLa R\\u00e9volution (1789), c\\u2019est le moment o\\u00f9 les Fran\\u00e7ais ont renvers\\u00e9 le syst\\u00e8me du roi qui d\\u00e9cidait tout seul. La R\\u00e9publique, c\\u2019est le syst\\u00e8me qu\\u2019on a construit apr\\u00e8s : le peuple choisit ses repr\\u00e9sentants. La R\\u00e9volution est un \\u00e9v\\u00e9nement, la R\\u00e9publique est un syst\\u00e8me. On est aujourd\\u2019hui dans la 5\\u00e8me R\\u00e9publique, depuis 1958.\\u00bb",
+        text: "\«La R\évolution (1789), c\’est le moment o\ù les Fran\çais ont renvers\é le syst\ème du roi qui d\écidait tout seul. La R\épublique, c\’est le syst\ème qu\’on a construit apr\ès : le peuple choisit ses repr\ésentants. La R\évolution est un \év\énement, la R\épublique est un syst\ème. On est aujourd\’hui dans la 5\ème R\épublique, depuis 1958.\»",
         score: 3,
-        fb: "Distinguer \\u00e9v\\u00e9nement (R\\u00e9volution) et syst\\u00e8me (R\\u00e9publique) est la cl\\u00e9 de compr\\u00e9hension. Ajouter \\u00ab5\\u00e8me R\\u00e9publique, 1958\\u00bb ancre dans le pr\\u00e9sent. Simple, clair, transmissible.",
+        fb: "Distinguer \év\énement (R\évolution) et syst\ème (R\épublique) est la cl\é de compr\éhension. Ajouter \«5\ème R\épublique, 1958\» ancre dans le pr\ésent. Simple, clair, transmissible.",
         good: true
       },
       {
-        label: "Trop d\\u00e9taill\\u00e9",
-        text: "\\u00abAlors en fait, il y a eu les \\u00c9tats G\\u00e9n\\u00e9raux, puis le Serment du Jeu de Paume, puis la prise de la Bastille, puis la Terreur...\\u00bb",
+        label: "Trop d\étaill\é",
+        text: "\«Alors en fait, il y a eu les \États G\én\éraux, puis le Serment du Jeu de Paume, puis la prise de la Bastille, puis la Terreur...\»",
         score: 1,
-        fb: "Le d\\u00e9tail noie la compr\\u00e9hension. Nora a besoin de la structure (\\u00e9v\\u00e9nement vs syst\\u00e8me), pas de la chronologie compl\\u00e8te. En aide aux devoirs, la simplification juste vaut mieux que l\\u2019exhaustivit\\u00e9 confuse.",
+        fb: "Le d\étail noie la compr\éhension. Nora a besoin de la structure (\év\énement vs syst\ème), pas de la chronologie compl\ète. En aide aux devoirs, la simplification juste vaut mieux que l\’exhaustivit\é confuse.",
         good: false
       },
       {
         label: "Esquiver",
-        text: "\\u00abRelis ton cours, c\\u2019est marqu\\u00e9 dedans.\\u00bb",
+        text: "\«Relis ton cours, c\’est marqu\é dedans.\»",
         score: 0,
-        fb: "Elle a d\\u00e9j\\u00e0 lu son cours et n\\u2019a pas compris. Renvoyer au cours sans reformuler, c\\u2019est refuser l\\u2019aide. L\\u2019AED qui reformule simplement ce que le cours dit de mani\\u00e8re compliqu\\u00e9e est irremplacable.",
+        fb: "Elle a d\éj\à lu son cours et n\’a pas compris. Renvoyer au cours sans reformuler, c\’est refuser l\’aide. L\’AED qui reformule simplement ce que le cours dit de mani\ère compliqu\ée est irremplacable.",
         good: false
       },
     ]
   },
   {
-    ctx: "Romain (5\\u00e8me) pr\\u00e9pare un expos\\u00e9 sur le changement climatique. Il vous demande : \\u00abC\\u2019est quoi l\\u2019effet de serre en vrai ? C\\u2019est bien ou c\\u2019est mal ?\\u00bb",
+    ctx: "Romain (5\ème) pr\épare un expos\é sur le changement climatique. Il vous demande : \«C\’est quoi l\’effet de serre en vrai ? C\’est bien ou c\’est mal ?\»",
     q: "Comment expliquez-vous ?",
     options: [
       {
         label: "Explication par analogie",
-        text: "\\u00abL\\u2019effet de serre naturel, c\\u2019est comme une couverture autour de la Terre : des gaz dans l\\u2019atmosph\\u00e8re retiennent une partie de la chaleur du soleil. Sans \\u00e7a, il ferait -18\\u00b0C. Donc c\\u2019est vital. Le probl\\u00e8me, c\\u2019est qu\\u2019on rajoute trop de gaz (CO2, m\\u00e9thane) avec l\\u2019industrie et les transports. La couverture devient trop \\u00e9paisse, la temp\\u00e9rature monte. C\\u2019est le r\\u00e9chauffement climatique.\\u00bb",
+        text: "\«L\’effet de serre naturel, c\’est comme une couverture autour de la Terre : des gaz dans l\’atmosph\ère retiennent une partie de la chaleur du soleil. Sans \ça, il ferait -18\°C. Donc c\’est vital. Le probl\ème, c\’est qu\’on rajoute trop de gaz (CO2, m\éthane) avec l\’industrie et les transports. La couverture devient trop \épaisse, la temp\érature monte. C\’est le r\échauffement climatique.\»",
         score: 3,
-        fb: "L\\u2019analogie de la couverture est simple et juste. Distinguer \\u00abeffet de serre naturel (vital)\\u00bb et \\u00abeffet de serre renforc\\u00e9 (probl\\u00e8me)\\u00bb \\u00e9vite la confusion fr\\u00e9quente \\u00abeffet de serre = mal\\u00bb. La nuance \\u00abc\\u2019est le d\\u00e9s\\u00e9quilibre le probl\\u00e8me\\u00bb est scientifiquement pr\\u00e9cise et p\\u00e9dagogiquement forte.",
+        fb: "L\’analogie de la couverture est simple et juste. Distinguer \«effet de serre naturel (vital)\» et \«effet de serre renforc\é (probl\ème)\» \évite la confusion fr\équente \«effet de serre = mal\». La nuance \«c\’est le d\és\équilibre le probl\ème\» est scientifiquement pr\écise et p\édagogiquement forte.",
         good: true
       },
       {
         label: "Simplification excessive",
-        text: "\\u00abC\\u2019est la pollution qui r\\u00e9chauffe la plan\\u00e8te.\\u00bb",
+        text: "\«C\’est la pollution qui r\échauffe la plan\ète.\»",
         score: 1,
-        fb: "Pas faux mais trop vague. \\u00abPollution\\u00bb m\\u00e9lange tout (plastiques, gaz, chimie...). L\\u2019explication doit sp\\u00e9cifier : les gaz \\u00e0 effet de serre (CO2, m\\u00e9thane) qui modifient l\\u2019\\u00e9quilibre thermique. La pr\\u00e9cision n\\u2019est pas du p\\u00e9dantisme \\u2014 c\\u2019est de la science.",
+        fb: "Pas faux mais trop vague. \«Pollution\» m\élange tout (plastiques, gaz, chimie...). L\’explication doit sp\écifier : les gaz \à effet de serre (CO2, m\éthane) qui modifient l\’\équilibre thermique. La pr\écision n\’est pas du p\édantisme \— c\’est de la science.",
         good: false
       },
       {
         label: "Renvoi",
-        text: "\\u00abRegarde sur Internet, y\\u2019a plein de vid\\u00e9os.\\u00bb",
+        text: "\«Regarde sur Internet, y\’a plein de vid\éos.\»",
         score: 0,
-        fb: "Internet sans filtre, c\\u2019est aussi du climatoscepticisme, du complotisme et des vid\\u00e9os trompeuses. L\\u2019AED qui peut donner une explication claire et juste est un filtre de qualit\\u00e9 irremplacable.",
+        fb: "Internet sans filtre, c\’est aussi du climatoscepticisme, du complotisme et des vid\éos trompeuses. L\’AED qui peut donner une explication claire et juste est un filtre de qualit\é irremplacable.",
         good: false
       },
     ]
   },
   {
-    ctx: "Yasmine (4\\u00e8me) r\\u00e9vise l\\u2019EMC et vous demande : \\u00abLes 3 pouvoirs, c\\u2019est quoi d\\u00e9j\\u00e0 ? Et pourquoi c\\u2019est important qu\\u2019ils soient s\\u00e9par\\u00e9s ?\\u00bb",
-    q: "Comment r\\u00e9pondez-vous ?",
+    ctx: "Yasmine (4\ème) r\évise l\’EMC et vous demande : \«Les 3 pouvoirs, c\’est quoi d\éj\à ? Et pourquoi c\’est important qu\’ils soient s\épar\és ?\»",
+    q: "Comment r\épondez-vous ?",
     options: [
       {
-        label: "Explication concr\\u00e8te",
-        text: "\\u00abL\\u00e9gislatif : qui fait les lois (Assembl\\u00e9e nationale, S\\u00e9nat). Ex\\u00e9cutif : qui applique les lois (Pr\\u00e9sident, gouvernement). Judiciaire : qui juge si les lois sont respect\\u00e9es (tribunaux). S\\u2019ils sont s\\u00e9par\\u00e9s, c\\u2019est pour qu\\u2019aucun ne devienne tout-puissant. Imagine un monde o\\u00f9 celui qui fait les lois est aussi celui qui juge \\u2014 il ne peut jamais avoir tort. C\\u2019est la dictature.\\u00bb",
+        label: "Explication concr\ète",
+        text: "\«L\égislatif : qui fait les lois (Assembl\ée nationale, S\énat). Ex\écutif : qui applique les lois (Pr\ésident, gouvernement). Judiciaire : qui juge si les lois sont respect\ées (tribunaux). S\’ils sont s\épar\és, c\’est pour qu\’aucun ne devienne tout-puissant. Imagine un monde o\ù celui qui fait les lois est aussi celui qui juge \— il ne peut jamais avoir tort. C\’est la dictature.\»",
         score: 3,
-        fb: "Trois d\\u00e9finitions courtes + un exemple concret du risque de concentration. L\\u2019argument \\u00abcelui qui fait les lois ET qui juge ne peut jamais avoir tort\\u00bb rend la s\\u00e9paration des pouvoirs viscéralement compr\\u00e9hensible \\u2014 pas juste th\\u00e9orique.",
+        fb: "Trois d\éfinitions courtes + un exemple concret du risque de concentration. L\’argument \«celui qui fait les lois ET qui juge ne peut jamais avoir tort\» rend la s\éparation des pouvoirs viscéralement compr\éhensible \— pas juste th\éorique.",
         good: true
       },
       {
-        label: "Liste s\\u00e8che",
-        text: "\\u00abL\\u00e9gislatif, ex\\u00e9cutif, judiciaire. C\\u2019est dans ton cours.\\u00bb",
+        label: "Liste s\èche",
+        text: "\«L\égislatif, ex\écutif, judiciaire. C\’est dans ton cours.\»",
         score: 0,
-        fb: "Yasmine conna\\u00eet les noms \\u2014 elle ne comprend pas le sens. L\\u2019aide aux devoirs qui ne reformule pas est inutile.",
+        fb: "Yasmine conna\ît les noms \— elle ne comprend pas le sens. L\’aide aux devoirs qui ne reformule pas est inutile.",
         good: false
       },
       {
         label: "Flou",
-        text: "\\u00abC\\u2019est pour \\u00e9viter que le pouvoir soit concentr\\u00e9. C\\u2019est Montesquieu qui a invent\\u00e9 \\u00e7a.\\u00bb",
+        text: "\«C\’est pour \éviter que le pouvoir soit concentr\é. C\’est Montesquieu qui a invent\é \ça.\»",
         score: 1,
-        fb: "La r\\u00e9f\\u00e9rence \\u00e0 Montesquieu est correcte mais sans exemple concret, \\u00ab\\u00e9viter la concentration\\u00bb reste abstrait. L\\u2019exemple du \\u00abfaiseur de lois qui se juge lui-m\\u00eame\\u00bb ancre le concept.",
+        fb: "La r\éf\érence \à Montesquieu est correcte mais sans exemple concret, \«\éviter la concentration\» reste abstrait. L\’exemple du \«faiseur de lois qui se juge lui-m\ême\» ancre le concept.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u{1F3DB}", t:"R\\u00e9volution vs R\\u00e9publique :", v:"\\u00c9v\\u00e9nement (1789) vs syst\\u00e8me (\\u00e9lection des repr\\u00e9sentants). On est dans la 5\\u00e8me, depuis 1958."},
-  {icon:"\u{1F30D}", t:"Effet de serre :", v:"Naturel = vital (couverture). Renforc\\u00e9 = probl\\u00e8me (couverture trop \\u00e9paisse). C\\u2019est le d\\u00e9s\\u00e9quilibre qui est dangereux."},
-  {icon:"\u2696\uFE0F", t:"S\\u00e9paration des pouvoirs :", v:"L\\u00e9gislatif / Ex\\u00e9cutif / Judiciaire. Celui qui fait les lois ne peut pas \\u00eatre celui qui juge \\u2014 sinon c\\u2019est la dictature."},
-  {icon:"\u{1F4A1}", t:"Vulgariser :", v:"L\\u2019analogie et l\\u2019exemple concret valent plus que la d\\u00e9finition. L\\u2019AED qui reformule simplement est irremplacable."},
+  {icon:"🏛", t:"R\évolution vs R\épublique :", v:"\Év\énement (1789) vs syst\ème (\élection des repr\ésentants). On est dans la 5\ème, depuis 1958."},
+  {icon:"🌍", t:"Effet de serre :", v:"Naturel = vital (couverture). Renforc\é = probl\ème (couverture trop \épaisse). C\’est le d\és\équilibre qui est dangereux."},
+  {icon:"⚖️", t:"S\éparation des pouvoirs :", v:"L\égislatif / Ex\écutif / Judiciaire. Celui qui fait les lois ne peut pas \être celui qui juge \— sinon c\’est la dictature."},
+  {icon:"💡", t:"Vulgariser :", v:"L\’analogie et l\’exemple concret valent plus que la d\éfinition. L\’AED qui reformule simplement est irremplacable."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Sciences & Culture G : rep\\u00e8res essentiels',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Sciences & Culture G : rep\ères essentiels',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'BONUS R\u00e9visions \u2014 Culture G \u00d71.5 \u00B7 Module 1/5'),
-    e('h1',null,"Sciences & Culture G : rep\\u00e8res essentiels"),
-    e('p',{className:'quote'},'"'+"La culture g\\u00e9n\\u00e9rale, c\\u2019est ce qui reste quand on a tout oubli\\u00e9."+'" \u2014 \\u00c9douard Herriot'),
-    e('p',null,"Un \\u00e9l\\u00e8ve vous demande : \\u00abC\\u2019est quoi le r\\u00e9chauffement climatique en vrai ?\\u00bb \\u00abLa R\\u00e9volution fran\\u00e7aise c\\u2019est quand ?\\u00bb \\u00abPourquoi on dit que la Terre tourne autour du Soleil ?\\u00bb Si vous ne pouvez pas r\\u00e9pondre clairement, l\\u2019aide aux devoirs tourne court."),
-    e('p',null,"Ce module passe en revue les rep\\u00e8res incontournables du coll\\u00e8ge \\u00e0 travers des situations d\\u2019aide concr\\u00e8tes : grands rep\\u00e8res historiques, bases scientifiques, culture citoyenne. Le minimum syndical pour ne pas \\u00eatre sec face \\u00e0 une question de 6\\u00e8me."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Programmes histoire-g\\u00e9o-EMC cycle 3-4 \\u2014 Sciences de la vie et de la Terre \\u2014 Physique-chimie coll\\u00e8ge"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'BONUS Révisions — Culture G ×1.5 · Module 1/5'),
+    e('h1',null,"Sciences & Culture G : rep\ères essentiels"),
+    e('p',{className:'quote'},'"'+"La culture g\én\érale, c\’est ce qui reste quand on a tout oubli\é."+'" — \Édouard Herriot'),
+    e('p',null,"Un \él\ève vous demande : \«C\’est quoi le r\échauffement climatique en vrai ?\» \«La R\évolution fran\çaise c\’est quand ?\» \«Pourquoi on dit que la Terre tourne autour du Soleil ?\» Si vous ne pouvez pas r\épondre clairement, l\’aide aux devoirs tourne court."),
+    e('p',null,"Ce module passe en revue les rep\ères incontournables du coll\ège \à travers des situations d\’aide concr\ètes : grands rep\ères historiques, bases scientifiques, culture citoyenne. Le minimum syndical pour ne pas \être sec face \à une question de 6\ème."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Programmes histoire-g\éo-EMC cycle 3-4 \— Sciences de la vie et de la Terre \— Physique-chimie coll\ège"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +60 XP'),
+      e('div',{className:'xp-badge'},'⚡ +60 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+P\u00e9dagogie'),e('div',{className:'comp-earn'},'+Culture'),
+      e('div',{className:'comp-earn'},'+Pédagogie'),e('div',{className:'comp-earn'},'+Culture'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u{1F3DB}'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'🏛'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +60 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 P\u00e9dagogie'),e('div',{className:'comp-earn'},'+1 Culture'),
+      e('div',{className:'xp-badge'},'⚡ +60 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Pédagogie'),e('div',{className:'comp-earn'},'+1 Culture'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

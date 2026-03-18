@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_ING01 \u2014 Pourquoi le Super-Hub fonctionne</title>
+<title>LA FORGE | AED_ING01 — Pourquoi le Super-Hub fonctionne</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \\u00e9l\\u00e8ve de 5\\u00e8me vous demande : 'Pourquoi je devrais t\\u00e9moigner pour un autre ? C'est quoi l'int\\u00e9r\\u00eat ?'",
-    q: "Comment lui expliquez-vous le syst\\u00e8me de t\\u00e9moignage du Super-Hub ?",
+    ctx: "Un \él\ève de 5\ème vous demande : 'Pourquoi je devrais t\émoigner pour un autre ? C'est quoi l'int\ér\êt ?'",
+    q: "Comment lui expliquez-vous le syst\ème de t\émoignage du Super-Hub ?",
     options: [
       {
-        label: "Explication syst\\u00e9mique",
-        text: "'Quand tu t\\u00e9moignes pour quelqu'un, tu gagnes aussi des XP. Mais le vrai truc, c'est que plus les gens t\\u00e9moignent, plus le climat de la classe s'am\\u00e9liore \\u2014 et toi aussi tu en profites. C'est pas de la charit\\u00e9, c'est de l'intelligence collective.'",
+        label: "Explication syst\émique",
+        text: "'Quand tu t\émoignes pour quelqu'un, tu gagnes aussi des XP. Mais le vrai truc, c'est que plus les gens t\émoignent, plus le climat de la classe s'am\éliore \— et toi aussi tu en profites. C'est pas de la charit\é, c'est de l'intelligence collective.'",
         score: 3,
-        fb: "L'entr\\u00e9e par l'int\\u00e9r\\u00eat mutuel (pas par la morale) est exactement le design du Super-Hub : la bienveillance est la strat\\u00e9gie la plus rentable. Favre dirait : l'XP amorce la pompe, mais c'est l'ocytocine du lien social qui cr\\u00e9e l'addiction positive.",
+        fb: "L'entr\ée par l'int\ér\êt mutuel (pas par la morale) est exactement le design du Super-Hub : la bienveillance est la strat\égie la plus rentable. Favre dirait : l'XP amorce la pompe, mais c'est l'ocytocine du lien social qui cr\ée l'addiction positive.",
         good: true
       },
       {
         label: "Injonction morale",
-        text: "'Parce que c'est bien de t\\u00e9moigner pour les autres, \\u00e7a fait partie du vivre-ensemble.'",
+        text: "'Parce que c'est bien de t\émoigner pour les autres, \ça fait partie du vivre-ensemble.'",
         score: 1,
-        fb: "L'injonction morale 'c'est bien' ne r\\u00e9pond pas \\u00e0 la question 'c'est quoi l'int\\u00e9r\\u00eat'. L'ado a pos\\u00e9 une question l\\u00e9gitime et m\\u00e9rite une r\\u00e9ponse honn\\u00eate, pas un sermon.",
+        fb: "L'injonction morale 'c'est bien' ne r\épond pas \à la question 'c'est quoi l'int\ér\êt'. L'ado a pos\é une question l\égitime et m\érite une r\éponse honn\ête, pas un sermon.",
         good: false
       },
       {
         label: "Obligation",
-        text: "'C'est le fonctionnement du syst\\u00e8me, tu dois le faire.'",
+        text: "'C'est le fonctionnement du syst\ème, tu dois le faire.'",
         score: 0,
-        fb: "Le t\\u00e9moignage forc\\u00e9 n'est plus du t\\u00e9moignage \\u2014 c'est du flicage. Le syst\\u00e8me repose pr\\u00e9cis\\u00e9ment sur le volontariat et la r\\u00e9ciprocit\\u00e9. Forcer, c'est casser le m\\u00e9canisme.",
+        fb: "Le t\émoignage forc\é n'est plus du t\émoignage \— c'est du flicage. Le syst\ème repose pr\écis\ément sur le volontariat et la r\éciprocit\é. Forcer, c'est casser le m\écanisme.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un \\u00e9l\\u00e8ve a perdu des XP suite \\u00e0 une incivilit\\u00e9 (Shadow XP). Il vient vous voir, furieux : 'C'est injuste ! Qui m'a balanc\\u00e9 ?'",
-    q: "Comment g\\u00e9rez-vous cette situation ?",
+    ctx: "Un \él\ève a perdu des XP suite \à une incivilit\é (Shadow XP). Il vient vous voir, furieux : 'C'est injuste ! Qui m'a balanc\é ?'",
+    q: "Comment g\érez-vous cette situation ?",
     options: [
       {
-        label: "Cadrage + Qu\\u00eate de R\\u00e9demption",
-        text: "'Personne ne t'a 'balanc\\u00e9' \\u2014 c'est le CPE qui a not\\u00e9 l'incivilit\\u00e9. Mais la bonne nouvelle, c'est que tu peux r\\u00e9cup\\u00e9rer ces points. Il y a des actions de r\\u00e9paration possibles. Tu veux savoir lesquelles ?'",
+        label: "Cadrage + Qu\ête de R\édemption",
+        text: "'Personne ne t'a 'balanc\é' \— c'est le CPE qui a not\é l'incivilit\é. Mais la bonne nouvelle, c'est que tu peux r\écup\érer ces points. Il y a des actions de r\éparation possibles. Tu veux savoir lesquelles ?'",
         score: 3,
-        fb: "Rediriger vers la Qu\\u00eate de R\\u00e9demption (concept Prairat) : la sanction n'est pas une impasse, elle est un tremplin \\u00e9ducatif. L'\\u00e9l\\u00e8ve garde le contr\\u00f4le de sa trajectoire \\u2014 c'est \\u00e7a l'autorit\\u00e9 r\\u00e9paratrice.",
+        fb: "Rediriger vers la Qu\ête de R\édemption (concept Prairat) : la sanction n'est pas une impasse, elle est un tremplin \éducatif. L'\él\ève garde le contr\ôle de sa trajectoire \— c'est \ça l'autorit\é r\éparatrice.",
         good: true
       },
       {
-        label: "Donner le nom du t\\u00e9moin",
-        text: "'C'est Untel qui a signal\\u00e9, tu n'avais qu'\\u00e0 pas faire \\u00e7a.'",
+        label: "Donner le nom du t\émoin",
+        text: "'C'est Untel qui a signal\é, tu n'avais qu'\à pas faire \ça.'",
         score: 0,
-        fb: "R\\u00e9v\\u00e9ler un t\\u00e9moin d\\u00e9truit tout le syst\\u00e8me de confiance. Plus personne ne t\\u00e9moignera. C'est la mort du m\\u00e9canisme.",
+        fb: "R\év\éler un t\émoin d\étruit tout le syst\ème de confiance. Plus personne ne t\émoignera. C'est la mort du m\écanisme.",
         good: false
       },
       {
         label: "Minimiser",
         text: "'C'est que des points, c'est pas grave.'",
         score: 1,
-        fb: "Les points comptent pour l'\\u00e9l\\u00e8ve \\u2014 les invalider, c'est invalider son engagement dans le syst\\u00e8me. Prendre sa frustration au s\\u00e9rieux tout en redirigeant vers l'action est la bonne posture.",
+        fb: "Les points comptent pour l'\él\ève \— les invalider, c'est invalider son engagement dans le syst\ème. Prendre sa frustration au s\érieux tout en redirigeant vers l'action est la bonne posture.",
         good: false
       },
     ]
   },
   {
-    ctx: "En r\\u00e9union d'\\u00e9quipe, un coll\\u00e8gue AED dit : 'Le Super-Hub, c'est du dressage. On conditionne les gosses comme des chiens avec des r\\u00e9compenses.'",
-    q: "Que r\\u00e9pondez-vous ?",
+    ctx: "En r\éunion d'\équipe, un coll\ègue AED dit : 'Le Super-Hub, c'est du dressage. On conditionne les gosses comme des chiens avec des r\écompenses.'",
+    q: "Que r\épondez-vous ?",
     options: [
       {
         label: "Explication Favre",
-        text: "'Je comprends l'inqui\\u00e9tude. Mais Favre montre que l'XP est un \\u00e9tayage transitionnel : \\u00e7a amorce la pompe. Tr\\u00e8s vite, c'est le plaisir du lien social qui prend le relais \\u2014 pas les points. Le syst\\u00e8me est con\\u00e7u pour que la r\\u00e9compense extrins\\u00e8que c\\u00e8de la place \\u00e0 la motivation intrins\\u00e8que.'",
+        text: "'Je comprends l'inqui\étude. Mais Favre montre que l'XP est un \étayage transitionnel : \ça amorce la pompe. Tr\ès vite, c'est le plaisir du lien social qui prend le relais \— pas les points. Le syst\ème est con\çu pour que la r\écompense extrins\èque c\ède la place \à la motivation intrins\èque.'",
         score: 3,
-        fb: "Citer Favre (et non juste 'moi je pense') donne une assise scientifique \\u00e0 la r\\u00e9ponse. L'\\u00e9tayage transitionnel est le c\\u0153ur du design : les XP ne sont pas la fin, ils sont l'amorce. Le syst\\u00e8me nerveux fait le reste.",
+        fb: "Citer Favre (et non juste 'moi je pense') donne une assise scientifique \à la r\éponse. L'\étayage transitionnel est le c\œur du design : les XP ne sont pas la fin, ils sont l'amorce. Le syst\ème nerveux fait le reste.",
         good: true
       },
       {
-        label: "D\\u00e9fense \\u00e9motionnelle",
-        text: "'T'as tort, \\u00e7a marche super bien, les gamins adorent.'",
+        label: "D\éfense \émotionnelle",
+        text: "'T'as tort, \ça marche super bien, les gamins adorent.'",
         score: 1,
-        fb: "'\\u00c7a marche' ne r\\u00e9pond pas \\u00e0 'c'est \\u00e9thique'. L'objection du coll\\u00e8gue est philosophique, pas pragmatique. R\\u00e9pondre sur le fond (Favre, Prairat) est plus convaincant que r\\u00e9pondre sur le r\\u00e9sultat.",
+        fb: "'\Ça marche' ne r\épond pas \à 'c'est \éthique'. L'objection du coll\ègue est philosophique, pas pragmatique. R\épondre sur le fond (Favre, Prairat) est plus convaincant que r\épondre sur le r\ésultat.",
         good: false
       },
       {
-        label: "\\u00c9vitement",
+        label: "\Évitement",
         text: "'Chacun son avis.'",
         score: 0,
-        fb: "L\\u00e2cher l'affaire face \\u00e0 une critique l\\u00e9gitime affaiblit le dispositif. Si les AED ne savent pas d\\u00e9fendre le syst\\u00e8me sur le fond, c'est que la formation n'a pas fait son travail \\u2014 c'est pr\\u00e9cis\\u00e9ment \\u00e0 \\u00e7a que sert ce module.",
+        fb: "L\âcher l'affaire face \à une critique l\égitime affaiblit le dispositif. Si les AED ne savent pas d\éfendre le syst\ème sur le fond, c'est que la formation n'a pas fait son travail \— c'est pr\écis\ément \à \ça que sert ce module.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u2699\uFE0F", t:"Architecture du choix :", v:"Le Super-Hub ne moralise pas \\u2014 il rend la bienveillance plus rentable que l'incivilit\\u00e9. C'est du game design au service de l'\\u00e9ducation."},
-  {icon:"\u{1F9EA}", t:"\\u00c9tayage transitionnel (Favre) :", v:"L'XP amorce. L'ocytocine prend le relais. La r\\u00e9compense extrins\\u00e8que c\\u00e8de \\u00e0 la motivation intrins\\u00e8que."},
-  {icon:"\u2696\uFE0F", t:"Autorit\\u00e9 r\\u00e9paratrice (Prairat) :", v:"La sanction n'est pas une fin \\u2014 c'est un tremplin. La Qu\\u00eate de R\\u00e9demption r\\u00e9int\\u00e8gre au lieu d'exclure."},
-  {icon:"\u{1F310}", t:"Syst\\u00e9mique (Condette) :", v:"L'\\u00e9tablissement est un \\u00e9cosyst\\u00e8me vivant. Le CPE est l'architecte, les AED sont les piliers porteurs."},
+  {icon:"⚙️", t:"Architecture du choix :", v:"Le Super-Hub ne moralise pas \— il rend la bienveillance plus rentable que l'incivilit\é. C'est du game design au service de l'\éducation."},
+  {icon:"🧪", t:"\Étayage transitionnel (Favre) :", v:"L'XP amorce. L'ocytocine prend le relais. La r\écompense extrins\èque c\ède \à la motivation intrins\èque."},
+  {icon:"⚖️", t:"Autorit\é r\éparatrice (Prairat) :", v:"La sanction n'est pas une fin \— c'est un tremplin. La Qu\ête de R\édemption r\éint\ègre au lieu d'exclure."},
+  {icon:"🌐", t:"Syst\émique (Condette) :", v:"L'\établissement est un \écosyst\ème vivant. Le CPE est l'architecte, les AED sont les piliers porteurs."},
 ];
 
 
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Ing\u00e9nierie de la Bienveillance \u00B7 Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Ingénierie de la Bienveillance · Module 1/5'),
     e('h1',null,"Pourquoi le Super-Hub fonctionne"),
-    e('p',{className:'quote'},'"'+"On ne demande plus aux \\u00e9l\\u00e8ves d'\\u00eatre bons \\u2014 on cr\\u00e9e une architecture o\\u00f9 la bienveillance est la strat\\u00e9gie la plus logique."+'" \u2014 Projet Super-Hub, d\\u2019apr\\u00e8s Condette/Prairat/Favre'),
-    e('p',null,"Le Super-Hub n'est pas un gadget num\\u00e9rique avec des points. C'est un \\u00e9cosyst\\u00e8me con\\u00e7u pour que la coop\\u00e9ration, la m\\u00e9diation et la bienveillance soient les strat\\u00e9gies les plus rentables \\u2014 pas les plus morales, les plus logiques."),
-    e('p',null,"Comprendre pourquoi il fonctionne (neurobiologie de Favre, \\u00e9thique de Prairat, syst\\u00e9mique de Condette) vous permet de l'expliquer aux \\u00e9l\\u00e8ves, de rep\\u00e9rer quand il d\\u00e9raille, et de proposer des ajustements. Vous n'\\u00eates pas des ex\\u00e9cutants \\u2014 vous \\u00eates des co-architectes."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Sylvie Condette, M\\u00e9diation scolaire \\u2014 Eirick Prairat, La sanction en \\u00e9ducation \\u2014 Daniel Favre, Cessons de d\\u00e9motiver les \\u00e9l\\u00e8ves"),
+    e('p',{className:'quote'},'"'+"On ne demande plus aux \él\èves d'\être bons \— on cr\ée une architecture o\ù la bienveillance est la strat\égie la plus logique."+'" — Projet Super-Hub, d\’apr\ès Condette/Prairat/Favre'),
+    e('p',null,"Le Super-Hub n'est pas un gadget num\érique avec des points. C'est un \écosyst\ème con\çu pour que la coop\ération, la m\édiation et la bienveillance soient les strat\égies les plus rentables \— pas les plus morales, les plus logiques."),
+    e('p',null,"Comprendre pourquoi il fonctionne (neurobiologie de Favre, \éthique de Prairat, syst\émique de Condette) vous permet de l'expliquer aux \él\èves, de rep\érer quand il d\éraille, et de proposer des ajustements. Vous n'\êtes pas des ex\écutants \— vous \êtes des co-architectes."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Sylvie Condette, M\édiation scolaire \— Eirick Prairat, La sanction en \éducation \— Daniel Favre, Cessons de d\émotiver les \él\èves"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),
+      e('div',{className:'xp-badge'},'⚡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Syst\u00e9mique'),e('div',{className:'comp-earn'},'+Compr\u00e9hension'),
+      e('div',{className:'comp-earn'},'+Systémique'),e('div',{className:'comp-earn'},'+Compréhension'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u2699\uFE0F'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'⚙️'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Syst\u00e9mique'),e('div',{className:'comp-earn'},'+1 Compr\u00e9hension'),
+      e('div',{className:'xp-badge'},'⚡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Systémique'),e('div',{className:'comp-earn'},'+1 Compréhension'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

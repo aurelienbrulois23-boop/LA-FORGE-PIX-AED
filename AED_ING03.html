@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_ING03 \u2014 Qu\u00eates de R\u00e9demption : la sanction \u00e9ducative</title>
+<title>LA FORGE | AED_ING03 — Quêtes de Rédemption : la sanction éducative</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "L\\u00e9o (5\\u00e8me) a d\\u00e9grad\\u00e9 un banc de la cour en gravant dessus. Le CPE lui a retir\\u00e9 des XP (Shadow XP) et vous demande de lui proposer une Qu\\u00eate de R\\u00e9demption.",
-    q: "Quelle qu\\u00eate proposez-vous ?",
+    ctx: "L\éo (5\ème) a d\égrad\é un banc de la cour en gravant dessus. Le CPE lui a retir\é des XP (Shadow XP) et vous demande de lui proposer une Qu\ête de R\édemption.",
+    q: "Quelle qu\ête proposez-vous ?",
     options: [
       {
-        label: "R\\u00e9paration li\\u00e9e + sens",
-        text: "\\u00abL\\u00e9o, tu as ab\\u00eem\\u00e9 le banc. Ta qu\\u00eate, c\\u2019est de participer \\u00e0 la r\\u00e9paration avec l\\u2019agent technique \\u2014 pon\\u00e7age et remise en \\u00e9tat. Et apr\\u00e8s, tu pr\\u00e9sentes aux 6\\u00e8me pourquoi on respecte les espaces communs. Tu r\\u00e9pares l\\u2019objet ET tu transmets la le\\u00e7on.\\u00bb",
+        label: "R\éparation li\ée + sens",
+        text: "\«L\éo, tu as ab\îm\é le banc. Ta qu\ête, c\’est de participer \à la r\éparation avec l\’agent technique \— pon\çage et remise en \état. Et apr\ès, tu pr\ésentes aux 6\ème pourquoi on respecte les espaces communs. Tu r\épares l\’objet ET tu transmets la le\çon.\»",
         score: 3,
-        fb: "Trois fonctions de la sanction selon Prairat respect\\u00e9es : r\\u00e9paratrice (pon\\u00e7age), signifiante (comprendre l\\u2019impact), r\\u00e9int\\u00e9gratrice (transmettre aux 6\\u00e8me = redevenir acteur positif). L\\u00e9o sort de la qu\\u00eate avec des XP r\\u00e9cup\\u00e9r\\u00e9s ET un r\\u00f4le valorisant.",
+        fb: "Trois fonctions de la sanction selon Prairat respect\ées : r\éparatrice (pon\çage), signifiante (comprendre l\’impact), r\éint\égratrice (transmettre aux 6\ème = redevenir acteur positif). L\éo sort de la qu\ête avec des XP r\écup\ér\és ET un r\ôle valorisant.",
         good: true
       },
       {
         label: "Punition classique",
-        text: "\\u00abTu copies 50 fois \\u2018Je ne d\\u00e9grade pas le mobilier\\u2019.\\u00bb",
+        text: "\«Tu copies 50 fois \‘Je ne d\égrade pas le mobilier\’.\»",
         score: 0,
-        fb: "La copie de lignes n\\u2019est ni r\\u00e9paratrice (le banc est toujours ab\\u00eem\\u00e9), ni signifiante (aucun apprentissage), ni r\\u00e9int\\u00e9gratrice (L\\u00e9o est juste puni). C\\u2019est du b\\u00e9haviorisme punitif pur \\u2014 exactement ce que le Super-Hub est con\\u00e7u pour d\\u00e9passer.",
+        fb: "La copie de lignes n\’est ni r\éparatrice (le banc est toujours ab\îm\é), ni signifiante (aucun apprentissage), ni r\éint\égratrice (L\éo est juste puni). C\’est du b\éhaviorisme punitif pur \— exactement ce que le Super-Hub est con\çu pour d\épasser.",
         good: false
       },
       {
-        label: "Qu\\u00eate d\\u00e9connect\\u00e9e",
-        text: "\\u00abTu aides \\u00e0 la biblioth\\u00e8que pendant 2h.\\u00bb",
+        label: "Qu\ête d\éconnect\ée",
+        text: "\«Tu aides \à la biblioth\èque pendant 2h.\»",
         score: 1,
-        fb: "L\\u2019action est positive mais sans lien avec la faute. L\\u00e9o ne comprend pas le rapport entre d\\u00e9grader un banc et ranger des livres. La force de la Qu\\u00eate de R\\u00e9demption est dans le lien direct acte \\u2192 r\\u00e9paration \\u2192 transmission.",
+        fb: "L\’action est positive mais sans lien avec la faute. L\éo ne comprend pas le rapport entre d\égrader un banc et ranger des livres. La force de la Qu\ête de R\édemption est dans le lien direct acte \→ r\éparation \→ transmission.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un \\u00e9l\\u00e8ve refuse la Qu\\u00eate de R\\u00e9demption : \\u00abJ\\u2019en ai rien \\u00e0 faire de vos points. C\\u2019est nul votre truc.\\u00bb",
-    q: "Comment r\\u00e9agissez-vous ?",
+    ctx: "Un \él\ève refuse la Qu\ête de R\édemption : \«J\’en ai rien \à faire de vos points. C\’est nul votre truc.\»",
+    q: "Comment r\éagissez-vous ?",
     options: [
       {
         label: "Accueillir le refus + laisser la porte ouverte",
-        text: "\\u00abOK, tu n\\u2019es pas oblig\\u00e9. La proposition reste ouverte si tu changes d\\u2019avis. En attendant, les points restent retir\\u00e9s.\\u00bb Je ne force pas. Le syst\\u00e8me fonctionne parce qu\\u2019il est choisi, pas impos\\u00e9.",
+        text: "\«OK, tu n\’es pas oblig\é. La proposition reste ouverte si tu changes d\’avis. En attendant, les points restent retir\és.\» Je ne force pas. Le syst\ème fonctionne parce qu\’il est choisi, pas impos\é.",
         score: 3,
-        fb: "Forcer une Qu\\u00eate de R\\u00e9demption la transforme en punition \\u2014 exactement ce qu\\u2019elle n\\u2019est pas. Laisser la porte ouverte respecte l\\u2019autonomie de l\\u2019\\u00e9l\\u00e8ve (SDT) et maintient la cr\\u00e9dibilit\\u00e9 du syst\\u00e8me. Souvent, l\\u2019\\u00e9l\\u00e8ve revient quand il voit les autres r\\u00e9cup\\u00e9rer leurs points.",
+        fb: "Forcer une Qu\ête de R\édemption la transforme en punition \— exactement ce qu\’elle n\’est pas. Laisser la porte ouverte respecte l\’autonomie de l\’\él\ève (SDT) et maintient la cr\édibilit\é du syst\ème. Souvent, l\’\él\ève revient quand il voit les autres r\écup\érer leurs points.",
         good: true
       },
       {
         label: "Forcer",
-        text: "\\u00abC\\u2019est pas n\\u00e9gociable. Tu fais la qu\\u00eate ou c\\u2019est sanction classique.\\u00bb",
+        text: "\«C\’est pas n\égociable. Tu fais la qu\ête ou c\’est sanction classique.\»",
         score: 0,
-        fb: "La coercition d\\u00e9truit le m\\u00e9canisme. Si la qu\\u00eate est oblig\\u00e9e, c\\u2019est une punition d\\u00e9guis\\u00e9e. L\\u2019\\u00e9l\\u00e8ve doit sentir qu\\u2019il choisit de r\\u00e9parer.",
+        fb: "La coercition d\étruit le m\écanisme. Si la qu\ête est oblig\ée, c\’est une punition d\éguis\ée. L\’\él\ève doit sentir qu\’il choisit de r\éparer.",
         good: false
       },
       {
-        label: "Surench\\u00e9rir",
-        text: "\\u00abAh oui ? Eh bien les points en moins seront doubl\\u00e9s.\\u00bb",
+        label: "Surench\érir",
+        text: "\«Ah oui ? Eh bien les points en moins seront doubl\és.\»",
         score: 0,
-        fb: "L\\u2019escalade punitive est l\\u2019inverse de l\\u2019approche \\u00e9ducative. Doubler la peine face \\u00e0 un refus, c\\u2019est entrer dans un rapport de force que l\\u2019adulte finit toujours par perdre \\u00e0 moyen terme.",
+        fb: "L\’escalade punitive est l\’inverse de l\’approche \éducative. Doubler la peine face \à un refus, c\’est entrer dans un rapport de force que l\’adulte finit toujours par perdre \à moyen terme.",
         good: false
       },
     ]
   },
   {
-    ctx: "En r\\u00e9union d\\u2019\\u00e9quipe, un enseignant dit : \\u00abLes Qu\\u00eates de R\\u00e9demption, c\\u2019est laxiste. Une punition, \\u00e7a doit faire mal, sinon \\u00e7a ne sert \\u00e0 rien.\\u00bb",
-    q: "Que r\\u00e9pondez-vous ?",
+    ctx: "En r\éunion d\’\équipe, un enseignant dit : \«Les Qu\êtes de R\édemption, c\’est laxiste. Une punition, \ça doit faire mal, sinon \ça ne sert \à rien.\»",
+    q: "Que r\épondez-vous ?",
     options: [
       {
         label: "Argument Prairat",
-        text: "\\u00abPrairat montre que la punition qui \\u2018fait mal\\u2019 sans r\\u00e9parer produit de la soumission ou de la r\\u00e9volte \\u2014 jamais de la compr\\u00e9hension. La Qu\\u00eate de R\\u00e9demption est plus exigeante qu\\u2019une colle : l\\u2019\\u00e9l\\u00e8ve doit agir, r\\u00e9parer, et transmettre. C\\u2019est plus dur que de s\\u2019asseoir 2h \\u00e0 ne rien faire.\\u00bb",
+        text: "\«Prairat montre que la punition qui \‘fait mal\’ sans r\éparer produit de la soumission ou de la r\évolte \— jamais de la compr\éhension. La Qu\ête de R\édemption est plus exigeante qu\’une colle : l\’\él\ève doit agir, r\éparer, et transmettre. C\’est plus dur que de s\’asseoir 2h \à ne rien faire.\»",
         score: 3,
-        fb: "L\\u2019argument retourne la perception : la qu\\u00eate n\\u2019est pas laxiste \\u2014 elle est plus exigeante. Une heure de colle demande de la passivit\\u00e9. Une qu\\u00eate demande de l\\u2019action, de la r\\u00e9flexion et du courage social. C\\u2019est l\\u2019inverse du laxisme.",
+        fb: "L\’argument retourne la perception : la qu\ête n\’est pas laxiste \— elle est plus exigeante. Une heure de colle demande de la passivit\é. Une qu\ête demande de l\’action, de la r\éflexion et du courage social. C\’est l\’inverse du laxisme.",
         good: true
       },
       {
-        label: "\\u00c9viter le d\\u00e9bat",
-        text: "\\u00abChacun sa m\\u00e9thode.\\u00bb",
+        label: "\Éviter le d\ébat",
+        text: "\«Chacun sa m\éthode.\»",
         score: 0,
-        fb: "Laisser la critique sans r\\u00e9ponse affaiblit le dispositif aupr\\u00e8s de l\\u2019\\u00e9quipe. Savoir d\\u00e9fendre le mod\\u00e8le sur le fond est une comp\\u00e9tence professionnelle.",
+        fb: "Laisser la critique sans r\éponse affaiblit le dispositif aupr\ès de l\’\équipe. Savoir d\éfendre le mod\èle sur le fond est une comp\étence professionnelle.",
         good: false
       },
       {
-        label: "Argument \\u00e9motionnel",
-        text: "\\u00abMais les \\u00e9l\\u00e8ves adorent le syst\\u00e8me !\\u00bb",
+        label: "Argument \émotionnel",
+        text: "\«Mais les \él\èves adorent le syst\ème !\»",
         score: 1,
-        fb: "\\u00abIls adorent\\u00bb ne r\\u00e9pond pas \\u00e0 \\u00abc\\u2019est laxiste\\u00bb. L\\u2019objection est \\u00e9thique, pas pragmatique. R\\u00e9pondre avec Prairat est plus convaincant.",
+        fb: "\«Ils adorent\» ne r\épond pas \à \«c\’est laxiste\». L\’objection est \éthique, pas pragmatique. R\épondre avec Prairat est plus convaincant.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u2696\uFE0F", t:"Trois fonctions (Prairat) :", v:"R\\u00e9paratrice, signifiante, r\\u00e9int\\u00e9gratrice. Si la sanction ne remplit pas ces trois fonctions, elle est morte."},
-  {icon:"\u{1F504}", t:"Qu\\u00eate de R\\u00e9demption :", v:"Retrait XP + action prosociale li\\u00e9e \\u00e0 la faute + r\\u00f4le valorisant. Plus exigeant qu\\u2019une colle."},
-  {icon:"\u{1F5DD}", t:"Le choix :", v:"La qu\\u00eate est propos\\u00e9e, jamais impos\\u00e9e. Forcer, c\\u2019est transformer la r\\u00e9paration en punition."},
-  {icon:"\u{1F4AA}", t:"D\\u00e9fendre le mod\\u00e8le :", v:"Savoir r\\u00e9pondre \\u00e0 \\u00abc\\u2019est laxiste\\u00bb avec Prairat est une comp\\u00e9tence professionnelle."},
+  {icon:"⚖️", t:"Trois fonctions (Prairat) :", v:"R\éparatrice, signifiante, r\éint\égratrice. Si la sanction ne remplit pas ces trois fonctions, elle est morte."},
+  {icon:"🔄", t:"Qu\ête de R\édemption :", v:"Retrait XP + action prosociale li\ée \à la faute + r\ôle valorisant. Plus exigeant qu\’une colle."},
+  {icon:"🗝", t:"Le choix :", v:"La qu\ête est propos\ée, jamais impos\ée. Forcer, c\’est transformer la r\éparation en punition."},
+  {icon:"💪", t:"D\éfendre le mod\èle :", v:"Savoir r\épondre \à \«c\’est laxiste\» avec Prairat est une comp\étence professionnelle."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Qu\\u00eates de R\\u00e9demption : la sanction \\u00e9ducative',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Qu\êtes de R\édemption : la sanction \éducative',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Ing\u00e9nierie de la Bienveillance \u00B7 Module 1/5'),
-    e('h1',null,"Qu\\u00eates de R\\u00e9demption : la sanction \\u00e9ducative"),
-    e('p',{className:'quote'},'"'+"Une sanction qui exclut sans r\\u00e9int\\u00e9grer n\\u2019est pas une sanction \\u2014 c\\u2019est un abandon."+'" \u2014 Eirick Prairat'),
-    e('p',null,"Dans le Super-Hub, une incivilit\\u00e9 ne d\\u00e9clenche pas une punition morte (heures de colle vides) mais un retrait de points discret (Shadow XP) suivi d\\u2019une Qu\\u00eate de R\\u00e9demption : une action prosociale concr\\u00e8te qui permet de r\\u00e9cup\\u00e9rer ses points."),
-    e('p',null,"Derri\\u00e8re cette m\\u00e9canique, il y a l\\u2019\\u00e9thique de Prairat : la sanction juste est r\\u00e9paratrice (elle r\\u00e9pare le lien cass\\u00e9), signifiante (l\\u2019\\u00e9l\\u00e8ve comprend pourquoi) et r\\u00e9int\\u00e9gratrice (elle ram\\u00e8ne l\\u2019\\u00e9l\\u00e8ve dans le groupe). L\\u2019AED est souvent celui qui propose et accompagne ces qu\\u00eates."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Eirick Prairat, La sanction en \\u00e9ducation \\u2014 Condette, Climat scolaire \\u2014 Design du Super-Hub"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Ingénierie de la Bienveillance · Module 1/5'),
+    e('h1',null,"Qu\êtes de R\édemption : la sanction \éducative"),
+    e('p',{className:'quote'},'"'+"Une sanction qui exclut sans r\éint\égrer n\’est pas une sanction \— c\’est un abandon."+'" — Eirick Prairat'),
+    e('p',null,"Dans le Super-Hub, une incivilit\é ne d\éclenche pas une punition morte (heures de colle vides) mais un retrait de points discret (Shadow XP) suivi d\’une Qu\ête de R\édemption : une action prosociale concr\ète qui permet de r\écup\érer ses points."),
+    e('p',null,"Derri\ère cette m\écanique, il y a l\’\éthique de Prairat : la sanction juste est r\éparatrice (elle r\épare le lien cass\é), signifiante (l\’\él\ève comprend pourquoi) et r\éint\égratrice (elle ram\ène l\’\él\ève dans le groupe). L\’AED est souvent celui qui propose et accompagne ces qu\êtes."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Eirick Prairat, La sanction en \éducation \— Condette, Climat scolaire \— Design du Super-Hub"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +100 XP'),
+      e('div',{className:'xp-badge'},'⚡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Posture'),e('div',{className:'comp-earn'},'+\u00c9thique'),
+      e('div',{className:'comp-earn'},'+Posture'),e('div',{className:'comp-earn'},'+Éthique'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u2696\uFE0F'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'⚖️'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Posture'),e('div',{className:'comp-earn'},'+1 \u00c9thique'),
+      e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Posture'),e('div',{className:'comp-earn'},'+1 Éthique'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_DET03 \u2014 D\u00e9crochage : rep\u00e9rer avant la chute</title>
+<title>LA FORGE | AED_DET03 — Décrochage : repérer avant la chute</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Depuis 10 jours, vous remarquez que Sofiane (4\\u00e8me) arrive syst\\u00e9matiquement 10-15 minutes en retard, ne mange plus \\u00e0 la cantine, et dort en \\u00e9tude.",
+    ctx: "Depuis 10 jours, vous remarquez que Sofiane (4\ème) arrive syst\ématiquement 10-15 minutes en retard, ne mange plus \à la cantine, et dort en \étude.",
     q: "Quelle est votre analyse et votre action ?",
     options: [
       {
-        label: "Cumul de signaux \\u2192 transmission",
-        text: "Trois signaux cumul\\u00e9s (retards r\\u00e9p\\u00e9t\\u00e9s, \\u00e9vitement cantine, fatigue) sur 10 jours = pattern de d\\u00e9crochage. Je note les dates et les faits, je transmets au CPE : \\u00abSofiane pr\\u00e9sente ces signaux depuis 10 jours. \\u00c0 v\\u00e9rifier.\\u00bb En parall\\u00e8le, un geste de lien discret : \\u00abSofiane, \\u00e7a va en ce moment ?\\u00bb",
+        label: "Cumul de signaux \→ transmission",
+        text: "Trois signaux cumul\és (retards r\ép\ét\és, \évitement cantine, fatigue) sur 10 jours = pattern de d\écrochage. Je note les dates et les faits, je transmets au CPE : \«Sofiane pr\ésente ces signaux depuis 10 jours. \À v\érifier.\» En parall\èle, un geste de lien discret : \«Sofiane, \ça va en ce moment ?\»",
         score: 3,
-        fb: "Le d\\u00e9crochage se lit par accumulation de signaux faibles, pas par un \\u00e9v\\u00e9nement unique. Retards + \\u00e9vitement social + fatigue = triade classique. L\\u2019AED documente et transmet \\u2014 c\\u2019est le CPE qui croisera avec l\\u2019absent\\u00e9isme, les notes, les retours enseignants.",
+        fb: "Le d\écrochage se lit par accumulation de signaux faibles, pas par un \év\énement unique. Retards + \évitement social + fatigue = triade classique. L\’AED documente et transmet \— c\’est le CPE qui croisera avec l\’absent\éisme, les notes, les retours enseignants.",
         good: true
       },
       {
-        label: "Un signal isol\\u00e9",
-        text: "Les retards c\\u2019est fr\\u00e9quent en 4\\u00e8me, j\\u2019attends de voir si \\u00e7a dure.",
+        label: "Un signal isol\é",
+        text: "Les retards c\’est fr\équent en 4\ème, j\’attends de voir si \ça dure.",
         score: 0,
-        fb: "Ce n\\u2019est pas un signal isol\\u00e9 \\u2014 c\\u2019est trois signaux cumul\\u00e9s sur 10 jours. Attendre, c\\u2019est laisser le d\\u00e9crochage se consolider. La fen\\u00eatre d\\u2019intervention se r\\u00e9duit chaque semaine.",
+        fb: "Ce n\’est pas un signal isol\é \— c\’est trois signaux cumul\és sur 10 jours. Attendre, c\’est laisser le d\écrochage se consolider. La fen\être d\’intervention se r\éduit chaque semaine.",
         good: false
       },
       {
         label: "Confronter",
-        text: "\\u00abSofiane, t\\u2019es tout le temps en retard, tu manges pas, tu dors \\u2014 c\\u2019est quoi le probl\\u00e8me ?\\u00bb",
+        text: "\«Sofiane, t\’es tout le temps en retard, tu manges pas, tu dors \— c\’est quoi le probl\ème ?\»",
         score: 1,
-        fb: "L\\u2019\\u00e9num\\u00e9ration des manquements en face-\\u00e0-face peut \\u00eatre v\\u00e9cue comme une accusation. Un geste de lien discret (\\u00ab\\u00e7a va en ce moment ?\\u00bb) ouvre la porte sans la forcer.",
+        fb: "L\’\énum\ération des manquements en face-\à-face peut \être v\écue comme une accusation. Un geste de lien discret (\«\ça va en ce moment ?\») ouvre la porte sans la forcer.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le CPE v\\u00e9rifie : Sofiane a aussi des absences perl\\u00e9es (1-2h par-ci par-l\\u00e0) non justifi\\u00e9es. Il vous demande de rester vigilant.",
-    q: "Qu\\u2019observez-vous en priorit\\u00e9 ?",
+    ctx: "Le CPE v\érifie : Sofiane a aussi des absences perl\ées (1-2h par-ci par-l\à) non justifi\ées. Il vous demande de rester vigilant.",
+    q: "Qu\’observez-vous en priorit\é ?",
     options: [
       {
         label: "Mapping relationnel",
-        text: "J\\u2019observe avec qui Sofiane tra\\u00eene, s\\u2019il a encore des liens stables, si son groupe a chang\\u00e9, s\\u2019il est cibl\\u00e9 par d\\u2019autres \\u00e9l\\u00e8ves, s\\u2019il para\\u00eet plus \\u00e2g\\u00e9 que son \\u00e2ge (fr\\u00e9quentation ext\\u00e9rieure ?). Le lien social est le meilleur pr\\u00e9dicteur du maintien scolaire.",
+        text: "J\’observe avec qui Sofiane tra\îne, s\’il a encore des liens stables, si son groupe a chang\é, s\’il est cibl\é par d\’autres \él\èves, s\’il para\ît plus \âg\é que son \âge (fr\équentation ext\érieure ?). Le lien social est le meilleur pr\édicteur du maintien scolaire.",
         score: 3,
-        fb: "Le d\\u00e9crochage est presque toujours pr\\u00e9c\\u00e9d\\u00e9 d\\u2019une rupture des liens sociaux scolaires. Si Sofiane s\\u2019est d\\u00e9tach\\u00e9 de ses pairs du coll\\u00e8ge pour tra\\u00eener avec un groupe ext\\u00e9rieur plus \\u00e2g\\u00e9, c\\u2019est un signal d\\u2019alerte majeur.",
+        fb: "Le d\écrochage est presque toujours pr\éc\éd\é d\’une rupture des liens sociaux scolaires. Si Sofiane s\’est d\étach\é de ses pairs du coll\ège pour tra\îner avec un groupe ext\érieur plus \âg\é, c\’est un signal d\’alerte majeur.",
         good: true
       },
       {
         label: "Notes et devoirs",
-        text: "Je regarde s\\u2019il fait ses devoirs en \\u00e9tude.",
+        text: "Je regarde s\’il fait ses devoirs en \étude.",
         score: 1,
-        fb: "Les devoirs sont un indicateur, mais indirect. Le lien social est plus pr\\u00e9dictif : un \\u00e9l\\u00e8ve qui a des amis au coll\\u00e8ge d\\u00e9croche beaucoup moins, m\\u00eame avec des mauvaises notes.",
+        fb: "Les devoirs sont un indicateur, mais indirect. Le lien social est plus pr\édictif : un \él\ève qui a des amis au coll\ège d\écroche beaucoup moins, m\ême avec des mauvaises notes.",
         good: false
       },
       {
-        label: "T\\u00e9l\\u00e9phone",
-        text: "Je v\\u00e9rifie s\\u2019il utilise son t\\u00e9l\\u00e9phone en cour.",
+        label: "T\él\éphone",
+        text: "Je v\érifie s\’il utilise son t\él\éphone en cour.",
         score: 0,
-        fb: "Tous les ados utilisent leur t\\u00e9l\\u00e9phone. Ce n\\u2019est pas un indicateur sp\\u00e9cifique du d\\u00e9crochage.",
+        fb: "Tous les ados utilisent leur t\él\éphone. Ce n\’est pas un indicateur sp\écifique du d\écrochage.",
         good: false
       },
     ]
   },
   {
-    ctx: "Deux semaines plus tard, Sofiane est absent trois jours cons\\u00e9cutifs. Quand il revient, il a un comportement diff\\u00e9rent : agit\\u00e9, provoquant, \\u00abje m\\u2019en fous de ce coll\\u00e8ge\\u00bb.",
-    q: "Comment interpr\\u00e9tez-vous ce changement ?",
+    ctx: "Deux semaines plus tard, Sofiane est absent trois jours cons\écutifs. Quand il revient, il a un comportement diff\érent : agit\é, provoquant, \«je m\’en fous de ce coll\ège\».",
+    q: "Comment interpr\étez-vous ce changement ?",
     options: [
       {
-        label: "Signal de d\\u00e9tresse, pas de r\\u00e9bellion",
-        text: "Le passage du retrait \\u00e0 la provocation est souvent le dernier signal avant le d\\u00e9crochage total. Ce n\\u2019est pas de la r\\u00e9bellion \\u2014 c\\u2019est de la d\\u00e9tresse qui change de canal. Je transmets au CPE : \\u00abChangement de registre : du retrait \\u00e0 la provocation. Urgence accrue.\\u00bb",
+        label: "Signal de d\étresse, pas de r\ébellion",
+        text: "Le passage du retrait \à la provocation est souvent le dernier signal avant le d\écrochage total. Ce n\’est pas de la r\ébellion \— c\’est de la d\étresse qui change de canal. Je transmets au CPE : \«Changement de registre : du retrait \à la provocation. Urgence accrue.\»",
         score: 3,
-        fb: "Le basculement retrait \\u2192 provocation est un classique du d\\u00e9crochage avanc\\u00e9. L\\u2019\\u00e9l\\u00e8ve tente de se faire exclure (\\u00e7a r\\u00e9sout son probl\\u00e8me : il ne vient plus). Lire \\u00e7a comme de la d\\u00e9tresse et non comme de l\\u2019insolence change totalement la r\\u00e9ponse.",
+        fb: "Le basculement retrait \→ provocation est un classique du d\écrochage avanc\é. L\’\él\ève tente de se faire exclure (\ça r\ésout son probl\ème : il ne vient plus). Lire \ça comme de la d\étresse et non comme de l\’insolence change totalement la r\éponse.",
         good: true
       },
       {
         label: "Insolence classique",
-        text: "\\u00abIl fait sa crise d\\u2019ado. \\u00c7a lui passera.\\u00bb",
+        text: "\«Il fait sa crise d\’ado. \Ça lui passera.\»",
         score: 0,
-        fb: "Ce n\\u2019est pas une crise d\\u2019ado \\u2014 c\\u2019est la derni\\u00e8re \\u00e9tape avant la d\\u00e9scolarisation. Le d\\u00e9ni est le pire ennemi de la d\\u00e9tection.",
+        fb: "Ce n\’est pas une crise d\’ado \— c\’est la derni\ère \étape avant la d\éscolarisation. Le d\éni est le pire ennemi de la d\étection.",
         good: false
       },
       {
         label: "Sanctionner",
-        text: "\\u00abApr\\u00e8s 3 jours d\\u2019absence et de la provocation, c\\u2019est carnet.\\u00bb",
+        text: "\«Apr\ès 3 jours d\’absence et de la provocation, c\’est carnet.\»",
         score: 1,
-        fb: "La sanction peut \\u00eatre n\\u00e9cessaire sur le comportement, mais si elle est la SEULE r\\u00e9ponse, elle ach\\u00e8ve le processus de d\\u00e9crochage. L\\u2019\\u00e9l\\u00e8ve cherche \\u00e0 \\u00eatre exclu \\u2014 le sanctionner sans accompagnement, c\\u2019est lui donner ce qu\\u2019il veut.",
+        fb: "La sanction peut \être n\écessaire sur le comportement, mais si elle est la SEULE r\éponse, elle ach\ève le processus de d\écrochage. L\’\él\ève cherche \à \être exclu \— le sanctionner sans accompagnement, c\’est lui donner ce qu\’il veut.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u{1F4C9}", t:"Triade du d\\u00e9crochage :", v:"Retards + \\u00e9vitement social + fatigue. Trois signaux cumul\\u00e9s = transmission au CPE."},
-  {icon:"\u{1F465}", t:"Lien social :", v:"Le meilleur pr\\u00e9dicteur du maintien scolaire est la qualit\\u00e9 des liens avec les pairs. Observer avec qui il tra\\u00eene."},
-  {icon:"\u{1F504}", t:"Retrait \\u2192 provocation :", v:"Le passage du silence \\u00e0 la provocation n\\u2019est pas de la r\\u00e9bellion \\u2014 c\\u2019est de la d\\u00e9tresse qui change de canal."},
-  {icon:"\u23F0", t:"Fen\\u00eatre :", v:"3 semaines entre les premiers signaux et le d\\u00e9crochage effectif. Chaque jour compt\\u00e9."},
+  {icon:"📉", t:"Triade du d\écrochage :", v:"Retards + \évitement social + fatigue. Trois signaux cumul\és = transmission au CPE."},
+  {icon:"👥", t:"Lien social :", v:"Le meilleur pr\édicteur du maintien scolaire est la qualit\é des liens avec les pairs. Observer avec qui il tra\îne."},
+  {icon:"🔄", t:"Retrait \→ provocation :", v:"Le passage du silence \à la provocation n\’est pas de la r\ébellion \— c\’est de la d\étresse qui change de canal."},
+  {icon:"⏰", t:"Fen\être :", v:"3 semaines entre les premiers signaux et le d\écrochage effectif. Chaque jour compt\é."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : D\\u00e9crochage : rep\\u00e9rer avant la chute',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : D\écrochage : rep\érer avant la chute',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'D\u00e9tection & Signaux Faibles \u00B7 Module 1/5'),
-    e('h1',null,"D\\u00e9crochage : rep\\u00e9rer avant la chute"),
-    e('p',{className:'quote'},'"'+"Le d\\u00e9crocheur ne claque pas la porte. Il s\\u2019\\u00e9loigne silencieusement."+'" \u2014 Catherine Blaya'),
-    e('p',null,"Le d\\u00e9crochage scolaire ne commence pas le jour o\\u00f9 l\\u2019\\u00e9l\\u00e8ve arr\\u00eate de venir. Il commence des semaines avant : absences perlées, retards r\\u00e9p\\u00e9t\\u00e9s, d\\u00e9sinvestissement progressif, rupture avec les pairs, changement d\\u2019apparence, sommeil en cours."),
-    e('p',null,"L\\u2019AED voit ces signaux avant tout le monde \\u2014 parce qu\\u2019il est \\u00e0 l\\u2019entr\\u00e9e, \\u00e0 la cantine, \\u00e0 l\\u2019\\u00e9tude. Rep\\u00e9rer un d\\u00e9crocheur potentiel 3 semaines avant le d\\u00e9crochage effectif, c\\u2019est tripler les chances de raccrochage."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Catherine Blaya, D\\u00e9crochage scolaire \\u2014 DEPP, Rep\\u00e8res et indicateurs \\u2014 Circulaire pers\\u00e9v\\u00e9rance scolaire 2023"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Détection & Signaux Faibles · Module 1/5'),
+    e('h1',null,"D\écrochage : rep\érer avant la chute"),
+    e('p',{className:'quote'},'"'+"Le d\écrocheur ne claque pas la porte. Il s\’\éloigne silencieusement."+'" — Catherine Blaya'),
+    e('p',null,"Le d\écrochage scolaire ne commence pas le jour o\ù l\’\él\ève arr\ête de venir. Il commence des semaines avant : absences perlées, retards r\ép\ét\és, d\ésinvestissement progressif, rupture avec les pairs, changement d\’apparence, sommeil en cours."),
+    e('p',null,"L\’AED voit ces signaux avant tout le monde \— parce qu\’il est \à l\’entr\ée, \à la cantine, \à l\’\étude. Rep\érer un d\écrocheur potentiel 3 semaines avant le d\écrochage effectif, c\’est tripler les chances de raccrochage."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Catherine Blaya, D\écrochage scolaire \— DEPP, Rep\ères et indicateurs \— Circulaire pers\év\érance scolaire 2023"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +100 XP'),
+      e('div',{className:'xp-badge'},'⚡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+D\u00e9tection'),e('div',{className:'comp-earn'},'+Transmission'),
+      e('div',{className:'comp-earn'},'+Détection'),e('div',{className:'comp-earn'},'+Transmission'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u{1F4C9}'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'📉'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 D\u00e9tection'),e('div',{className:'comp-earn'},'+1 Transmission'),
+      e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Détection'),e('div',{className:'comp-earn'},'+1 Transmission'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

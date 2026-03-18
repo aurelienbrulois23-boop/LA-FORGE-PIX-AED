@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU03 — Ma propre régulation face à la provocation</title>
+<title>LA FORGE | AED_POS04 — Repérer et transmettre : la chaîne de signalement</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-:root{--bg:#0c0f14;--acc:#10b981;--acc-d:#047857;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
+:root{--bg:#0c0f14;--acc:#3b82f6;--acc-d:#1d4ed8;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.06) 0%,transparent 55%)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,.06) 0%,transparent 55%)}
 #root{width:100%;max-width:820px;position:relative;z-index:1}
 .card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
 .card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
@@ -47,88 +47,88 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 <body><div id="root"></div>
 <script>
 var e = React.createElement;
-var MODULE_ID = 'AED_NEU03';
-var CERT_KEY  = 'CERT_AED_AED_NEU03';
+var MODULE_ID = 'AED_POS04';
+var CERT_KEY  = 'CERT_AED_AED_POS04';
 var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \él\ève de 3\ème vous dit, devant ses copains : \«De toute fa\çon t\’es qu\’un pion, t\’as m\ême pas le bac.\» Les autres rient.",
-    q: "Premi\ère r\éaction : que se passe-t-il en vous ?",
+    ctx: "Un \él\ève de 6\ème arrive avec un \œil au beurre noir. Quand vous lui demandez ce qui s\’est pass\é, il dit : \«Je suis tomb\é dans l\’escalier.\» Il \évite votre regard.",
+    q: "Quel niveau de signalement activez-vous ?",
     options: [
       {
-        label: "Reconna\ître le signal + ne pas r\éagir \à chaud",
-        text: "Je sens la mont\ée (chaleur, tension). Je la reconnais : c\’est mon \égo qui r\éagit, pas ma fonction. Je respire une seconde, puis : \«T\’as le droit de penser ce que tu veux de mon poste. Mais l\à, maintenant, c\’est moi qui g\ère cette cour \— et c\’est \ça qui compte.\»",
+        label: "Signalement rapide au CPE",
+        text: "Blessure visible + explication peu coh\érente + \évitement du regard = suspicion l\égitime. Je ne joue pas au d\étective. Je note les faits (date, heure, blessure observ\ée, r\éponse de l\’\él\ève mot pour mot) et je transmets au CPE dans l\’heure. C\’est lui qui d\écide s\’il faut alerter l\’infirmi\ère, l\’AS, ou le chef d\’\étab.",
         score: 3,
-        fb: "La provocation vise l\’identit\é personnelle pour d\éstabiliser la fonction. La cl\é : s\éparer l\’ego de la posture professionnelle. R\épondre depuis la fonction (\«je g\ère cette cour\») et non depuis l\’ego bless\é (\«comment tu me parles\») d\ésamorce la provocation.",
+        fb: "L\’AED n\’a pas \à d\éterminer si c\’est une chute ou de la maltraitance. Il documente et transmet. La notation \«mot pour mot\» de la r\éponse de l\’\él\ève est cruciale : c\’est un \él\ément factuel que l\’AS ou le m\édecin pourront recouper.",
         good: true
       },
       {
-        label: "R\épondre sur le fond",
-        text: "\«Figure-toi que j\’ai le bac, et m\ême plus.\»",
+        label: "Enqu\êter soi-m\ême",
+        text: "Je pose plus de questions : \«Tu es s\ûr que c\’est une chute ? C\’est qui qui t\’a fait \ça ?\»",
         score: 1,
-        fb: "Se justifier sur le fond, c\’est accepter le terrain de l\’ado. Il ne s\’int\éresse pas \à votre dipl\ôme \— il teste votre r\éaction. R\épondre, c\’est valider l\’attaque comme l\égitime.",
+        fb: "L\’interrogatoire par un non-professionnel risque de contaminer le t\émoignage (questions suggestives) et de braquer l\’\él\ève. L\’infirmi\ère et l\’AS ont les techniques d\’entretien adapt\ées.",
         good: false
       },
       {
-        label: "Exploser",
-        text: "\«R\ép\ète un peu ce que t\’as dit ?! Tu vas voir si je suis qu\’un pion !\»",
+        label: "Attendre",
+        text: "C\’est peut-\être vraiment une chute. J\’attends de voir s\’il y a d\’autres signes.",
         score: 0,
-        fb: "L\’explosion est exactement ce que la provocation cherche. L\’ado a prouv\é que l\’adulte n\’est pas fiable \émotionnellement. Le message pour les t\émoins : \«cet AED peut \être d\éstabilis\é\» \— et ils s\’en serviront.",
+        fb: "Un \œil au beurre noir avec une explication incoh\érente et un \évitement du regard n\’est pas un signal faible \— c\’est un signal fort. Attendre, c\’est prendre le risque que l\’enfant retourne dans la situation de danger ce soir.",
         good: false
       },
     ]
   },
   {
-    ctx: "Apr\ès cette sc\ène, vous rentrez au bureau vie scolaire. Vous \êtes encore en col\ère. Un coll\ègue vous demande si \ça va.",
-    q: "Comment g\érez-vous votre propre \émotion ?",
+    ctx: "Situation diff\érente : une \él\ève de 4\ème vous dit en passant : \«Ma m\ère, elle crie tout le temps depuis que mon beau-p\ère est parti.\» Pas de blessure visible, pas de demande d\’aide.",
+    q: "Quel est le bon r\éflexe ?",
     options: [
       {
-        label: "Verbaliser + analyser",
-        text: "\«Ouais, un 3\ème m\’a balanc\é un truc qui m\’a touch\é. J\’ai g\ér\é sur le moment, mais l\à j\’ai besoin de souffler. C\’est quoi qui m\’a touch\é l\à-dedans ? Le \‘pion\’ ? Le \‘bac\’ ? Pourquoi ?\»",
+        label: "Veille attentive + note",
+        text: "Ce n\’est pas une urgence, mais c\’est une information. Je la note (date, verbatim) et je reste en veille : changement de comportement, absences, repli. Si d\’autres signaux apparaissent, je transmets le faisceau complet au CPE.",
         score: 3,
-        fb: "Verbaliser l\’\émotion entre coll\ègues est un acte de r\égulation professionnel. Analyser ce qui a touch\é (\«pourquoi le mot pion me blesse\») permet de d\ésamorcer le d\éclencheur pour la prochaine fois. C\’est du d\ébriefing \émotionnel \— pas de la faiblesse.",
+        fb: "Tous les signaux ne justifient pas un signalement imm\édiat. Certains justifient une veille active : noter, observer, croiser avec d\’autres observations. L\’AED construit un puzzle \— il ne d\éclenche l\’alerte que quand les pi\èces s\’assembent.",
         good: true
       },
       {
-        label: "Minimiser",
-        text: "\«Non non, \ça va, c\’est rien. Un gamin quoi.\»",
+        label: "Signaler imm\édiatement",
+        text: "Je transmets au CPE tout de suite : situation de danger.",
         score: 1,
-        fb: "Nier l\’impact ne le supprime pas \— \ça le comprime. L\’\émotion non trait\ée se stocke et explose au prochain incident mineur (effet cocotte-minute).",
+        fb: "La prudence est louable, mais \«ma m\ère crie\» n\’est pas en soi un indicateur de maltraitance. Surcharger la cha\îne avec chaque phrase d\’\él\ève dilue les vrais signaux. La veille active est la bonne temporalit\é ici.",
         good: false
       },
       {
-        label: "Ruminer seul",
-        text: "Je ne dis rien et je rumine en regardant mon t\él\éphone.",
+        label: "Ignorer",
+        text: "C\’est une confidence banale, tous les ados se plaignent de leurs parents.",
         score: 0,
-        fb: "La rumination (rejouer la sc\ène en boucle) amplifie l\’\émotion au lieu de la traiter. Le cerveau revit la situation \à chaque replay comme si elle se passait maintenant \— avec la m\ême d\écharge de cortisol.",
+        fb: "Minimiser les paroles d\’un \él\ève est le r\éflexe le plus dangereux. Peut-\être que c\’est banal. Peut-\être que c\’est le d\ébut d\’un basculement familial. La note co\ûte 30 secondes et peut tout changer.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le lendemain, le m\ême \él\ève semble chercher \à nouveau la provocation. Il vous fixe du regard en traversant la cour.",
-    q: "Comment abordez-vous cette nouvelle interaction ?",
+    ctx: "Situation d\’urgence : un \él\ève s\’effondre en larmes dans le bureau vie scolaire et dit : \«Je veux mourir, j\’en peux plus.\»",
+    q: "Que faites-vous ?",
     options: [
       {
-        label: "Initiative relationnelle calme",
-        text: "Je le salue normalement : \«Salut, Mehdi.\» Pas de rappel d\’hier, pas de rancune affich\ée. Le message : \«tu ne m\’as pas entam\é, et je ne t\’ai pas lach\é.\» Si le regard insistant continue, j\’ajoute calmement : \«T\’as besoin de quelque chose ?\»",
+        label: "S\écuriser + alerte imm\édiate",
+        text: "Je reste avec l\’\él\ève. Je ne le laisse pas seul. Je dis calmement : \«Je t\’entends. Tu n\’es pas seul, je reste l\à.\» En parall\èle, j\’alerte le CPE ET l\’infirmi\ère imm\édiatement (SMS, appel, envoyer un coll\ègue). C\’est une urgence absolue.",
         score: 3,
-        fb: "L\’initiative relationnelle apr\ès un conflit est la signature de l\’adulte r\égul\é. Le message implicite est d\évastateur (positivement) pour l\’ado : \«ta provocation n\’a pas march\é, et je suis toujours l\à.\» C\’est la d\émonstration vivante de la stabilit\é \émotionnelle.",
+        fb: "Une verbalisation suicidaire est une urgence m\édicale. Deux actions simultan\ées : ne jamais laisser l\’\él\ève seul (risque de passage \à l\’acte) ET alerter la cha\îne imm\édiatement. L\’AED n\’est pas psy \— mais il est pr\ésent, et la pr\ésence sauve.",
         good: true
       },
       {
-        label: "\Évitement",
-        text: "Je l\’\évite pour ne pas recr\éer de tension.",
+        label: "Relativiser",
+        text: "\«Mais non, dis pas \ça, t\’as toute la vie devant toi.\»",
         score: 0,
-        fb: "L\’\évitement est lu par l\’ado comme de la peur ou de la rancune. Les deux lui donnent du pouvoir. Un adulte qui \évite un ado apr\ès une provocation a perdu.",
+        fb: "Relativiser une verbalisation suicidaire, c\’est invalider la souffrance. L\’\él\ève n\’a pas besoin d\’encouragements creux \— il a besoin qu\’on prenne ses mots au s\érieux. Prendre au s\érieux = alerter les professionnels comp\étents.",
         good: false
       },
       {
-        label: "Pr\évenir",
-        text: "\«Je te pr\éviens, si tu recommences comme hier...\»",
-        score: 1,
-        fb: "La menace pr\éventive remet l\’ado en position de pouvoir : il sait qu\’il vous a touch\é hier et que vous y pensez encore. C\’est exactement le signal qu\’il ne faut pas envoyer.",
+        label: "Reporter au lendemain",
+        text: "\«On en reparlera demain avec le CPE, l\à c\’est la fin de journ\ée.\»",
+        score: 0,
+        fb: "Il n\’y a pas de \«demain\» dans une urgence suicidaire. La nuit peut \être le moment du passage \à l\’acte. Alerte imm\édiate, m\ême \à 17h un vendredi.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🌡", t:"Reconna\ître le signal :", v:"Chaleur, tension, envie de r\épondre vite \— c\’est votre amygdale. La reconna\ître, c\’est d\éj\à reprendre le contr\ôle."},
-  {icon:"🎭", t:"Ego vs fonction :", v:"La provocation vise l\’ego. R\épondre depuis la fonction d\ésamorce. \«Je g\ère cette cour\» vs \«Comment tu me parles\»."},
-  {icon:"🗣", t:"D\ébriefing :", v:"Verbaliser entre coll\ègues n\’est pas de la faiblesse \— c\’est de l\’hygi\ène \émotionnelle professionnelle."},
-  {icon:"🤝", t:"Le lendemain :", v:"Saluer normalement apr\ès un conflit dit : \«tu ne m\’as pas entam\é\». C\’est la meilleure r\éponse \à la provocation."},
+  {icon:"🔴", t:"Urgence absolue :", v:"Verbalisation suicidaire, blessure grave suspecte, danger imm\édiat. Ne pas laisser seul + alerte imm\édiate CPE/infirmi\ère."},
+  {icon:"🟠", t:"Signalement rapide :", v:"Blessure + explication incoh\érente, confidence grave, changement brutal. Noter les faits + transmettre au CPE dans l\’heure."},
+  {icon:"🟢", t:"Veille attentive :", v:"Phrase isol\ée, signal unique. Noter + observer + croiser. Transmettre quand le faisceau se consolide."},
+  {icon:"🔗", t:"La cha\îne :", v:"AED (d\étecte/note) \→ CPE (centralise) \→ Infirmi\ère/AS (\évalue) \→ Chef d\’\étab (d\écide IP/article 40). Chacun son rôle."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Ma propre r\égulation face \à la provocation',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Rep\érer et transmettre : la cha\îne de signalement',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -173,16 +173,16 @@ function App(){
 
   var renderIntro=function(){return e('div',{className:'card'},
     e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
-    e('h1',null,"Ma propre r\égulation face \à la provocation"),
-    e('p',{className:'quote'},'"'+"Si tu ne contr\ôles pas tes \émotions, tes \émotions te contr\ôleront \— et l\’ado le sentira."+'" — Daniel Goleman (adapt\é)'),
-    e('p',null,"L\’ado provoque. C\’est son job d\éveloppemental : tester les limites, v\érifier que l\’adulte tient. Le probl\ème, c\’est quand l\’adulte ne tient plus \— quand la provocation touche quelque chose de personnel et que l\’AED r\éagit \à chaud."),
-    e('p',null,"Ce module ne vous apprend pas \à \«ne rien ressentir\» \— c\’est impossible et inutile. Il vous apprend \à reconna\ître vos propres signaux de mont\ée \émotionnelle et \à activer des strat\égies avant que la r\éaction automatique ne prenne le dessus."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Goleman, L\’intelligence \émotionnelle \— Christophe Andr\é, Imparfaits, libres et heureux \— Recherche sur la co-r\égulation adulte-ado"),
+    e('div',{className:'tag'},'Posture & Déontologie · Module 1/5'),
+    e('h1',null,"Rep\érer et transmettre : la cha\îne de signalement"),
+    e('p',{className:'quote'},'"'+"L\’AED ne r\édige pas le signalement. Il est le premier \œil de la cha\îne qui prot\ège."+'" — Circulaire fonctions AED'),
+    e('p',null,"L\’article 40 du Code de proc\édure p\énale est r\édig\é par le chef d\’\établissement. L\’information pr\éoccupante est port\ée par l\’infirmi\ère ou l\’AS. Mais dans 80% des cas, c\’est l\’AED qui rep\ère le premier signal. Votre r\ôle : observer, consigner, transmettre factuellement. Ni plus, ni moins \— mais surtout pas moins."),
+    e('p',null,"Ce module vous entra\îne \à distinguer ce qui rel\ève de l\’urgence absolue (danger imm\édiat), du signalement rapide (suspicion de maltraitance), et de la veille attentive (signaux faibles \à documenter). Trois niveaux, trois temporalit\és, un seul principe : ne jamais rester seul avec l\’information."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Article 40 CPP \— Article 434-3 CP \— Protocole IP (CRIP) \— Guide acad\émique signalement"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Régulation'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+Signalement'),e('div',{className:'comp-earn'},'+Observation'),
       null),
     e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
@@ -219,12 +219,12 @@ function App(){
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🌡'),
+    e('div',{className:'seal'},'🔴'),
     e('h1',null,"Module validé !"),
     e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Régulation'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'comp-earn'},'+1 Signalement'),e('div',{className:'comp-earn'},'+1 Observation'),
       null),
     e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};

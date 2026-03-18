@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU03 — Ma propre régulation face à la provocation</title>
+<title>LA FORGE | AED_ING04 — Preuve sociale et médiation par les pairs</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-:root{--bg:#0c0f14;--acc:#10b981;--acc-d:#047857;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
+:root{--bg:#0c0f14;--acc:#e2a84b;--acc-d:#c48530;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(16,185,129,.06) 0%,transparent 55%)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(226,168,75,.06) 0%,transparent 55%)}
 #root{width:100%;max-width:820px;position:relative;z-index:1}
 .card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
 .card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
@@ -47,88 +47,88 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 <body><div id="root"></div>
 <script>
 var e = React.createElement;
-var MODULE_ID = 'AED_NEU03';
-var CERT_KEY  = 'CERT_AED_AED_NEU03';
+var MODULE_ID = 'AED_ING04';
+var CERT_KEY  = 'CERT_AED_AED_ING04';
 var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \él\ève de 3\ème vous dit, devant ses copains : \«De toute fa\çon t\’es qu\’un pion, t\’as m\ême pas le bac.\» Les autres rient.",
-    q: "Premi\ère r\éaction : que se passe-t-il en vous ?",
+    ctx: "Vous observez qu\’un petit groupe d\’\él\èves de 4\ème s\’est organis\é pour t\émoigner syst\ématiquement les uns pour les autres, m\ême quand aucun acte de bienveillance r\éel n\’a eu lieu. Un \«club de t\émoignage\» ferm\é.",
+    q: "Comment g\érez-vous cette d\érive ?",
     options: [
       {
-        label: "Reconna\ître le signal + ne pas r\éagir \à chaud",
-        text: "Je sens la mont\ée (chaleur, tension). Je la reconnais : c\’est mon \égo qui r\éagit, pas ma fonction. Je respire une seconde, puis : \«T\’as le droit de penser ce que tu veux de mon poste. Mais l\à, maintenant, c\’est moi qui g\ère cette cour \— et c\’est \ça qui compte.\»",
+        label: "D\étecter + recadrer le m\écanisme",
+        text: "Je signale au CPE pour retrait des XP frauduleux. Puis je vois le groupe : \«Votre syst\ème est malin, mais il casse la confiance. Si les t\émoignages sont bidons, le syst\ème ne vaut plus rien pour personne \— y compris pour vous. Un vrai t\émoignage, c\’est un vrai acte observ\é.\»",
         score: 3,
-        fb: "La provocation vise l\’identit\é personnelle pour d\éstabiliser la fonction. La cl\é : s\éparer l\’ego de la posture professionnelle. R\épondre depuis la fonction (\«je g\ère cette cour\») et non depuis l\’ego bless\é (\«comment tu me parles\») d\ésamorce la provocation.",
+        fb: "La d\érive du \«club de t\émoignage\» est pr\évisible et trait\ée dans le design : le Shadow XP corrige sans exposition publique. L\’explication du m\écanisme (confiance collective) est plus \éducative que la punition.",
         good: true
       },
       {
-        label: "R\épondre sur le fond",
-        text: "\«Figure-toi que j\’ai le bac, et m\ême plus.\»",
-        score: 1,
-        fb: "Se justifier sur le fond, c\’est accepter le terrain de l\’ado. Il ne s\’int\éresse pas \à votre dipl\ôme \— il teste votre r\éaction. R\épondre, c\’est valider l\’attaque comme l\égitime.",
+        label: "Laisser faire",
+        text: "Au moins ils participent au syst\ème, c\’est d\éj\à \ça.",
+        score: 0,
+        fb: "La participation frauduleuse d\étruit le syst\ème. Si les faux t\émoignages sont visibles (classements, XP), les \él\èves honn\êtes se d\ésengagent : \«\à quoi bon faire des vrais trucs si les tricheurs gagnent ?\»",
         good: false
       },
       {
-        label: "Exploser",
-        text: "\«R\ép\ète un peu ce que t\’as dit ?! Tu vas voir si je suis qu\’un pion !\»",
+        label: "Punir publiquement",
+        text: "J\’affiche les noms des tricheurs pour dissuader.",
         score: 0,
-        fb: "L\’explosion est exactement ce que la provocation cherche. L\’ado a prouv\é que l\’adulte n\’est pas fiable \émotionnellement. Le message pour les t\émoins : \«cet AED peut \être d\éstabilis\é\» \— et ils s\’en serviront.",
+        fb: "L\’exposition publique humilie et cr\ée des ennemis du syst\ème. Le Shadow XP est con\çu pour corriger dans l\’ombre \— pr\écis\ément pour \éviter cette erreur.",
         good: false
       },
     ]
   },
   {
-    ctx: "Apr\ès cette sc\ène, vous rentrez au bureau vie scolaire. Vous \êtes encore en col\ère. Un coll\ègue vous demande si \ça va.",
-    q: "Comment g\érez-vous votre propre \émotion ?",
+    ctx: "Une \él\ève de 6\ème, timide, a fait un geste remarquable : elle a accompagn\é un \él\ève bless\é \à l\’infirmerie pendant la r\écr\é au lieu de jouer. Personne n\’a t\émoign\é pour elle.",
+    q: "Que faites-vous ?",
     options: [
       {
-        label: "Verbaliser + analyser",
-        text: "\«Ouais, un 3\ème m\’a balanc\é un truc qui m\’a touch\é. J\’ai g\ér\é sur le moment, mais l\à j\’ai besoin de souffler. C\’est quoi qui m\’a touch\é l\à-dedans ? Le \‘pion\’ ? Le \‘bac\’ ? Pourquoi ?\»",
+        label: "T\émoignage adulte + valorisation",
+        text: "En tant qu\’AED, j\’utilise mon Code T\émoin Adulte pour enregistrer son geste. Et en la croisant : \«Ce que t\’as fait pour Enzo, c\’est solide. Les vrais gestes, c\’est ceux qu\’on fait quand personne ne regarde.\» Pas d\’exposition publique \— juste une reconnaissance directe.",
         score: 3,
-        fb: "Verbaliser l\’\émotion entre coll\ègues est un acte de r\égulation professionnel. Analyser ce qui a touch\é (\«pourquoi le mot pion me blesse\») permet de d\ésamorcer le d\éclencheur pour la prochaine fois. C\’est du d\ébriefing \émotionnel \— pas de la faiblesse.",
+        fb: "Le Code T\émoin Adulte existe pr\écis\ément pour ces situations : les gestes invisibles que les pairs ne voient pas. La reconnaissance directe et discr\ète est plus puissante que la c\ér\émonie publique \— surtout pour un \él\ève timide.",
         good: true
       },
       {
-        label: "Minimiser",
-        text: "\«Non non, \ça va, c\’est rien. Un gamin quoi.\»",
+        label: "L\’annoncer devant la classe",
+        text: "\«Je veux que tout le monde sache ce qu\’a fait Juliette !\»",
         score: 1,
-        fb: "Nier l\’impact ne le supprime pas \— \ça le comprime. L\’\émotion non trait\ée se stocke et explose au prochain incident mineur (effet cocotte-minute).",
+        fb: "L\’intention est bonne, mais l\’exposition publique peut g\êner un \él\ève timide et cr\éer de la jalousie. La reconnaissance discr\ète respecte la personnalit\é de l\’\él\ève.",
         good: false
       },
       {
-        label: "Ruminer seul",
-        text: "Je ne dis rien et je rumine en regardant mon t\él\éphone.",
-        score: 0,
-        fb: "La rumination (rejouer la sc\ène en boucle) amplifie l\’\émotion au lieu de la traiter. Le cerveau revit la situation \à chaque replay comme si elle se passait maintenant \— avec la m\ême d\écharge de cortisol.",
+        label: "Ne rien faire",
+        text: "Elle n\’a pas besoin de points pour un geste naturel.",
+        score: 1,
+        fb: "Peut-\être. Mais rendre visible un geste positif, c\’est justement la preuve sociale en action : \ça montre aux autres que le bien est remarqu\é. Ne rien faire, c\’est laisser le geste invisible \— et la norme reste \«personne ne remarque rien\».",
         good: false
       },
     ]
   },
   {
-    ctx: "Le lendemain, le m\ême \él\ève semble chercher \à nouveau la provocation. Il vous fixe du regard en traversant la cour.",
-    q: "Comment abordez-vous cette nouvelle interaction ?",
+    ctx: "Lors d\’une formation entre AED, un coll\ègue dit : \«Ce syst\ème de t\émoignage, c\’est de la d\élation d\éguis\ée en positif.\»",
+    q: "Que r\épondez-vous ?",
     options: [
       {
-        label: "Initiative relationnelle calme",
-        text: "Je le salue normalement : \«Salut, Mehdi.\» Pas de rappel d\’hier, pas de rancune affich\ée. Le message : \«tu ne m\’as pas entam\é, et je ne t\’ai pas lach\é.\» Si le regard insistant continue, j\’ajoute calmement : \«T\’as besoin de quelque chose ?\»",
+        label: "Distinction d\élation / t\émoignage",
+        text: "\«La d\élation, c\’est d\énoncer quelqu\’un pour lui nuire. Le t\émoignage positif, c\’est signaler un geste pour le valoriser. Le m\écanisme est invers\é : on cherche le bien, pas le mal. Et \ça change tout \— dans la posture de l\’observateur ET dans le climat du groupe.\»",
         score: 3,
-        fb: "L\’initiative relationnelle apr\ès un conflit est la signature de l\’adulte r\égul\é. Le message implicite est d\évastateur (positivement) pour l\’ado : \«ta provocation n\’a pas march\é, et je suis toujours l\à.\» C\’est la d\émonstration vivante de la stabilit\é \émotionnelle.",
+        fb: "La distinction est fondamentale et souvent mal comprise. La d\élation a un b\én\éficiaire unique (le d\élateur). Le t\émoignage positif a un b\én\éficiaire triple : le t\émoin (XP), l\’auteur du geste (reconnaissance), et le collectif (norme positive visible).",
         good: true
       },
       {
-        label: "\Évitement",
-        text: "Je l\’\évite pour ne pas recr\éer de tension.",
+        label: "Rejeter",
+        text: "\«N\’importe quoi, \ça n\’a rien \à voir.\»",
         score: 0,
-        fb: "L\’\évitement est lu par l\’ado comme de la peur ou de la rancune. Les deux lui donnent du pouvoir. Un adulte qui \évite un ado apr\ès une provocation a perdu.",
+        fb: "Rejeter sans argumenter ne convainc pas. L\’objection est r\écurrente \— y r\épondre avec pr\écision est essentiel pour la coh\ésion de l\’\équipe AED.",
         good: false
       },
       {
-        label: "Pr\évenir",
-        text: "\«Je te pr\éviens, si tu recommences comme hier...\»",
+        label: "\Éviter",
+        text: "\«On n\’est pas oblig\és d\’\être d\’accord.\»",
         score: 1,
-        fb: "La menace pr\éventive remet l\’ado en position de pouvoir : il sait qu\’il vous a touch\é hier et que vous y pensez encore. C\’est exactement le signal qu\’il ne faut pas envoyer.",
+        fb: "Le d\ésaccord est l\égitime, mais l\’\évitement affaiblit le dispositif. Si l\’\équipe AED ne partage pas la vision, le syst\ème perd ses relais de terrain.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🌡", t:"Reconna\ître le signal :", v:"Chaleur, tension, envie de r\épondre vite \— c\’est votre amygdale. La reconna\ître, c\’est d\éj\à reprendre le contr\ôle."},
-  {icon:"🎭", t:"Ego vs fonction :", v:"La provocation vise l\’ego. R\épondre depuis la fonction d\ésamorce. \«Je g\ère cette cour\» vs \«Comment tu me parles\»."},
-  {icon:"🗣", t:"D\ébriefing :", v:"Verbaliser entre coll\ègues n\’est pas de la faiblesse \— c\’est de l\’hygi\ène \émotionnelle professionnelle."},
-  {icon:"🤝", t:"Le lendemain :", v:"Saluer normalement apr\ès un conflit dit : \«tu ne m\’as pas entam\é\». C\’est la meilleure r\éponse \à la provocation."},
+  {icon:"📷", t:"Code T\émoin :", v:"Seul un tiers peut attribuer des points. \Ça transforme chaque \él\ève en observateur positif et inverse le biais de n\égativit\é."},
+  {icon:"🔍", t:"Club de triche :", v:"Pr\évisible et trait\é : Shadow XP + explication du m\écanisme. Jamais d\’exposition publique."},
+  {icon:"✨", t:"Gestes invisibles :", v:"Le Code T\émoin Adulte rend visible ce que les pairs ne voient pas. L\’AED est un amplificateur de bien."},
+  {icon:"🔄", t:"T\émoignage \≠ d\élation :", v:"D\énoncer pour nuire \≠ signaler pour valoriser. Le m\écanisme est invers\é. La distinction est essentielle."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Ma propre r\égulation face \à la provocation',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Preuve sociale et m\édiation par les pairs',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -173,16 +173,16 @@ function App(){
 
   var renderIntro=function(){return e('div',{className:'card'},
     e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
-    e('h1',null,"Ma propre r\égulation face \à la provocation"),
-    e('p',{className:'quote'},'"'+"Si tu ne contr\ôles pas tes \émotions, tes \émotions te contr\ôleront \— et l\’ado le sentira."+'" — Daniel Goleman (adapt\é)'),
-    e('p',null,"L\’ado provoque. C\’est son job d\éveloppemental : tester les limites, v\érifier que l\’adulte tient. Le probl\ème, c\’est quand l\’adulte ne tient plus \— quand la provocation touche quelque chose de personnel et que l\’AED r\éagit \à chaud."),
-    e('p',null,"Ce module ne vous apprend pas \à \«ne rien ressentir\» \— c\’est impossible et inutile. Il vous apprend \à reconna\ître vos propres signaux de mont\ée \émotionnelle et \à activer des strat\égies avant que la r\éaction automatique ne prenne le dessus."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Goleman, L\’intelligence \émotionnelle \— Christophe Andr\é, Imparfaits, libres et heureux \— Recherche sur la co-r\égulation adulte-ado"),
+    e('div',{className:'tag'},'Ingénierie de la Bienveillance · Module 1/5'),
+    e('h1',null,"Preuve sociale et m\édiation par les pairs"),
+    e('p',{className:'quote'},'"'+"Le bien devient la norme quand il est rendu visible."+'" — Sylvie Condette / design Super-Hub'),
+    e('p',null,"Le Super-Hub utilise un m\écanisme puissant : le Code T\émoin. Un \él\ève ne peut pas s\’auto-attribuer des points de bienveillance \— seul un t\émoin peut le faire. Ce syst\ème transforme chaque \él\ève en observateur positif et inverse le biais de n\égativit\é."),
+    e('p',null,"Derri\ère cette m\écanique, il y a la psychologie de la preuve sociale (Cialdini) et les travaux de Condette sur la r\égulation horizontale. Ce module vous donne les cl\és pour comprendre et accompagner ces m\écanismes au quotidien."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Robert Cialdini, Influence \— Sylvie Condette, M\édiation scolaire \— Lucie Rose, Validation par autrui"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Régulation'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+Médiation'),e('div',{className:'comp-earn'},'+Systémique'),
       null),
     e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
@@ -219,12 +219,12 @@ function App(){
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🌡'),
+    e('div',{className:'seal'},'📷'),
     e('h1',null,"Module validé !"),
     e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Régulation'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'comp-earn'},'+1 Médiation'),e('div',{className:'comp-earn'},'+1 Systémique'),
       null),
     e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};

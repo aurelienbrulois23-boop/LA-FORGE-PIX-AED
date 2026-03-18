@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU05 \u2014 L\u2019empathie comme outil professionnel</title>
+<title>LA FORGE | AED_NEU05 — L’empathie comme outil professionnel</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index_PIX_AED.html';
 
 var SCENARIOS = [
   {
-    ctx: "Une \\u00e9l\\u00e8ve de 3\\u00e8me, d\\u2019habitude vive, est prostr\\u00e9e depuis deux jours. Vous l\\u2019abordez en cour. Elle dit : \\u00abMes parents divorcent. Tout s\\u2019effondre.\\u00bb Et elle se met \\u00e0 pleurer.",
-    q: "Comment r\\u00e9pondez-vous avec empathie professionnelle ?",
+    ctx: "Une \él\ève de 3\ème, d\’habitude vive, est prostr\ée depuis deux jours. Vous l\’abordez en cour. Elle dit : \«Mes parents divorcent. Tout s\’effondre.\» Et elle se met \à pleurer.",
+    q: "Comment r\épondez-vous avec empathie professionnelle ?",
     options: [
       {
         label: "Empathie sans absorption",
-        text: "Je l\\u2019\\u00e9coute sans couper. Quand elle marque une pause : \\u00abC\\u2019est une situation tr\\u00e8s lourde \\u00e0 porter \\u00e0 ton \\u00e2ge. Ce que tu ressens est normal.\\u00bb Je ne dis PAS \\u00abje comprends\\u00bb (je ne vis pas sa situation). Je ne donne PAS de conseil. Je propose : \\u00abTu voudrais en parler \\u00e0 quelqu\\u2019un qui peut vraiment t\\u2019aider ? L\\u2019infirmi\\u00e8re ou l\\u2019AS ?\\u00bb",
+        text: "Je l\’\écoute sans couper. Quand elle marque une pause : \«C\’est une situation tr\ès lourde \à porter \à ton \âge. Ce que tu ressens est normal.\» Je ne dis PAS \«je comprends\» (je ne vis pas sa situation). Je ne donne PAS de conseil. Je propose : \«Tu voudrais en parler \à quelqu\’un qui peut vraiment t\’aider ? L\’infirmi\ère ou l\’AS ?\»",
         score: 3,
-        fb: "L\\u2019empathie professionnelle en trois gestes : \\u00e9couter sans interrompre, valider l\\u2019\\u00e9motion sans la juger (\\u00abc\\u2019est normal\\u00bb), orienter vers un professionnel comp\\u00e9tent. L\\u2019AED n\\u2019est pas psy \\u2014 mais sa pr\\u00e9sence attentive est th\\u00e9rapeutique en soi (Rogers).",
+        fb: "L\’empathie professionnelle en trois gestes : \écouter sans interrompre, valider l\’\émotion sans la juger (\«c\’est normal\»), orienter vers un professionnel comp\étent. L\’AED n\’est pas psy \— mais sa pr\ésence attentive est th\érapeutique en soi (Rogers).",
         good: true
       },
       {
         label: "Sympathie envahissante",
-        text: "\\u00abOh non, c\\u2019est terrible ! \\u00c7a me fait tellement de peine ! Mes parents ont divorc\\u00e9 aussi, je sais ce que c\\u2019est...\\u00bb",
+        text: "\«Oh non, c\’est terrible ! \Ça me fait tellement de peine ! Mes parents ont divorc\é aussi, je sais ce que c\’est...\»",
         score: 1,
-        fb: "Partager son v\\u00e9cu part d\\u2019une bonne intention, mais \\u00e7a d\\u00e9place le focus sur vous. L\\u2019\\u00e9l\\u00e8ve n\\u2019a pas besoin de savoir que vous comprenez \\u2014 elle a besoin de sentir que vous \\u00eatres l\\u00e0 pour ELLE. La sympathie envahissante absorbe l\\u2019\\u00e9motion au lieu de la contenir.",
+        fb: "Partager son v\écu part d\’une bonne intention, mais \ça d\éplace le focus sur vous. L\’\él\ève n\’a pas besoin de savoir que vous comprenez \— elle a besoin de sentir que vous \êtres l\à pour ELLE. La sympathie envahissante absorbe l\’\émotion au lieu de la contenir.",
         good: false
       },
       {
         label: "Minimisation positive",
-        text: "\\u00abT\\u2019inqui\\u00e8te, beaucoup de gens divorcent, \\u00e7a va aller.\\u00bb",
+        text: "\«T\’inqui\ète, beaucoup de gens divorcent, \ça va aller.\»",
         score: 0,
-        fb: "Pour elle, \\u00e0 cet instant, tout s\\u2019effondre. Dire \\u00ab\\u00e7a va aller\\u00bb nie l\\u2019intensit\\u00e9 de sa d\\u00e9tresse. La normalisation statistique (\\u00abbeaucoup divorcent\\u00bb) n\\u2019a aucune valeur consolatoire pour quelqu\\u2019un en pleine crise.",
+        fb: "Pour elle, \à cet instant, tout s\’effondre. Dire \«\ça va aller\» nie l\’intensit\é de sa d\étresse. La normalisation statistique (\«beaucoup divorcent\») n\’a aucune valeur consolatoire pour quelqu\’un en pleine crise.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un \\u00e9l\\u00e8ve de 5\\u00e8me, connu pour \\u00eatre difficile, vient vous voir et dit maladroitement : \\u00abMonsieur/Madame, je... j\\u2019ai fait un truc grave hier. J\\u2019ai frapp\\u00e9 mon petit fr\\u00e8re tr\\u00e8s fort. J\\u2019ai honte.\\u00bb",
-    q: "Comment utilisez-vous l\\u2019empathie ici ?",
+    ctx: "Un \él\ève de 5\ème, connu pour \être difficile, vient vous voir et dit maladroitement : \«Monsieur/Madame, je... j\’ai fait un truc grave hier. J\’ai frapp\é mon petit fr\ère tr\ès fort. J\’ai honte.\»",
+    q: "Comment utilisez-vous l\’empathie ici ?",
     options: [
       {
-        label: "Accueillir l\\u2019aveu + orienter",
-        text: "\\u00abLe fait que tu viennes m\\u2019en parler, c\\u2019est d\\u00e9j\\u00e0 un truc important. \\u00c7a veut dire que tu sais que c\\u2019\\u00e9tait pas bien. On va en parler avec quelqu\\u2019un qui peut t\\u2019aider \\u00e0 comprendre pourquoi \\u00e7a s\\u2019est pass\\u00e9 \\u2014 et \\u00e0 faire en sorte que \\u00e7a n\\u2019arrive plus.\\u00bb Je transmets au CPE.",
+        label: "Accueillir l\’aveu + orienter",
+        text: "\«Le fait que tu viennes m\’en parler, c\’est d\éj\à un truc important. \Ça veut dire que tu sais que c\’\était pas bien. On va en parler avec quelqu\’un qui peut t\’aider \à comprendre pourquoi \ça s\’est pass\é \— et \à faire en sorte que \ça n\’arrive plus.\» Je transmets au CPE.",
         score: 3,
-        fb: "L\\u2019\\u00e9l\\u00e8ve fait un acte de confiance rare. L\\u2019empathie ici n\\u2019est pas de valider la violence \\u2014 c\\u2019est de valoriser la d\\u00e9marche de l\\u2019aveu. Nommer que \\u00abvenir en parler, c\\u2019est d\\u00e9j\\u00e0 un truc\\u00bb rench\\u00e9rit la conscience morale naissante sans excuser l\\u2019acte.",
+        fb: "L\’\él\ève fait un acte de confiance rare. L\’empathie ici n\’est pas de valider la violence \— c\’est de valoriser la d\émarche de l\’aveu. Nommer que \«venir en parler, c\’est d\éj\à un truc\» rench\érit la conscience morale naissante sans excuser l\’acte.",
         good: true
       },
       {
         label: "Moraliser",
-        text: "\\u00abFrapper son petit fr\\u00e8re, c\\u2019est grave. Tu ne dois jamais faire \\u00e7a.\\u00bb",
+        text: "\«Frapper son petit fr\ère, c\’est grave. Tu ne dois jamais faire \ça.\»",
         score: 1,
-        fb: "Il le sait \\u2014 c\\u2019est pr\\u00e9cis\\u00e9ment pour \\u00e7a qu\\u2019il vient. R\\u00e9p\\u00e9ter l\\u2019interdit au moment o\\u00f9 il fait l\\u2019effort de parler, c\\u2019est punir l\\u2019aveu. La prochaine fois, il ne viendra plus.",
+        fb: "Il le sait \— c\’est pr\écis\ément pour \ça qu\’il vient. R\ép\éter l\’interdit au moment o\ù il fait l\’effort de parler, c\’est punir l\’aveu. La prochaine fois, il ne viendra plus.",
         good: false
       },
       {
-        label: "D\\u00e9dramatiser",
-        text: "\\u00abBah, tous les fr\\u00e8res se battent, c\\u2019est pas si grave.\\u00bb",
+        label: "D\édramatiser",
+        text: "\«Bah, tous les fr\ères se battent, c\’est pas si grave.\»",
         score: 0,
-        fb: "L\\u2019\\u00e9l\\u00e8ve ressent de la honte \\u2014 un sentiment moral puissant et l\\u00e9gitime. Le d\\u00e9dramatiser, c\\u2019est invalider sa conscience morale en formation. Il dit \\u00abc\\u2019est grave\\u00bb \\u2014 vous devez entendre cette gravit\\u00e9.",
+        fb: "L\’\él\ève ressent de la honte \— un sentiment moral puissant et l\égitime. Le d\édramatiser, c\’est invalider sa conscience morale en formation. Il dit \«c\’est grave\» \— vous devez entendre cette gravit\é.",
         good: false
       },
     ]
   },
   {
-    ctx: "Fin de journ\\u00e9e. Vous avez encaiss\\u00e9 une situation \\u00e9motionnellement lourde avec un \\u00e9l\\u00e8ve en d\\u00e9tresse. Vous sentez que \\u00e7a vous a atteint.",
-    q: "Comment g\\u00e9rez-vous la fatigue empathique ?",
+    ctx: "Fin de journ\ée. Vous avez encaiss\é une situation \émotionnellement lourde avec un \él\ève en d\étresse. Vous sentez que \ça vous a atteint.",
+    q: "Comment g\érez-vous la fatigue empathique ?",
     options: [
       {
-        label: "Reconnaissance + d\\u00e9charge",
-        text: "Je reconnais que \\u00e7a m\\u2019a touch\\u00e9 \\u2014 c\\u2019est normal, c\\u2019est le signe que l\\u2019empathie fonctionne. J\\u2019en parle \\u00e0 un coll\\u00e8gue ou au CPE : \\u00abLa situation avec X m\\u2019a secou\\u00e9, j\\u2019avais besoin d\\u2019en parler.\\u00bb Et je fais une coupure nette : quand je sors du coll\\u00e8ge, je d\\u00e9connecte.",
+        label: "Reconnaissance + d\écharge",
+        text: "Je reconnais que \ça m\’a touch\é \— c\’est normal, c\’est le signe que l\’empathie fonctionne. J\’en parle \à un coll\ègue ou au CPE : \«La situation avec X m\’a secou\é, j\’avais besoin d\’en parler.\» Et je fais une coupure nette : quand je sors du coll\ège, je d\éconnecte.",
         score: 3,
-        fb: "La fatigue empathique (ou usure de compassion) est un risque professionnel r\\u00e9el pour les AED. La reconna\\u00eetre, la verbaliser entre pairs, et couper le soir est de l\\u2019hygi\\u00e8ne de base. L\\u2019empathie n\\u2019est durable que si on la recharge.",
+        fb: "La fatigue empathique (ou usure de compassion) est un risque professionnel r\éel pour les AED. La reconna\ître, la verbaliser entre pairs, et couper le soir est de l\’hygi\ène de base. L\’empathie n\’est durable que si on la recharge.",
         good: true
       },
       {
-        label: "S\\u2019endurcirir",
-        text: "\\u00abFaut que j\\u2019apprenne \\u00e0 ne plus me laisser toucher.\\u00bb",
+        label: "S\’endurcirir",
+        text: "\«Faut que j\’apprenne \à ne plus me laisser toucher.\»",
         score: 0,
-        fb: "L\\u2019endurcissement \\u00e9motionnel n\\u2019est pas de la r\\u00e9silience \\u2014 c\\u2019est de l\\u2019\\u00e9rosion. Un AED qui ne ressent plus rien a perdu son outil principal. La solution n\\u2019est pas de ne plus ressentir, c\\u2019est de mieux \\u00e9vacuer.",
+        fb: "L\’endurcissement \émotionnel n\’est pas de la r\ésilience \— c\’est de l\’\érosion. Un AED qui ne ressent plus rien a perdu son outil principal. La solution n\’est pas de ne plus ressentir, c\’est de mieux \évacuer.",
         good: false
       },
       {
         label: "Ruminer",
-        text: "J\\u2019y pense toute la soir\\u00e9e en cherchant ce que j\\u2019aurais pu faire de mieux.",
+        text: "J\’y pense toute la soir\ée en cherchant ce que j\’aurais pu faire de mieux.",
         score: 1,
-        fb: "L\\u2019auto-analyse a sa place, mais le soir m\\u00eame c\\u2019est de la rumination, pas de la r\\u00e9flexion. Le cerveau a besoin de coupure pour int\\u00e9grer. Demain, \\u00e0 froid, l\\u2019analyse sera plus juste.",
+        fb: "L\’auto-analyse a sa place, mais le soir m\ême c\’est de la rumination, pas de la r\éflexion. Le cerveau a besoin de coupure pour int\égrer. Demain, \à froid, l\’analyse sera plus juste.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"\u{1F9E0}", t:"Empathie \\u2260 sympathie :", v:"Comprendre sans absorber. Capter le signal sans s\\u2019y noyer. C\\u2019est un outil, pas une noyade."},
-  {icon:"\u{1F442}", t:"\\u00c9couter + valider + orienter :", v:"Trois temps de l\\u2019empathie professionnelle. L\\u2019AED n\\u2019est pas psy \\u2014 mais sa pr\\u00e9sence attentive est d\\u00e9j\\u00e0 th\\u00e9rapeutique."},
-  {icon:"\u{1F64F}", t:"Valoriser l\\u2019aveu :", v:"Un \\u00e9l\\u00e8ve qui vient parler de sa faute fait un acte moral. Punir l\\u2019aveu tue la prochaine confidence."},
-  {icon:"\u{1F50B}", t:"Fatigue empathique :", v:"Risque professionnel r\\u00e9el. Verbaliser, partager, couper le soir. L\\u2019empathie n\\u2019est durable que si on la recharge."},
+  {icon:"🧠", t:"Empathie \≠ sympathie :", v:"Comprendre sans absorber. Capter le signal sans s\’y noyer. C\’est un outil, pas une noyade."},
+  {icon:"👂", t:"\Écouter + valider + orienter :", v:"Trois temps de l\’empathie professionnelle. L\’AED n\’est pas psy \— mais sa pr\ésence attentive est d\éj\à th\érapeutique."},
+  {icon:"🙏", t:"Valoriser l\’aveu :", v:"Un \él\ève qui vient parler de sa faute fait un acte moral. Punir l\’aveu tue la prochaine confidence."},
+  {icon:"🔋", t:"Fatigue empathique :", v:"Risque professionnel r\éel. Verbaliser, partager, couper le soir. L\’empathie n\’est durable que si on la recharge."},
 ];
 
 
@@ -148,7 +148,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : L\\u2019empathie comme outil professionnel',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : L\’empathie comme outil professionnel',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -167,66 +167,66 @@ function App(){
     awardXP();setStep('complete');
   };
   var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie \u2014 CERTIFICATION \u00B7 Module 1/5'),
-    e('h1',null,"L\\u2019empathie comme outil professionnel"),
-    e('p',{className:'quote'},'"'+"L\\u2019empathie n\\u2019est pas ressentir \\u00e0 la place de l\\u2019autre. C\\u2019est comprendre ce qu\\u2019il ressent sans s\\u2019y noyer."+'" \u2014 Daniel Favre'),
-    e('p',null,"L\\u2019empathie professionnelle n\\u2019est pas la sympathie (\\u00abje souffre avec toi\\u00bb) ni la contagion \\u00e9motionnelle (\\u00abje suis submerg\\u00e9 par ta souffrance\\u00bb). C\\u2019est une comp\\u00e9tence technique : capter le signal \\u00e9motionnel de l\\u2019autre, le comprendre, et y r\\u00e9pondre de mani\\u00e8re adapt\\u00e9e \\u2014 sans perdre sa propre stabilit\\u00e9."),
-    e('p',null,"Ce module de certification \\u00e9value votre capacit\\u00e9 \\u00e0 utiliser l\\u2019empathie comme un outil de travail : d\\u00e9coder les \\u00e9motions sans les absorber, reformuler sans minimiser, et poser des actes concrets qui r\\u00e9pondent au besoin d\\u00e9tect\\u00e9."),
-    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00e9f\u00e9rences : '),"Daniel Favre, Empathie et apprentissage \\u2014 Carl Rogers, L\\u2019approche centr\\u00e9e sur la personne \\u2014 Neurosciences de l\\u2019empathie (neurones miroirs)"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Cerveau Ado & Empathie — CERTIFICATION · Module 1/5'),
+    e('h1',null,"L\’empathie comme outil professionnel"),
+    e('p',{className:'quote'},'"'+"L\’empathie n\’est pas ressentir \à la place de l\’autre. C\’est comprendre ce qu\’il ressent sans s\’y noyer."+'" — Daniel Favre'),
+    e('p',null,"L\’empathie professionnelle n\’est pas la sympathie (\«je souffre avec toi\») ni la contagion \émotionnelle (\«je suis submerg\é par ta souffrance\»). C\’est une comp\étence technique : capter le signal \émotionnel de l\’autre, le comprendre, et y r\épondre de mani\ère adapt\ée \— sans perdre sa propre stabilit\é."),
+    e('p',null,"Ce module de certification \évalue votre capacit\é \à utiliser l\’empathie comme un outil de travail : d\écoder les \émotions sans les absorber, reformuler sans minimiser, et poser des actes concrets qui r\épondent au besoin d\étect\é."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Favre, Empathie et apprentissage \— Carl Rogers, L\’approche centr\ée sur la personne \— Neurosciences de l\’empathie (neurones miroirs)"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +120 XP'),
+      e('div',{className:'xp-badge'},'⚡ +120 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Empathie'),e('div',{className:'comp-earn'},'+Compr\u00e9hension'),
+      e('div',{className:'comp-earn'},'+Empathie'),e('div',{className:'comp-earn'},'+Compréhension'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00e9nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Sc\u00e9nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'\u2705 Posture adapt\u00e9e':'\u26A0\uFE0F Point d\u2019am\u00e9lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00e9nario suivant \u2192':'Synth\u00e8se \u2192'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Comp\u00e9tence solide.":pc>=50?"Des r\u00e9flexes \u00e0 affiner.":"\u00c0 retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synth\u00e8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'\u{1F9E0}'),
-    e('h1',null,"Module valid\u00e9 !"),
-    e('p',{style:{textAlign:'center'}},"Comp\u00e9tences acquises \u2014 bravo."),
+    e('div',{className:'seal'},'🧠'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'\u26A1 +120 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Empathie'),e('div',{className:'comp-earn'},'+1 Compr\u00e9hension'),
+      e('div',{className:'xp-badge'},'⚡ +120 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Empathie'),e('div',{className:'comp-earn'},'+1 Compréhension'),
       null),
-    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00e0 La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

@@ -257,6 +257,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   border:1px solid rgba(16,185,129,.35);background:rgba(16,185,129,.10);color:#9ff0d0;
   font-size:.62rem;font-weight:700;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.5px}
 .tss-desc{font-size:.68rem;line-height:1.45;color:var(--muted);max-width:100%}
+.tts-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%}
+.tts-btn{appearance:none;border:1px solid rgba(59,130,246,.28);background:rgba(59,130,246,.12);color:#dbeafe;
+  padding:6px 10px;border-radius:999px;font-size:.62rem;font-weight:700;font-family:'JetBrains Mono',monospace;
+  cursor:pointer;transition:.2s}
+.tts-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.tts-btn.off{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08);color:var(--muted)}
+.tts-btn.ghost{background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.08);color:var(--text)}
+.tts-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.tts-status{font-size:.62rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
 
 </style></head><body>
 
@@ -327,6 +336,12 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   <div class="chat-tss">
     <span class="tss-pill">TSS actif</span>
     <div class="tss-desc">Tronc = hub La Forge d'abord • Sources = pas d'affirmation gratuite • Satellites = compléments utiles et reliés au sujet.</div>
+    <div class="tts-controls">
+      <button class="tts-btn" id="tts-toggle" type="button" onclick="toggleTTS()">Voix ON</button>
+      <button class="tts-btn ghost" id="tts-replay" type="button" onclick="replayLastAssistantMessage()">Relire</button>
+      <button class="tts-btn ghost" id="tts-stop" type="button" onclick="stopChatSpeech()">Stop</button>
+      <span class="tts-status" id="tts-status">Voix prete</span>
+    </div>
   </div>
   <div class="chat-input-row">
     <textarea class="chat-input" id="chat-input" rows="1" placeholder="Posez votre question..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
@@ -1005,6 +1020,141 @@ async function loadSystemPrompt(){
 
 var chatHistory=[];
 var chatOpen=false;
+var ttsSupported=typeof window!=='undefined'&&'speechSynthesis' in window&&typeof SpeechSynthesisUtterance!=='undefined';
+var ttsEnabled=true;
+var ttsVoices=[];
+var activeUtterance=null;
+var lastAssistantText='';
+
+function loadTTSPreference(){
+  try{
+    var raw=localStorage.getItem('forge_chat_tts_enabled');
+    if(raw!==null)ttsEnabled=raw==='1';
+  }catch(e){}
+}
+
+function saveTTSPreference(){
+  try{localStorage.setItem('forge_chat_tts_enabled',ttsEnabled?'1':'0');}catch(e){}
+}
+
+function setTTSStatus(text){
+  var el=document.getElementById('tts-status');
+  if(el)el.textContent=text;
+}
+
+function refreshTTSControls(){
+  var toggle=document.getElementById('tts-toggle');
+  var replay=document.getElementById('tts-replay');
+  var stop=document.getElementById('tts-stop');
+  if(toggle){
+    toggle.textContent=ttsEnabled?'Voix ON':'Voix OFF';
+    toggle.classList.toggle('off',!ttsEnabled);
+    toggle.disabled=!ttsSupported;
+  }
+  if(replay)replay.disabled=!ttsSupported||!lastAssistantText;
+  if(stop)stop.disabled=!ttsSupported;
+  if(!ttsSupported)setTTSStatus('Voix indisponible');
+  else if(ttsEnabled)setTTSStatus(activeUtterance?'Lecture en cours':'Voix prete');
+  else setTTSStatus('Voix coupee');
+}
+
+function updateTTSVoices(){
+  if(!ttsSupported)return [];
+  ttsVoices=window.speechSynthesis.getVoices()||[];
+  return ttsVoices;
+}
+
+function getPreferredTTSVoice(){
+  var voices=ttsVoices.length?ttsVoices:updateTTSVoices();
+  if(!voices.length)return null;
+  var exact=voices.find(function(voice){return /^fr[-_]?fr$/i.test(voice.lang||'');});
+  if(exact)return exact;
+  var french=voices.find(function(voice){return /^fr\b/i.test(voice.lang||'');});
+  if(french)return french;
+  var named=voices.find(function(voice){return /french/i.test((voice.name||'')+' '+(voice.lang||''));});
+  return named||voices[0];
+}
+
+function normalizeSpeechText(text){
+  return (text||'')
+    .replace(/\*\*(.*?)\*\*/g,'$1')
+    .replace(/`([^`]+)`/g,'$1')
+    .replace(/\[(.*?)\]\((.*?)\)/g,'$1')
+    .replace(/https?:\/\/\S+/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+function stopChatSpeech(){
+  if(!ttsSupported)return;
+  activeUtterance=null;
+  window.speechSynthesis.cancel();
+  refreshTTSControls();
+}
+
+function speakAssistantText(text){
+  if(!ttsSupported||!ttsEnabled)return;
+  var spoken=normalizeSpeechText(text);
+  if(!spoken)return;
+  lastAssistantText=text;
+  stopChatSpeech();
+  var utterance=new SpeechSynthesisUtterance(spoken);
+  var voice=getPreferredTTSVoice();
+  utterance.lang=(voice&&voice.lang)||'fr-FR';
+  if(voice)utterance.voice=voice;
+  utterance.rate=1;
+  utterance.pitch=1;
+  utterance.volume=1;
+  utterance.onstart=function(){
+    activeUtterance=utterance;
+    refreshTTSControls();
+  };
+  utterance.onend=function(){
+    if(activeUtterance===utterance)activeUtterance=null;
+    refreshTTSControls();
+  };
+  utterance.onerror=function(){
+    if(activeUtterance===utterance)activeUtterance=null;
+    setTTSStatus('Lecture impossible');
+    refreshTTSControls();
+  };
+  activeUtterance=utterance;
+  setTTSStatus('Lecture en cours');
+  window.speechSynthesis.speak(utterance);
+  refreshTTSControls();
+}
+
+function toggleTTS(){
+  if(!ttsSupported){
+    refreshTTSControls();
+    return;
+  }
+  ttsEnabled=!ttsEnabled;
+  saveTTSPreference();
+  if(!ttsEnabled)stopChatSpeech();
+  refreshTTSControls();
+}
+
+function replayLastAssistantMessage(){
+  if(!ttsSupported||!lastAssistantText)return;
+  speakAssistantText(lastAssistantText);
+}
+
+function initTTS(){
+  loadTTSPreference();
+  if(!ttsSupported){
+    refreshTTSControls();
+    return;
+  }
+  updateTTSVoices();
+  if(typeof window.speechSynthesis.onvoiceschanged!=='undefined'){
+    window.speechSynthesis.onvoiceschanged=function(){
+      updateTTSVoices();
+      refreshTTSControls();
+    };
+  }
+  refreshTTSControls();
+}
 
 function toggleChat(){
   chatOpen=!chatOpen;
@@ -1047,6 +1197,11 @@ function addMsg(role,text){
   else if(role==='user')chatHistory.push({role:'user',parts:[{text:text}]});
   // Save to localStorage
   saveChatHistory();
+  if(role==='ai'){
+    lastAssistantText=text;
+    refreshTTSControls();
+    speakAssistantText(text);
+  }
 }
 
 function saveChatHistory(){
@@ -1064,6 +1219,7 @@ function loadChatHistory(){
       chatHistory.forEach(function(msg){
         var role=msg.role==='model'?'ai':'user';
         var text=msg.parts[0].text;
+        if(role==='ai')lastAssistantText=text;
         var div=document.createElement('div');div.className='chat-msg '+role;
         var nameDiv='';
         if(role==='ai')nameDiv='<div class="msg-name">\u{1F9D1}\u200D\u{1F3EB} Épictète</div>';
@@ -1073,6 +1229,7 @@ function loadChatHistory(){
         body.appendChild(div);
       });
       body.scrollTop=body.scrollHeight;
+      refreshTTSControls();
     }
   }catch(e){}
 }
@@ -1083,6 +1240,7 @@ async function sendChat(){
   var text=(input.value||'').trim();
   if(!text)return;
   input.value='';btn.disabled=true;
+  stopChatSpeech();
   addMsg('user',text);
   // Show typing
   var body=document.getElementById('chat-body');
@@ -1139,7 +1297,11 @@ async function sendChat(){
 }
 
 // Load history on init
-function initChat(){loadChatHistory();}
+function initChat(){
+  initTTS();
+  loadChatHistory();
+  refreshTTSControls();
+}
 
 loadSystemPrompt().then(function(){iP();tH();R();loadPodcasts();initChat();buildHubIndex().catch(function(){console.warn('Épictète: index hub non préchargé');});});
 </script></body></html>

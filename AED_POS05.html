@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_POS05 — Laïcité vécue au quotidien</title>
+<title>LA FORGE | AED_POS05 â€” LaÃ¯citÃ© vÃ©cue au quotidien</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -49,86 +49,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_POS05';
 var CERT_KEY  = 'CERT_AED_AED_POS05';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \él\ève de 3\ème porte une cha\îne avec une croix visible sous son t-shirt. Un autre \él\ève vous interpelle : \«Lui il a le droit d\’avoir une croix et moi j\’ai pas le droit de porter un voile ? C\’est injuste !\»",
-    q: "Comment r\épondez-vous ?",
+    ctx: "Un \Ã©l\Ã¨ve de 3\Ã¨me porte une cha\Ã®ne avec une croix visible sous son t-shirt. Un autre \Ã©l\Ã¨ve vous interpelle : \Â«Lui il a le droit d\â€™avoir une croix et moi j\â€™ai pas le droit de porter un voile ? C\â€™est injuste !\Â»",
+    q: "Comment r\Ã©pondez-vous ?",
     options: [
       {
         label: "Explication juridique claire",
-        text: "\«La loi ne fait pas de diff\érence entre les religions. Elle distingue les signes discrets (une petite croix, une \étoile de David, une main de Fatma) des signes ostensibles (un voile, une kippa, une grande croix). C\’est la visibilit\é qui compte, pas la religion. La m\ême r\ègle s\’applique \à tous.\»",
+        text: "\Â«La loi ne fait pas de diff\Ã©rence entre les religions. Elle distingue les signes discrets (une petite croix, une \Ã©toile de David, une main de Fatma) des signes ostensibles (un voile, une kippa, une grande croix). C\â€™est la visibilit\Ã© qui compte, pas la religion. La m\Ãªme r\Ã¨gle s\â€™applique \Ã  tous.\Â»",
         score: 3,
-        fb: "La loi de 2004 vise les signes \«par lesquels les \él\èves manifestent ostensiblement une appartenance religieuse\» \— pas tous les signes. La distinction discret/ostensible est universelle : elle s\’applique \à toutes les religions de la m\ême mani\ère.",
+        fb: "La loi de 2004 vise les signes \Â«par lesquels les \Ã©l\Ã¨ves manifestent ostensiblement une appartenance religieuse\Â» \â€” pas tous les signes. La distinction discret/ostensible est universelle : elle s\â€™applique \Ã  toutes les religions de la m\Ãªme mani\Ã¨re.",
         good: true
       },
       {
-        label: "\Éviter",
-        text: "\«C\’est pas \à moi de r\épondre \à \ça, va voir le CPE.\»",
+        label: "\Ã‰viter",
+        text: "\Â«C\â€™est pas \Ã  moi de r\Ã©pondre \Ã  \Ã§a, va voir le CPE.\Â»",
         score: 1,
-        fb: "L\’orientation est l\égitime pour un cas complexe, mais cette question est basique et fr\équente. Un AED doit pouvoir y r\épondre \— c\’est le socle de la la\ïcit\é appliqu\ée.",
+        fb: "L\â€™orientation est l\Ã©gitime pour un cas complexe, mais cette question est basique et fr\Ã©quente. Un AED doit pouvoir y r\Ã©pondre \â€” c\â€™est le socle de la la\Ã¯cit\Ã© appliqu\Ã©e.",
         good: false
       },
       {
         label: "Relativiser",
-        text: "\«Oui, c\’est compliqu\é, la la\ïcit\é n\’est pas parfaite.\»",
+        text: "\Â«Oui, c\â€™est compliqu\Ã©, la la\Ã¯cit\Ã© n\â€™est pas parfaite.\Â»",
         score: 0,
-        fb: "La la\ïcit\é peut \être discut\ée dans ses applications, mais le cadre juridique est clair et ne doit pas \être pr\ésent\é comme \«imparfait\» face \à un \él\ève. L\’AED porte le cadre \— il ne le relativise pas en public.",
+        fb: "La la\Ã¯cit\Ã© peut \Ãªtre discut\Ã©e dans ses applications, mais le cadre juridique est clair et ne doit pas \Ãªtre pr\Ã©sent\Ã© comme \Â«imparfait\Â» face \Ã  un \Ã©l\Ã¨ve. L\â€™AED porte le cadre \â€” il ne le relativise pas en public.",
         good: false
       },
     ]
   },
   {
-    ctx: "\À la cantine, un \él\ève refuse de s\’asseoir \à c\ôt\é d\’un camarade en disant : \«Ma religion m\’interdit de manger avec lui.\»",
-    q: "Comment r\éagissez-vous ?",
+    ctx: "\Ã€ la cantine, un \Ã©l\Ã¨ve refuse de s\â€™asseoir \Ã  c\Ã´t\Ã© d\â€™un camarade en disant : \Â«Ma religion m\â€™interdit de manger avec lui.\Â»",
+    q: "Comment r\Ã©agissez-vous ?",
     options: [
       {
-        label: "Cadrage la\ïc + respect",
-        text: "\«Ici, \à la cantine du coll\ège, tout le monde peut s\’asseoir \à c\ôt\é de tout le monde. Ta foi t\’appartient et on la respecte, mais elle ne peut pas servir \à exclure un camarade d\’un espace commun. Assieds-toi, tu ne manges pas ce que tu ne veux pas manger, mais tu partages l\’espace.\»",
+        label: "Cadrage la\Ã¯c + respect",
+        text: "\Â«Ici, \Ã  la cantine du coll\Ã¨ge, tout le monde peut s\â€™asseoir \Ã  c\Ã´t\Ã© de tout le monde. Ta foi t\â€™appartient et on la respecte, mais elle ne peut pas servir \Ã  exclure un camarade d\â€™un espace commun. Assieds-toi, tu ne manges pas ce que tu ne veux pas manger, mais tu partages l\â€™espace.\Â»",
         score: 3,
-        fb: "Le principe la\ïc \à l\’\école : la libert\é de conscience est prot\ég\ée, mais elle ne peut pas justifier l\’exclusion d\’un autre \él\ève. Respecter la foi \≠ accepter la s\égr\égation. L\’espace scolaire est commun par d\éfinition.",
+        fb: "Le principe la\Ã¯c \Ã  l\â€™\Ã©cole : la libert\Ã© de conscience est prot\Ã©g\Ã©e, mais elle ne peut pas justifier l\â€™exclusion d\â€™un autre \Ã©l\Ã¨ve. Respecter la foi \â‰  accepter la s\Ã©gr\Ã©gation. L\â€™espace scolaire est commun par d\Ã©finition.",
         good: true
       },
       {
         label: "Accepter",
-        text: "\«OK, mets-toi ailleurs si tu pr\éf\ères.\»",
+        text: "\Â«OK, mets-toi ailleurs si tu pr\Ã©f\Ã¨res.\Â»",
         score: 0,
-        fb: "Accepter l\’exclusion d\’un \él\ève sur motif religieux, c\’est valider une discrimination. L\’\él\ève exclu re\çoit le message : \«ta pr\ésence d\érange et l\’institution est d\’accord.\» C\’est l\’inverse de la la\ïcit\é.",
+        fb: "Accepter l\â€™exclusion d\â€™un \Ã©l\Ã¨ve sur motif religieux, c\â€™est valider une discrimination. L\â€™\Ã©l\Ã¨ve exclu re\Ã§oit le message : \Â«ta pr\Ã©sence d\Ã©range et l\â€™institution est d\â€™accord.\Â» C\â€™est l\â€™inverse de la la\Ã¯cit\Ã©.",
         good: false
       },
       {
-        label: "S\’\énerver",
-        text: "\«Ta religion n\’a rien \à faire ici, on est dans une \école la\ïque !\»",
+        label: "S\â€™\Ã©nerver",
+        text: "\Â«Ta religion n\â€™a rien \Ã  faire ici, on est dans une \Ã©cole la\Ã¯que !\Â»",
         score: 1,
-        fb: "Le fond est juste mais la forme blesse. La la\ïcit\é ne dit PAS \«ta religion n\’a rien \à faire ici\» \— elle dit \«ta foi t\’appartient mais ne peut pas organiser l\’espace commun\». La nuance est fondamentale.",
+        fb: "Le fond est juste mais la forme blesse. La la\Ã¯cit\Ã© ne dit PAS \Â«ta religion n\â€™a rien \Ã  faire ici\Â» \â€” elle dit \Â«ta foi t\â€™appartient mais ne peut pas organiser l\â€™espace commun\Â». La nuance est fondamentale.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un coll\ègue AED porte un pendentif religieux visible pendant son service. Un enseignant vous en parle : \«Il a le droit de faire \ça ?\»",
-    q: "Quelle est la r\ègle pour les agents ?",
+    ctx: "Un coll\Ã¨gue AED porte un pendentif religieux visible pendant son service. Un enseignant vous en parle : \Â«Il a le droit de faire \Ã§a ?\Â»",
+    q: "Quelle est la r\Ã¨gle pour les agents ?",
     options: [
       {
-        label: "Neutralit\é stricte des agents",
-        text: "\«Non, les agents du service public sont tenus \à une neutralit\é stricte \— aucun signe religieux, m\ême discret. C\’est diff\érent des \él\èves qui ont droit aux signes discrets. Un AED est un agent public. Il faut lui en parler, calmement.\»",
+        label: "Neutralit\Ã© stricte des agents",
+        text: "\Â«Non, les agents du service public sont tenus \Ã  une neutralit\Ã© stricte \â€” aucun signe religieux, m\Ãªme discret. C\â€™est diff\Ã©rent des \Ã©l\Ã¨ves qui ont droit aux signes discrets. Un AED est un agent public. Il faut lui en parler, calmement.\Â»",
         score: 3,
-        fb: "La distinction est fondamentale : les agents (enseignants, CPE, AED, AESH) sont soumis \à une neutralit\é stricte \— aucun signe religieux quelle que soit la taille. Les \él\èves gardent leur libert\é de conscience avec la seule limite des signes ostensibles (loi 2004). Deux r\égimes distincts.",
+        fb: "La distinction est fondamentale : les agents (enseignants, CPE, AED, AESH) sont soumis \Ã  une neutralit\Ã© stricte \â€” aucun signe religieux quelle que soit la taille. Les \Ã©l\Ã¨ves gardent leur libert\Ã© de conscience avec la seule limite des signes ostensibles (loi 2004). Deux r\Ã©gimes distincts.",
         good: true
       },
       {
-        label: "M\ême r\ègle que les \él\èves",
-        text: "\«S\’il est discret, c\’est comme pour les \él\èves, \ça passe.\»",
+        label: "M\Ãªme r\Ã¨gle que les \Ã©l\Ã¨ves",
+        text: "\Â«S\â€™il est discret, c\â€™est comme pour les \Ã©l\Ã¨ves, \Ã§a passe.\Â»",
         score: 0,
-        fb: "Erreur fr\équente : les agents et les \él\èves ne sont PAS soumis au m\ême r\égime. L\’agent est neutre \— point. Pas de \«discret \ça passe\» pour un agent public.",
+        fb: "Erreur fr\Ã©quente : les agents et les \Ã©l\Ã¨ves ne sont PAS soumis au m\Ãªme r\Ã©gime. L\â€™agent est neutre \â€” point. Pas de \Â«discret \Ã§a passe\Â» pour un agent public.",
         good: false
       },
       {
-        label: "Pas mon probl\ème",
-        text: "\«C\’est \à la direction de g\érer \ça.\»",
+        label: "Pas mon probl\Ã¨me",
+        text: "\Â«C\â€™est \Ã  la direction de g\Ã©rer \Ã§a.\Â»",
         score: 1,
-        fb: "Techniquement vrai \— c\’est la hi\érarchie qui recadre. Mais conna\ître la r\ègle, c\’est la comp\étence de tout agent. Et entre coll\ègues, un rappel bienveillant peut pr\éc\éder l\’intervention hi\érarchique.",
+        fb: "Techniquement vrai \â€” c\â€™est la hi\Ã©rarchie qui recadre. Mais conna\Ã®tre la r\Ã¨gle, c\â€™est la comp\Ã©tence de tout agent. Et entre coll\Ã¨gues, un rappel bienveillant peut pr\Ã©c\Ã©der l\â€™intervention hi\Ã©rarchique.",
         good: false
       },
     ]
@@ -136,19 +136,29 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🏛", t:"Loi 1905 :", v:"L\’\État ne reconna\ît ni ne finance aucun culte. La la\ïcit\é prot\ège la libert\é de conscience \— elle ne supprime pas la religion."},
-  {icon:"🏫", t:"Agents vs \él\èves :", v:"Agents = neutralit\é stricte (aucun signe). \Él\èves = libert\é de conscience + interdiction des signes ostensibles (loi 2004)."},
-  {icon:"⚖️", t:"Discret vs ostensible :", v:"La distinction est universelle \— toutes religions confondues. C\’est la visibilit\é qui compte, pas la religion."},
-  {icon:"🤝", t:"Espace commun :", v:"La foi appartient \à chacun. L\’espace scolaire appartient \à tous. Aucune conviction ne peut exclure un pair de l\’espace partag\é."},
+  {icon:"ðŸ›", t:"Loi 1905 :", v:"L\â€™\Ã‰tat ne reconna\Ã®t ni ne finance aucun culte. La la\Ã¯cit\Ã© prot\Ã¨ge la libert\Ã© de conscience \â€” elle ne supprime pas la religion."},
+  {icon:"ðŸ«", t:"Agents vs \Ã©l\Ã¨ves :", v:"Agents = neutralit\Ã© stricte (aucun signe). \Ã‰l\Ã¨ves = libert\Ã© de conscience + interdiction des signes ostensibles (loi 2004)."},
+  {icon:"âš–ï¸", t:"Discret vs ostensible :", v:"La distinction est universelle \â€” toutes religions confondues. C\â€™est la visibilit\Ã© qui compte, pas la religion."},
+  {icon:"ðŸ¤", t:"Espace commun :", v:"La foi appartient \Ã  chacun. L\â€™espace scolaire appartient \Ã  tous. Aucune conviction ne peut exclure un pair de l\â€™espace partag\Ã©."},
 ];
 
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : La\ïcit\é v\écue au quotidien',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : La\Ã¯cit\Ã© v\Ã©cue au quotidien',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -166,67 +176,71 @@ function App(){
     localStorage.setItem(CERT_KEY,JSON.stringify(cert));
     awardXP();setStep('complete');
   };
-  var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Posture & Déontologie — CERTIFICATION · Module 1/5'),
-    e('h1',null,"La\ïcit\é v\écue au quotidien"),
-    e('p',{className:'quote'},'"'+"La la\ïcit\é n\’est pas une opinion parmi d\’autres, c\’est la libert\é d\’en avoir une."+'" — Henri Pena-Ruiz'),
-    e('p',null,"La la\ïcit\é \à l\’\école n\’est pas un concept abstrait \— c\’est une situation quotidienne. Un \él\ève qui refuse de manger \à c\ôt\é d\’un camarade pour motif religieux, une demande d\’absence pour f\ête religieuse, un d\ébat qui d\érape en cours. L\’AED est en premi\ère ligne."),
-    e('p',null,"Ce module de certification teste votre capacit\é \à appliquer le cadre la\ïc avec justesse : ni rigidit\é administrative aveugle, ni relativisme qui noie tout. La loi de 1905, la loi de 2004, et la distinction agents/\él\èves sont vos trois rep\ères."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Loi 1905 s\éparation \Églises/\État \— Loi 2004 signes ostensibles \— Charte de la la\ïcit\é \à l\’\école \— Vademecum la\ïcit\é (MEN)"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Posture & DÃ©ontologie â€” CERTIFICATION Â· Module 1/5'),
+    e('h1',null,"La\Ã¯cit\Ã© v\Ã©cue au quotidien"),
+    e('p',{className:'quote'},'"'+"La la\Ã¯cit\Ã© n\â€™est pas une opinion parmi d\â€™autres, c\â€™est la libert\Ã© d\â€™en avoir une."+'" â€” Henri Pena-Ruiz'),
+    e('p',null,"La la\Ã¯cit\Ã© \Ã  l\â€™\Ã©cole n\â€™est pas un concept abstrait \â€” c\â€™est une situation quotidienne. Un \Ã©l\Ã¨ve qui refuse de manger \Ã  c\Ã´t\Ã© d\â€™un camarade pour motif religieux, une demande d\â€™absence pour f\Ãªte religieuse, un d\Ã©bat qui d\Ã©rape en cours. L\â€™AED est en premi\Ã¨re ligne."),
+    e('p',null,"Ce module de certification teste votre capacit\Ã© \Ã  appliquer le cadre la\Ã¯c avec justesse : ni rigidit\Ã© administrative aveugle, ni relativisme qui noie tout. La loi de 1905, la loi de 2004, et la distinction agents/\Ã©l\Ã¨ves sont vos trois rep\Ã¨res."),
+    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Loi 1905 s\Ã©paration \Ã‰glises/\Ã‰tat \â€” Loi 2004 signes ostensibles \â€” Charte de la la\Ã¯cit\Ã© \Ã  l\â€™\Ã©cole \â€” Vademecum la\Ã¯cit\Ã© (MEN)"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Laïcité'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+LaÃ¯citÃ©'),e('div',{className:'comp-earn'},'+Posture'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
+            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module →')
+      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🏛'),
-    e('h1',null,"Module validé !"),
-    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
+    e('div',{className:'seal'},'ðŸ›'),
+    e('h1',null,"Module validÃ© !"),
+    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Laïcité'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 LaÃ¯citÃ©'),e('div',{className:'comp-earn'},'+1 Posture'),
       null),
-    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
+    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
   );};
 
   switch(step){

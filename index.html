@@ -1981,15 +1981,24 @@ async function sendChat(){
       '- Pour toute réponse factuelle, ajoute une dernière ligne : Source locale : ... en citant uniquement les éléments présents dans le contexte récupéré.',
       '- Réponse attendue : réponse directe d’abord ; puis éventuel complément utile bref ; pas de roman.'
     ].join('\n');
+    runtimeRules+='\n- Reponds uniquement a la derniere demande utilisateur. L\'historique recent sert seulement de contexte.';
 
-    var messages=[{role:'system',content:getEffectiveSystemPrompt()+'\n\n'+runtimeRules+'\n\n'+hub.context}];
-    chatHistory
-      .filter(function(m){return m.role==='user';})
-      .slice(-6)
-      .forEach(function(m){
-        var userText=m.parts?m.parts[0].text:(m.content||'');
-        messages.push({role:'user',content:userText});
-      });
+    var recentContext=chatHistory
+      .slice(Math.max(chatHistory.length-7,0),Math.max(chatHistory.length-1,0))
+      .map(function(m){
+        var role=m.role==='model'?'Assistant':'Utilisateur';
+        var content=m.parts&&m.parts[0]?m.parts[0].text:(m.content||'');
+        return role+' : '+content;
+      })
+      .join('\n');
+    var systemContent=getEffectiveSystemPrompt()+'\n\n'+runtimeRules+'\n\n'+hub.context;
+    if(recentContext){
+      systemContent+='\n\nHISTORIQUE RECENT (CONTEXTE UNIQUEMENT)\n'+recentContext;
+    }
+    var messages=[
+      {role:'system',content:systemContent},
+      {role:'user',content:text}
+    ];
 
     var res=await fetch(MISTRAL_URL,{
       method:'POST',

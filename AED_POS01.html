@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_POS01 — Autorité éducative vs autoritarisme</title>
+<title>LA FORGE | AED_POS01 â€” AutoritÃ© Ã©ducative vs autoritarisme</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -74,86 +74,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_POS01';
 var CERT_KEY  = 'CERT_AED_AED_POS01';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Mardi 10h15, couloir du 2e étage. Deux élèves de 4e se poussent violemment. L'un insulte l'autre. Vous arrivez seul·e. Pas d'autre adulte en vue. Les deux sont rouges de colère.",
-    q: "Quelle est votre première action ?",
+    ctx: "Mardi 10h15, couloir du 2e Ã©tage. Deux Ã©lÃ¨ves de 4e se poussent violemment. L'un insulte l'autre. Vous arrivez seulÂ·e. Pas d'autre adulte en vue. Les deux sont rouges de colÃ¨re.",
+    q: "Quelle est votre premiÃ¨re action ?",
     options: [
       {
         label: "Posture Structurante",
-        text: "Je m'interpose physiquement (sans contact), voix ferme et basse : 'Stop. On se sépare. Toi ici, toi là-bas.' Je ne demande pas d'explications maintenant — je sécurise d'abord, j'écoute ensuite.",
+        text: "Je m'interpose physiquement (sans contact), voix ferme et basse : 'Stop. On se sÃ©pare. Toi ici, toi lÃ -bas.' Je ne demande pas d'explications maintenant â€” je sÃ©curise d'abord, j'Ã©coute ensuite.",
         score: 3,
-        fb: "C'est l'autorité éducative en acte : sécuriser d'abord, comprendre ensuite. La voix basse oblige à écouter (contrairement au cri qui escalade). La séparation physique casse la boucle émotionnelle. Vous n'avez pas besoin de comprendre pour intervenir — vous avez besoin de calme pour comprendre.",
+        fb: "C'est l'autoritÃ© Ã©ducative en acte : sÃ©curiser d'abord, comprendre ensuite. La voix basse oblige Ã  Ã©couter (contrairement au cri qui escalade). La sÃ©paration physique casse la boucle Ã©motionnelle. Vous n'avez pas besoin de comprendre pour intervenir â€” vous avez besoin de calme pour comprendre.",
         good: true
       },
       {
         label: "Posture Investigatrice",
-        text: "Je demande immédiatement : 'Qu'est-ce qui se passe ici ?' pour comprendre la situation avant d'agir.",
+        text: "Je demande immÃ©diatement : 'Qu'est-ce qui se passe ici ?' pour comprendre la situation avant d'agir.",
         score: 1,
-        fb: "L'intention est bonne — comprendre avant de juger. Mais le timing est mauvais. Deux ados en pleine décharge amygdalienne ne peuvent pas verbaliser rationnellement. Demander des explications maintenant, c'est ajouter de la pression cognitive à une surcharge émotionnelle. Résultat probable : escalade.",
+        fb: "L'intention est bonne â€” comprendre avant de juger. Mais le timing est mauvais. Deux ados en pleine dÃ©charge amygdalienne ne peuvent pas verbaliser rationnellement. Demander des explications maintenant, c'est ajouter de la pression cognitive Ã  une surcharge Ã©motionnelle. RÃ©sultat probable : escalade.",
         good: false
       },
       {
         label: "Posture Autoritaire",
-        text: "Je crie fort pour qu'ils s'arrêtent : 'ÇA SUFFIT ! Vous deux, chez le CPE, IMMÉDIATEMENT !'",
+        text: "Je crie fort pour qu'ils s'arrÃªtent : 'Ã‡A SUFFIT ! Vous deux, chez le CPE, IMMÃ‰DIATEMENT !'",
         score: 0,
-        fb: "Le cri est contagieux : il élève le niveau de tension au lieu de l'abaisser. Et l'envoi immédiat au CPE, sans rien sécuriser, risque de relancer le conflit dans le couloir. L'autoritarisme n'est pas l'autorité — c'est la panique déguisée en fermeté. Prairat dirait : 'Vous avez sanctionné, mais vous n'avez pas éduqué.'",
+        fb: "Le cri est contagieux : il Ã©lÃ¨ve le niveau de tension au lieu de l'abaisser. Et l'envoi immÃ©diat au CPE, sans rien sÃ©curiser, risque de relancer le conflit dans le couloir. L'autoritarisme n'est pas l'autoritÃ© â€” c'est la panique dÃ©guisÃ©e en fermetÃ©. Prairat dirait : 'Vous avez sanctionnÃ©, mais vous n'avez pas Ã©duquÃ©.'",
         good: false
       }
     ]
   },
   {
-    ctx: "Les deux élèves sont maintenant séparés. L'un pleure, l'autre croise les bras et ricane. Vous devez décider de la suite.",
-    q: "Comment gérez-vous les deux élèves ?",
+    ctx: "Les deux Ã©lÃ¨ves sont maintenant sÃ©parÃ©s. L'un pleure, l'autre croise les bras et ricane. Vous devez dÃ©cider de la suite.",
+    q: "Comment gÃ©rez-vous les deux Ã©lÃ¨ves ?",
     options: [
       {
-        label: "Traitement Différencié",
-        text: "Je prends 30 secondes avec celui qui pleure : 'Ça va aller, on va régler ça.' Puis je m'adresse à l'autre calmement : 'Le ricanement, je l'ai vu. On en reparlera. Pour l'instant, tu restes ici.' Je les accompagne séparément au bureau vie scolaire.",
+        label: "Traitement DiffÃ©renciÃ©",
+        text: "Je prends 30 secondes avec celui qui pleure : 'Ã‡a va aller, on va rÃ©gler Ã§a.' Puis je m'adresse Ã  l'autre calmement : 'Le ricanement, je l'ai vu. On en reparlera. Pour l'instant, tu restes ici.' Je les accompagne sÃ©parÃ©ment au bureau vie scolaire.",
         score: 3,
-        fb: "L'autorité éducative lit les besoins différents : l'un a besoin d'être rassuré, l'autre d'être contenu. Nommer le ricanement sans s'y opposer frontalement ('je l'ai vu') suffit à signaler que le comportement est enregistré — sans offrir la confrontation que l'ado cherche peut-être.",
+        fb: "L'autoritÃ© Ã©ducative lit les besoins diffÃ©rents : l'un a besoin d'Ãªtre rassurÃ©, l'autre d'Ãªtre contenu. Nommer le ricanement sans s'y opposer frontalement ('je l'ai vu') suffit Ã  signaler que le comportement est enregistrÃ© â€” sans offrir la confrontation que l'ado cherche peut-Ãªtre.",
         good: true
       },
       {
-        label: "Traitement Égalitaire Strict",
-        text: "Je traite les deux exactement pareil : 'Vous êtes tous les deux en tort. Direction bureau vie scolaire.'",
+        label: "Traitement Ã‰galitaire Strict",
+        text: "Je traite les deux exactement pareil : 'Vous Ãªtes tous les deux en tort. Direction bureau vie scolaire.'",
         score: 1,
-        fb: "L'égalité de traitement semble juste, mais elle nie la réalité de la situation. Si l'un est agresseur et l'autre victime, les traiter identiquement, c'est victimiser une deuxième fois. L'équité (adapter selon les besoins) n'est pas l'inégalité — c'est la justice en contexte.",
+        fb: "L'Ã©galitÃ© de traitement semble juste, mais elle nie la rÃ©alitÃ© de la situation. Si l'un est agresseur et l'autre victime, les traiter identiquement, c'est victimiser une deuxiÃ¨me fois. L'Ã©quitÃ© (adapter selon les besoins) n'est pas l'inÃ©galitÃ© â€” c'est la justice en contexte.",
         good: false
       },
       {
         label: "Confrontation du Ricaneur",
-        text: "Je me plante devant celui qui ricane : 'Tu trouves ça drôle ? Tu vas moins rigoler quand le CPE va appeler tes parents.'",
+        text: "Je me plante devant celui qui ricane : 'Tu trouves Ã§a drÃ´le ? Tu vas moins rigoler quand le CPE va appeler tes parents.'",
         score: 0,
-        fb: "C'est la confrontation directe que l'ado provoque. Tomber dedans, c'est lui donner le pouvoir de fixer le cadre émotionnel de l'échange. Et la menace des parents en public est une humiliation — elle ne produit pas de la réflexion, elle produit de la rancœur.",
+        fb: "C'est la confrontation directe que l'ado provoque. Tomber dedans, c'est lui donner le pouvoir de fixer le cadre Ã©motionnel de l'Ã©change. Et la menace des parents en public est une humiliation â€” elle ne produit pas de la rÃ©flexion, elle produit de la rancÅ“ur.",
         good: false
       }
     ]
   },
   {
-    ctx: "Le lendemain, vous croisez le ricaneur dans la cour. Il vous regarde et détourne la tête. Pas d'hostilité, mais pas de salut non plus.",
+    ctx: "Le lendemain, vous croisez le ricaneur dans la cour. Il vous regarde et dÃ©tourne la tÃªte. Pas d'hostilitÃ©, mais pas de salut non plus.",
     q: "Que faites-vous ?",
     options: [
       {
         label: "Maintien du Lien",
-        text: "Je passe près de lui et je dis simplement : 'Salut, Kévin.' Sans insister. Sans reparler de hier. Je signale que la relation n'est pas rompue — le conflit d'hier n'a pas effacé la personne.",
+        text: "Je passe prÃ¨s de lui et je dis simplement : 'Salut, KÃ©vin.' Sans insister. Sans reparler de hier. Je signale que la relation n'est pas rompue â€” le conflit d'hier n'a pas effacÃ© la personne.",
         score: 3,
-        fb: "C'est le geste le plus puissant et le plus sous-estimé de l'autorité éducative : maintenir le lien après le cadrage. Le message implicite est : 'Je t'ai recadré parce que c'était nécessaire, pas parce que je te rejette.' Prairat appelle ça l'autorité qui 'autorise' — qui fait grandir plutôt qu'exclure.",
+        fb: "C'est le geste le plus puissant et le plus sous-estimÃ© de l'autoritÃ© Ã©ducative : maintenir le lien aprÃ¨s le cadrage. Le message implicite est : 'Je t'ai recadrÃ© parce que c'Ã©tait nÃ©cessaire, pas parce que je te rejette.' Prairat appelle Ã§a l'autoritÃ© qui 'autorise' â€” qui fait grandir plutÃ´t qu'exclure.",
         good: true
       },
       {
         label: "Rappel des Faits",
-        text: "Je lui rappelle la scène d'hier : 'J'espère que tu as compris que ce genre de comportement ne passe pas.'",
+        text: "Je lui rappelle la scÃ¨ne d'hier : 'J'espÃ¨re que tu as compris que ce genre de comportement ne passe pas.'",
         score: 1,
-        fb: "La leçon de morale après coup est rarement efficace. L'ado l'a déjà entendue hier, du CPE, peut-être de ses parents. Ce qu'il n'a pas eu, en revanche, c'est un adulte qui lui montre que le cadrage n'est pas de la rancune. Répéter le reproche, c'est enfermer l'élève dans la faute.",
+        fb: "La leÃ§on de morale aprÃ¨s coup est rarement efficace. L'ado l'a dÃ©jÃ  entendue hier, du CPE, peut-Ãªtre de ses parents. Ce qu'il n'a pas eu, en revanche, c'est un adulte qui lui montre que le cadrage n'est pas de la rancune. RÃ©pÃ©ter le reproche, c'est enfermer l'Ã©lÃ¨ve dans la faute.",
         good: false
       },
       {
-        label: "Indifférence",
+        label: "IndiffÃ©rence",
         text: "Je ne fais rien. Il n'est pas venu me saluer, je ne vais pas le forcer.",
         score: 0,
-        fb: "L'indifférence n'est pas de la neutralité — c'est un message. L'élève peut interpréter votre silence comme : 'Cet adulte ne m'a pas pardonné.' La relation éducative, contrairement à la relation d'autorité pure, exige un geste de continuité après le conflit. C'est à l'adulte de le faire.",
+        fb: "L'indiffÃ©rence n'est pas de la neutralitÃ© â€” c'est un message. L'Ã©lÃ¨ve peut interprÃ©ter votre silence comme : 'Cet adulte ne m'a pas pardonnÃ©.' La relation Ã©ducative, contrairement Ã  la relation d'autoritÃ© pure, exige un geste de continuitÃ© aprÃ¨s le conflit. C'est Ã  l'adulte de le faire.",
         good: false
       }
     ]
@@ -167,7 +167,17 @@ var SYNTHESIS = [
   {icon:"\u{1F91D}", t:"Apr\u00e8s le cadrage :", v:"Le geste de maintien du lien est aussi important que le cadrage lui-m\u00eame. C'est l\u00e0 que l'autorit\u00e9 devient \u00e9ducative."}
 ];
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
@@ -193,7 +203,11 @@ function App(){
     setStep('complete');
   };
 
-  var goBack=function(){window.location.href=BACK_URL;};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
   var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
 
   var handleChoice=function(opt){
@@ -284,3 +298,4 @@ function App(){
 
 ReactDOM.createRoot(document.getElementById('root')).render(e(App));
 </script></body></html>
+

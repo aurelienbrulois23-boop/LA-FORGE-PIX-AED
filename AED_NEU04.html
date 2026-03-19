@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU04 — Besoins particuliers : TDAH, TSA, DYS, anxieux</title>
+<title>LA FORGE | AED_NEU04 â€” Besoins particuliers : TDAH, TSA, DYS, anxieux</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -49,86 +49,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_NEU04';
 var CERT_KEY  = 'CERT_AED_AED_NEU04';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "En \étude, Malik (5\ème, TDAH diagnostiqu\é, PAP) ne tient pas en place : il se l\ève toutes les 5 minutes, fait du bruit avec son stylo, et d\érange ses voisins. Les autres \él\èves se plaignent.",
-    q: "Comment g\érez-vous Malik sans le stigmatiser ?",
+    ctx: "En \Ã©tude, Malik (5\Ã¨me, TDAH diagnostiqu\Ã©, PAP) ne tient pas en place : il se l\Ã¨ve toutes les 5 minutes, fait du bruit avec son stylo, et d\Ã©range ses voisins. Les autres \Ã©l\Ã¨ves se plaignent.",
+    q: "Comment g\Ã©rez-vous Malik sans le stigmatiser ?",
     options: [
       {
-        label: "Am\énagement discret",
-        text: "Je place Malik pr\ès de mon bureau (moins de stimuli visuels). Je lui propose une t\âche courte avec un objectif clair : \«15 minutes sur cet exercice, apr\ès tu peux te lever pour aller boire.\» Je segmente le temps. Je ne punis pas le mouvement \— je le canalise.",
+        label: "Am\Ã©nagement discret",
+        text: "Je place Malik pr\Ã¨s de mon bureau (moins de stimuli visuels). Je lui propose une t\Ã¢che courte avec un objectif clair : \Â«15 minutes sur cet exercice, apr\Ã¨s tu peux te lever pour aller boire.\Â» Je segmente le temps. Je ne punis pas le mouvement \â€” je le canalise.",
         score: 3,
-        fb: "Le TDAH n\’est pas un d\éfaut de volont\é \— c\’est un d\éfaut de r\égulation attentionnelle. Segmenter le temps, r\éduire les stimuli, offrir des soupapes de mouvement l\égitimes (aller boire, distribuer des feuilles) transforme l\’agitation en \énergie canalis\ée.",
+        fb: "Le TDAH n\â€™est pas un d\Ã©faut de volont\Ã© \â€” c\â€™est un d\Ã©faut de r\Ã©gulation attentionnelle. Segmenter le temps, r\Ã©duire les stimuli, offrir des soupapes de mouvement l\Ã©gitimes (aller boire, distribuer des feuilles) transforme l\â€™agitation en \Ã©nergie canalis\Ã©e.",
         good: true
       },
       {
         label: "Punir le mouvement",
-        text: "\«Malik, assieds-toi et arr\ête de bouger. C\’est la 3\ème fois.\»",
+        text: "\Â«Malik, assieds-toi et arr\Ãªte de bouger. C\â€™est la 3\Ã¨me fois.\Â»",
         score: 0,
-        fb: "Demander \à un TDAH d\’\«arr\êter de bouger\», c\’est demander \à un myope d\’\«arr\êter de plisser les yeux\». Le trouble n\’est pas un choix. Punir le sympt\ôme cr\ée de la frustration et de la honte \— pas du calme.",
+        fb: "Demander \Ã  un TDAH d\â€™\Â«arr\Ãªter de bouger\Â», c\â€™est demander \Ã  un myope d\â€™\Â«arr\Ãªter de plisser les yeux\Â». Le trouble n\â€™est pas un choix. Punir le sympt\Ã´me cr\Ã©e de la frustration et de la honte \â€” pas du calme.",
         good: false
       },
       {
         label: "Isoler",
-        text: "Je l\’envoie travailler seul dans le couloir pour ne plus d\éranger.",
+        text: "Je l\â€™envoie travailler seul dans le couloir pour ne plus d\Ã©ranger.",
         score: 1,
-        fb: "L\’isolement peut fonctionner ponctuellement si c\’est pr\ésent\é comme un am\énagement positif (\«un espace calme pour toi\»). Mais si c\’est v\écu comme une exclusion, c\’est contre-productif. Et un \él\ève seul dans un couloir pose un probl\ème de surveillance.",
+        fb: "L\â€™isolement peut fonctionner ponctuellement si c\â€™est pr\Ã©sent\Ã© comme un am\Ã©nagement positif (\Â«un espace calme pour toi\Â»). Mais si c\â€™est v\Ã©cu comme une exclusion, c\â€™est contre-productif. Et un \Ã©l\Ã¨ve seul dans un couloir pose un probl\Ã¨me de surveillance.",
         good: false
       },
     ]
   },
   {
-    ctx: "Emma (6\ème, TSA) refuse de s\’asseoir \à la cantine parce que \«sa\» place est prise. Elle se fige, commence \à paniquer et r\ép\ète en boucle : \«C\’est ma place, c\’est ma place.\»",
+    ctx: "Emma (6\Ã¨me, TSA) refuse de s\â€™asseoir \Ã  la cantine parce que \Â«sa\Â» place est prise. Elle se fige, commence \Ã  paniquer et r\Ã©p\Ã¨te en boucle : \Â«C\â€™est ma place, c\â€™est ma place.\Â»",
     q: "Comment intervenez-vous ?",
     options: [
       {
-        label: "S\écuriser la routine",
-        text: "Je ne force pas le changement. \«Emma, je comprends. Viens, on va trouver une solution.\» Si possible, je lib\ère la place. Sinon, je l\’accompagne vers un espace calme le temps que la surcharge retombe. Pas de raisonnement logique pendant la crise \— le cerveau TSA en surcharge ne traite plus l\’information sociale.",
+        label: "S\Ã©curiser la routine",
+        text: "Je ne force pas le changement. \Â«Emma, je comprends. Viens, on va trouver une solution.\Â» Si possible, je lib\Ã¨re la place. Sinon, je l\â€™accompagne vers un espace calme le temps que la surcharge retombe. Pas de raisonnement logique pendant la crise \â€” le cerveau TSA en surcharge ne traite plus l\â€™information sociale.",
         score: 3,
-        fb: "Pour un \él\ève TSA, la routine est un ancrage vital. La rupture de routine (place prise) d\éclenche une surcharge sensorielle et cognitive. Forcer \à s\’adapter \«comme tout le monde\» est neurobiologiquement impossible dans cet \état. S\écuriser d\’abord, adapter ensuite.",
+        fb: "Pour un \Ã©l\Ã¨ve TSA, la routine est un ancrage vital. La rupture de routine (place prise) d\Ã©clenche une surcharge sensorielle et cognitive. Forcer \Ã  s\â€™adapter \Â«comme tout le monde\Â» est neurobiologiquement impossible dans cet \Ã©tat. S\Ã©curiser d\â€™abord, adapter ensuite.",
         good: true
       },
       {
         label: "Raisonner",
-        text: "\«Emma, c\’est juste une place. Assieds-toi ailleurs, c\’est pareil.\»",
+        text: "\Â«Emma, c\â€™est juste une place. Assieds-toi ailleurs, c\â€™est pareil.\Â»",
         score: 0,
-        fb: "Pour vous, c\’est pareil. Pour le cerveau TSA en surcharge, ce n\’est absolument pas pareil. L\’argument logique ne fonctionne pas pendant la crise \— il aggrave la surcharge en ajoutant de la pression sociale.",
+        fb: "Pour vous, c\â€™est pareil. Pour le cerveau TSA en surcharge, ce n\â€™est absolument pas pareil. L\â€™argument logique ne fonctionne pas pendant la crise \â€” il aggrave la surcharge en ajoutant de la pression sociale.",
         good: false
       },
       {
         label: "Gronder",
-        text: "\«Emma, on ne fait pas de sc\ène \à la cantine. Tu t\’assieds o\ù il y a de la place.\»",
+        text: "\Â«Emma, on ne fait pas de sc\Ã¨ne \Ã  la cantine. Tu t\â€™assieds o\Ã¹ il y a de la place.\Â»",
         score: 0,
-        fb: "L\’injonction publique + la honte + la surcharge = escalade garantie. L\’\él\ève TSA n\’est pas capricieuse \— elle est en d\étresse neurologique. La r\éponse adapt\ée est environnementale (r\éduire la surcharge), pas disciplinaire.",
+        fb: "L\â€™injonction publique + la honte + la surcharge = escalade garantie. L\â€™\Ã©l\Ã¨ve TSA n\â€™est pas capricieuse \â€” elle est en d\Ã©tresse neurologique. La r\Ã©ponse adapt\Ã©e est environnementale (r\Ã©duire la surcharge), pas disciplinaire.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un coll\ègue AED vous dit : \«Moi je les traite tous pareil. Faire des exceptions pour certains, c\’est de l\’injustice envers les autres.\»",
-    q: "Que r\épondez-vous ?",
+    ctx: "Un coll\Ã¨gue AED vous dit : \Â«Moi je les traite tous pareil. Faire des exceptions pour certains, c\â€™est de l\â€™injustice envers les autres.\Â»",
+    q: "Que r\Ã©pondez-vous ?",
     options: [
       {
-        label: "\Équit\é \≠ \égalit\é",
-        text: "\«L\’\égalit\é, c\’est donner la m\ême chose \à tout le monde. L\’\équit\é, c\’est donner \à chacun ce dont il a besoin. Un \él\ève myope a des lunettes \— personne ne dit que c\’est injuste. Un TDAH a besoin de bouger \— c\’est la m\ême logique. L\’am\énagement n\’est pas un privil\ège, c\’est une compensation.\»",
+        label: "\Ã‰quit\Ã© \â‰  \Ã©galit\Ã©",
+        text: "\Â«L\â€™\Ã©galit\Ã©, c\â€™est donner la m\Ãªme chose \Ã  tout le monde. L\â€™\Ã©quit\Ã©, c\â€™est donner \Ã  chacun ce dont il a besoin. Un \Ã©l\Ã¨ve myope a des lunettes \â€” personne ne dit que c\â€™est injuste. Un TDAH a besoin de bouger \â€” c\â€™est la m\Ãªme logique. L\â€™am\Ã©nagement n\â€™est pas un privil\Ã¨ge, c\â€™est une compensation.\Â»",
         score: 3,
-        fb: "L\’analogie des lunettes est la plus efficace pour expliquer l\’\équit\é. Le PAP/PPS existe pr\écis\ément pour formaliser ces am\énagements \— ce n\’est pas du favoritisme, c\’est un droit.",
+        fb: "L\â€™analogie des lunettes est la plus efficace pour expliquer l\â€™\Ã©quit\Ã©. Le PAP/PPS existe pr\Ã©cis\Ã©ment pour formaliser ces am\Ã©nagements \â€” ce n\â€™est pas du favoritisme, c\â€™est un droit.",
         good: true
       },
       {
-        label: "Accepter l\’objection",
-        text: "\«T\’as pas tort, c\’est compliqu\é de faire du cas par cas.\»",
+        label: "Accepter l\â€™objection",
+        text: "\Â«T\â€™as pas tort, c\â€™est compliqu\Ã© de faire du cas par cas.\Â»",
         score: 1,
-        fb: "La difficult\é pratique est r\éelle, mais elle ne justifie pas l\’abandon de l\’adaptation. Les dispositifs PAP/PPS existent pour cadrer les am\énagements \— ce n\’est pas de l\’improvisation.",
+        fb: "La difficult\Ã© pratique est r\Ã©elle, mais elle ne justifie pas l\â€™abandon de l\â€™adaptation. Les dispositifs PAP/PPS existent pour cadrer les am\Ã©nagements \â€” ce n\â€™est pas de l\â€™improvisation.",
         good: false
       },
       {
-        label: "\Éviter",
-        text: "\«Chacun fait comme il veut.\»",
+        label: "\Ã‰viter",
+        text: "\Â«Chacun fait comme il veut.\Â»",
         score: 0,
-        fb: "L\’inclusion n\’est pas optionnelle \— c\’est la loi (loi 2005, Code de l\’\éducation). Laisser un coll\ègue refuser les am\énagements sans r\éagir, c\’est cautionner.",
+        fb: "L\â€™inclusion n\â€™est pas optionnelle \â€” c\â€™est la loi (loi 2005, Code de l\â€™\Ã©ducation). Laisser un coll\Ã¨gue refuser les am\Ã©nagements sans r\Ã©agir, c\â€™est cautionner.",
         good: false
       },
     ]
@@ -136,14 +136,24 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🧠", t:"TDAH :", v:"Pas un d\éfaut de volont\é. Segmenter le temps, r\éduire les stimuli, offrir des soupapes de mouvement l\égitimes."},
-  {icon:"🧩", t:"TSA :", v:"La routine est un ancrage vital. Pas de raisonnement logique pendant la surcharge. S\écuriser l\’environnement d\’abord."},
-  {icon:"👓", t:"\Équit\é :", v:"L\’am\énagement n\’est pas un privil\ège. C\’est une compensation \— comme des lunettes pour un myope."},
-  {icon:"📄", t:"Dispositifs :", v:"PAP (troubles apprentissages), PPS (handicap reconnu), PAI (sant\é), PPRE (difficult\és scolaires). Conna\ître les sigles, c\’est conna\ître les droits."},
+  {icon:"ðŸ§ ", t:"TDAH :", v:"Pas un d\Ã©faut de volont\Ã©. Segmenter le temps, r\Ã©duire les stimuli, offrir des soupapes de mouvement l\Ã©gitimes."},
+  {icon:"ðŸ§©", t:"TSA :", v:"La routine est un ancrage vital. Pas de raisonnement logique pendant la surcharge. S\Ã©curiser l\â€™environnement d\â€™abord."},
+  {icon:"ðŸ‘“", t:"\Ã‰quit\Ã© :", v:"L\â€™am\Ã©nagement n\â€™est pas un privil\Ã¨ge. C\â€™est une compensation \â€” comme des lunettes pour un myope."},
+  {icon:"ðŸ“„", t:"Dispositifs :", v:"PAP (troubles apprentissages), PPS (handicap reconnu), PAI (sant\Ã©), PPRE (difficult\Ã©s scolaires). Conna\Ã®tre les sigles, c\â€™est conna\Ã®tre les droits."},
 ];
 
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
@@ -166,67 +176,71 @@ function App(){
     localStorage.setItem(CERT_KEY,JSON.stringify(cert));
     awardXP();setStep('complete');
   };
-  var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Cerveau Ado & Empathie Â· Module 1/5'),
     e('h1',null,"Besoins particuliers : TDAH, TSA, DYS, anxieux"),
-    e('p',{className:'quote'},'"'+"Un \él\ève agit\é n\’est pas forc\ément mal \élev\é. Il est peut-\être mal \équip\é."+'" — Rapport EEF, Besoins \éducatifs particuliers'),
-    e('p',null,"Le coll\ège accueille des \él\èves TDAH qui ne tiennent pas en place, des TSA qui ne comprennent pas l\’implicite, des DYS qui peinent \à lire malgr\é leur intelligence, des anxieux qui se paralysent. L\’AED les c\ôtoie au quotidien \— en \étude, en cour, \à la cantine."),
-    e('p',null,"Ce module ne fait pas de vous un sp\écialiste. Il vous donne les cl\és pour adapter votre posture sans confondre une difficult\é neurologique avec un probl\ème de comportement \— et pour savoir quand et \à qui transmettre."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"HAS, Accompagner l\’inclusion scolaire \— EEF, SEN in Mainstream \— Dispositifs PAP/PPS/PAI/PPRE"),
+    e('p',{className:'quote'},'"'+"Un \Ã©l\Ã¨ve agit\Ã© n\â€™est pas forc\Ã©ment mal \Ã©lev\Ã©. Il est peut-\Ãªtre mal \Ã©quip\Ã©."+'" â€” Rapport EEF, Besoins \Ã©ducatifs particuliers'),
+    e('p',null,"Le coll\Ã¨ge accueille des \Ã©l\Ã¨ves TDAH qui ne tiennent pas en place, des TSA qui ne comprennent pas l\â€™implicite, des DYS qui peinent \Ã  lire malgr\Ã© leur intelligence, des anxieux qui se paralysent. L\â€™AED les c\Ã´toie au quotidien \â€” en \Ã©tude, en cour, \Ã  la cantine."),
+    e('p',null,"Ce module ne fait pas de vous un sp\Ã©cialiste. Il vous donne les cl\Ã©s pour adapter votre posture sans confondre une difficult\Ã© neurologique avec un probl\Ã¨me de comportement \â€” et pour savoir quand et \Ã  qui transmettre."),
+    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"HAS, Accompagner l\â€™inclusion scolaire \â€” EEF, SEN in Mainstream \â€” Dispositifs PAP/PPS/PAI/PPRE"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Inclusion'),e('div',{className:'comp-earn'},'+Adaptation'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
+            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module →')
+      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🧠'),
-    e('h1',null,"Module validé !"),
-    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
+    e('div',{className:'seal'},'ðŸ§ '),
+    e('h1',null,"Module validÃ© !"),
+    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Inclusion'),e('div',{className:'comp-earn'},'+1 Adaptation'),
       null),
-    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
+    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
   );};
 
   switch(step){

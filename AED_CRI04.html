@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_CRI04 — Parent agressif au portail</title>
+<title>LA FORGE | AED_CRI04 â€” Parent agressif au portail</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -49,86 +49,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_CRI04';
 var CERT_KEY  = 'CERT_AED_AED_CRI04';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "8h15. Un p\ère arrive au portail, rouge de col\ère : \«Je veux voir le principal MAINTENANT ! Mon fils s\’est fait frapper hier et PERSONNE n\’a rien fait !\» Il \él\ève la voix. Des \él\èves regardent.",
-    q: "Vous \êtes seul\·e au portail. Que faites-vous ?",
+    ctx: "8h15. Un p\Ã¨re arrive au portail, rouge de col\Ã¨re : \Â«Je veux voir le principal MAINTENANT ! Mon fils s\â€™est fait frapper hier et PERSONNE n\â€™a rien fait !\Â» Il \Ã©l\Ã¨ve la voix. Des \Ã©l\Ã¨ves regardent.",
+    q: "Vous \Ãªtes seul\Â·e au portail. Que faites-vous ?",
     options: [
       {
-        label: "Accueillir + d\éplacer + orienter",
-        text: "\«Monsieur, je vous entends. Votre inqui\étude est l\égitime. Venez avec moi au bureau, on ne va pas r\égler \ça sur le trottoir.\» Je le guide physiquement vers l\’int\érieur \— loin des \él\èves. Je pr\éviens le CPE ou le principal par t\él\éphone en parall\èle.",
+        label: "Accueillir + d\Ã©placer + orienter",
+        text: "\Â«Monsieur, je vous entends. Votre inqui\Ã©tude est l\Ã©gitime. Venez avec moi au bureau, on ne va pas r\Ã©gler \Ã§a sur le trottoir.\Â» Je le guide physiquement vers l\â€™int\Ã©rieur \â€” loin des \Ã©l\Ã¨ves. Je pr\Ã©viens le CPE ou le principal par t\Ã©l\Ã©phone en parall\Ã¨le.",
         score: 3,
-        fb: "Trois gestes en un : valider l\’\émotion (\«je vous entends\»), d\éplacer la sc\ène (hors de la vue des \él\èves), orienter vers le bon interlocuteur. L\’AED n\’a pas \à r\épondre sur le fond du dossier \— il g\ère le flux.",
+        fb: "Trois gestes en un : valider l\â€™\Ã©motion (\Â«je vous entends\Â»), d\Ã©placer la sc\Ã¨ne (hors de la vue des \Ã©l\Ã¨ves), orienter vers le bon interlocuteur. L\â€™AED n\â€™a pas \Ã  r\Ã©pondre sur le fond du dossier \â€” il g\Ã¨re le flux.",
         good: true
       },
       {
         label: "Bloquer",
-        text: "\«Vous n\’avez pas rendez-vous, vous ne pouvez pas entrer.\»",
+        text: "\Â«Vous n\â€™avez pas rendez-vous, vous ne pouvez pas entrer.\Â»",
         score: 1,
-        fb: "Techniquement vrai, mais le mur administratif face \à un parent en col\ère escalade la tension. Le parent entend : \«l\’institution s\’en fout.\» Accueillir d\’abord, cadrer ensuite.",
+        fb: "Techniquement vrai, mais le mur administratif face \Ã  un parent en col\Ã¨re escalade la tension. Le parent entend : \Â«l\â€™institution s\â€™en fout.\Â» Accueillir d\â€™abord, cadrer ensuite.",
         good: false
       },
       {
         label: "Se justifier",
-        text: "\«Mais on a g\ér\é la situation hier, votre fils a \ét\é pris en charge.\»",
+        text: "\Â«Mais on a g\Ã©r\Ã© la situation hier, votre fils a \Ã©t\Ã© pris en charge.\Â»",
         score: 1,
-        fb: "Vous ne savez probablement pas tout ce qui s\’est pass\é. Se justifier sur le fond sans conna\ître le dossier risque de dire des choses inexactes ou de contredire la direction. L\’AED accueille et oriente \— il ne parle pas au nom de l\’institution.",
+        fb: "Vous ne savez probablement pas tout ce qui s\â€™est pass\Ã©. Se justifier sur le fond sans conna\Ã®tre le dossier risque de dire des choses inexactes ou de contredire la direction. L\â€™AED accueille et oriente \â€” il ne parle pas au nom de l\â€™institution.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le p\ère est dans le hall. Il crie de plus en plus fort : \«Je vais aller trouver le gamin qui a frapp\é mon fils moi-m\ême !\» Il avance vers les couloirs.",
-    q: "Le p\ère menace de passer \à l\’acte. Que faites-vous ?",
+    ctx: "Le p\Ã¨re est dans le hall. Il crie de plus en plus fort : \Â«Je vais aller trouver le gamin qui a frapp\Ã© mon fils moi-m\Ãªme !\Â» Il avance vers les couloirs.",
+    q: "Le p\Ã¨re menace de passer \Ã  l\â€™acte. Que faites-vous ?",
     options: [
       {
         label: "Barrage calme + alerte",
-        text: "Je me place entre lui et l\’acc\ès aux couloirs, sans contact physique. Voix ferme et basse : \«Monsieur, je comprends la col\ère. Mais vous ne pouvez pas acc\éder aux \él\èves. C\’est la loi. Le principal arrive.\» En parall\èle : alerte au bureau par SMS ou regard vers un coll\ègue.",
+        text: "Je me place entre lui et l\â€™acc\Ã¨s aux couloirs, sans contact physique. Voix ferme et basse : \Â«Monsieur, je comprends la col\Ã¨re. Mais vous ne pouvez pas acc\Ã©der aux \Ã©l\Ã¨ves. C\â€™est la loi. Le principal arrive.\Â» En parall\Ã¨le : alerte au bureau par SMS ou regard vers un coll\Ã¨gue.",
         score: 3,
-        fb: "L\’intrusion d\’un parent dans les locaux pour confronter un \él\ève est ill\égale (violation de l\’espace scolaire). L\’AED a le devoir de prot\éger les \él\èves \— y compris contre un parent. Le barrage physique calme (sans contact) + alerte est la bonne r\éponse. Si le parent force, c\’est le 17.",
+        fb: "L\â€™intrusion d\â€™un parent dans les locaux pour confronter un \Ã©l\Ã¨ve est ill\Ã©gale (violation de l\â€™espace scolaire). L\â€™AED a le devoir de prot\Ã©ger les \Ã©l\Ã¨ves \â€” y compris contre un parent. Le barrage physique calme (sans contact) + alerte est la bonne r\Ã©ponse. Si le parent force, c\â€™est le 17.",
         good: true
       },
       {
         label: "Le laisser passer",
-        text: "Je ne peux pas emp\êcher un adulte physiquement. Il ira o\ù il veut.",
+        text: "Je ne peux pas emp\Ãªcher un adulte physiquement. Il ira o\Ã¹ il veut.",
         score: 0,
-        fb: "L\’AED a un devoir de surveillance et de protection des \él\èves. Laisser un adulte en col\ère acc\éder aux \él\èves est un manquement. Si le barrage verbal ne suffit pas, l\’alerte aux forces de l\’ordre est la suite logique.",
+        fb: "L\â€™AED a un devoir de surveillance et de protection des \Ã©l\Ã¨ves. Laisser un adulte en col\Ã¨re acc\Ã©der aux \Ã©l\Ã¨ves est un manquement. Si le barrage verbal ne suffit pas, l\â€™alerte aux forces de l\â€™ordre est la suite logique.",
         good: false
       },
       {
         label: "Confrontation",
-        text: "\«Vous n\’avez pas le droit d\’\être ici ! Sortez ou j\’appelle la police !\»",
+        text: "\Â«Vous n\â€™avez pas le droit d\â€™\Ãªtre ici ! Sortez ou j\â€™appelle la police !\Â»",
         score: 1,
-        fb: "L\’ultimatum peut fonctionner mais risque l\’escalade physique. La mention de la police est pertinente mais doit \être un constat calme, pas une menace \émotionnelle.",
+        fb: "L\â€™ultimatum peut fonctionner mais risque l\â€™escalade physique. La mention de la police est pertinente mais doit \Ãªtre un constat calme, pas une menace \Ã©motionnelle.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le principal est arriv\é et a pris le relais. Le p\ère est reparti. Vous \êtes secou\é\·e.",
-    q: "Comment g\érez-vous votre propre \état apr\ès cette confrontation ?",
+    ctx: "Le principal est arriv\Ã© et a pris le relais. Le p\Ã¨re est reparti. Vous \Ãªtes secou\Ã©\Â·e.",
+    q: "Comment g\Ã©rez-vous votre propre \Ã©tat apr\Ã¨s cette confrontation ?",
     options: [
       {
-        label: "D\ébriefing + reconnaissance",
-        text: "Je prends 5 minutes de pause. J\’en parle \à un coll\ègue ou au CPE : \«C\’\était costaud. J\’ai besoin de souffler.\» Si la situation \était r\éellement mena\çante, je fais un rapport d\’incident \— aussi pour moi, pour qu\’il y ait trace.",
+        label: "D\Ã©briefing + reconnaissance",
+        text: "Je prends 5 minutes de pause. J\â€™en parle \Ã  un coll\Ã¨gue ou au CPE : \Â«C\â€™\Ã©tait costaud. J\â€™ai besoin de souffler.\Â» Si la situation \Ã©tait r\Ã©ellement mena\Ã§ante, je fais un rapport d\â€™incident \â€” aussi pour moi, pour qu\â€™il y ait trace.",
         score: 3,
-        fb: "L\’AED n\’est pas un robot. Une confrontation avec un parent agressif est un \év\énement stressant qui m\érite un d\ébriefing et, si n\écessaire, un rapport d\’incident. Faire un rapport, c\’est aussi se prot\éger juridiquement.",
+        fb: "L\â€™AED n\â€™est pas un robot. Une confrontation avec un parent agressif est un \Ã©v\Ã©nement stressant qui m\Ã©rite un d\Ã©briefing et, si n\Ã©cessaire, un rapport d\â€™incident. Faire un rapport, c\â€™est aussi se prot\Ã©ger juridiquement.",
         good: true
       },
       {
         label: "Encaisser en silence",
-        text: "C\’est le m\étier. Je passe \à la suite.",
+        text: "C\â€™est le m\Ã©tier. Je passe \Ã  la suite.",
         score: 1,
-        fb: "La r\ésilience ne s\’entretient pas par le d\éni. Les AED expos\és \à des agressions r\ép\ét\ées sans d\ébriefing d\éveloppent de l\’\épuisement professionnel. En parler est un acte de survie professionnelle.",
+        fb: "La r\Ã©silience ne s\â€™entretient pas par le d\Ã©ni. Les AED expos\Ã©s \Ã  des agressions r\Ã©p\Ã©t\Ã©es sans d\Ã©briefing d\Ã©veloppent de l\â€™\Ã©puisement professionnel. En parler est un acte de survie professionnelle.",
         good: false
       },
       {
         label: "Se venger symboliquement",
-        text: "Je raconte la sc\ène aux coll\ègues en se moquant du p\ère.",
+        text: "Je raconte la sc\Ã¨ne aux coll\Ã¨gues en se moquant du p\Ã¨re.",
         score: 0,
-        fb: "La moquerie est un m\écanisme de d\éfense, mais elle n\’est pas du d\ébriefing. Et si \ça revient aux oreilles du parent ou des \él\èves, c\’est d\évastateur pour la relation famille-\école.",
+        fb: "La moquerie est un m\Ã©canisme de d\Ã©fense, mais elle n\â€™est pas du d\Ã©briefing. Et si \Ã§a revient aux oreilles du parent ou des \Ã©l\Ã¨ves, c\â€™est d\Ã©vastateur pour la relation famille-\Ã©cole.",
         good: false
       },
     ]
@@ -136,14 +136,24 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🚪", t:"Accueillir + d\éplacer :", v:"Valider l\’\émotion, sortir du public, orienter vers le bon interlocuteur. L\’AED g\ère le flux, pas le fond."},
-  {icon:"🛑", t:"Barrage :", v:"L\’intrusion d\’un parent est ill\égale. L\’AED prot\ège les \él\èves \— barrage calme + alerte."},
-  {icon:"📞", t:"Escalade :", v:"Si le parent force l\’acc\ès malgr\é le barrage verbal : appel au 17. C\’est pr\évu par le protocole intrusion."},
-  {icon:"🧘", t:"Apr\ès :", v:"D\ébriefing + rapport d\’incident. L\’AED n\’est pas un robot. Se prot\éger, c\’est aussi documenter."},
+  {icon:"ðŸšª", t:"Accueillir + d\Ã©placer :", v:"Valider l\â€™\Ã©motion, sortir du public, orienter vers le bon interlocuteur. L\â€™AED g\Ã¨re le flux, pas le fond."},
+  {icon:"ðŸ›‘", t:"Barrage :", v:"L\â€™intrusion d\â€™un parent est ill\Ã©gale. L\â€™AED prot\Ã¨ge les \Ã©l\Ã¨ves \â€” barrage calme + alerte."},
+  {icon:"ðŸ“ž", t:"Escalade :", v:"Si le parent force l\â€™acc\Ã¨s malgr\Ã© le barrage verbal : appel au 17. C\â€™est pr\Ã©vu par le protocole intrusion."},
+  {icon:"ðŸ§˜", t:"Apr\Ã¨s :", v:"D\Ã©briefing + rapport d\â€™incident. L\â€™AED n\â€™est pas un robot. Se prot\Ã©ger, c\â€™est aussi documenter."},
 ];
 
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
@@ -166,67 +176,71 @@ function App(){
     localStorage.setItem(CERT_KEY,JSON.stringify(cert));
     awardXP();setStep('complete');
   };
-  var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Gestion de Crise & Médiation · Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Gestion de Crise & MÃ©diation Â· Module 1/5'),
     e('h1',null,"Parent agressif au portail"),
-    e('p',{className:'quote'},'"'+"Le parent en col\ère n\’est pas votre ennemi. C\’est un adulte en d\étresse qui ne sait plus comment prot\éger son enfant."+'" — Formation acad\émique gestion de crise'),
-    e('p',null,"Le portail est la fronti\ère \— litt\éralement. C\’est l\à que les tensions familiales percutent l\’institution. Un parent furieux qui d\ébarque en criant veut souvent la m\ême chose que vous : prot\éger son enfant. Mais sa m\éthode est incompatible avec le cadre scolaire."),
-    e('p',null,"Ce module vous entra\îne \à g\érer ces confrontations sans les envenimer : accueillir l\’\émotion sans c\éder, cadrer sans humilier, orienter sans rejeter."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Formation acad\émique gestion des conflits \— CNV (Rosenberg) \— Protocole intrusion \établissements"),
+    e('p',{className:'quote'},'"'+"Le parent en col\Ã¨re n\â€™est pas votre ennemi. C\â€™est un adulte en d\Ã©tresse qui ne sait plus comment prot\Ã©ger son enfant."+'" â€” Formation acad\Ã©mique gestion de crise'),
+    e('p',null,"Le portail est la fronti\Ã¨re \â€” litt\Ã©ralement. C\â€™est l\Ã  que les tensions familiales percutent l\â€™institution. Un parent furieux qui d\Ã©barque en criant veut souvent la m\Ãªme chose que vous : prot\Ã©ger son enfant. Mais sa m\Ã©thode est incompatible avec le cadre scolaire."),
+    e('p',null,"Ce module vous entra\Ã®ne \Ã  g\Ã©rer ces confrontations sans les envenimer : accueillir l\â€™\Ã©motion sans c\Ã©der, cadrer sans humilier, orienter sans rejeter."),
+    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Formation acad\Ã©mique gestion des conflits \â€” CNV (Rosenberg) \â€” Protocole intrusion \Ã©tablissements"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Désescalade'),e('div',{className:'comp-earn'},'+Cadrage'),
+      e('div',{className:'comp-earn'},'+DÃ©sescalade'),e('div',{className:'comp-earn'},'+Cadrage'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
+            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module →')
+      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🚪'),
-    e('h1',null,"Module validé !"),
-    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
+    e('div',{className:'seal'},'ðŸšª'),
+    e('h1',null,"Module validÃ© !"),
+    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Désescalade'),e('div',{className:'comp-earn'},'+1 Cadrage'),
+      e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 DÃ©sescalade'),e('div',{className:'comp-earn'},'+1 Cadrage'),
       null),
-    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
+    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
   );};
 
   switch(step){

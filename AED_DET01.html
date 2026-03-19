@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_DET01 — L'œil du clinicien : observer sans interpréter</title>
+<title>LA FORGE | AED_DET01 â€” L'Å“il du clinicien : observer sans interprÃ©ter</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -49,86 +49,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_DET01';
 var CERT_KEY  = 'CERT_AED_AED_DET01';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Depuis une semaine, vous remarquez que Mehdi (4\ème) arrive en retard, ne regarde plus personne, et a des bleus sur les bras qu'il cache sous ses manches longues.",
+    ctx: "Depuis une semaine, vous remarquez que Mehdi (4\Ã¨me) arrive en retard, ne regarde plus personne, et a des bleus sur les bras qu'il cache sous ses manches longues.",
     q: "Que faites-vous de cette observation ?",
     options: [
       {
         label: "Consigner et transmettre",
-        text: "Je note les faits pr\écis\ément : dates, retards, comportement, observation des bleus. Je transmets au CPE factuellement : 'Voici ce que j'ai observ\é cette semaine.' Je ne diagnostique pas \— je rapporte.",
+        text: "Je note les faits pr\Ã©cis\Ã©ment : dates, retards, comportement, observation des bleus. Je transmets au CPE factuellement : 'Voici ce que j'ai observ\Ã© cette semaine.' Je ne diagnostique pas \â€” je rapporte.",
         score: 3,
-        fb: "L'AED n'est ni m\édecin, ni psy, ni enqu\êteur. Son r\ôle est de d\étecter et transmettre. Une observation factuelle bien r\édig\ée (dates, faits, pas d'interpr\étation) est le mat\ériau sur lequel le CPE, l'infirmi\ère ou l'AS peuvent travailler. C'est la cha\îne de signalement qui prot\ège l'enfant.",
+        fb: "L'AED n'est ni m\Ã©decin, ni psy, ni enqu\Ãªteur. Son r\Ã´le est de d\Ã©tecter et transmettre. Une observation factuelle bien r\Ã©dig\Ã©e (dates, faits, pas d'interpr\Ã©tation) est le mat\Ã©riau sur lequel le CPE, l'infirmi\Ã¨re ou l'AS peuvent travailler. C'est la cha\Ã®ne de signalement qui prot\Ã¨ge l'enfant.",
         good: true
       },
       {
         label: "Interroger Mehdi",
-        text: "Je prends Mehdi \à part : 'C'est quoi ces bleus ? Quelqu'un te fait du mal ?'",
+        text: "Je prends Mehdi \Ã  part : 'C'est quoi ces bleus ? Quelqu'un te fait du mal ?'",
         score: 1,
-        fb: "L'intention est bonne, mais l'approche directe sur des suspicions de maltraitance peut compromettre une proc\édure. Si l'\él\ève se ferme ou si l'auteur est pr\évenu, les preuves disparaissent. La transmission au CPE/infirmi\ère est la voie s\ûre.",
+        fb: "L'intention est bonne, mais l'approche directe sur des suspicions de maltraitance peut compromettre une proc\Ã©dure. Si l'\Ã©l\Ã¨ve se ferme ou si l'auteur est pr\Ã©venu, les preuves disparaissent. La transmission au CPE/infirmi\Ã¨re est la voie s\Ã»re.",
         good: false
       },
       {
         label: "Attendre",
-        text: "Peut-\être que c'est du sport. J'attends de voir si \ça continue.",
+        text: "Peut-\Ãªtre que c'est du sport. J'attends de voir si \Ã§a continue.",
         score: 0,
-        fb: "Les signaux sont cumul\és (retards + repli + bleus cach\és). Attendre, c'est prendre le risque que la situation s'aggrave. L'obligation de signalement n'attend pas la certitude \— elle d\émarre au soup\çon raisonnable.",
+        fb: "Les signaux sont cumul\Ã©s (retards + repli + bleus cach\Ã©s). Attendre, c'est prendre le risque que la situation s'aggrave. L'obligation de signalement n'attend pas la certitude \â€” elle d\Ã©marre au soup\Ã§on raisonnable.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le CPE vous remercie et vous demande de continuer \à observer discr\ètement. Deux jours plus tard, Mehdi pleure \à la sortie et refuse de rentrer chez lui.",
+    ctx: "Le CPE vous remercie et vous demande de continuer \Ã  observer discr\Ã¨tement. Deux jours plus tard, Mehdi pleure \Ã  la sortie et refuse de rentrer chez lui.",
     q: "Que faites-vous ?",
     options: [
       {
-        label: "Pr\ésence + alerte imm\édiate",
-        text: "Je reste avec Mehdi sans le presser. 'Tu n'es pas oblig\é de me dire quoi que ce soit. Mais tu n'es pas tout seul.' En parall\èle, j'envoie un SMS au CPE : 'Mehdi refuse de partir. Situation urgente.'",
+        label: "Pr\Ã©sence + alerte imm\Ã©diate",
+        text: "Je reste avec Mehdi sans le presser. 'Tu n'es pas oblig\Ã© de me dire quoi que ce soit. Mais tu n'es pas tout seul.' En parall\Ã¨le, j'envoie un SMS au CPE : 'Mehdi refuse de partir. Situation urgente.'",
         score: 3,
-        fb: "Double action : s\écuriser l'\él\ève (pr\ésence sans pression) ET alerter la cha\îne (CPE qui peut joindre l'AS ou le chef d'\étab). L'AED n'a pas \à g\érer seul une suspicion de maltraitance \— mais il ne laisse JAMAIS un enfant en d\étresse sans r\éponse.",
+        fb: "Double action : s\Ã©curiser l'\Ã©l\Ã¨ve (pr\Ã©sence sans pression) ET alerter la cha\Ã®ne (CPE qui peut joindre l'AS ou le chef d'\Ã©tab). L'AED n'a pas \Ã  g\Ã©rer seul une suspicion de maltraitance \â€” mais il ne laisse JAMAIS un enfant en d\Ã©tresse sans r\Ã©ponse.",
         good: true
       },
       {
         label: "Raccompagner",
-        text: "'Allez Mehdi, je te raccompagne chez toi, \ça va aller.'",
+        text: "'Allez Mehdi, je te raccompagne chez toi, \Ã§a va aller.'",
         score: 0,
-        fb: "Si la suspicion est de maltraitance familiale, raccompagner chez lui c'est le remettre dans la situation de danger. C'est l'erreur la plus grave possible \à ce stade.",
+        fb: "Si la suspicion est de maltraitance familiale, raccompagner chez lui c'est le remettre dans la situation de danger. C'est l'erreur la plus grave possible \Ã  ce stade.",
         good: false
       },
       {
         label: "Appeler les parents",
         text: "J'appelle les parents pour savoir ce qui se passe.",
         score: 0,
-        fb: "Si les parents sont potentiellement la source du probl\ème, les appeler les pr\évient et peut aggraver la situation pour l'enfant. Seul le CPE ou le chef d'\étab d\écide qui contacter.",
+        fb: "Si les parents sont potentiellement la source du probl\Ã¨me, les appeler les pr\Ã©vient et peut aggraver la situation pour l'enfant. Seul le CPE ou le chef d'\Ã©tab d\Ã©cide qui contacter.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un coll\ègue AED vous dit : 'Tu t'inqui\ètes pour rien, Mehdi c'est un com\édien, il fait \ça pour attirer l'attention.'",
-    q: "Comment r\éagissez-vous ?",
+    ctx: "Un coll\Ã¨gue AED vous dit : 'Tu t'inqui\Ã¨tes pour rien, Mehdi c'est un com\Ã©dien, il fait \Ã§a pour attirer l'attention.'",
+    q: "Comment r\Ã©agissez-vous ?",
     options: [
       {
         label: "Maintenir l'observation",
-        text: "'Peut-\être, mais j'ai not\é des retards r\ép\ét\és, un repli social et des marques physiques. Je pr\éf\ère transmettre et me tromper que ne rien dire et avoir raison trop tard.'",
+        text: "'Peut-\Ãªtre, mais j'ai not\Ã© des retards r\Ã©p\Ã©t\Ã©s, un repli social et des marques physiques. Je pr\Ã©f\Ã¨re transmettre et me tromper que ne rien dire et avoir raison trop tard.'",
         score: 3,
-        fb: "L'interpr\étation du coll\ègue ('com\édien') est exactement le biais \à \éviter. Le r\ôle de l'AED est de s'en tenir aux faits. Il vaut toujours mieux un signalement 'pour rien' qu'un enfant en danger non signal\é.",
+        fb: "L'interpr\Ã©tation du coll\Ã¨gue ('com\Ã©dien') est exactement le biais \Ã  \Ã©viter. Le r\Ã´le de l'AED est de s'en tenir aux faits. Il vaut toujours mieux un signalement 'pour rien' qu'un enfant en danger non signal\Ã©.",
         good: true
       },
       {
-        label: "Suivre l'avis du coll\ègue",
-        text: "'T'as peut-\être raison, il fait souvent son cinoche.'",
+        label: "Suivre l'avis du coll\Ã¨gue",
+        text: "'T'as peut-\Ãªtre raison, il fait souvent son cinoche.'",
         score: 0,
-        fb: "Suivre l'interpr\étation d'un tiers sans v\érification, c'est d\él\éguer sa responsabilit\é d'observation. Vos propres observations sont les v\ôtres \— elles m\éritent d'\être transmises.",
+        fb: "Suivre l'interpr\Ã©tation d'un tiers sans v\Ã©rification, c'est d\Ã©l\Ã©guer sa responsabilit\Ã© d'observation. Vos propres observations sont les v\Ã´tres \â€” elles m\Ã©ritent d'\Ãªtre transmises.",
         good: false
       },
       {
         label: "Douter de soi",
-        text: "'Ouais, je suis peut-\être parano...'",
+        text: "'Ouais, je suis peut-\Ãªtre parano...'",
         score: 1,
-        fb: "Le doute est l\égitime, mais il ne doit pas emp\êcher la transmission. Le CPE triera. Votre travail est d'observer et de transmettre, pas de diagnostiquer.",
+        fb: "Le doute est l\Ã©gitime, mais il ne doit pas emp\Ãªcher la transmission. Le CPE triera. Votre travail est d'observer et de transmettre, pas de diagnostiquer.",
         good: false
       },
     ]
@@ -136,19 +136,29 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"👁", t:"Fait vs interpr\étation :", v:"'Il est triste' = interpr\étation. 'Il mange seul depuis 3 jours' = fait. Seuls les faits sont transmissibles."},
-  {icon:"📋", t:"Consigner :", v:"Dates, lieux, comportements observ\és. Pas de diagnostic. La fiche d'observation est votre outil de base."},
-  {icon:"🔗", t:"Cha\îne de signalement :", v:"AED \→ CPE \→ Infirmi\ère/AS/Chef d'\étab. Chacun son r\ôle. Ne jamais court-circuiter."},
-  {icon:"⚠️", t:"Mieux vaut trop que pas assez :", v:"Un signalement 'pour rien' ne co\ûte rien. Un enfant en danger non signal\é co\ûte tout."},
+  {icon:"ðŸ‘", t:"Fait vs interpr\Ã©tation :", v:"'Il est triste' = interpr\Ã©tation. 'Il mange seul depuis 3 jours' = fait. Seuls les faits sont transmissibles."},
+  {icon:"ðŸ“‹", t:"Consigner :", v:"Dates, lieux, comportements observ\Ã©s. Pas de diagnostic. La fiche d'observation est votre outil de base."},
+  {icon:"ðŸ”—", t:"Cha\Ã®ne de signalement :", v:"AED \â†’ CPE \â†’ Infirmi\Ã¨re/AS/Chef d'\Ã©tab. Chacun son r\Ã´le. Ne jamais court-circuiter."},
+  {icon:"âš ï¸", t:"Mieux vaut trop que pas assez :", v:"Un signalement 'pour rien' ne co\Ã»te rien. Un enfant en danger non signal\Ã© co\Ã»te tout."},
 ];
 
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : L’\œil du clinicien : observer sans interpr\éter',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Lâ€™\Å“il du clinicien : observer sans interpr\Ã©ter',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -166,67 +176,71 @@ function App(){
     localStorage.setItem(CERT_KEY,JSON.stringify(cert));
     awardXP();setStep('complete');
   };
-  var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Détection & Signaux Faibles · Module 1/5'),
-    e('h1',null,"L'\œil du clinicien : observer sans interpr\éter"),
-    e('p',{className:'quote'},'"'+"Observer, c'est voir ce qui est. Interpr\éter, c'est voir ce qu'on croit."+'" — Rudolf Virchow'),
-    e('p',null,"L'AED voit plus que quiconque : il est dans la cour, aux entr\ées, aux intercours, \à la cantine. Mais voir ne suffit pas \— il faut savoir quoi observer, et surtout distinguer un fait d'une interpr\étation."),
-    e('p',null,"'Kenza est triste' est une interpr\étation. 'Kenza mange seule depuis 3 jours et ne parle plus en r\écr\é' est une observation. La premi\ère est subjective. La seconde est transmissible, v\érifiable, et actionnable."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Protocole pHARe \— INSERM, D\épistage pr\écoce \— Guide AED (acad\émie de Besan\çon)"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'DÃ©tection & Signaux Faibles Â· Module 1/5'),
+    e('h1',null,"L'\Å“il du clinicien : observer sans interpr\Ã©ter"),
+    e('p',{className:'quote'},'"'+"Observer, c'est voir ce qui est. Interpr\Ã©ter, c'est voir ce qu'on croit."+'" â€” Rudolf Virchow'),
+    e('p',null,"L'AED voit plus que quiconque : il est dans la cour, aux entr\Ã©es, aux intercours, \Ã  la cantine. Mais voir ne suffit pas \â€” il faut savoir quoi observer, et surtout distinguer un fait d'une interpr\Ã©tation."),
+    e('p',null,"'Kenza est triste' est une interpr\Ã©tation. 'Kenza mange seule depuis 3 jours et ne parle plus en r\Ã©cr\Ã©' est une observation. La premi\Ã¨re est subjective. La seconde est transmissible, v\Ã©rifiable, et actionnable."),
+    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Protocole pHARe \â€” INSERM, D\Ã©pistage pr\Ã©coce \â€” Guide AED (acad\Ã©mie de Besan\Ã§on)"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +80 XP'),
+      e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Observation'),e('div',{className:'comp-earn'},'+Rigueur'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
+            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module →')
+      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'👁'),
-    e('h1',null,"Module validé !"),
-    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
+    e('div',{className:'seal'},'ðŸ‘'),
+    e('h1',null,"Module validÃ© !"),
+    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Observation'),e('div',{className:'comp-earn'},'+1 Rigueur'),
       null),
-    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
+    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
   );};
 
   switch(step){

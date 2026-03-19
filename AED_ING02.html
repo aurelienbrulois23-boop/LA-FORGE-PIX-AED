@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_ING02 — Motivation : de l’XP à la joie intrinsèque</title>
+<title>LA FORGE | AED_ING02 â€” Motivation : de lâ€™XP Ã  la joie intrinsÃ¨que</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -49,86 +49,86 @@ p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
 var e = React.createElement;
 var MODULE_ID = 'AED_ING02';
 var CERT_KEY  = 'CERT_AED_AED_ING02';
-var BACK_URL  = 'index_PIX_AED.html';
+var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Vous remarquez qu\’un \él\ève de 5\ème, Th\éo, a accumul\é beaucoup d\’XP mais uniquement en faisant des t\émoignages bidons pour ses copains. Il t\émoigne que \«Mathis a aid\é un 6\ème\» alors que Mathis n\’a rien fait.",
-    q: "Comment g\érez-vous cette triche ?",
+    ctx: "Vous remarquez qu\â€™un \Ã©l\Ã¨ve de 5\Ã¨me, Th\Ã©o, a accumul\Ã© beaucoup d\â€™XP mais uniquement en faisant des t\Ã©moignages bidons pour ses copains. Il t\Ã©moigne que \Â«Mathis a aid\Ã© un 6\Ã¨me\Â» alors que Mathis n\â€™a rien fait.",
+    q: "Comment g\Ã©rez-vous cette triche ?",
     options: [
       {
         label: "Retrait discret + discussion",
-        text: "Je signale au CPE pour retrait des XP frauduleux (Shadow XP). Puis je vois Th\éo en priv\é : \«Je comprends l\’id\ée \— tu veux gagner des points. Mais le syst\ème repose sur la confiance. Si les t\émoignages sont bidons, le syst\ème ne vaut plus rien pour personne. Tu veux des vrais XP ? Fais un vrai truc.\»",
+        text: "Je signale au CPE pour retrait des XP frauduleux (Shadow XP). Puis je vois Th\Ã©o en priv\Ã© : \Â«Je comprends l\â€™id\Ã©e \â€” tu veux gagner des points. Mais le syst\Ã¨me repose sur la confiance. Si les t\Ã©moignages sont bidons, le syst\Ã¨me ne vaut plus rien pour personne. Tu veux des vrais XP ? Fais un vrai truc.\Â»",
         score: 3,
-        fb: "La triche r\év\èle que Th\éo est encore en motivation extrins\èque pure (les points). L\’objectif n\’est pas de le punir mais de le faire passer \à l\’\étape suivante : comprendre que la valeur du syst\ème repose sur l\’authenticit\é. Le Shadow XP corrige sans humilier.",
+        fb: "La triche r\Ã©v\Ã¨le que Th\Ã©o est encore en motivation extrins\Ã¨que pure (les points). L\â€™objectif n\â€™est pas de le punir mais de le faire passer \Ã  l\â€™\Ã©tape suivante : comprendre que la valeur du syst\Ã¨me repose sur l\â€™authenticit\Ã©. Le Shadow XP corrige sans humilier.",
         good: true
       },
       {
-        label: "D\énonciation publique",
-        text: "\«Th\éo triche, tout le monde le sait. Ses points sont retir\és.\»",
+        label: "D\Ã©nonciation publique",
+        text: "\Â«Th\Ã©o triche, tout le monde le sait. Ses points sont retir\Ã©s.\Â»",
         score: 0,
-        fb: "L\’exposition publique d\étruit la motivation de Th\éo ET la confiance des autres dans le syst\ème. Le Shadow XP est con\çu pr\écis\ément pour corriger dans l\’ombre. La honte n\’enseigne rien.",
+        fb: "L\â€™exposition publique d\Ã©truit la motivation de Th\Ã©o ET la confiance des autres dans le syst\Ã¨me. Le Shadow XP est con\Ã§u pr\Ã©cis\Ã©ment pour corriger dans l\â€™ombre. La honte n\â€™enseigne rien.",
         good: false
       },
       {
         label: "Laisser faire",
-        text: "\Ça se r\égulera tout seul, les autres finiront par le griller.",
+        text: "\Ã‡a se r\Ã©gulera tout seul, les autres finiront par le griller.",
         score: 1,
-        fb: "La triche non corrig\ée envoie un signal : le syst\ème n\’est pas s\érieux. Si les faux t\émoignages passent, pourquoi faire de vrais actes ? L\’absence de correction tue la cr\édibilit\é du dispositif.",
+        fb: "La triche non corrig\Ã©e envoie un signal : le syst\Ã¨me n\â€™est pas s\Ã©rieux. Si les faux t\Ã©moignages passent, pourquoi faire de vrais actes ? L\â€™absence de correction tue la cr\Ã©dibilit\Ã© du dispositif.",
         good: false
       },
     ]
   },
   {
-    ctx: "Une \él\ève de 4\ème, Leila, qui \était tr\ès motiv\ée par les XP au d\ébut, semble s\’en d\ésint\éresser. Elle continue pourtant \à aider ses camarades spontan\ément.",
-    q: "Est-ce un probl\ème ?",
+    ctx: "Une \Ã©l\Ã¨ve de 4\Ã¨me, Leila, qui \Ã©tait tr\Ã¨s motiv\Ã©e par les XP au d\Ã©but, semble s\â€™en d\Ã©sint\Ã©resser. Elle continue pourtant \Ã  aider ses camarades spontan\Ã©ment.",
+    q: "Est-ce un probl\Ã¨me ?",
     options: [
       {
-        label: "Non \— c\’est le succ\ès du syst\ème",
-        text: "\«C\’est exactement ce qu\’on veut. Leila est pass\ée de la motivation extrins\èque (XP) \à la motivation intrins\èque (plaisir d\’aider). L\’XP a fait son travail d\’\étayage \— il peut s\’effacer.\»",
+        label: "Non \â€” c\â€™est le succ\Ã¨s du syst\Ã¨me",
+        text: "\Â«C\â€™est exactement ce qu\â€™on veut. Leila est pass\Ã©e de la motivation extrins\Ã¨que (XP) \Ã  la motivation intrins\Ã¨que (plaisir d\â€™aider). L\â€™XP a fait son travail d\â€™\Ã©tayage \â€” il peut s\â€™effacer.\Â»",
         score: 3,
-        fb: "C\’est le sc\énario id\éal de Favre : l\’amorce extrins\èque (XP) a \éveill\é le plaisir du lien social (ocytocine). Le syst\ème nerveux de Leila a appris que l\’aide \à l\’autre est gratifiante en soi. Mission accomplie.",
+        fb: "C\â€™est le sc\Ã©nario id\Ã©al de Favre : l\â€™amorce extrins\Ã¨que (XP) a \Ã©veill\Ã© le plaisir du lien social (ocytocine). Le syst\Ã¨me nerveux de Leila a appris que l\â€™aide \Ã  l\â€™autre est gratifiante en soi. Mission accomplie.",
         good: true
       },
       {
         label: "La remotiver avec des bonus",
-        text: "\«On pourrait lui donner des badges sp\éciaux pour la relancer.\»",
+        text: "\Â«On pourrait lui donner des badges sp\Ã©ciaux pour la relancer.\Â»",
         score: 1,
-        fb: "Ajouter des r\écompenses \à quelqu\’un d\éj\à intrins\èquement motiv\é, c\’est l\’effet de sur-justification (Lepper, 1973) : \ça peut D\ÉTRUIRE la motivation intrins\èque en la rempla\çant par de l\’extrins\èque.",
+        fb: "Ajouter des r\Ã©compenses \Ã  quelqu\â€™un d\Ã©j\Ã  intrins\Ã¨quement motiv\Ã©, c\â€™est l\â€™effet de sur-justification (Lepper, 1973) : \Ã§a peut D\Ã‰TRUIRE la motivation intrins\Ã¨que en la rempla\Ã§ant par de l\â€™extrins\Ã¨que.",
         good: false
       },
       {
-        label: "S\’inqui\éter",
-        text: "\«Si elle ne s\’int\éresse plus aux XP, le syst\ème a \échou\é pour elle.\»",
+        label: "S\â€™inqui\Ã©ter",
+        text: "\Â«Si elle ne s\â€™int\Ã©resse plus aux XP, le syst\Ã¨me a \Ã©chou\Ã© pour elle.\Â»",
         score: 0,
-        fb: "Au contraire ! Si l\’\él\ève n\’a plus besoin des points pour \être prosociale, c\’est que le syst\ème a parfaitement fonctionn\é. L\’objectif n\’est pas que les \él\èves restent accros aux XP \— c\’est qu\’ils n\’en aient plus besoin.",
+        fb: "Au contraire ! Si l\â€™\Ã©l\Ã¨ve n\â€™a plus besoin des points pour \Ãªtre prosociale, c\â€™est que le syst\Ã¨me a parfaitement fonctionn\Ã©. L\â€™objectif n\â€™est pas que les \Ã©l\Ã¨ves restent accros aux XP \â€” c\â€™est qu\â€™ils n\â€™en aient plus besoin.",
         good: false
       },
     ]
   },
   {
-    ctx: "En formation AED, un coll\ègue demande : \«C\’est quoi la diff\érence entre motivation intrins\èque et extrins\èque, concr\ètement ?\»",
-    q: "Comment l\’expliquez-vous simplement ?",
+    ctx: "En formation AED, un coll\Ã¨gue demande : \Â«C\â€™est quoi la diff\Ã©rence entre motivation intrins\Ã¨que et extrins\Ã¨que, concr\Ã¨tement ?\Â»",
+    q: "Comment l\â€™expliquez-vous simplement ?",
     options: [
       {
-        label: "Analogie concr\ète",
-        text: "\«Extrins\èque, c\’est courir parce qu\’on te promet un g\âteau \à l\’arriv\ée. Intrins\èque, c\’est courir parce que tu aimes courir. Le Super-Hub, c\’est comme dire \à un gamin qui n\’a jamais couru : \‘tiens, un g\âteau si tu cours 100m\’. Il court, et il d\écouvre qu\’il aime \ça. Apr\ès, il court m\ême sans g\âteau.\»",
+        label: "Analogie concr\Ã¨te",
+        text: "\Â«Extrins\Ã¨que, c\â€™est courir parce qu\â€™on te promet un g\Ã¢teau \Ã  l\â€™arriv\Ã©e. Intrins\Ã¨que, c\â€™est courir parce que tu aimes courir. Le Super-Hub, c\â€™est comme dire \Ã  un gamin qui n\â€™a jamais couru : \â€˜tiens, un g\Ã¢teau si tu cours 100m\â€™. Il court, et il d\Ã©couvre qu\â€™il aime \Ã§a. Apr\Ã¨s, il court m\Ãªme sans g\Ã¢teau.\Â»",
         score: 3,
-        fb: "L\’analogie rend le concept imm\édiatement compr\éhensible. L\’XP est le g\âteau : il ne cr\ée pas le plaisir de courir, il cr\ée l\’occasion de le d\écouvrir. C\’est l\’\étayage transitionnel de Favre en une phrase.",
+        fb: "L\â€™analogie rend le concept imm\Ã©diatement compr\Ã©hensible. L\â€™XP est le g\Ã¢teau : il ne cr\Ã©e pas le plaisir de courir, il cr\Ã©e l\â€™occasion de le d\Ã©couvrir. C\â€™est l\â€™\Ã©tayage transitionnel de Favre en une phrase.",
         good: true
       },
       {
-        label: "D\éfinition acad\émique",
-        text: "\«Deci et Ryan (1985) d\éfinissent la motivation intrins\èque comme...\»",
+        label: "D\Ã©finition acad\Ã©mique",
+        text: "\Â«Deci et Ryan (1985) d\Ã©finissent la motivation intrins\Ã¨que comme...\Â»",
         score: 1,
-        fb: "Correct sur le fond, mais entre AED en formation, le jargon acad\émique \éteint la compr\éhension. L\’analogie vivante transmet mieux que la d\éfinition.",
+        fb: "Correct sur le fond, mais entre AED en formation, le jargon acad\Ã©mique \Ã©teint la compr\Ã©hension. L\â€™analogie vivante transmet mieux que la d\Ã©finition.",
         good: false
       },
       {
         label: "Simplification excessive",
-        text: "\«Extrins\èque = r\écompense, intrins\èque = pas de r\écompense.\»",
+        text: "\Â«Extrins\Ã¨que = r\Ã©compense, intrins\Ã¨que = pas de r\Ã©compense.\Â»",
         score: 1,
-        fb: "Trop simplifi\é : la motivation intrins\èque N\’EST PAS l\’absence de r\écompense \— c\’est la pr\ésence d\’une r\écompense interne (plaisir, sentiment de comp\étence, lien social). Il y a r\écompense dans les deux cas \— la source change.",
+        fb: "Trop simplifi\Ã© : la motivation intrins\Ã¨que N\â€™EST PAS l\â€™absence de r\Ã©compense \â€” c\â€™est la pr\Ã©sence d\â€™une r\Ã©compense interne (plaisir, sentiment de comp\Ã©tence, lien social). Il y a r\Ã©compense dans les deux cas \â€” la source change.",
         good: false
       },
     ]
@@ -136,19 +136,29 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"🍬", t:"\Étayage transitionnel :", v:"L\’XP est l\’amorce, pas la fin. Le syst\ème nerveux d\écouvre le plaisir social \à travers l\’acte amorcé par les points."},
-  {icon:"⚠️", t:"Effet de sur-justification :", v:"R\écompenser quelqu\’un d\éj\à motiv\é intrins\èquement peut d\étruire cette motivation. Ne pas forcer les XP sur ceux qui n\’en ont plus besoin."},
-  {icon:"🕵", t:"Rep\érer la triche :", v:"La triche signal\é que l\’\él\ève est bloqu\é en extrins\èque. Shadow XP + discussion \— pas humiliation."},
-  {icon:"🏆", t:"Le vrai succ\ès :", v:"Un \él\ève qui aide sans regarder ses points a d\épass\é le syst\ème. C\’est la victoire."},
+  {icon:"ðŸ¬", t:"\Ã‰tayage transitionnel :", v:"L\â€™XP est l\â€™amorce, pas la fin. Le syst\Ã¨me nerveux d\Ã©couvre le plaisir social \Ã  travers l\â€™acte amorcÃ© par les points."},
+  {icon:"âš ï¸", t:"Effet de sur-justification :", v:"R\Ã©compenser quelqu\â€™un d\Ã©j\Ã  motiv\Ã© intrins\Ã¨quement peut d\Ã©truire cette motivation. Ne pas forcer les XP sur ceux qui n\â€™en ont plus besoin."},
+  {icon:"ðŸ•µ", t:"Rep\Ã©rer la triche :", v:"La triche signal\Ã© que l\â€™\Ã©l\Ã¨ve est bloqu\Ã© en extrins\Ã¨que. Shadow XP + discussion \â€” pas humiliation."},
+  {icon:"ðŸ†", t:"Le vrai succ\Ã¨s :", v:"Un \Ã©l\Ã¨ve qui aide sans regarder ses points a d\Ã©pass\Ã© le syst\Ã¨me. C\â€™est la victoire."},
 ];
 
 
-function getPlayer(){return localStorage.getItem('pvs_current_player')||'anonyme';}
+function getPlayer(){
+  try{
+    var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){
+      localStorage.setItem('pvs_current_player',p);
+      localStorage.setItem('pvs_aed_player',p);
+      return p;
+    }
+  }catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
 function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Motivation : de l\’XP \à la joie intrins\èque',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Motivation : de l\â€™XP \Ã  la joie intrins\Ã¨que',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -166,67 +176,71 @@ function App(){
     localStorage.setItem(CERT_KEY,JSON.stringify(cert));
     awardXP();setStep('complete');
   };
-  var goBack=function(){window.location.href=BACK_URL;};
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
+    var goBack=function(){
+    var p=getPlayer();
+    var sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Ingénierie de la Bienveillance · Module 1/5'),
-    e('h1',null,"Motivation : de l\’XP \à la joie intrins\èque"),
-    e('p',{className:'quote'},'"'+"La carotte et le b\âton fonctionnent. Jusqu\’au jour o\ù il n\’y a plus de carotte."+'" — Daniel Favre'),
-    e('p',null,"Le pi\ège classique de la gamification : les \él\èves font les choses pour les points, puis arr\êtent d\ès que les points disparaissent. C\’est le b\éhaviorisme pur \— conditionnement par r\écompense externe \— et \ça ne dure pas."),
-    e('p',null,"Le Super-Hub est con\çu pour \éviter ce pi\ège. L\’XP est un \étayage transitionnel (Favre) : il amorce la pompe, mais c\’est le plaisir du lien social qui cr\ée l\’addiction positive. Comprendre ce m\écanisme vous permet de rep\érer quand un \él\ève \«triche le syst\ème\» pour les points sans engagement r\éel."),
-    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Favre, Cessons de d\émotiver les \él\èves \— Edward Deci & Richard Ryan, SDT \— Recherche ludop\édagogie adulte 2024"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'IngÃ©nierie de la Bienveillance Â· Module 1/5'),
+    e('h1',null,"Motivation : de l\â€™XP \Ã  la joie intrins\Ã¨que"),
+    e('p',{className:'quote'},'"'+"La carotte et le b\Ã¢ton fonctionnent. Jusqu\â€™au jour o\Ã¹ il n\â€™y a plus de carotte."+'" â€” Daniel Favre'),
+    e('p',null,"Le pi\Ã¨ge classique de la gamification : les \Ã©l\Ã¨ves font les choses pour les points, puis arr\Ãªtent d\Ã¨s que les points disparaissent. C\â€™est le b\Ã©haviorisme pur \â€” conditionnement par r\Ã©compense externe \â€” et \Ã§a ne dure pas."),
+    e('p',null,"Le Super-Hub est con\Ã§u pour \Ã©viter ce pi\Ã¨ge. L\â€™XP est un \Ã©tayage transitionnel (Favre) : il amorce la pompe, mais c\â€™est le plaisir du lien social qui cr\Ã©e l\â€™addiction positive. Comprendre ce m\Ã©canisme vous permet de rep\Ã©rer quand un \Ã©l\Ã¨ve \Â«triche le syst\Ã¨me\Â» pour les points sans engagement r\Ã©el."),
+    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Daniel Favre, Cessons de d\Ã©motiver les \Ã©l\Ã¨ves \â€” Edward Deci & Richard Ryan, SDT \â€” Recherche ludop\Ã©dagogie adulte 2024"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +80 XP'),
+      e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Neuro'),e('div',{className:'comp-earn'},'+Pédagogie'),
+      e('div',{className:'comp-earn'},'+Neuro'),e('div',{className:'comp-earn'},'+PÃ©dagogie'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
+            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module →')
+      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'🍬'),
-    e('h1',null,"Module validé !"),
-    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
+    e('div',{className:'seal'},'ðŸ¬'),
+    e('h1',null,"Module validÃ© !"),
+    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
-      e('div',{className:'xp-badge'},'⚡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Neuro'),e('div',{className:'comp-earn'},'+1 Pédagogie'),
+      e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Neuro'),e('div',{className:'comp-earn'},'+1 PÃ©dagogie'),
       null),
-    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
+    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
   );};
 
   switch(step){

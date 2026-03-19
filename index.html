@@ -321,6 +321,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="mw"><div class="cm"><div class="lb" id="leaderboard"></div><div id="app"></div></div>
 <div class="cs"><div class="coll" id="collective"></div><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">&#x1F3A7; Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D&eacute;posez podcast1.mp3 &agrave; podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
 <button class="login-disconnect" id="disconnect-btn" onclick="doLogout()" style="display:none">&#x23FB; D&eacute;connexion</button>
+<input type="file" id="player-state-import" accept=".json,application/json" style="display:none" onchange="importPlayerState(event)"/>
 
 <!-- ═══ ÉPICTÈTE CHAT ═══ -->
 <button id="chat-fab" onclick="toggleChat()">&#x1F9D1;&#x200D;&#x1F3EB; &#xC9;pict&#xe8;te <span class="notif" id="chat-notif" style="display:none">1</span></button>
@@ -359,12 +360,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="aw"><button class="ax xp" onclick="aL()">Connexion</button><button class="ax xn" onclick="cA()">Annuler</button></div>
 <div class="aer" id="aerr"></div></div>
 <div id="apnl" style="display:none"><div class="apl" id="api"></div>
+<div class="as"><h4>Joueur cibl&eacute;</h4><select class="ai" id="admin-target" onchange="bAL()"></select></div>
 <div class="as"><h4>Modules</h4><div class="al" id="aml"></div></div>
 <div class="as"><div class="aw"><button class="ax xg" onclick="aVS()">&#x2713; Valider</button>
 <button class="ax xr" onclick="aRA()">Reset</button><button class="ax xn" onclick="cA()">Fermer</button></div>
 <div id="afb"></div></div></div></div></div>
 <script>
-var AP='CPE59!-Chateau-70+',HI='forge_hero.jpg';
+var ADMIN_CODE_CHARS=[67,80,69,55,48,42,53,57];
+function getAdminCode(){return String.fromCharCode.apply(null,ADMIN_CODE_CHARS);}
+var AP=getAdminCode(),HI='forge_hero.jpg',PLAYER_STATE_PREFIX='forge_player_state_';
 var P=[
 {i:'\u{1F6E1}',c:'#3b82f6',k:'POS',t:'Posture & D\u00e9ontologie',d:'Autorit\u00e9 \u00e9ducative, juste distance, cadre l\u00e9gal, signalements, la\u00efcit\u00e9',m:[
 {id:'AED_POS01',f:'AED_POS01.html',n:'Autorit\u00e9 \u00e9ducative vs autoritarisme',x:80,co:['Posture','Cadrage']},
@@ -446,11 +450,12 @@ function iP(){
   var u=new URLSearchParams(window.location.search),p=u.get('player');
   if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);}
   populateLoginSelect();
-  if(gP()){hideLoginScreen();}else{showLoginScreen();}
+  if(gP()){restorePlayerState(gP());hideLoginScreen();}else{showLoginScreen();}
 }
 function populateLoginSelect(){
   var sel=document.getElementById('login-select');
   if(!sel)return;
+  sel.innerHTML='<option value="">Sélectionnez votre identifiant...</option>';
   // Named agents
   ADULTS.filter(function(a){return a.nom!=='---';}).forEach(function(a){
     var opt=document.createElement('option');opt.value=a.code;
@@ -464,6 +469,10 @@ function populateLoginSelect(){
     var opt=document.createElement('option');opt.value=a.code;
     opt.textContent=a.code;sel.appendChild(opt);
   });
+  var adminOpt=document.createElement('option');
+  adminOpt.value=AP;
+  adminOpt.textContent='CPE / Admin ('+AP+')';
+  sel.appendChild(adminOpt);
 }
 function checkLoginBtn(){
   var sel=document.getElementById('login-select');
@@ -475,12 +484,15 @@ function doLogin(){
   if(!sel||!sel.value)return;
   localStorage.setItem('pvs_current_player',sel.value);
   localStorage.setItem('pvs_aed_player',sel.value);
+  restorePlayerState(sel.value);
   hideLoginScreen();
   R();toast('\u2705 Bienvenue, '+sel.value+' !');
 }
 function doLogout(){
+  syncCurrentPlayerState();
   localStorage.removeItem('pvs_current_player');
   localStorage.removeItem('pvs_aed_player');
+  clearAllModuleCerts();
   showLoginScreen();
   R();
 }
@@ -497,6 +509,141 @@ function showLoginScreen(){
   if(db)db.style.display='none';
 }
 function gP(){return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'';}
+function allMods(){
+  var items=[];
+  P.forEach(function(p){p.m.forEach(function(m){items.push({id:m.id,x:m.x,n:m.n});});});
+  B.forEach(function(m){items.push({id:m.id,x:Math.round(m.x*(m.cf||1)),n:m.n});});
+  return items;
+}
+function getModuleMetaMap(){
+  var map={};
+  allMods().forEach(function(mod){map[mod.id]=mod;});
+  return map;
+}
+function getPlayerStateKey(player){return PLAYER_STATE_PREFIX+(player||'anon');}
+function clearAllModuleCerts(){allMods().forEach(function(mod){localStorage.removeItem(ck(mod.id));});}
+function sanitizeCompletedModuleIds(ids){
+  var known=getModuleMetaMap(),seen={},out=[];
+  (ids||[]).forEach(function(id){
+    if(!id||!known[id]||seen[id])return;
+    seen[id]=true;out.push(id);
+  });
+  return out;
+}
+function calculateXpFromIds(ids){
+  var known=getModuleMetaMap();
+  return sanitizeCompletedModuleIds(ids).reduce(function(sum,id){
+    return sum+(known[id]?known[id].x:0);
+  },0);
+}
+function getMaxPossibleXp(){return calculateXpFromIds(allMods().map(function(mod){return mod.id;}));}
+function buildPlayerSnapshot(player){
+  var code=player||gP()||'anon';
+  var completed=allMods().filter(function(mod){return iD(mod.id);}).map(function(mod){return mod.id;});
+  completed=sanitizeCompletedModuleIds(completed);
+  return {
+    version:1,
+    player:code,
+    updatedAt:new Date().toISOString(),
+    completedModules:completed,
+    xpTotal:calculateXpFromIds(completed)
+  };
+}
+function readPlayerSnapshot(player){
+  try{
+    var raw=localStorage.getItem(getPlayerStateKey(player));
+    if(!raw)return null;
+    var parsed=JSON.parse(raw);
+    if(!parsed||!Array.isArray(parsed.completedModules))return null;
+    parsed.completedModules=sanitizeCompletedModuleIds(parsed.completedModules);
+    parsed.player=parsed.player||player||'anon';
+    return parsed;
+  }catch(e){
+    return null;
+  }
+}
+function writePlayerSnapshot(snapshot){
+  if(!snapshot||!snapshot.player)return null;
+  snapshot.completedModules=sanitizeCompletedModuleIds(snapshot.completedModules);
+  snapshot.xpTotal=calculateXpFromIds(snapshot.completedModules);
+  snapshot.updatedAt=new Date().toISOString();
+  try{localStorage.setItem(getPlayerStateKey(snapshot.player),JSON.stringify(snapshot));}catch(e){}
+  return snapshot;
+}
+function syncCurrentPlayerState(){
+  var player=gP();
+  if(!player)return null;
+  return writePlayerSnapshot(buildPlayerSnapshot(player));
+}
+function applyPlayerSnapshot(snapshot){
+  clearAllModuleCerts();
+  if(!snapshot||!snapshot.player)return null;
+  sanitizeCompletedModuleIds(snapshot.completedModules).forEach(function(mid){
+    localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:snapshot.player,f:true}));
+  });
+  return snapshot;
+}
+function restorePlayerState(player){
+  clearAllModuleCerts();
+  var snapshot=readPlayerSnapshot(player);
+  if(snapshot)applyPlayerSnapshot(snapshot);
+  return snapshot;
+}
+function getCompletedModulesForPlayer(player){
+  var snapshot=readPlayerSnapshot(player);
+  if(snapshot&&Array.isArray(snapshot.completedModules))return snapshot.completedModules.slice();
+  if(player&&player===gP())return buildPlayerSnapshot(player).completedModules;
+  return [];
+}
+function downloadCurrentPlayerState(){
+  var player=gP();
+  if(!player){toast('Connecte-toi avant de sauvegarder.');return;}
+  var snapshot=syncCurrentPlayerState()||readPlayerSnapshot(player);
+  if(!snapshot){toast('Aucune sauvegarde disponible pour '+player+'.');return;}
+  snapshot.exportedAt=new Date().toISOString();
+  var blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json;charset=utf-8'});
+  var url=URL.createObjectURL(blob);
+  var link=document.createElement('a');
+  link.href=url;
+  link.download='la-forge-'+normalizeHubText(player).replace(/\s+/g,'-')+'-save.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(function(){URL.revokeObjectURL(url);},500);
+  toast('Sauvegarde téléchargée pour '+player+'.');
+}
+function triggerPlayerStateImport(){
+  var input=document.getElementById('player-state-import');
+  if(!input)return;
+  input.value='';
+  input.click();
+}
+function importPlayerState(evt){
+  var input=evt&&evt.target?evt.target:null;
+  var file=input&&input.files&&input.files[0]?input.files[0]:null;
+  if(!file)return;
+  file.text().then(function(raw){
+    var parsed=JSON.parse(raw);
+    if(!parsed||!parsed.player||!Array.isArray(parsed.completedModules))throw new Error('format');
+    parsed.completedModules=sanitizeCompletedModuleIds(parsed.completedModules);
+    if(!parsed.completedModules.length&&parsed.completedModules.length!==0)throw new Error('format');
+    if(gP()&&gP()!==parsed.player&&!confirm('Importer la sauvegarde de '+parsed.player+' et basculer sur ce profil ?'))return;
+    localStorage.setItem('pvs_current_player',parsed.player);
+    localStorage.setItem('pvs_aed_player',parsed.player);
+    writePlayerSnapshot(parsed);
+    restorePlayerState(parsed.player);
+    hideLoginScreen();
+    populateLoginSelect();
+    var sel=document.getElementById('login-select');
+    if(sel)sel.value=parsed.player;
+    R();
+    toast('Sauvegarde importée pour '+parsed.player+'.');
+  }).catch(function(){
+    toast('Fichier de sauvegarde invalide.',4000);
+  }).finally(function(){
+    if(input)input.value='';
+  });
+}
 // Certs
 function ck(id){return'CERT_AED_'+id;}function iD(id){return!!localStorage.getItem(ck(id));}
 function iU(pil,idx){return idx===0||iD(pil.m[idx-1].id);}
@@ -506,7 +653,7 @@ function tX(){var x=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))
 B.forEach(function(m){if(iD(m.id))x+=Math.round(m.x*(m.cf||1));});return x;}
 function eC(){var s=new Set();P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id)&&m.co)m.co.forEach(function(c){s.add(c);});});});return s;}
 // Validate
-function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:gP(),f:true}));pB(mid);R();if(!sl)toast('\u2705 '+mid);}
+function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:gP(),f:true}));syncCurrentPlayerState();pB(mid);R();if(!sl)toast('\u2705 '+mid);}
 function pB(mid){try{var evts=JSON.parse(localStorage.getItem('pvs_bridge_events')||'[]');
 evts.push({id:'AED-'+mid+'-'+Date.now(),type:'AED_PROGRESS',player:gP(),module:mid,cpTotal:dC()+bC(),hubXpTotal:tX(),d:new Date().toISOString()});
 if(evts.length>500)evts.splice(0,evts.length-500);localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
@@ -547,7 +694,12 @@ dsh.innerHTML='<div class="dt">\u{1F4CA} Tableau de bord</div>'+
 '<div class="dr"><span class="dl">Modules</span><span class="dv">'+(dn+bn)+'/'+(tot+B.length)+'</span></div>'+
 '<div class="dr"><span class="dl">Comp\u00e9tences</span><span class="dv" style="color:var(--steel)">'+ec.size+'/'+AC.length+'</span></div>'+
 '<div class="dr"><span class="dl">Bonus</span><span class="dv" style="color:var(--emerald)">'+bn+'/'+B.length+'</span></div>'+
-'<div class="cg">'+AC.map(function(c){return'<span class="cc'+(ec.has(c)?' e':'')+'">'+c+'</span>';}).join('')+'</div>';
+'<div class="cg">'+AC.map(function(c){return'<span class="cc'+(ec.has(c)?' e':'')+'">'+c+'</span>';}).join('')+'</div>'+
+'<div class="aw" style="margin-top:12px">'+
+'<button class="ax xg" onclick="downloadCurrentPlayerState()">Sauvegarde joueur</button>'+
+'<button class="ax xn" onclick="triggerPlayerStateImport()">Importer sauvegarde</button>'+
+'</div>'+
+'<div style="font-size:.66rem;color:var(--muted);line-height:1.5;margin-top:8px">Exporte ou r&eacute;importe l&rsquo;&eacute;tat du joueur connect&eacute; pour le transf&eacute;rer sur un autre appareil.</div>';
 // Bonus
 var bel=document.getElementById('bonus');
 bel.innerHTML='<div class="bt">\u{1F4DA} Bonus R\u00e9visions Coll\u00e8ge</div>'+
@@ -563,35 +715,73 @@ renderLeaderboard();
 }
 // Admin
 var aU=false;
+function populateAdminTargetSelect(){
+  var sel=document.getElementById('admin-target');
+  if(!sel)return;
+  var current=sel.value||gP()||'';
+  var seen={};
+  sel.innerHTML='';
+  function addOpt(value,label){
+    if(!value||seen[value])return;
+    seen[value]=true;
+    var opt=document.createElement('option');
+    opt.value=value;
+    opt.textContent=label;
+    sel.appendChild(opt);
+  }
+  if(gP())addOpt(gP(),'Session actuelle — '+gP());
+  ADULTS.forEach(function(a){
+    addOpt(a.code,a.nom!=='---'?(a.prenom+' '+a.nom+' ('+a.code+')'):a.code);
+  });
+  addOpt(AP,'CPE / Admin ('+AP+')');
+  if(current&&seen[current])sel.value=current;
+  else if(gP()&&seen[gP()])sel.value=gP();
+}
+function getAdminTargetPlayer(){
+  var sel=document.getElementById('admin-target');
+  return sel&&sel.value?sel.value:(gP()||'');
+}
 function oA(){aU=false;document.getElementById('alog').style.display='block';document.getElementById('apnl').style.display='none';
 document.getElementById('apw').value='';document.getElementById('aerr').textContent='';document.getElementById('afb').textContent='';
+populateAdminTargetSelect();
 document.getElementById('aov').classList.add('open');setTimeout(function(){document.getElementById('apw').focus();},80);}
 function cA(){document.getElementById('aov').classList.remove('open');aU=false;}
 function aL(){if(document.getElementById('apw').value.trim()!==AP){document.getElementById('aerr').textContent='\u274C Code incorrect';return;}
-aU=true;document.getElementById('alog').style.display='none';document.getElementById('apnl').style.display='block';bAL();}
-function bAL(){document.getElementById('api').textContent=gP()?'Agent : '+gP():'\u26A0\uFE0F Aucun agent';
-var ls=document.getElementById('aml');ls.innerHTML='';
+aU=true;document.getElementById('alog').style.display='none';document.getElementById('apnl').style.display='block';populateAdminTargetSelect();bAL();}
+function bAL(){populateAdminTargetSelect();var target=getAdminTargetPlayer();document.getElementById('api').textContent=target?'Agent ciblé : '+target:'\u26A0\uFE0F Aucun agent';
+var completed=new Set(getCompletedModulesForPlayer(target));var ls=document.getElementById('aml');ls.innerHTML='';
 P.forEach(function(pil){var sp=document.createElement('div');sp.className='sep';sp.textContent=pil.i+' '+pil.t;ls.appendChild(sp);
-pil.m.forEach(function(mod){aK(ls,mod);});});
+pil.m.forEach(function(mod){aK(ls,mod,completed);});});
 var bs=document.createElement('div');bs.className='sep';bs.textContent='\u{1F4DA} Bonus';ls.appendChild(bs);
-B.forEach(function(mod){aK(ls,mod);});}
-function aK(ls,mod){var dm=iD(mod.id);var w=document.createElement('label');w.className='ac';
+B.forEach(function(mod){aK(ls,mod,completed);});}
+function aK(ls,mod,completedSet){var dm=completedSet.has(mod.id);var w=document.createElement('label');w.className='ac';
 var ch=document.createElement('input');ch.type='checkbox';ch.value=mod.id;ch.checked=dm;
 var lb=document.createElement('span');lb.className='acl';lb.innerHTML=mod.n+(dm?'<span class="acd">\u2713</span>':'');
 w.appendChild(ch);w.appendChild(lb);ls.appendChild(w);}
-function aVS(){if(!aU)return;var bx=document.querySelectorAll('#aml input[type=checkbox]'),ct=0;
-bx.forEach(function(ch){if(ch.checked&&!iD(ch.value)){vM(ch.value,true);ct++;}});
-var fb=document.getElementById('afb');if(ct>0){fb.className='aok';fb.textContent='\u2705 '+ct+' valid\u00e9(s)';bAL();}
-else{fb.className='aer';fb.textContent='Aucun nouveau module';}}
-function aRA(){if(!aU||!confirm('Supprimer toute la progression AED ?'))return;
-P.forEach(function(p){p.m.forEach(function(m){localStorage.removeItem(ck(m.id));});});
-B.forEach(function(m){localStorage.removeItem(ck(m.id));});
-document.getElementById('afb').className='aok';document.getElementById('afb').textContent='Progression supprim\u00e9e';bAL();R();}
+function aVS(){if(!aU)return;var target=getAdminTargetPlayer();if(!target){document.getElementById('afb').className='aer';document.getElementById('afb').textContent='Aucun joueur ciblé';return;}
+var checked=[].slice.call(document.querySelectorAll('#aml input[type=checkbox]')).filter(function(ch){return ch.checked;}).map(function(ch){return ch.value;});
+var snapshot=writePlayerSnapshot({version:1,player:target,completedModules:checked});
+if(target===gP())restorePlayerState(target);
+document.getElementById('afb').className='aok';document.getElementById('afb').textContent='\u2705 État enregistré pour '+target+' ('+snapshot.completedModules.length+' modules)';
+bAL();R();}
+function aRA(){if(!aU)return;var target=getAdminTargetPlayer();if(!target||!confirm('Réinitialiser la progression sauvegardée de '+target+' ?'))return;
+writePlayerSnapshot({version:1,player:target,completedModules:[]});
+if(target===gP())restorePlayerState(target);
+document.getElementById('afb').className='aok';document.getElementById('afb').textContent='Progression supprimée pour '+target;
+bAL();R();}
 // Toast
 var _tt;function toast(msg,ms){var t=document.getElementById('toast');t.textContent=msg||'';t.classList.add('show');
 clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},ms||3000);}
-window.addEventListener('focus',function(){R();});
-window.addEventListener('storage',function(e){if(!e.key||e.key.startsWith('CERT_AED_')||e.key==='pvs_bridge_events')R();});
+window.addEventListener('focus',function(){syncCurrentPlayerState();R();});
+window.addEventListener('storage',function(e){
+  if(!e.key){R();return;}
+  if(e.key.startsWith('CERT_AED_')||e.key==='pvs_bridge_events'){R();return;}
+  if(e.key.indexOf(PLAYER_STATE_PREFIX)===0){
+    var current=gP();
+    if(current&&e.key===getPlayerStateKey(current))restorePlayerState(current);
+    R();
+  }
+});
 
 // ── Podcast detection (fetch HEAD — robust for GitHub Pages) ──
 async function loadPodcasts(){
@@ -647,19 +837,10 @@ function getCollectiveStats(){
   var agentStats=[];
   var totalCollXP=0;
   namedAgents.forEach(function(a){
-    var count=0;
-    P.forEach(function(p){p.m.forEach(function(m){
-      try{var raw=localStorage.getItem('CERT_AED_'+m.id);
-        if(raw){var o=JSON.parse(raw);if(o.n===a.code)count++;}
-      }catch(e){}
-    });});
-    B.forEach(function(m){
-      try{var raw=localStorage.getItem('CERT_AED_'+m.id);
-        if(raw){var o=JSON.parse(raw);if(o.n===a.code)count++;}
-      }catch(e){}
-    });
+    var completed=getCompletedModulesForPlayer(a.code);
+    var count=completed.length;
     agentStats.push({code:a.code,count:count});
-    totalCollXP+=count*100;
+    totalCollXP+=calculateXpFromIds(completed);
   });
   return {agents:agentStats,totalAgents:namedAgents.length,totalMods:totalMods,xp:totalCollXP};
 }
@@ -668,7 +849,7 @@ function renderCollective(){
   var el=document.getElementById('collective');
   if(!el)return;
   var stats=getCollectiveStats();
-  var maxXP=stats.totalAgents*stats.totalMods*100;
+  var maxXP=stats.totalAgents*getMaxPossibleXp();
   var pctGlobal=maxXP>0?Math.round((stats.xp/maxXP)*100):0;
 
   var html='<div class="coll-title">\u{1F3D7} Forge Collective</div>';
@@ -703,31 +884,7 @@ function getAgentProgress(){
   var results=[];
   ADULTS.forEach(function(a){
     if(a.nom==='---')return;
-    // Check if this agent has any certs
-    var count=0;var totalMods=0;
-    P.forEach(function(p){p.m.forEach(function(m){
-      totalMods++;
-      var key='CERT_AED_'+m.id;
-      try{var cert=localStorage.getItem(key);
-        if(cert){var obj=JSON.parse(cert);if(obj&&obj.n===a.code)count++;}
-      }catch(e){}
-    });});
-    B.forEach(function(m){
-      totalMods++;
-      var key='CERT_AED_'+m.id;
-      try{var cert=localStorage.getItem(key);
-        if(cert){var obj=JSON.parse(cert);if(obj&&obj.n===a.code)count++;}
-      }catch(e){}
-    });
-    // Also count by checking if player matches
-    if(count===0){
-      // Fallback: count all CERT_AED_ keys where this player name is stored
-      P.forEach(function(p){p.m.forEach(function(m){
-        try{var raw=localStorage.getItem('CERT_AED_'+m.id);
-          if(raw){var o=JSON.parse(raw);if(o.n===a.code)count++;}
-        }catch(e){}
-      });});
-    }
+    var count=getCompletedModulesForPlayer(a.code).length;
     results.push({nom:a.nom,prenom:a.prenom,code:a.code,count:count});
   });
   // Sort by count desc, then alpha

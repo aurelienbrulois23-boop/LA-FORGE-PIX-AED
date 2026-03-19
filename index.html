@@ -365,10 +365,23 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="as"><div class="aw"><button class="ax xg" onclick="aVS()">&#x2713; Valider</button>
 <button class="ax xr" onclick="aRA()">Reset</button><button class="ax xn" onclick="cA()">Fermer</button></div>
 <div id="afb"></div></div></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 var ADMIN_CODE_CHARS=[67,80,69,55,48,42,53,57];
 function getAdminCode(){return String.fromCharCode.apply(null,ADMIN_CODE_CHARS);}
 var AP=getAdminCode(),HI='forge_hero.jpg',PLAYER_STATE_PREFIX='forge_player_state_';
+var SUPABASE_URL='https://utgdfopnkplswxmiuyoi.supabase.co';
+var SUPABASE_PUBLISHABLE_KEY='sb_publishable_3JvqbxY4K2RmyJPH255Bzg_TYzpdsLr';
+var SUPABASE_CLIENT=null;
+var SUPABASE_ENABLED=false;
+var CLOUD_SYNC_STATUS='Local uniquement';
+var CLOUD_COLLECTIVE_STATE=null;
+var CLOUD_PLAYER_PROGRESS=[];
+var CLOUD_SYNC_TIMERS={};
+var CLOUD_LAST_PUSH_SIGNATURES={};
+var CLOUD_PLAYER_CHANNEL=null;
+var CLOUD_COLLECTIVE_CHANNEL=null;
+var CLOUD_ACTIVE_PLAYER='';
 var P=[
 {i:'\u{1F6E1}',c:'#3b82f6',k:'POS',t:'Posture & D\u00e9ontologie',d:'Autorit\u00e9 \u00e9ducative, juste distance, cadre l\u00e9gal, signalements, la\u00efcit\u00e9',m:[
 {id:'AED_POS01',f:'AED_POS01.html',n:'Autorit\u00e9 \u00e9ducative vs autoritarisme',x:80,co:['Posture','Cadrage']},
@@ -450,7 +463,16 @@ function iP(){
   var u=new URLSearchParams(window.location.search),p=u.get('player');
   if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);}
   populateLoginSelect();
-  if(gP()){restorePlayerState(gP());hideLoginScreen();}else{showLoginScreen();}
+  if(gP()){
+    restorePlayerState(gP());
+    hideLoginScreen();
+    subscribeSupabaseRealtime(gP());
+    syncPlayerWithCloud(gP(),{source:'startup'});
+  }else{
+    showLoginScreen();
+    subscribeSupabaseRealtime('');
+    refreshCloudViews();
+  }
 }
 function populateLoginSelect(){
   var sel=document.getElementById('login-select');
@@ -486,13 +508,17 @@ function doLogin(){
   localStorage.setItem('pvs_aed_player',sel.value);
   restorePlayerState(sel.value);
   hideLoginScreen();
+  subscribeSupabaseRealtime(sel.value);
+  syncPlayerWithCloud(sel.value,{source:'login'});
   R();toast('\u2705 Bienvenue, '+sel.value+' !');
 }
 function doLogout(){
-  syncCurrentPlayerState();
+  syncCurrentPlayerState({source:'logout'});
   localStorage.removeItem('pvs_current_player');
   localStorage.removeItem('pvs_aed_player');
   clearAllModuleCerts();
+  subscribeSupabaseRealtime('');
+  refreshCloudViews();
   showLoginScreen();
   R();
 }
@@ -537,43 +563,67 @@ function calculateXpFromIds(ids){
   },0);
 }
 function getMaxPossibleXp(){return calculateXpFromIds(allMods().map(function(mod){return mod.id;}));}
+function getPlayerDisplayName(player){
+  if(!player)return 'Agent';
+  if(player===AP)return 'CPE / Admin';
+  var adult=findAdult(player);
+  return adult&&adult.nom!=='---'?(adult.prenom+' '+adult.nom):player;
+}
+function normalizePlayerSnapshot(snapshot,fallbackPlayer){
+  if(!snapshot)return null;
+  var completed=sanitizeCompletedModuleIds(snapshot.completedModules||snapshot.completed_modules||[]);
+  var player=snapshot.player||snapshot.player_code||fallbackPlayer||'anon';
+  return {
+    version:snapshot.version||1,
+    player:player,
+    updatedAt:snapshot.updatedAt||snapshot.updated_at||new Date().toISOString(),
+    completedModules:completed,
+    xpTotal:typeof snapshot.xpTotal==='number'?snapshot.xpTotal:calculateXpFromIds(completed)
+  };
+}
+function getSnapshotTimestamp(snapshot){
+  var value=snapshot&&snapshot.updatedAt?Date.parse(snapshot.updatedAt):0;
+  return isNaN(value)?0:value;
+}
+function getSnapshotSignature(snapshot){
+  var normalized=normalizePlayerSnapshot(snapshot);
+  return normalized?(normalized.player+'|'+normalized.completedModules.join(',')+'|'+normalized.xpTotal):'';
+}
 function buildPlayerSnapshot(player){
   var code=player||gP()||'anon';
   var completed=allMods().filter(function(mod){return iD(mod.id);}).map(function(mod){return mod.id;});
-  completed=sanitizeCompletedModuleIds(completed);
-  return {
+  return normalizePlayerSnapshot({
     version:1,
     player:code,
     updatedAt:new Date().toISOString(),
-    completedModules:completed,
-    xpTotal:calculateXpFromIds(completed)
-  };
+    completedModules:completed
+  },code);
 }
 function readPlayerSnapshot(player){
   try{
     var raw=localStorage.getItem(getPlayerStateKey(player));
     if(!raw)return null;
     var parsed=JSON.parse(raw);
-    if(!parsed||!Array.isArray(parsed.completedModules))return null;
-    parsed.completedModules=sanitizeCompletedModuleIds(parsed.completedModules);
-    parsed.player=parsed.player||player||'anon';
-    return parsed;
+    return normalizePlayerSnapshot(parsed,player);
   }catch(e){
     return null;
   }
 }
-function writePlayerSnapshot(snapshot){
-  if(!snapshot||!snapshot.player)return null;
-  snapshot.completedModules=sanitizeCompletedModuleIds(snapshot.completedModules);
-  snapshot.xpTotal=calculateXpFromIds(snapshot.completedModules);
-  snapshot.updatedAt=new Date().toISOString();
-  try{localStorage.setItem(getPlayerStateKey(snapshot.player),JSON.stringify(snapshot));}catch(e){}
-  return snapshot;
+function writePlayerSnapshot(snapshot,opts){
+  opts=opts||{};
+  var normalized=normalizePlayerSnapshot(snapshot,snapshot&&snapshot.player);
+  if(!normalized||!normalized.player)return null;
+  if(!opts.preserveUpdatedAt)normalized.updatedAt=new Date().toISOString();
+  try{localStorage.setItem(getPlayerStateKey(normalized.player),JSON.stringify(normalized));}catch(e){}
+  return normalized;
 }
-function syncCurrentPlayerState(){
+function syncCurrentPlayerState(opts){
+  opts=opts||{};
   var player=gP();
   if(!player)return null;
-  return writePlayerSnapshot(buildPlayerSnapshot(player));
+  var snapshot=writePlayerSnapshot(buildPlayerSnapshot(player),{preserveUpdatedAt:!!opts.preserveUpdatedAt});
+  if(snapshot&&opts.cloud!==false)queuePlayerSnapshotCloudSync(snapshot.player,snapshot,opts.source||'forge-web');
+  return snapshot;
 }
 function applyPlayerSnapshot(snapshot){
   clearAllModuleCerts();
@@ -594,6 +644,184 @@ function getCompletedModulesForPlayer(player){
   if(snapshot&&Array.isArray(snapshot.completedModules))return snapshot.completedModules.slice();
   if(player&&player===gP())return buildPlayerSnapshot(player).completedModules;
   return [];
+}
+function setCloudSyncStatus(text){
+  CLOUD_SYNC_STATUS=text||'Local uniquement';
+}
+function getCloudSyncStatus(){return CLOUD_SYNC_STATUS;}
+function ensureSupabaseClient(){
+  if(SUPABASE_CLIENT)return SUPABASE_CLIENT;
+  if(!window.supabase||!SUPABASE_URL||!SUPABASE_PUBLISHABLE_KEY){
+    SUPABASE_ENABLED=false;
+    setCloudSyncStatus('Cloud indisponible');
+    return null;
+  }
+  try{
+    SUPABASE_CLIENT=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{
+      auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}
+    });
+    SUPABASE_ENABLED=true;
+    setCloudSyncStatus('Cloud prêt');
+  }catch(e){
+    SUPABASE_ENABLED=false;
+    setCloudSyncStatus('Cloud indisponible');
+    SUPABASE_CLIENT=null;
+  }
+  return SUPABASE_CLIENT;
+}
+function closeSupabaseChannel(channel){
+  if(!channel||!SUPABASE_CLIENT||typeof SUPABASE_CLIENT.removeChannel!=='function')return;
+  try{SUPABASE_CLIENT.removeChannel(channel);}catch(e){}
+}
+async function loadCloudCollectiveState(){
+  var client=ensureSupabaseClient();
+  if(!client)return null;
+  var res=await client.rpc('aed_get_collective_state');
+  if(res.error)throw res.error;
+  CLOUD_COLLECTIVE_STATE=res.data||null;
+  return CLOUD_COLLECTIVE_STATE;
+}
+async function loadCloudLeaderboard(){
+  var client=ensureSupabaseClient();
+  if(!client)return [];
+  var res=await client
+    .from('aed_v_player_progress')
+    .select('*')
+    .eq('is_admin',false)
+    .eq('is_reserved',false);
+  if(res.error)throw res.error;
+  CLOUD_PLAYER_PROGRESS=(res.data||[]).sort(function(a,b){
+    return (b.completed_modules||0)-(a.completed_modules||0) || (b.xp_total||0)-(a.xp_total||0) || ((a.display_name||a.player_code||'').localeCompare(b.display_name||b.player_code||''));
+  });
+  return CLOUD_PLAYER_PROGRESS;
+}
+async function refreshCloudViews(){
+  if(!ensureSupabaseClient())return null;
+  try{
+    await Promise.all([loadCloudCollectiveState(),loadCloudLeaderboard()]);
+    setCloudSyncStatus('Cloud synchronisé');
+    R();
+  }catch(e){
+    setCloudSyncStatus('Cloud en attente');
+  }
+  return CLOUD_COLLECTIVE_STATE;
+}
+async function readCloudPlayerSnapshot(player){
+  var client=ensureSupabaseClient();
+  if(!client||!player)return null;
+  var res=await client
+    .from('aed_player_snapshots')
+    .select('payload,updated_at')
+    .eq('player_code',player)
+    .maybeSingle();
+  if(res.error)throw res.error;
+  if(!res.data||!res.data.payload)return null;
+  var snapshot=normalizePlayerSnapshot(res.data.payload,player);
+  if(snapshot&&res.data.updated_at)snapshot.updatedAt=snapshot.updatedAt||res.data.updated_at;
+  return snapshot;
+}
+async function pushPlayerSnapshotToCloud(player,snapshot,source,force){
+  var client=ensureSupabaseClient();
+  var normalized=normalizePlayerSnapshot(snapshot,player);
+  if(!client||!normalized||!normalized.player)return null;
+  var signature=getSnapshotSignature(normalized);
+  if(!force&&CLOUD_LAST_PUSH_SIGNATURES[normalized.player]===signature)return normalized;
+  setCloudSyncStatus('Synchronisation cloud...');
+  var res=await client.rpc('aed_set_player_snapshot',{
+    p_player_code:normalized.player,
+    p_display_name:getPlayerDisplayName(normalized.player),
+    p_completed_modules:normalized.completedModules,
+    p_source:source||'forge-web'
+  });
+  if(res.error)throw res.error;
+  CLOUD_LAST_PUSH_SIGNATURES[normalized.player]=signature;
+  var remote=normalizePlayerSnapshot(res.data,normalized.player)||normalized;
+  writePlayerSnapshot(remote,{preserveUpdatedAt:true});
+  if(normalized.player===gP())restorePlayerState(normalized.player);
+  await refreshCloudViews();
+  setCloudSyncStatus('Cloud synchronisé');
+  return remote;
+}
+function queuePlayerSnapshotCloudSync(player,snapshot,source,force){
+  if(!ensureSupabaseClient()||!player||!snapshot)return;
+  if(CLOUD_SYNC_TIMERS[player])clearTimeout(CLOUD_SYNC_TIMERS[player]);
+  CLOUD_SYNC_TIMERS[player]=setTimeout(function(){
+    delete CLOUD_SYNC_TIMERS[player];
+    pushPlayerSnapshotToCloud(player,snapshot,source,force).catch(function(){
+      setCloudSyncStatus('Cloud en attente');
+    });
+  },350);
+}
+async function syncPlayerWithCloud(player,opts){
+  opts=opts||{};
+  if(!ensureSupabaseClient()||!player)return null;
+  try{
+    setCloudSyncStatus('Cloud synchronisation...');
+    var local=readPlayerSnapshot(player);
+    var remote=await readCloudPlayerSnapshot(player);
+    var chosen=null;
+    if(remote&&(!local||getSnapshotTimestamp(remote)>=getSnapshotTimestamp(local))){
+      chosen=writePlayerSnapshot(remote,{preserveUpdatedAt:true});
+    }else if(local){
+      chosen=local;
+      queuePlayerSnapshotCloudSync(player,local,opts.source||'forge-web',!!opts.forcePush);
+    }else if(remote){
+      chosen=writePlayerSnapshot(remote,{preserveUpdatedAt:true});
+    }else{
+      chosen=writePlayerSnapshot({player:player,completedModules:[]});
+      queuePlayerSnapshotCloudSync(player,chosen,opts.source||'forge-web',!!opts.forcePush);
+    }
+    if(chosen&&player===gP())restorePlayerState(player);
+    await refreshCloudViews();
+    subscribeSupabaseRealtime(player);
+    setCloudSyncStatus('Cloud synchronisé');
+    R();
+    return chosen;
+  }catch(e){
+    setCloudSyncStatus('Cloud en attente');
+    return readPlayerSnapshot(player);
+  }
+}
+function subscribeSupabaseRealtime(player){
+  var client=ensureSupabaseClient();
+  CLOUD_ACTIVE_PLAYER=player||'';
+  closeSupabaseChannel(CLOUD_PLAYER_CHANNEL);
+  closeSupabaseChannel(CLOUD_COLLECTIVE_CHANNEL);
+  CLOUD_PLAYER_CHANNEL=null;
+  CLOUD_COLLECTIVE_CHANNEL=null;
+  if(!client)return;
+  CLOUD_COLLECTIVE_CHANNEL=client
+    .channel('aed-collective-global')
+    .on('postgres_changes',{
+      event:'*',
+      schema:'public',
+      table:'aed_collective_state',
+      filter:'state_key=eq.global'
+    },function(payload){
+      if(payload&&payload.new&&payload.new.payload)CLOUD_COLLECTIVE_STATE=payload.new.payload;
+      loadCloudLeaderboard().catch(function(){});
+      setCloudSyncStatus('Cloud synchronisé');
+      R();
+    })
+    .subscribe();
+  if(!player)return;
+  CLOUD_PLAYER_CHANNEL=client
+    .channel('aed-player-'+player)
+    .on('postgres_changes',{
+      event:'*',
+      schema:'public',
+      table:'aed_player_snapshots',
+      filter:'player_code=eq.'+player
+    },function(payload){
+      var snapshot=payload&&payload.new&&payload.new.payload?normalizePlayerSnapshot(payload.new.payload,player):null;
+      if(snapshot){
+        writePlayerSnapshot(snapshot,{preserveUpdatedAt:true});
+        if(player===gP())restorePlayerState(player);
+        setCloudSyncStatus('Cloud synchronisé');
+        R();
+      }
+    })
+    .subscribe();
 }
 function downloadCurrentPlayerState(){
   var player=gP();
@@ -633,6 +861,9 @@ function importPlayerState(evt){
     writePlayerSnapshot(parsed);
     restorePlayerState(parsed.player);
     hideLoginScreen();
+    subscribeSupabaseRealtime(parsed.player);
+    queuePlayerSnapshotCloudSync(parsed.player,readPlayerSnapshot(parsed.player)||parsed,'import',true);
+    refreshCloudViews();
     populateLoginSelect();
     var sel=document.getElementById('login-select');
     if(sel)sel.value=parsed.player;
@@ -653,7 +884,7 @@ function tX(){var x=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))
 B.forEach(function(m){if(iD(m.id))x+=Math.round(m.x*(m.cf||1));});return x;}
 function eC(){var s=new Set();P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id)&&m.co)m.co.forEach(function(c){s.add(c);});});});return s;}
 // Validate
-function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:gP(),f:true}));syncCurrentPlayerState();pB(mid);R();if(!sl)toast('\u2705 '+mid);}
+function vM(mid,sl){localStorage.setItem(ck(mid),JSON.stringify({v:1,d:new Date().toISOString(),m:mid,n:gP(),f:true}));syncCurrentPlayerState({source:'module'});pB(mid);R();if(!sl)toast('\u2705 '+mid);}
 function pB(mid){try{var evts=JSON.parse(localStorage.getItem('pvs_bridge_events')||'[]');
 evts.push({id:'AED-'+mid+'-'+Date.now(),type:'AED_PROGRESS',player:gP(),module:mid,cpTotal:dC()+bC(),hubXpTotal:tX(),d:new Date().toISOString()});
 if(evts.length>500)evts.splice(0,evts.length-500);localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
@@ -694,6 +925,7 @@ dsh.innerHTML='<div class="dt">\u{1F4CA} Tableau de bord</div>'+
 '<div class="dr"><span class="dl">Modules</span><span class="dv">'+(dn+bn)+'/'+(tot+B.length)+'</span></div>'+
 '<div class="dr"><span class="dl">Comp\u00e9tences</span><span class="dv" style="color:var(--steel)">'+ec.size+'/'+AC.length+'</span></div>'+
 '<div class="dr"><span class="dl">Bonus</span><span class="dv" style="color:var(--emerald)">'+bn+'/'+B.length+'</span></div>'+
+'<div class="dr"><span class="dl">Sauvegarde cloud</span><span class="dv" style="color:var(--steel)">'+getCloudSyncStatus()+'</span></div>'+
 '<div class="cg">'+AC.map(function(c){return'<span class="cc'+(ec.has(c)?' e':'')+'">'+c+'</span>';}).join('')+'</div>'+
 '<div class="aw" style="margin-top:12px">'+
 '<button class="ax xg" onclick="downloadCurrentPlayerState()">Sauvegarde joueur</button>'+
@@ -761,18 +993,20 @@ w.appendChild(ch);w.appendChild(lb);ls.appendChild(w);}
 function aVS(){if(!aU)return;var target=getAdminTargetPlayer();if(!target){document.getElementById('afb').className='aer';document.getElementById('afb').textContent='Aucun joueur ciblé';return;}
 var checked=[].slice.call(document.querySelectorAll('#aml input[type=checkbox]')).filter(function(ch){return ch.checked;}).map(function(ch){return ch.value;});
 var snapshot=writePlayerSnapshot({version:1,player:target,completedModules:checked});
+queuePlayerSnapshotCloudSync(target,snapshot,'admin',true);
 if(target===gP())restorePlayerState(target);
 document.getElementById('afb').className='aok';document.getElementById('afb').textContent='\u2705 État enregistré pour '+target+' ('+snapshot.completedModules.length+' modules)';
 bAL();R();}
 function aRA(){if(!aU)return;var target=getAdminTargetPlayer();if(!target||!confirm('Réinitialiser la progression sauvegardée de '+target+' ?'))return;
-writePlayerSnapshot({version:1,player:target,completedModules:[]});
+var snapshot=writePlayerSnapshot({version:1,player:target,completedModules:[]});
+queuePlayerSnapshotCloudSync(target,snapshot,'admin-reset',true);
 if(target===gP())restorePlayerState(target);
 document.getElementById('afb').className='aok';document.getElementById('afb').textContent='Progression supprimée pour '+target;
 bAL();R();}
 // Toast
 var _tt;function toast(msg,ms){var t=document.getElementById('toast');t.textContent=msg||'';t.classList.add('show');
 clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},ms||3000);}
-window.addEventListener('focus',function(){syncCurrentPlayerState();R();});
+window.addEventListener('focus',function(){syncCurrentPlayerState({source:'focus'});refreshCloudViews();R();});
 window.addEventListener('storage',function(e){
   if(!e.key){R();return;}
   if(e.key.startsWith('CERT_AED_')||e.key==='pvs_bridge_events'){R();return;}
@@ -849,20 +1083,30 @@ function renderCollective(){
   var el=document.getElementById('collective');
   if(!el)return;
   var stats=getCollectiveStats();
-  var maxXP=stats.totalAgents*getMaxPossibleXp();
-  var pctGlobal=maxXP>0?Math.round((stats.xp/maxXP)*100):0;
+  var cloud=CLOUD_COLLECTIVE_STATE&&Array.isArray(CLOUD_COLLECTIVE_STATE.paliers)?CLOUD_COLLECTIVE_STATE:null;
+  var totalAgents=cloud&&typeof cloud.totalPlayers==='number'?cloud.totalPlayers:stats.totalAgents;
+  var totalXp=cloud&&typeof cloud.totalXp==='number'?cloud.totalXp:stats.xp;
+  var maxXP=totalAgents*getMaxPossibleXp();
+  var pctGlobal=maxXP>0?Math.round((totalXp/maxXP)*100):0;
+  var sub='Progressez ensemble \u2014 chaque module valid\u00e9 par chacun renforce l\u2019\u00e9quipe. Les paliers d\u00e9bloquent des r\u00e9compenses r\u00e9elles.'+(cloud?' Donn\u00e9es synchronis\u00e9es Supabase.':' Donn\u00e9es locales sur cet appareil.');
 
   var html='<div class="coll-title">\u{1F3D7} Forge Collective</div>';
-  html+='<div class="coll-sub">Progressez ensemble \u2014 chaque module valid\u00e9 par chacun renforce l\u2019\u00e9quipe. Les paliers d\u00e9bloquent des r\u00e9compenses r\u00e9elles.</div>';
-  html+='<div class="coll-xp">'+stats.xp+' <small>XP COLLECTIFS</small></div>';
+  html+='<div class="coll-sub">'+sub+'</div>';
+  html+='<div class="coll-xp">'+totalXp+' <small>XP COLLECTIFS</small></div>';
   html+='<div class="coll-bar-wrap"><div class="coll-bar" style="width:'+pctGlobal+'%"></div></div>';
 
   PALIERS.forEach(function(pal,i){
-    // Count agents who reached minMods
-    var qualified=stats.agents.filter(function(a){return a.count>=pal.minMods;}).length;
-    var needed=Math.ceil(stats.totalAgents*pal.threshold/100);
+    var cloudPal=cloud&&Array.isArray(cloud.paliers)?cloud.paliers[i]:null;
+    var qualified=cloudPal&&typeof cloudPal.qualified==='number'?cloudPal.qualified:stats.agents.filter(function(a){return a.count>=pal.minMods;}).length;
+    var needed=cloudPal&&typeof cloudPal.needed==='number'?cloudPal.needed:Math.ceil(totalAgents*pal.threshold/100);
     var isDone=qualified>=needed;
-    var isNext=!isDone&&(i===0||stats.agents.filter(function(a){return a.count>=PALIERS[i-1].minMods;}).length>=Math.ceil(stats.totalAgents*PALIERS[i-1].threshold/100));
+    var prevQualified=0,prevNeeded=0;
+    if(i>0){
+      var prevPal=cloud&&Array.isArray(cloud.paliers)?cloud.paliers[i-1]:null;
+      prevQualified=prevPal&&typeof prevPal.qualified==='number'?prevPal.qualified:stats.agents.filter(function(a){return a.count>=PALIERS[i-1].minMods;}).length;
+      prevNeeded=prevPal&&typeof prevPal.needed==='number'?prevPal.needed:Math.ceil(totalAgents*PALIERS[i-1].threshold/100);
+    }
+    var isNext=!isDone&&(i===0||prevQualified>=prevNeeded);
     var cls='palier'+(isDone?' done':(isNext?' active':' locked'));
     var tag=isDone?'<span class="tag done">\u2713 D\u00e9bloqu\u00e9</span>':(isNext?'<span class="tag next">EN COURS</span>':'');
 
@@ -881,6 +1125,15 @@ function renderCollective(){
 
 // ── Leaderboard ──
 function getAgentProgress(){
+  if(CLOUD_PLAYER_PROGRESS&&CLOUD_PLAYER_PROGRESS.length){
+    return CLOUD_PLAYER_PROGRESS.map(function(row){
+      var adult=findAdult(row.player_code);
+      var label=(row.display_name||'').trim();
+      var prenom=adult&&adult.prenom?adult.prenom:(label?label.split(/\s+/)[0]:row.player_code);
+      var nom=adult&&adult.nom&&adult.nom!=='---'?adult.nom:(label?label.split(/\s+/).slice(1).join(' '):'');
+      return {nom:nom,prenom:prenom,code:row.player_code,count:row.completed_modules||0};
+    });
+  }
   var results=[];
   ADULTS.forEach(function(a){
     if(a.nom==='---')return;
@@ -897,11 +1150,11 @@ function renderLeaderboard(){
   if(!el)return;
   var player=gP();
   var data=getAgentProgress();
-  var totalMods=P.reduce(function(s,p){return s+p.m.length;},0)+B.length;
+  var totalMods=CLOUD_COLLECTIVE_STATE&&typeof CLOUD_COLLECTIVE_STATE.totalModules==='number'?CLOUD_COLLECTIVE_STATE.totalModules:(P.reduce(function(s,p){return s+p.m.length;},0)+B.length);
   var anyActivity=data.some(function(d){return d.count>0;});
 
   var html='<div class="lb-title">\u{1F3C6} Parcours de l\u2019\u00e9quipe</div>';
-  html+='<div class="lb-sub">Progression collective \u2014 chaque module compt\u00e9 compte, pas de comp\u00e9tition mais de l\u2019\u00e9mulation. Avancez ensemble !</div>';
+  html+='<div class="lb-sub">Progression collective \u2014 chaque module compt\u00e9 compte, pas de comp\u00e9tition mais de l\u2019\u00e9mulation. Avancez ensemble !'+(CLOUD_PLAYER_PROGRESS.length?' Donn\u00e9es cloud synchronis\u00e9es.':' Donn\u00e9es locales affich\u00e9es.')+'</div>';
 
   if(!anyActivity){
     html+='<div class="lb-empty">Aucune progression enregistr\u00e9e pour le moment. Lancez-vous !</div>';
@@ -945,6 +1198,14 @@ var HUB_REFERENCE_FILES=[
   {id:'REF_INCLUSION',title:'Référence locale — Inclusion, stigmatisation et discriminations',file:'Aethonyx_ Protocoles et Identité Fondatrice.docx.md',
    pillar:'Références AED',tags:['inclusion','discrimination','stereotypes','biais implicites','rumeur','racisme','contact intergroupe']}
 ];
+var HUB_MANIFEST_FILE='hub_manifest.json';
+var GITHUB_AUTO_INDEX_ENABLED=true;
+var GITHUB_PROJECT_OWNER='';
+var GITHUB_PROJECT_REPO='';
+var GITHUB_PROJECT_BRANCH='';
+var GITHUB_AUTO_EXTENSIONS=['.md','.txt','.html','.htm','.sql','.json'];
+var GITHUB_AUTO_EXCLUDE=['index.html','hub_manifest.json','epictete_system.txt','forge_hero.jpg','forge_ambiance.mp3'];
+var GITHUB_MAX_AUTO_DOCS=80;
 
 function normalizeHubText(s){
   return (s||'')
@@ -958,6 +1219,33 @@ function normalizeHubText(s){
     .replace(/\s+/g,' ')
     .trim();
 }
+function getHubPathBasename(path){
+  var clean=(path||'').split('?')[0].replace(/\\/g,'/');
+  var parts=clean.split('/');
+  return parts[parts.length-1]||clean;
+}
+function getHubPathExt(path){
+  var base=getHubPathBasename(path).toLowerCase();
+  var idx=base.lastIndexOf('.');
+  return idx===-1?'':base.slice(idx);
+}
+function isHubTextFile(path){
+  return GITHUB_AUTO_EXTENSIONS.indexOf(getHubPathExt(path))!==-1;
+}
+function shouldExcludeHubProjectPath(path){
+  var clean=(path||'').split('?')[0].replace(/\\/g,'/').toLowerCase();
+  return GITHUB_AUTO_EXCLUDE.some(function(item){
+    var lowered=item.toLowerCase();
+    return clean===lowered || clean.endsWith('/'+lowered);
+  });
+}
+function humanizeHubPath(path){
+  return (path||'')
+    .replace(/\.[^.]+$/,'')
+    .replace(/[_-]+/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+}
 function hubTokens(s){
   return normalizeHubText(s).split(' ').filter(function(tok){
     return tok && tok.length>1 && HUB_STOPWORDS.indexOf(tok)===-1;
@@ -967,6 +1255,14 @@ function clipHubText(s,maxLen){
   s=(s||'').replace(/\s+/g,' ').trim();
   if(!s)return '';
   return s.length<=maxLen?s:(s.slice(0,maxLen-1)+'…');
+}
+function extractHubTextFromPlainSource(src){
+  var clean=sanitizeLocalReferenceText(src)
+    .replace(/\r/g,'\n')
+    .replace(/[ \t]+/g,' ')
+    .replace(/\n{3,}/g,'\n\n')
+    .trim();
+  return clipHubText(clean,12000);
 }
 function decodeSourceEscapes(s){
   return (s||'')
@@ -1016,6 +1312,7 @@ function extractHubTextFromMarkdown(src){
 }
 function extractHubTextForDoc(doc,src){
   if(doc&&doc.file&&/\.md$/i.test(doc.file))return extractHubTextFromMarkdown(src);
+  if(doc&&doc.file&&/\.(txt|sql|json)$/i.test(doc.file))return extractHubTextFromPlainSource(src);
   return extractHubTextFromSource(src);
 }
 function splitHubPassages(text){
@@ -1111,6 +1408,105 @@ function buildStaticHubDocs(){
   });
   return docs;
 }
+function getKnownHubFileSet(docs){
+  var seen={};
+  (docs||[]).forEach(function(doc){
+    if(doc&&doc.file)seen[(doc.file||'').toLowerCase()]=true;
+  });
+  return seen;
+}
+async function fetchHubManifestDocs(){
+  try{
+    var res=await fetch(HUB_MANIFEST_FILE,{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    var data=await res.json();
+    if(!Array.isArray(data))return [];
+    return data.map(function(entry){
+      if(typeof entry==='string')return {file:entry};
+      return entry||{};
+    }).filter(function(entry){
+      return entry.file && isHubTextFile(entry.file) && !shouldExcludeHubProjectPath(entry.file);
+    }).slice(0,GITHUB_MAX_AUTO_DOCS).map(function(entry){
+      var path=entry.file;
+      var basename=getHubPathBasename(path);
+      var title=entry.title||('Document projet â€” '+humanizeHubPath(basename));
+      var tags=Array.isArray(entry.tags)?entry.tags:path.split(/[\/_. -]+/).filter(Boolean);
+      return {
+        kind:'project',
+        id:'PROJECT_'+path.replace(/[^A-Za-z0-9]+/g,'_'),
+        title:title,
+        file:path,
+        pillar:entry.pillar||'Projet GitHub',
+        tags:tags,
+        text:(entry.summary||title+' â€” '+path).trim(),
+        excerpt:entry.excerpt||title
+      };
+    });
+  }catch(e){
+    return [];
+  }
+}
+function inferGitHubProjectConfig(){
+  var owner=GITHUB_PROJECT_OWNER||'';
+  var repo=GITHUB_PROJECT_REPO||'';
+  var branch=GITHUB_PROJECT_BRANCH||'';
+  var host=(window.location.hostname||'').toLowerCase();
+  var path=(window.location.pathname||'').replace(/^\/+/,'');
+  if(!owner && /\.github\.io$/.test(host))owner=host.replace(/\.github\.io$/,'');
+  if(!repo && /\.github\.io$/.test(host)){
+    var first=path.split('/')[0];
+    if(first && first!=='index.html')repo=first;
+  }
+  return owner&&repo?{owner:owner,repo:repo,branch:branch}:null;
+}
+async function fetchGitHubProjectFiles(){
+  if(!GITHUB_AUTO_INDEX_ENABLED)return [];
+  var cfg=inferGitHubProjectConfig();
+  if(!cfg)return [];
+  try{
+    var branch=cfg.branch;
+    if(!branch){
+      var repoRes=await fetch('https://api.github.com/repos/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo),{cache:'no-store'});
+      if(!repoRes.ok)throw new Error('repo');
+      var repoData=await repoRes.json();
+      branch=repoData.default_branch||'main';
+    }
+    var treeRes=await fetch('https://api.github.com/repos/'+encodeURIComponent(cfg.owner)+'/'+encodeURIComponent(cfg.repo)+'/git/trees/'+encodeURIComponent(branch)+'?recursive=1',{cache:'no-store'});
+    if(!treeRes.ok)throw new Error('tree');
+    var treeData=await treeRes.json();
+    var items=Array.isArray(treeData.tree)?treeData.tree:[];
+    return items.filter(function(item){
+      return item && item.type==='blob' && item.path && isHubTextFile(item.path) && !shouldExcludeHubProjectPath(item.path);
+    }).slice(0,GITHUB_MAX_AUTO_DOCS).map(function(item){
+      var path=item.path;
+      var basename=getHubPathBasename(path);
+      var title='Document projet â€” '+humanizeHubPath(basename);
+      return {
+        kind:'project',
+        id:'PROJECT_'+path.replace(/[^A-Za-z0-9]+/g,'_'),
+        title:title,
+        file:path,
+        pillar:'Projet GitHub',
+        tags:path.split(/[\/_. -]+/).filter(Boolean),
+        text:title+' â€” '+path,
+        excerpt:title
+      };
+    });
+  }catch(e){
+    return [];
+  }
+}
+async function buildProjectHubDocs(existingDocs){
+  var known=getKnownHubFileSet(existingDocs);
+  var manifestDocs=await fetchHubManifestDocs();
+  var githubDocs=await fetchGitHubProjectFiles();
+  return manifestDocs.concat(githubDocs).filter(function(doc){
+    var key=(doc.file||'').toLowerCase();
+    if(!key||known[key])return false;
+    known[key]=true;
+    return true;
+  });
+}
 async function fetchHubFile(file){
   if(HUB_FILE_CACHE[file])return HUB_FILE_CACHE[file];
   try{
@@ -1162,6 +1558,8 @@ async function buildHubIndex(){
   if(HUB_INDEX_PROMISE)return HUB_INDEX_PROMISE;
   HUB_INDEX_PROMISE=(async function(){
     HUB_DOCS=buildStaticHubDocs();
+    var extraDocs=await buildProjectHubDocs(HUB_DOCS);
+    if(extraDocs.length)HUB_DOCS=HUB_DOCS.concat(extraDocs);
     var tasks=HUB_DOCS.filter(function(doc){return !!doc.file && doc.file!=='index';}).map(async function(doc){
       var src=await fetchHubFile(doc.file);
       if(!src)return;

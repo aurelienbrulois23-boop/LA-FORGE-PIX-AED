@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_ING04 â€” Preuve sociale et mÃ©diation par les pairs</title>
+<title>LA FORGE | AED_ING04 — Preuve sociale et médiation par les pairs</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Vous observez qu\â€™un petit groupe d\â€™\Ã©l\Ã¨ves de 4\Ã¨me s\â€™est organis\Ã© pour t\Ã©moigner syst\Ã©matiquement les uns pour les autres, m\Ãªme quand aucun acte de bienveillance r\Ã©el n\â€™a eu lieu. Un \Â«club de t\Ã©moignage\Â» ferm\Ã©.",
-    q: "Comment g\Ã©rez-vous cette d\Ã©rive ?",
+    ctx: "Vous observez qu\'un petit groupe d\'élèves de 4ème s\'est organisé pour témoigner systématiquement les uns pour les autres, même quand aucun acte de bienveillance réel n\'a eu lieu. Un «club de témoignage» fermé.",
+    q: "Comment gérez-vous cette dérive ?",
     options: [
       {
-        label: "D\Ã©tecter + recadrer le m\Ã©canisme",
-        text: "Je signale au CPE pour retrait des XP frauduleux. Puis je vois le groupe : \Â«Votre syst\Ã¨me est malin, mais il casse la confiance. Si les t\Ã©moignages sont bidons, le syst\Ã¨me ne vaut plus rien pour personne \â€” y compris pour vous. Un vrai t\Ã©moignage, c\â€™est un vrai acte observ\Ã©.\Â»",
+        label: "Détecter + recadrer le mécanisme",
+        text: "Je signale au CPE pour retrait des XP frauduleux. Puis je vois le groupe : «Votre système est malin, mais il casse la confiance. Si les témoignages sont bidons, le système ne vaut plus rien pour personne — y compris pour vous. Un vrai témoignage, c\'est un vrai acte observé.»",
         score: 3,
-        fb: "La d\Ã©rive du \Â«club de t\Ã©moignage\Â» est pr\Ã©visible et trait\Ã©e dans le design : le Shadow XP corrige sans exposition publique. L\â€™explication du m\Ã©canisme (confiance collective) est plus \Ã©ducative que la punition.",
+        fb: "La dérive du «club de témoignage» est prévisible et traitée dans le design : le Shadow XP corrige sans exposition publique. L\'explication du mécanisme (confiance collective) est plus éducative que la punition.",
         good: true
       },
       {
         label: "Laisser faire",
-        text: "Au moins ils participent au syst\Ã¨me, c\â€™est d\Ã©j\Ã  \Ã§a.",
+        text: "Au moins ils participent au système, c\'est déjà ça.",
         score: 0,
-        fb: "La participation frauduleuse d\Ã©truit le syst\Ã¨me. Si les faux t\Ã©moignages sont visibles (classements, XP), les \Ã©l\Ã¨ves honn\Ãªtes se d\Ã©sengagent : \Â«\Ã  quoi bon faire des vrais trucs si les tricheurs gagnent ?\Â»",
+        fb: "La participation frauduleuse détruit le système. Si les faux témoignages sont visibles (classements, XP), les élèves honnêtes se désengagent : «à quoi bon faire des vrais trucs si les tricheurs gagnent ?»",
         good: false
       },
       {
         label: "Punir publiquement",
-        text: "J\â€™affiche les noms des tricheurs pour dissuader.",
+        text: "J\'affiche les noms des tricheurs pour dissuader.",
         score: 0,
-        fb: "L\â€™exposition publique humilie et cr\Ã©e des ennemis du syst\Ã¨me. Le Shadow XP est con\Ã§u pour corriger dans l\â€™ombre \â€” pr\Ã©cis\Ã©ment pour \Ã©viter cette erreur.",
+        fb: "L\'exposition publique humilie et crée des ennemis du système. Le Shadow XP est conçu pour corriger dans l\'ombre — précisément pour éviter cette erreur.",
         good: false
       },
     ]
   },
   {
-    ctx: "Une \Ã©l\Ã¨ve de 6\Ã¨me, timide, a fait un geste remarquable : elle a accompagn\Ã© un \Ã©l\Ã¨ve bless\Ã© \Ã  l\â€™infirmerie pendant la r\Ã©cr\Ã© au lieu de jouer. Personne n\â€™a t\Ã©moign\Ã© pour elle.",
+    ctx: "Une élève de 6ème, timide, a fait un geste remarquable : elle a accompagné un élève blessé à l\'infirmerie pendant la récré au lieu de jouer. Personne n\'a témoigné pour elle.",
     q: "Que faites-vous ?",
     options: [
       {
-        label: "T\Ã©moignage adulte + valorisation",
-        text: "En tant qu\â€™AED, j\â€™utilise mon Code T\Ã©moin Adulte pour enregistrer son geste. Et en la croisant : \Â«Ce que t\â€™as fait pour Enzo, c\â€™est solide. Les vrais gestes, c\â€™est ceux qu\â€™on fait quand personne ne regarde.\Â» Pas d\â€™exposition publique \â€” juste une reconnaissance directe.",
+        label: "Témoignage adulte + valorisation",
+        text: "En tant qu\'AED, j\'utilise mon Code Témoin Adulte pour enregistrer son geste. Et en la croisant : «Ce que t\'as fait pour Enzo, c\'est solide. Les vrais gestes, c\'est ceux qu\'on fait quand personne ne regarde.» Pas d\'exposition publique — juste une reconnaissance directe.",
         score: 3,
-        fb: "Le Code T\Ã©moin Adulte existe pr\Ã©cis\Ã©ment pour ces situations : les gestes invisibles que les pairs ne voient pas. La reconnaissance directe et discr\Ã¨te est plus puissante que la c\Ã©r\Ã©monie publique \â€” surtout pour un \Ã©l\Ã¨ve timide.",
+        fb: "Le Code Témoin Adulte existe précisément pour ces situations : les gestes invisibles que les pairs ne voient pas. La reconnaissance directe et discrète est plus puissante que la cérémonie publique — surtout pour un élève timide.",
         good: true
       },
       {
-        label: "L\â€™annoncer devant la classe",
-        text: "\Â«Je veux que tout le monde sache ce qu\â€™a fait Juliette !\Â»",
+        label: "L\'annoncer devant la classe",
+        text: "«Je veux que tout le monde sache ce qu\'a fait Juliette !»",
         score: 1,
-        fb: "L\â€™intention est bonne, mais l\â€™exposition publique peut g\Ãªner un \Ã©l\Ã¨ve timide et cr\Ã©er de la jalousie. La reconnaissance discr\Ã¨te respecte la personnalit\Ã© de l\â€™\Ã©l\Ã¨ve.",
+        fb: "L\'intention est bonne, mais l\'exposition publique peut gêner un élève timide et créer de la jalousie. La reconnaissance discrète respecte la personnalité de l\'élève.",
         good: false
       },
       {
         label: "Ne rien faire",
-        text: "Elle n\â€™a pas besoin de points pour un geste naturel.",
+        text: "Elle n\'a pas besoin de points pour un geste naturel.",
         score: 1,
-        fb: "Peut-\Ãªtre. Mais rendre visible un geste positif, c\â€™est justement la preuve sociale en action : \Ã§a montre aux autres que le bien est remarqu\Ã©. Ne rien faire, c\â€™est laisser le geste invisible \â€” et la norme reste \Â«personne ne remarque rien\Â».",
+        fb: "Peut-être. Mais rendre visible un geste positif, c\'est justement la preuve sociale en action : ça montre aux autres que le bien est remarqué. Ne rien faire, c\'est laisser le geste invisible — et la norme reste «personne ne remarque rien».",
         good: false
       },
     ]
   },
   {
-    ctx: "Lors d\â€™une formation entre AED, un coll\Ã¨gue dit : \Â«Ce syst\Ã¨me de t\Ã©moignage, c\â€™est de la d\Ã©lation d\Ã©guis\Ã©e en positif.\Â»",
-    q: "Que r\Ã©pondez-vous ?",
+    ctx: "Lors d\'une formation entre AED, un collègue dit : «Ce système de témoignage, c\'est de la délation déguisée en positif.»",
+    q: "Que répondez-vous ?",
     options: [
       {
-        label: "Distinction d\Ã©lation / t\Ã©moignage",
-        text: "\Â«La d\Ã©lation, c\â€™est d\Ã©noncer quelqu\â€™un pour lui nuire. Le t\Ã©moignage positif, c\â€™est signaler un geste pour le valoriser. Le m\Ã©canisme est invers\Ã© : on cherche le bien, pas le mal. Et \Ã§a change tout \â€” dans la posture de l\â€™observateur ET dans le climat du groupe.\Â»",
+        label: "Distinction délation / témoignage",
+        text: "«La délation, c\'est dénoncer quelqu\'un pour lui nuire. Le témoignage positif, c\'est signaler un geste pour le valoriser. Le mécanisme est inversé : on cherche le bien, pas le mal. Et ça change tout — dans la posture de l\'observateur ET dans le climat du groupe.»",
         score: 3,
-        fb: "La distinction est fondamentale et souvent mal comprise. La d\Ã©lation a un b\Ã©n\Ã©ficiaire unique (le d\Ã©lateur). Le t\Ã©moignage positif a un b\Ã©n\Ã©ficiaire triple : le t\Ã©moin (XP), l\â€™auteur du geste (reconnaissance), et le collectif (norme positive visible).",
+        fb: "La distinction est fondamentale et souvent mal comprise. La délation a un bénéficiaire unique (le délateur). Le témoignage positif a un bénéficiaire triple : le témoin (XP), l\'auteur du geste (reconnaissance), et le collectif (norme positive visible).",
         good: true
       },
       {
         label: "Rejeter",
-        text: "\Â«N\â€™importe quoi, \Ã§a n\â€™a rien \Ã  voir.\Â»",
+        text: "«N\'importe quoi, ça n\'a rien à voir.»",
         score: 0,
-        fb: "Rejeter sans argumenter ne convainc pas. L\â€™objection est r\Ã©currente \â€” y r\Ã©pondre avec pr\Ã©cision est essentiel pour la coh\Ã©sion de l\â€™\Ã©quipe AED.",
+        fb: "Rejeter sans argumenter ne convainc pas. L\'objection est récurrente — y répondre avec précision est essentiel pour la cohésion de l\'équipe AED.",
         good: false
       },
       {
-        label: "\Ã‰viter",
-        text: "\Â«On n\â€™est pas oblig\Ã©s d\â€™\Ãªtre d\â€™accord.\Â»",
+        label: "Éviter",
+        text: "«On n\'est pas obligés d\'être d\'accord.»",
         score: 1,
-        fb: "Le d\Ã©saccord est l\Ã©gitime, mais l\â€™\Ã©vitement affaiblit le dispositif. Si l\â€™\Ã©quipe AED ne partage pas la vision, le syst\Ã¨me perd ses relais de terrain.",
+        fb: "Le désaccord est légitime, mais l\'évitement affaiblit le dispositif. Si l\'équipe AED ne partage pas la vision, le système perd ses relais de terrain.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“·", t:"Code T\Ã©moin :", v:"Seul un tiers peut attribuer des points. \Ã‡a transforme chaque \Ã©l\Ã¨ve en observateur positif et inverse le biais de n\Ã©gativit\Ã©."},
-  {icon:"ðŸ”", t:"Club de triche :", v:"Pr\Ã©visible et trait\Ã© : Shadow XP + explication du m\Ã©canisme. Jamais d\â€™exposition publique."},
-  {icon:"âœ¨", t:"Gestes invisibles :", v:"Le Code T\Ã©moin Adulte rend visible ce que les pairs ne voient pas. L\â€™AED est un amplificateur de bien."},
-  {icon:"ðŸ”„", t:"T\Ã©moignage \â‰  d\Ã©lation :", v:"D\Ã©noncer pour nuire \â‰  signaler pour valoriser. Le m\Ã©canisme est invers\Ã©. La distinction est essentielle."},
+  {icon:"📷", t:"Code Témoin :", v:"Seul un tiers peut attribuer des points. Ça transforme chaque élève en observateur positif et inverse le biais de négativité."},
+  {icon:"🔍", t:"Club de triche :", v:"Prévisible et traité : Shadow XP + explication du mécanisme. Jamais d\'exposition publique."},
+  {icon:"✨", t:"Gestes invisibles :", v:"Le Code Témoin Adulte rend visible ce que les pairs ne voient pas. L\'AED est un amplificateur de bien."},
+  {icon:"🔄", t:"Témoignage ≠ délation :", v:"Dénoncer pour nuire ≠ signaler pour valoriser. Le mécanisme est inversé. La distinction est essentielle."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Preuve sociale et m\Ã©diation par les pairs',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Preuve sociale et médiation par les pairs',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'IngÃ©nierie de la Bienveillance Â· Module 1/5'),
-    e('h1',null,"Preuve sociale et m\Ã©diation par les pairs"),
-    e('p',{className:'quote'},'"'+"Le bien devient la norme quand il est rendu visible."+'" â€” Sylvie Condette / design Super-Hub'),
-    e('p',null,"Le Super-Hub utilise un m\Ã©canisme puissant : le Code T\Ã©moin. Un \Ã©l\Ã¨ve ne peut pas s\â€™auto-attribuer des points de bienveillance \â€” seul un t\Ã©moin peut le faire. Ce syst\Ã¨me transforme chaque \Ã©l\Ã¨ve en observateur positif et inverse le biais de n\Ã©gativit\Ã©."),
-    e('p',null,"Derri\Ã¨re cette m\Ã©canique, il y a la psychologie de la preuve sociale (Cialdini) et les travaux de Condette sur la r\Ã©gulation horizontale. Ce module vous donne les cl\Ã©s pour comprendre et accompagner ces m\Ã©canismes au quotidien."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Robert Cialdini, Influence \â€” Sylvie Condette, M\Ã©diation scolaire \â€” Lucie Rose, Validation par autrui"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Ingénierie de la Bienveillance · Module 1/5'),
+    e('h1',null,"Preuve sociale et médiation par les pairs"),
+    e('p',{className:'quote'},'"'+"Le bien devient la norme quand il est rendu visible."+'" — Sylvie Condette / design Super-Hub'),
+    e('p',null,"Le Super-Hub utilise un mécanisme puissant : le Code Témoin. Un élève ne peut pas s\'auto-attribuer des points de bienveillance — seul un témoin peut le faire. Ce système transforme chaque élève en observateur positif et inverse le biais de négativité."),
+    e('p',null,"Derrière cette mécanique, il y a la psychologie de la preuve sociale (Cialdini) et les travaux de Condette sur la régulation horizontale. Ce module vous donne les clés pour comprendre et accompagner ces mécanismes au quotidien."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Robert Cialdini, Influence — Sylvie Condette, Médiation scolaire — Lucie Rose, Validation par autrui"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+MÃ©diation'),e('div',{className:'comp-earn'},'+SystÃ©mique'),
+      e('div',{className:'comp-earn'},'+Médiation'),e('div',{className:'comp-earn'},'+Systémique'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“·'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📷'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 MÃ©diation'),e('div',{className:'comp-earn'},'+1 SystÃ©mique'),
+      e('div',{className:'comp-earn'},'+1 Médiation'),e('div',{className:'comp-earn'},'+1 Systémique'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

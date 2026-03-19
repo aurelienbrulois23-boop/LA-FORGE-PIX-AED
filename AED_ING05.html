@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_ING05 â€” Devenir architecte du climat scolaire</title>
+<title>LA FORGE | AED_ING05 — Devenir architecte du climat scolaire</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Lors d\â€™une r\Ã©union vie scolaire, le CPE demande : \Â«Qu\â€™est-ce qu\â€™on pourrait am\Ã©liorer dans le dispositif Super-Hub cette ann\Ã©e ?\Â»",
+    ctx: "Lors d\'une réunion vie scolaire, le CPE demande : «Qu\'est-ce qu\'on pourrait améliorer dans le dispositif Super-Hub cette année ?»",
     q: "Quelle proposition faites-vous ?",
     options: [
       {
-        label: "Proposition syst\Ã©mique argument\Ã©e",
-        text: "\Â«Je propose qu\â€™on ajoute un palier collectif : quand la classe enti\Ã¨re atteint un seuil d\â€™XP, elle d\Ã©bloque un privil\Ã¨ge commun (musique en \Ã©tude, am\Ã©nagement de la salle). \Ã‡a cr\Ã©e de la solidarit\Ã© organique (Durkheim) : la bienveillance de chacun b\Ã©n\Ã©ficie \Ã  tous. Et \Ã§a responsabilise le groupe sur les comportements individuels.\Â»",
+        label: "Proposition systémique argumentée",
+        text: "«Je propose qu\'on ajoute un palier collectif : quand la classe entière atteint un seuil d\'XP, elle débloque un privilège commun (musique en étude, aménagement de la salle). Ça crée de la solidarité organique (Durkheim) : la bienveillance de chacun bénéficie à tous. Et ça responsabilise le groupe sur les comportements individuels.»",
         score: 3,
-        fb: "Une proposition qui int\Ã¨gre game design (palier collectif), sociologie (solidarit\Ã© organique), et psychologie (responsabilit\Ã© partag\Ã©e). C\â€™est la pens\Ã©e syst\Ã©mique appliqu\Ã©e \â€” exactement ce qu\â€™un AED form\Ã© peut apporter.",
+        fb: "Une proposition qui intègre game design (palier collectif), sociologie (solidarité organique), et psychologie (responsabilité partagée). C\'est la pensée systémique appliquée — exactement ce qu\'un AED formé peut apporter.",
         good: true
       },
       {
         label: "Proposition technique",
-        text: "\Â«On pourrait changer les couleurs du tableau de bord.\Â»",
+        text: "«On pourrait changer les couleurs du tableau de bord.»",
         score: 0,
-        fb: "L\â€™esth\Ã©tique a son importance, mais le CPE demande une am\Ã©lioration du dispositif, pas du design graphique. Penser syst\Ã¨me, pas surface.",
+        fb: "L\'esthétique a son importance, mais le CPE demande une amélioration du dispositif, pas du design graphique. Penser système, pas surface.",
         good: false
       },
       {
         label: "Pas de proposition",
-        text: "\Â«Je sais pas trop, c\â€™est vous le CPE.\Â»",
+        text: "«Je sais pas trop, c\'est vous le CPE.»",
         score: 1,
-        fb: "L\â€™AED form\Ã© a une expertise de terrain que le CPE n\â€™a pas : il voit les interactions, les failles, les opportunit\Ã©s. Ne pas proposer, c\â€™est gaspiller cette expertise. Le CPE a besoin de vos yeux de terrain.",
+        fb: "L\'AED formé a une expertise de terrain que le CPE n\'a pas : il voit les interactions, les failles, les opportunités. Ne pas proposer, c\'est gaspiller cette expertise. Le CPE a besoin de vos yeux de terrain.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un enseignant se plaint : \Â«Le Super-Hub, \Ã§a ne marche que dans la cour. En classe, les \Ã©l\Ã¨ves sont toujours aussi p\Ã©nibles.\Â»",
+    ctx: "Un enseignant se plaint : «Le Super-Hub, ça ne marche que dans la cour. En classe, les élèves sont toujours aussi pénibles.»",
     q: "Comment analysez-vous cette critique ?",
     options: [
       {
-        label: "Analyse syst\Ã©mique",
-        text: "\Â«C\â€™est un point important. Le Super-Hub agit sur les espaces de vie scolaire (cour, cantine, \Ã©tude) parce que c\â€™est l\Ã  que l\â€™AED et le CPE op\Ã¨rent. Pour que \Ã§a fonctionne en classe, il faudrait que les enseignants int\Ã¨grent le m\Ãªme syst\Ã¨me de valorisation dans leurs cours \â€” par exemple, t\Ã©moigner pour un \Ã©l\Ã¨ve qui a aid\Ã© un camarade. Le Hub ne peut pas r\Ã©soudre seul les probl\Ã¨mes de classe \â€” mais il peut cr\Ã©er le terreau.\Â»",
+        label: "Analyse systémique",
+        text: "«C\'est un point important. Le Super-Hub agit sur les espaces de vie scolaire (cour, cantine, étude) parce que c\'est là que l\'AED et le CPE opèrent. Pour que ça fonctionne en classe, il faudrait que les enseignants intègrent le même système de valorisation dans leurs cours — par exemple, témoigner pour un élève qui a aidé un camarade. Le Hub ne peut pas résoudre seul les problèmes de classe — mais il peut créer le terreau.»",
         score: 3,
-        fb: "L\â€™analyse est syst\Ã©mique : elle identifie la limite du dispositif (p\Ã©rim\Ã¨tre vie scolaire), propose une extension logique (int\Ã©gration en classe), et recadre les attentes (le Hub est un \Ã©cosyst\Ã¨me, pas une baguette magique).",
+        fb: "L\'analyse est systémique : elle identifie la limite du dispositif (périmètre vie scolaire), propose une extension logique (intégration en classe), et recadre les attentes (le Hub est un écosystème, pas une baguette magique).",
         good: true
       },
       {
-        label: "D\Ã©fense",
-        text: "\Â«Mais \Ã§a marche tr\Ã¨s bien en cour, les chiffres le montrent !\Â»",
+        label: "Défense",
+        text: "«Mais ça marche très bien en cour, les chiffres le montrent !»",
         score: 1,
-        fb: "R\Ã©pondre par les chiffres de la cour ne r\Ã©pond pas \Ã  la frustration de l\â€™enseignant en classe. Prendre sa critique au s\Ã©rieux et proposer une articulation est plus constructif.",
+        fb: "Répondre par les chiffres de la cour ne répond pas à la frustration de l\'enseignant en classe. Prendre sa critique au sérieux et proposer une articulation est plus constructif.",
         good: false
       },
       {
         label: "Accusation",
-        text: "\Â«Peut-\Ãªtre que c\â€™est votre gestion de classe le probl\Ã¨me, pas le Hub.\Â»",
+        text: "«Peut-être que c\'est votre gestion de classe le problème, pas le Hub.»",
         score: 0,
-        fb: "L\â€™attaque ad hominem d\Ã©truit la collaboration n\Ã©cessaire entre AED et enseignants. Le Super-Hub ne fonctionne que si toute l\â€™\Ã©quipe y contribue \â€” braquer un enseignant, c\â€™est le perdre.",
+        fb: "L\'attaque ad hominem détruit la collaboration nécessaire entre AED et enseignants. Le Super-Hub ne fonctionne que si toute l\'équipe y contribue — braquer un enseignant, c\'est le perdre.",
         good: false
       },
     ]
   },
   {
-    ctx: "Bilan de fin d\â€™ann\Ã©e. Le CPE vous demande : \Â«Si tu devais r\Ã©sumer en une phrase ce que cette formation t\â€™a apport\Ã©, tu dirais quoi ?\Â»",
-    q: "Quelle est votre synth\Ã¨se ?",
+    ctx: "Bilan de fin d\'année. Le CPE vous demande : «Si tu devais résumer en une phrase ce que cette formation t\'a apporté, tu dirais quoi ?»",
+    q: "Quelle est votre synthèse ?",
     options: [
       {
-        label: "Posture + syst\Ã¨me + sens",
-        text: "\Â«J\â€™ai compris que mon m\Ã©tier, c\â€™est pas juste surveiller et punir. C\â€™est observer, d\Ã©coder, transmettre, r\Ã©guler, et construire un espace o\Ã¹ les \Ã©l\Ã¨ves apprennent \Ã  vivre ensemble. L\â€™AED est un architecte invisible du climat scolaire.\Â»",
+        label: "Posture + système + sens",
+        text: "«J\'ai compris que mon métier, c\'est pas juste surveiller et punir. C\'est observer, décoder, transmettre, réguler, et construire un espace où les élèves apprennent à vivre ensemble. L\'AED est un architecte invisible du climat scolaire.»",
         score: 3,
-        fb: "La trajectoire compl\Ã¨te : de l\â€™ex\Ã©cutant (surveiller/punir) au professionnel (observer/d\Ã©coder/transmettre/r\Ã©guler/construire). L\â€™expression \Â«architecte invisible\Â» capture l\â€™essence du r\Ã´le : l\â€™AED construit le cadre dans lequel l\â€™\Ã©ducation est possible.",
+        fb: "La trajectoire complète : de l\'exécutant (surveiller/punir) au professionnel (observer/décoder/transmettre/réguler/construire). L\'expression «architecte invisible» capture l\'essence du rôle : l\'AED construit le cadre dans lequel l\'éducation est possible.",
         good: true
       },
       {
         label: "Technique pure",
-        text: "\Â«J\â€™ai appris plein de techniques utiles.\Â»",
+        text: "«J\'ai appris plein de techniques utiles.»",
         score: 1,
-        fb: "Les techniques sont des outils. La vraie transformation est dans la posture : passer de \Â«je g\Ã¨re des incidents\Â» \Ã  \Â«je construis un \Ã©cosyst\Ã¨me\Â».",
+        fb: "Les techniques sont des outils. La vraie transformation est dans la posture : passer de «je gère des incidents» à «je construis un écosystème».",
         good: false
       },
       {
         label: "Minimal",
-        text: "\Â«\Ã‡a m\â€™a confirm\Ã© ce que je savais d\Ã©j\Ã .\Â»",
+        text: "«Ça m\'a confirmé ce que je savais déjà.»",
         score: 0,
-        fb: "Si la formation n\â€™a rien chang\Ã©, soit elle a \Ã©chou\Ã©, soit la r\Ã©flexion n\â€™a pas eu lieu. 25 modules couvrant neurosciences, droit, \Ã©thique, game design et gestion de crise ne peuvent pas \Â«confirmer ce qu\â€™on savait\Â» sans rien ajouter.",
+        fb: "Si la formation n\'a rien changé, soit elle a échoué, soit la réflexion n\'a pas eu lieu. 25 modules couvrant neurosciences, droit, éthique, game design et gestion de crise ne peuvent pas «confirmer ce qu\'on savait» sans rien ajouter.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ—", t:"Architecte invisible :", v:"L\â€™AED form\Ã© ne g\Ã¨re pas des incidents \â€” il construit l\â€™\Ã©cosyst\Ã¨me dans lequel l\â€™\Ã©ducation est possible."},
-  {icon:"ðŸ§©", t:"Pens\Ã©e syst\Ã©mique :", v:"Chaque module s\â€™embo\Ã®te : neuro + droit + \Ã©thique + game design + observation = posture professionnelle compl\Ã¨te."},
-  {icon:"ðŸ’¬", t:"Proposer :", v:"L\â€™AED a une expertise de terrain unique. La partager en r\Ã©union, c\â€™est contribuer \Ã  l\â€™architecture du climat scolaire."},
-  {icon:"ðŸŒŸ", t:"La trajectoire :", v:"De \Â«je surveille\Â» \Ã  \Â«je construis\Â». De l\â€™ex\Ã©cutant au co-architecte. C\â€™est \Ã§a, La Forge."},
+  {icon:"🏗", t:"Architecte invisible :", v:"L\'AED formé ne gère pas des incidents — il construit l\'écosystème dans lequel l\'éducation est possible."},
+  {icon:"🧩", t:"Pensée systémique :", v:"Chaque module s\'emboîte : neuro + droit + éthique + game design + observation = posture professionnelle complète."},
+  {icon:"💬", t:"Proposer :", v:"L\'AED a une expertise de terrain unique. La partager en réunion, c\'est contribuer à l\'architecture du climat scolaire."},
+  {icon:"🌟", t:"La trajectoire :", v:"De «je surveille» à «je construis». De l\'exécutant au co-architecte. C\'est ça, La Forge."},
 ];
 
 
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'IngÃ©nierie de la Bienveillance â€” CERTIFICATION Â· Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Ingénierie de la Bienveillance — CERTIFICATION · Module 1/5'),
     e('h1',null,"Devenir architecte du climat scolaire"),
-    e('p',{className:'quote'},'"'+"Le climat scolaire n\â€™est pas ce qui arrive aux gens dans un b\Ã¢timent. C\â€™est ce que les gens font du b\Ã¢timent."+'" â€” Sylvie Condette (adapt\Ã©)'),
-    e('p',null,"L\â€™AED qui a travers\Ã© les 24 modules pr\Ã©c\Ã©dents n\â€™est plus un ex\Ã©cutant. Il conna\Ã®t les neurosciences de l\â€™ado, les m\Ã©canismes du harc\Ã¨lement, la d\Ã©sescalade, le cadre l\Ã©gal, le design du Super-Hub. Il est pr\Ãªt pour le dernier niveau : devenir co-architecte du climat scolaire."),
-    e('p',null,"Ce module de certification vous demande de penser en syst\Ã¨me : comment les pi\Ã¨ces s\â€™embo\Ã®tent, o\Ã¹ sont les fragilit\Ã©s, et comment proposer des am\Ã©liorations. Vous passez du r\Ã´le de pilier porteur \Ã  celui de b\Ã¢tisseur."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Sylvie Condette, Climat scolaire \â€” Eirick Prairat \â€” Daniel Favre \â€” Approche syst\Ã©mique en \Ã©ducation"),
+    e('p',{className:'quote'},'"'+"Le climat scolaire n\'est pas ce qui arrive aux gens dans un bâtiment. C\'est ce que les gens font du bâtiment."+'" — Sylvie Condette (adapté)'),
+    e('p',null,"L\'AED qui a traversé les 24 modules précédents n\'est plus un exécutant. Il connaît les neurosciences de l\'ado, les mécanismes du harcèlement, la désescalade, le cadre légal, le design du Super-Hub. Il est prêt pour le dernier niveau : devenir co-architecte du climat scolaire."),
+    e('p',null,"Ce module de certification vous demande de penser en système : comment les pièces s\'emboîtent, où sont les fragilités, et comment proposer des améliorations. Vous passez du rôle de pilier porteur à celui de bâtisseur."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Sylvie Condette, Climat scolaire — Eirick Prairat — Daniel Favre — Approche systémique en éducation"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+SynthÃ¨se'),e('div',{className:'comp-earn'},'+Leadership'),
+      e('div',{className:'comp-earn'},'+Synthèse'),e('div',{className:'comp-earn'},'+Leadership'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ—'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'🏗'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 SynthÃ¨se'),e('div',{className:'comp-earn'},'+1 Leadership'),
+      e('div',{className:'comp-earn'},'+1 Synthèse'),e('div',{className:'comp-earn'},'+1 Leadership'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

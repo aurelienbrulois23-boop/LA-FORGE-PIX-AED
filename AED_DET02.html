@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_DET02 â€” Le harcÃ¨lement qui ne se voit pas</title>
+<title>LA FORGE | AED_DET02 — Le harcèlement qui ne se voit pas</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Depuis deux semaines, vous remarquez que chaque fois que Lina prend la parole en \Ã©tude, trois filles du m\Ãªme groupe soupirent ostensiblement ou se regardent en ricanant. Lina ne dit rien mais participe de moins en moins.",
-    q: "Est-ce du harc\Ã¨lement ? Que faites-vous ?",
+    ctx: "Depuis deux semaines, vous remarquez que chaque fois que Lina prend la parole en étude, trois filles du même groupe soupirent ostensiblement ou se regardent en ricanant. Lina ne dit rien mais participe de moins en moins.",
+    q: "Est-ce du harcèlement ? Que faites-vous ?",
     options: [
       {
-        label: "Signal fort \â€” documenter et transmettre",
-        text: "Je note les faits pr\Ã©cis\Ã©ment : dates, noms des trois filles, nature du comportement (soupirs, regards, ricanements), effet sur Lina (retrait progressif). Je transmets au CPE comme suspicion de harc\Ã¨lement : r\Ã©p\Ã©tition + asym\Ã©trie + impact \â€” les trois crit\Ã¨res sont l\Ã .",
+        label: "Signal fort — documenter et transmettre",
+        text: "Je note les faits précisément : dates, noms des trois filles, nature du comportement (soupirs, regards, ricanements), effet sur Lina (retrait progressif). Je transmets au CPE comme suspicion de harcèlement : répétition + asymétrie + impact — les trois critères sont là.",
         score: 3,
-        fb: "Les trois crit\Ã¨res du harc\Ã¨lement selon Olweus : r\Ã©p\Ã©tition (deux semaines), asym\Ã©trie de pouvoir (3 contre 1), intention de nuire (syst\Ã©maticit\Ã© du ciblage). Les soupirs et regards sont des micro-agressions relationnelles \â€” invisibles pour un adulte non form\Ã©, d\Ã©vastatrices pour la cible.",
+        fb: "Les trois critères du harcèlement selon Olweus : répétition (deux semaines), asymétrie de pouvoir (3 contre 1), intention de nuire (systématicité du ciblage). Les soupirs et regards sont des micro-agressions relationnelles — invisibles pour un adulte non formé, dévastatrices pour la cible.",
         good: true
       },
       {
         label: "Intervenir directement",
-        text: "\Â«Les filles, vos petits regards et vos soupirs, j\â€™ai bien vu. On arr\Ãªte imm\Ã©diatement.\Â»",
+        text: "«Les filles, vos petits regards et vos soupirs, j\'ai bien vu. On arrête immédiatement.»",
         score: 1,
-        fb: "L\â€™intention est bonne, mais l\â€™intervention directe sans documentation pr\Ã©alable peut \Ãªtre ni\Ã©e (\Â«Mais on a rien fait !\Â») et aggraver le harc\Ã¨lement hors de votre vue. Documenter d\â€™abord, transmettre, puis une intervention concert\Ã©e avec le CPE.",
+        fb: "L\'intention est bonne, mais l\'intervention directe sans documentation préalable peut être niée («Mais on a rien fait !») et aggraver le harcèlement hors de votre vue. Documenter d\'abord, transmettre, puis une intervention concertée avec le CPE.",
         good: false
       },
       {
         label: "Relativiser",
-        text: "C\â€™est des histoires de filles, \Ã§a va passer.",
+        text: "C\'est des histoires de filles, ça va passer.",
         score: 0,
-        fb: "\Â«Histoires de filles\Â» est le st\Ã©r\Ã©otype qui rend le harc\Ã¨lement relationnel invisible. Le harc\Ã¨lement entre filles utilise pr\Ã©cis\Ã©ment l\â€™exclusion et la manipulation sociale \â€” il est moins visible mais tout aussi destructeur.",
+        fb: "«Histoires de filles» est le stéréotype qui rend le harcèlement relationnel invisible. Le harcèlement entre filles utilise précisément l\'exclusion et la manipulation sociale — il est moins visible mais tout aussi destructeur.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un \Ã©l\Ã¨ve, Rayan, vient vous voir et dit : \Â«Ils disent des trucs sur moi sur Snap mais j\â€™ai pas de preuves parce qu\â€™ils effacent tout.\Â»",
-    q: "Comment r\Ã©agissez-vous ?",
+    ctx: "Un élève, Rayan, vient vous voir et dit : «Ils disent des trucs sur moi sur Snap mais j\'ai pas de preuves parce qu\'ils effacent tout.»",
+    q: "Comment réagissez-vous ?",
     options: [
       {
-        label: "Prendre au s\Ã©rieux + orienter",
-        text: "\Â«Je te crois. Le fait qu\â€™ils effacent montre qu\â€™ils savent que c\â€™est mal. On va en parler au CPE ensemble \â€” m\Ãªme sans capture d\â€™\Ã©cran, ton t\Ã©moignage compte. Et la prochaine fois, si tu peux faire une capture avant l\â€™effacement, fais-le.\Â»",
+        label: "Prendre au sérieux + orienter",
+        text: "«Je te crois. Le fait qu\'ils effacent montre qu\'ils savent que c\'est mal. On va en parler au CPE ensemble — même sans capture d\'écran, ton témoignage compte. Et la prochaine fois, si tu peux faire une capture avant l\'effacement, fais-le.»",
         score: 3,
-        fb: "Croire la victime est l\â€™\Ã©tape 1 du protocole pHARe. L\â€™absence de preuve num\Ã©rique ne signifie pas absence de harc\Ã¨lement. L\â€™effacement syst\Ã©matique est en soi un indice de conscience de la gravit\Ã©. Accompagner la victime vers le CPE est la bonne cha\Ã®ne.",
+        fb: "Croire la victime est l\'étape 1 du protocole pHARe. L\'absence de preuve numérique ne signifie pas absence de harcèlement. L\'effacement systématique est en soi un indice de conscience de la gravité. Accompagner la victime vers le CPE est la bonne chaîne.",
         good: true
       },
       {
         label: "Demander des preuves",
-        text: "\Â«Sans preuves, je peux pas faire grand-chose. Essaie de faire des captures d\â€™\Ã©cran.\Â»",
+        text: "«Sans preuves, je peux pas faire grand-chose. Essaie de faire des captures d\'écran.»",
         score: 1,
-        fb: "Renvoyer la charge de la preuve \Ã  la victime est d\Ã©courageant. L\â€™\Ã©l\Ã¨ve fait d\Ã©j\Ã  un pas \Ã©norme en venant vous parler. Le bloquer sur les preuves, c\â€™est risquer qu\â€™il ne revienne jamais.",
+        fb: "Renvoyer la charge de la preuve à la victime est décourageant. L\'élève fait déjà un pas énorme en venant vous parler. Le bloquer sur les preuves, c\'est risquer qu\'il ne revienne jamais.",
         good: false
       },
       {
         label: "Minimiser",
-        text: "\Â«Sur Snap \Ã§a s\â€™efface de toute fa\Ã§on, c\â€™est pas bien grave.\Â»",
+        text: "«Sur Snap ça s\'efface de toute façon, c\'est pas bien grave.»",
         score: 0,
-        fb: "L\â€™\Ã©ph\Ã©m\Ã©rit\Ã© du support n\â€™efface pas la souffrance. Un message lu puis effac\Ã© a \Ã©t\Ã© lu \â€” et son effet sur la victime est r\Ã©el et durable.",
+        fb: "L\'éphémérité du support n\'efface pas la souffrance. Un message lu puis effacé a été lu — et son effet sur la victime est réel et durable.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le CPE vous demande d\â€™observer discr\Ã¨tement la dynamique de groupe autour d\â€™un \Ã©l\Ã¨ve potentiellement harcel\Ã© pendant une semaine.",
+    ctx: "Le CPE vous demande d\'observer discrètement la dynamique de groupe autour d\'un élève potentiellement harcelé pendant une semaine.",
     q: "Comment structurez-vous votre observation ?",
     options: [
       {
-        label: "Grille factuelle syst\Ã©matique",
-        text: "Je note chaque jour : quand (heure, lieu), qui (noms), quoi (comportement observable : geste, parole, positionnement), effet visible sur la cible (retrait, pleurs, changement de trajet). Pas d\â€™interpr\Ã©tation \â€” que des faits. En fin de semaine, je transmets la fiche compl\Ã¨te.",
+        label: "Grille factuelle systématique",
+        text: "Je note chaque jour : quand (heure, lieu), qui (noms), quoi (comportement observable : geste, parole, positionnement), effet visible sur la cible (retrait, pleurs, changement de trajet). Pas d\'interprétation — que des faits. En fin de semaine, je transmets la fiche complète.",
         score: 3,
-        fb: "La grille factuelle est l\â€™outil de base de la d\Ã©tection professionnelle. Elle transforme des impressions en donn\Ã©es exploitables. Le CPE peut ensuite d\Ã©clencher le protocole pHARe avec des \Ã©l\Ã©ments pr\Ã©cis \â€” pas des \Â«je crois que\Â».",
+        fb: "La grille factuelle est l\'outil de base de la détection professionnelle. Elle transforme des impressions en données exploitables. Le CPE peut ensuite déclencher le protocole pHARe avec des éléments précis — pas des «je crois que».",
         good: true
       },
       {
         label: "Observation informelle",
-        text: "Je garde un \Å“il quand j\â€™y pense et je fais un retour oral au CPE.",
+        text: "Je garde un œil quand j\'y pense et je fais un retour oral au CPE.",
         score: 1,
-        fb: "L\â€™observation non structur\Ã©e est biais\Ã©e par la m\Ã©moire et la disponibilit\Ã©. Vous risquez d\â€™oublier des incidents, de confondre des dates ou de m\Ã©langer des faits. La note \Ã©crite est votre meilleur alli\Ã©.",
+        fb: "L\'observation non structurée est biaisée par la mémoire et la disponibilité. Vous risquez d\'oublier des incidents, de confondre des dates ou de mélanger des faits. La note écrite est votre meilleur allié.",
         good: false
       },
       {
         label: "Intervenir directement",
-        text: "Je confronte les harceleurs d\Ã¨s que je vois quelque chose.",
+        text: "Je confronte les harceleurs dès que je vois quelque chose.",
         score: 0,
-        fb: "Intervenir avant d\â€™avoir document\Ã© compromet l\â€™observation demand\Ã©e par le CPE. Les harceleurs adaptent leur comportement en pr\Ã©sence des adultes identifi\Ã©s \â€” votre intervention les rendra simplement plus discrets, pas moins harceleurs.",
+        fb: "Intervenir avant d\'avoir documenté compromet l\'observation demandée par le CPE. Les harceleurs adaptent leur comportement en présence des adultes identifiés — votre intervention les rendra simplement plus discrets, pas moins harceleurs.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ‘", t:"Harc\Ã¨lement invisible :", v:"Soupirs, regards, exclusion, rumeurs, effacement de messages. Moins visible, tout aussi destructeur."},
-  {icon:"âœ…", t:"3 crit\Ã¨res Olweus :", v:"R\Ã©p\Ã©tition + asym\Ã©trie de pouvoir + intention de nuire. Si les trois sont l\Ã , c\â€™est du harc\Ã¨lement."},
-  {icon:"ðŸ“‹", t:"Grille factuelle :", v:"Quand, qui, quoi, effet. Pas d\â€™interpr\Ã©tation. La fiche d\â€™observation est votre outil de base."},
-  {icon:"ðŸ¤", t:"Croire la victime :", v:"\Â«Je te crois\Â» est la phrase la plus importante. L\â€™absence de preuve n\â€™est pas l\â€™absence de harc\Ã¨lement."},
+  {icon:"👁", t:"Harcèlement invisible :", v:"Soupirs, regards, exclusion, rumeurs, effacement de messages. Moins visible, tout aussi destructeur."},
+  {icon:"✅", t:"3 critères Olweus :", v:"Répétition + asymétrie de pouvoir + intention de nuire. Si les trois sont là, c\'est du harcèlement."},
+  {icon:"📋", t:"Grille factuelle :", v:"Quand, qui, quoi, effet. Pas d\'interprétation. La fiche d\'observation est votre outil de base."},
+  {icon:"🤝", t:"Croire la victime :", v:"«Je te crois» est la phrase la plus importante. L\'absence de preuve n\'est pas l\'absence de harcèlement."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Le harc\Ã¨lement qui ne se voit pas',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Le harcèlement qui ne se voit pas',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'DÃ©tection & Signaux Faibles Â· Module 1/5'),
-    e('h1',null,"Le harc\Ã¨lement qui ne se voit pas"),
-    e('p',{className:'quote'},'"'+"Le harc\Ã¨lement le plus efficace est celui que personne ne remarque."+'" â€” Dan Olweus'),
-    e('p',null,"Le harc\Ã¨lement visible (coups, insultes fortes) est la partie \Ã©merg\Ã©e. La partie immerg\Ã©e : exclusion syst\Ã©matique, rumeurs, regards, soupirs quand la victime parle, \Â«blagues\Â» r\Ã©p\Ã©titives, mise \Ã  l\â€™\Ã©cart sur les groupes de discussion."),
-    e('p',null,"L\â€™AED est souvent le premier \Ã  pouvoir d\Ã©tecter le harc\Ã¨lement invisible \â€” parce qu\â€™il voit les interactions informelles que les enseignants ne voient pas. Mais encore faut-il savoir quoi chercher."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Dan Olweus, Bullying at School \â€” Protocole pHARe (MEN) \â€” Catherine Blaya, Harc\Ã¨lement scolaire"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Détection & Signaux Faibles · Module 1/5'),
+    e('h1',null,"Le harcèlement qui ne se voit pas"),
+    e('p',{className:'quote'},'"'+"Le harcèlement le plus efficace est celui que personne ne remarque."+'" — Dan Olweus'),
+    e('p',null,"Le harcèlement visible (coups, insultes fortes) est la partie émergée. La partie immergée : exclusion systématique, rumeurs, regards, soupirs quand la victime parle, «blagues» répétitives, mise à l\'écart sur les groupes de discussion."),
+    e('p',null,"L\'AED est souvent le premier à pouvoir détecter le harcèlement invisible — parce qu\'il voit les interactions informelles que les enseignants ne voient pas. Mais encore faut-il savoir quoi chercher."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Dan Olweus, Bullying at School — Protocole pHARe (MEN) — Catherine Blaya, Harcèlement scolaire"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+DÃ©tection'),e('div',{className:'comp-earn'},'+pHARe'),
+      e('div',{className:'comp-earn'},'+Détection'),e('div',{className:'comp-earn'},'+pHARe'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ‘'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'👁'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 DÃ©tection'),e('div',{className:'comp-earn'},'+1 pHARe'),
+      e('div',{className:'comp-earn'},'+1 Détection'),e('div',{className:'comp-earn'},'+1 pHARe'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

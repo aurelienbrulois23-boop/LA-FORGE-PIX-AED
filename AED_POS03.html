@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_POS03 â€” Cadre lÃ©gal : droits, devoirs, limites</title>
+<title>LA FORGE | AED_POS03 — Cadre légal : droits, devoirs, limites</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Pendant une surveillance d\â€™\Ã©tude, vous devez aller aux toilettes. Il n\â€™y a aucun autre adulte disponible. 28 \Ã©l\Ã¨ves sont en salle.",
+    ctx: "Pendant une surveillance d\'étude, vous devez aller aux toilettes. Il n\'y a aucun autre adulte disponible. 28 élèves sont en salle.",
     q: "Que faites-vous ?",
     options: [
       {
-        label: "Pr\Ã©venir + s\Ã©curiser",
-        text: "Je demande \Ã  un coll\Ã¨gue ou au bureau vie scolaire de me remplacer, m\Ãªme 3 minutes. Si vraiment personne : je laisse la porte ouverte, je pr\Ã©viens les \Ã©l\Ã¨ves, et je fais au plus vite. Jamais de salle non surveill\Ã©e sans signalement.",
+        label: "Prévenir + sécuriser",
+        text: "Je demande à un collègue ou au bureau vie scolaire de me remplacer, même 3 minutes. Si vraiment personne : je laisse la porte ouverte, je préviens les élèves, et je fais au plus vite. Jamais de salle non surveillée sans signalement.",
         score: 3,
-        fb: "L\â€™obligation de surveillance est continue. Quitter une salle sans remplacement constitue un d\Ã©faut de surveillance qui peut engager la responsabilit\Ã© de l\â€™AED et de l\â€™\Ã©tablissement en cas d\â€™accident. La pr\Ã©vention passe par l\â€™organisation : pr\Ã©venir un coll\Ã¨gue est la norme.",
+        fb: "L\'obligation de surveillance est continue. Quitter une salle sans remplacement constitue un défaut de surveillance qui peut engager la responsabilité de l\'AED et de l\'établissement en cas d\'accident. La prévention passe par l\'organisation : prévenir un collègue est la norme.",
         good: true
       },
       {
         label: "Quitter vite",
         text: "Je sors deux minutes, ils sont assez grands pour rester calmes.",
         score: 0,
-        fb: "En cas d\â€™accident pendant votre absence, c\â€™est un d\Ã©faut de surveillance caract\Ã©ris\Ã©. M\Ãªme si \Â«ils sont grands\Â», la responsabilit\Ã© de l\â€™adulte est engage\Ã©e sur la totalit\Ã© de la p\Ã©riode de surveillance. Un juge ne retiendra pas \Â«ils \Ã©taient calmes\Â».",
+        fb: "En cas d\'accident pendant votre absence, c\'est un défaut de surveillance caractérisé. Même si «ils sont grands», la responsabilité de l\'adulte est engageée sur la totalité de la période de surveillance. Un juge ne retiendra pas «ils étaient calmes».",
         good: false
       },
       {
-        label: "Envoyer un \Ã©l\Ã¨ve chercher",
-        text: "J\â€™envoie un \Ã©l\Ã¨ve chercher un adulte pour me remplacer.",
+        label: "Envoyer un élève chercher",
+        text: "J\'envoie un élève chercher un adulte pour me remplacer.",
         score: 1,
-        fb: "L\â€™initiative de chercher un rempla\Ã§ant est bonne. Mais envoyer un \Ã©l\Ã¨ve seul dans les couloirs pendant les heures de cours pose aussi question. L\â€™id\Ã©al est de t\Ã©l\Ã©phoner ou d\â€™envoyer un message au bureau vie scolaire.",
+        fb: "L\'initiative de chercher un remplaçant est bonne. Mais envoyer un élève seul dans les couloirs pendant les heures de cours pose aussi question. L\'idéal est de téléphoner ou d\'envoyer un message au bureau vie scolaire.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un \Ã©l\Ã¨ve vous montre des bleus et vous dit que son beau-p\Ã¨re le frappe. Il vous supplie de ne rien dire.",
-    q: "Quelle est votre obligation l\Ã©gale ?",
+    ctx: "Un élève vous montre des bleus et vous dit que son beau-père le frappe. Il vous supplie de ne rien dire.",
+    q: "Quelle est votre obligation légale ?",
     options: [
       {
         label: "Signalement obligatoire",
-        text: "Je lui dis : \Â«Je t\â€™entends, et ce que tu me dis est grave. Je suis oblig\Ã© par la loi d\â€™en parler \Ã  des gens qui peuvent t\â€™aider. Ce n\â€™est pas te trahir, c\â€™est te prot\Ã©ger.\Â» Je transmets imm\Ã©diatement au CPE ou au chef d\â€™\Ã©tablissement.",
+        text: "Je lui dis : «Je t\'entends, et ce que tu me dis est grave. Je suis obligé par la loi d\'en parler à des gens qui peuvent t\'aider. Ce n\'est pas te trahir, c\'est te protéger.» Je transmets immédiatement au CPE ou au chef d\'établissement.",
         score: 3,
-        fb: "L\â€™article 434-3 du Code p\Ã©nal punit de 3 ans d\â€™emprisonnement le fait de ne pas signaler des mauvais traitements sur mineur dont on a connaissance. L\â€™AED n\â€™a pas le choix \â€” le secret demand\Ã© par l\â€™\Ã©l\Ã¨ve ne peut pas primer sur la protection de l\â€™enfant. Le signalement va au CPE ou au chef d\â€™\Ã©tab, qui d\Ã©cide de la suite (IP, article 40).",
+        fb: "L\'article 434-3 du Code pénal punit de 3 ans d\'emprisonnement le fait de ne pas signaler des mauvais traitements sur mineur dont on a connaissance. L\'AED n\'a pas le choix — le secret demandé par l\'élève ne peut pas primer sur la protection de l\'enfant. Le signalement va au CPE ou au chef d\'étab, qui décide de la suite (IP, article 40).",
         good: true
       },
       {
         label: "Garder le secret",
-        text: "Il me fait confiance, je ne peux pas le trahir. J\â€™observe et j\â€™aviserai.",
+        text: "Il me fait confiance, je ne peux pas le trahir. J\'observe et j\'aviserai.",
         score: 0,
-        fb: "Le non-signalement de maltraitance sur mineur est un d\Ã©lit p\Ã©nal (art. 434-3 CP). La confiance de l\â€™\Ã©l\Ã¨ve est pr\Ã©cieuse, mais sa s\Ã©curit\Ã© passe avant. Attendre, c\â€™est laisser un enfant en danger.",
+        fb: "Le non-signalement de maltraitance sur mineur est un délit pénal (art. 434-3 CP). La confiance de l\'élève est précieuse, mais sa sécurité passe avant. Attendre, c\'est laisser un enfant en danger.",
         good: false
       },
       {
         label: "Appeler la police directement",
-        text: "J\â€™appelle le 17 imm\Ã©diatement.",
+        text: "J\'appelle le 17 immédiatement.",
         score: 1,
-        fb: "L\â€™urgence vitale justifie un appel direct aux forces de l\â€™ordre. Mais dans la plupart des cas, la cha\Ã®ne institutionnelle (CPE \â†’ chef d\â€™\Ã©tab \â†’ IP/article 40) est plus adapt\Ã©e et mieux coordonn\Ã©e. L\â€™AED transmet \Ã  sa hi\Ã©rarchie, qui d\Ã©cide.",
+        fb: "L\'urgence vitale justifie un appel direct aux forces de l\'ordre. Mais dans la plupart des cas, la chaîne institutionnelle (CPE → chef d\'étab → IP/article 40) est plus adaptée et mieux coordonnée. L\'AED transmet à sa hiérarchie, qui décide.",
         good: false
       },
     ]
   },
   {
-    ctx: "Sur les r\Ã©seaux sociaux, un parent d\â€™\Ã©l\Ã¨ve publie un message insultant contre le principal du coll\Ã¨ge. Un coll\Ã¨gue AED commente publiquement : \Â«Bien fait, il le m\Ã©rite.\Â»",
-    q: "Que pensez-vous de cette r\Ã©action ?",
+    ctx: "Sur les réseaux sociaux, un parent d\'élève publie un message insultant contre le principal du collège. Un collègue AED commente publiquement : «Bien fait, il le mérite.»",
+    q: "Que pensez-vous de cette réaction ?",
     options: [
       {
-        label: "Violation du devoir de r\Ã©serve",
-        text: "C\â€™est une faute professionnelle. Le devoir de r\Ã©serve interdit \Ã  tout agent public de d\Ã©nigrer publiquement sa hi\Ã©rarchie ou son institution. Commenter publiquement contre son chef d\â€™\Ã©tablissement, m\Ãªme sur un r\Ã©seau personnel, peut justifier une sanction disciplinaire.",
+        label: "Violation du devoir de réserve",
+        text: "C\'est une faute professionnelle. Le devoir de réserve interdit à tout agent public de dénigrer publiquement sa hiérarchie ou son institution. Commenter publiquement contre son chef d\'établissement, même sur un réseau personnel, peut justifier une sanction disciplinaire.",
         score: 3,
-        fb: "Le devoir de r\Ã©serve s\â€™applique \Ã  tous les agents du service public, y compris les AED. Un commentaire public sur les r\Ã©seaux sociaux n\â€™est pas une opinion priv\Ã©e \â€” c\â€™est une expression publique. Le d\Ã©saccord avec la hi\Ã©rarchie se traite en interne, pas sur Facebook.",
+        fb: "Le devoir de réserve s\'applique à tous les agents du service public, y compris les AED. Un commentaire public sur les réseaux sociaux n\'est pas une opinion privée — c\'est une expression publique. Le désaccord avec la hiérarchie se traite en interne, pas sur Facebook.",
         good: true
       },
       {
-        label: "C\â€™est son droit",
-        text: "Sur son compte perso, il fait ce qu\â€™il veut. C\â€™est la libert\Ã© d\â€™expression.",
+        label: "C\'est son droit",
+        text: "Sur son compte perso, il fait ce qu\'il veut. C\'est la liberté d\'expression.",
         score: 0,
-        fb: "La libert\Ã© d\â€™expression des agents publics est encadr\Ã©e par le devoir de r\Ã©serve. Le fait que ce soit un compte \Â«perso\Â» ne change rien \â€” la jurisprudence est claire sur les r\Ã©seaux sociaux.",
+        fb: "La liberté d\'expression des agents publics est encadrée par le devoir de réserve. Le fait que ce soit un compte «perso» ne change rien — la jurisprudence est claire sur les réseaux sociaux.",
         good: false
       },
       {
-        label: "Pas s\Ã»r",
-        text: "\Ã‡a d\Ã©pend du contexte, c\â€™est une zone grise.",
+        label: "Pas sûr",
+        text: "Ça dépend du contexte, c\'est une zone grise.",
         score: 1,
-        fb: "Ce n\â€™est pas une zone grise. D\Ã©nigrer publiquement son chef d\â€™\Ã©tablissement quand on est agent du service public est une violation caract\Ã©ris\Ã©e du devoir de r\Ã©serve, quelle que soit la plateforme.",
+        fb: "Ce n\'est pas une zone grise. Dénigrer publiquement son chef d\'établissement quand on est agent du service public est une violation caractérisée du devoir de réserve, quelle que soit la plateforme.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ‘", t:"Surveillance :", v:"Continue, sans interruption. Quitter une salle sans remplacement = d\Ã©faut de surveillance = responsabilit\Ã© engag\Ã©e."},
-  {icon:"âš ï¸", t:"Signalement :", v:"Article 434-3 CP : ne pas signaler une maltraitance sur mineur est un d\Ã©lit p\Ã©nal. L\â€™AED transmet au CPE/chef d\â€™\Ã©tab."},
-  {icon:"ðŸ¤", t:"Devoir de r\Ã©serve :", v:"Agent public = expression publique encadr\Ã©e. Les r\Ã©seaux sociaux ne sont pas une zone franche."},
-  {icon:"ðŸ”—", t:"Cha\Ã®ne :", v:"AED \â†’ CPE \â†’ Chef d\â€™\Ã©tab. L\â€™article 40 et l\â€™IP sont r\Ã©dig\Ã©s par le chef d\â€™\Ã©tab / l\â€™infirmi\Ã¨re / l\â€™AS. L\â€™AED d\Ã©tecte et transmet."},
+  {icon:"👁", t:"Surveillance :", v:"Continue, sans interruption. Quitter une salle sans remplacement = défaut de surveillance = responsabilité engagée."},
+  {icon:"⚠️", t:"Signalement :", v:"Article 434-3 CP : ne pas signaler une maltraitance sur mineur est un délit pénal. L\'AED transmet au CPE/chef d\'étab."},
+  {icon:"🤐", t:"Devoir de réserve :", v:"Agent public = expression publique encadrée. Les réseaux sociaux ne sont pas une zone franche."},
+  {icon:"🔗", t:"Chaîne :", v:"AED → CPE → Chef d\'étab. L\'article 40 et l\'IP sont rédigés par le chef d\'étab / l\'infirmière / l\'AS. L\'AED détecte et transmet."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Cadre l\Ã©gal : droits, devoirs, limites',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Cadre légal : droits, devoirs, limites',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Posture & DÃ©ontologie Â· Module 1/5'),
-    e('h1',null,"Cadre l\Ã©gal : droits, devoirs, limites"),
-    e('p',{className:'quote'},'"'+"Nul n\â€™est cens\Ã© ignorer la loi \â€” surtout pas celui qui encadre les enfants des autres."+'" â€” Adage juridique (adapt\Ã©)'),
-    e('p',null,"L\â€™AED n\â€™est pas un animateur de colo \â€” c\â€™est un agent du service public d\â€™\Ã©ducation, soumis \Ã  des obligations l\Ã©gales pr\Ã©cises. Obligation de surveillance, obligation de signalement, devoir de r\Ã©serve, droit de retrait : ces mots ont un contenu juridique concret."),
-    e('p',null,"Ce module passe en revue les situations o\Ã¹ le cadre l\Ã©gal s\â€™active \â€” et les erreurs qui peuvent engager la responsabilit\Ã© personnelle de l\â€™AED. Mieux vaut savoir avant qu\â€™apr\Ã¨s."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Code de l\â€™\Ã©ducation \â€” Circulaire n\Â°2003-092 (fonctions AED) \â€” Article 40 CPP \â€” Article 434-3 CP"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Posture & Déontologie · Module 1/5'),
+    e('h1',null,"Cadre légal : droits, devoirs, limites"),
+    e('p',{className:'quote'},'"'+"Nul n\'est censé ignorer la loi — surtout pas celui qui encadre les enfants des autres."+'" — Adage juridique (adapté)'),
+    e('p',null,"L\'AED n\'est pas un animateur de colo — c\'est un agent du service public d\'éducation, soumis à des obligations légales précises. Obligation de surveillance, obligation de signalement, devoir de réserve, droit de retrait : ces mots ont un contenu juridique concret."),
+    e('p',null,"Ce module passe en revue les situations où le cadre légal s\'active — et les erreurs qui peuvent engager la responsabilité personnelle de l\'AED. Mieux vaut savoir avant qu\'après."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Code de l\'éducation — Circulaire n°2003-092 (fonctions AED) — Article 40 CPP — Article 434-3 CP"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Juridique'),e('div',{className:'comp-earn'},'+DÃ©onto'),
+      e('div',{className:'comp-earn'},'+Juridique'),e('div',{className:'comp-earn'},'+Déonto'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ‘'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'👁'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Juridique'),e('div',{className:'comp-earn'},'+1 DÃ©onto'),
+      e('div',{className:'comp-earn'},'+1 Juridique'),e('div',{className:'comp-earn'},'+1 Déonto'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

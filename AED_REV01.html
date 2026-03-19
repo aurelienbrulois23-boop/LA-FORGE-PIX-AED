@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_REV01 â€” Maths collÃ¨ge : les bases pour aider</title>
+<title>LA FORGE | AED_REV01 — Maths collège : les bases pour aider</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "\Ã‰tude. Sarah (5\Ã¨me) vous montre son exercice : \Â«2/3 + 1/4 \â€” j\â€™y arrive pas. C\â€™est quoi d\Ã©j\Ã  la r\Ã¨gle ?\Â»",
-    q: "Comment l\â€™aidez-vous ?",
+    ctx: "Étude. Sarah (5ème) vous montre son exercice : «2/3 + 1/4 — j\'y arrive pas. C\'est quoi déjà la règle ?»",
+    q: "Comment l\'aidez-vous ?",
     options: [
       {
         label: "Guider sans donner",
-        text: "\Â«Pour additionner des fractions, il faut qu\â€™elles parlent la m\Ãªme langue \â€” le m\Ãªme d\Ã©nominateur. 3 et 4, leur plus petit multiple commun c\â€™est 12. Donc 2/3 devient 8/12, et 1/4 devient 3/12. Maintenant, tu peux additionner : 8/12 + 3/12 = ?\Â» Je la laisse finir.",
+        text: "«Pour additionner des fractions, il faut qu\'elles parlent la même langue — le même dénominateur. 3 et 4, leur plus petit multiple commun c\'est 12. Donc 2/3 devient 8/12, et 1/4 devient 3/12. Maintenant, tu peux additionner : 8/12 + 3/12 = ?» Je la laisse finir.",
         score: 3,
-        fb: "Trois comp\Ã©tences en un geste : vous connaissez la r\Ã¨gle (d\Ã©nominateur commun), vous utilisez une m\Ã©taphore (\Â«parler la m\Ãªme langue\Â») pour rendre concret l\â€™abstrait, et vous la laissez conclure (11/12). L\â€™aide aux devoirs, c\â€™est \Ã©clairer le chemin, pas porter l\â€™\Ã©l\Ã¨ve.",
+        fb: "Trois compétences en un geste : vous connaissez la règle (dénominateur commun), vous utilisez une métaphore («parler la même langue») pour rendre concret l\'abstrait, et vous la laissez conclure (11/12). L\'aide aux devoirs, c\'est éclairer le chemin, pas porter l\'élève.",
         good: true
       },
       {
-        label: "Donner la r\Ã©ponse",
-        text: "\Â«C\â€™est 11/12. \Ã‰cris \Ã§a.\Â»",
+        label: "Donner la réponse",
+        text: "«C\'est 11/12. Écris ça.»",
         score: 0,
-        fb: "L\â€™exercice est fait, mais Sarah n\â€™a rien appris. La prochaine fraction, elle sera au m\Ãªme point. L\â€™aide aux devoirs sans m\Ã©thode est du service, pas de l\â€™\Ã©ducation.",
+        fb: "L\'exercice est fait, mais Sarah n\'a rien appris. La prochaine fraction, elle sera au même point. L\'aide aux devoirs sans méthode est du service, pas de l\'éducation.",
         good: false
       },
       {
         label: "Esquiver",
-        text: "\Â«Les fractions c\â€™est pas mon truc, demande au prof demain.\Â»",
+        text: "«Les fractions c\'est pas mon truc, demande au prof demain.»",
         score: 1,
-        fb: "Honn\Ãªte, mais l\â€™addition de fractions est du programme 6\Ã¨me-5\Ã¨me. Si un AED ne peut pas aider l\Ã -dessus, l\â€™\Ã©tude perd une bonne partie de son utilit\Ã©. C\â€™est \Ã  \Ã§a que sert ce module de r\Ã©vision.",
+        fb: "Honnête, mais l\'addition de fractions est du programme 6ème-5ème. Si un AED ne peut pas aider là-dessus, l\'étude perd une bonne partie de son utilité. C\'est à ça que sert ce module de révision.",
         good: false
       },
     ]
   },
   {
-    ctx: "Lucas (4\Ã¨me) travaille sur un probl\Ã¨me de proportionnalit\Ã© : \Â«Une recette pour 6 personnes demande 450g de farine. Combien pour 10 personnes ?\Â» Il vous regarde avec des yeux de merlan frit.",
+    ctx: "Lucas (4ème) travaille sur un problème de proportionnalité : «Une recette pour 6 personnes demande 450g de farine. Combien pour 10 personnes ?» Il vous regarde avec des yeux de merlan frit.",
     q: "Comment le guidez-vous ?",
     options: [
       {
-        label: "Produit en croix simplifi\Ã©",
-        text: "\Â«OK Lucas, la proportionnalit\Ã© c\â€™est simple : si 6 personnes c\â€™est 450g, alors 1 personne c\â€™est 450 divis\Ã© par 6 = 75g. Et 10 personnes ? 75 fois 10 = 750g. Tu vois ? Divise d\â€™abord pour trouver l\â€™unit\Ã©, puis multiplie. C\â€™est la m\Ã©thode du retour \Ã  l\â€™unit\Ã©.\Â»",
+        label: "Produit en croix simplifié",
+        text: "«OK Lucas, la proportionnalité c\'est simple : si 6 personnes c\'est 450g, alors 1 personne c\'est 450 divisé par 6 = 75g. Et 10 personnes ? 75 fois 10 = 750g. Tu vois ? Divise d\'abord pour trouver l\'unité, puis multiplie. C\'est la méthode du retour à l\'unité.»",
         score: 3,
-        fb: "Le retour \Ã  l\â€™unit\Ã© est plus intuitif que le produit en croix pour la plupart des \Ã©l\Ã¨ves. \Ã‡a donne du sens : \Â«combien pour 1, puis combien pour 10\Â». L\â€™AED qui ma\Ã®trise cette m\Ã©thode peut d\Ã©bloquer 80% des exercices de proportionnalit\Ã©.",
+        fb: "Le retour à l\'unité est plus intuitif que le produit en croix pour la plupart des élèves. Ça donne du sens : «combien pour 1, puis combien pour 10». L\'AED qui maîtrise cette méthode peut débloquer 80% des exercices de proportionnalité.",
         good: true
       },
       {
         label: "Produit en croix brut",
-        text: "\Â«Fais un tableau : 6 \â†’ 450, 10 \â†’ x. Puis x = 450 \Ã— 10 / 6.\Â»",
+        text: "«Fais un tableau : 6 → 450, 10 → x. Puis x = 450 × 10 / 6.»",
         score: 1,
-        fb: "Le produit en croix fonctionne, mais sans explication du sens, Lucas appliquera une recette sans comprendre. Le retour \Ã  l\â€™unit\Ã© construit la compr\Ã©hension.",
+        fb: "Le produit en croix fonctionne, mais sans explication du sens, Lucas appliquera une recette sans comprendre. Le retour à l\'unité construit la compréhension.",
         good: false
       },
       {
         label: "Approximation",
-        text: "\Â«Bah c\â€™est presque le double, donc environ 900g ?\Â»",
+        text: "«Bah c\'est presque le double, donc environ 900g ?»",
         score: 0,
-        fb: "10 n\â€™est pas le double de 6. L\â€™approximation grossi\Ã¨re enseigne de mauvais r\Ã©flexes. En maths, la rigueur n\â€™est pas un luxe \â€” c\â€™est le socle.",
+        fb: "10 n\'est pas le double de 6. L\'approximation grossière enseigne de mauvais réflexes. En maths, la rigueur n\'est pas un luxe — c\'est le socle.",
         good: false
       },
     ]
   },
   {
-    ctx: "Emma (3\Ã¨me) vous montre une \Ã©quation : \Â«3x + 7 = 22. C\â€™est quoi x ?\Â» Elle a \Ã©crit \Â«x = 22 - 7 = 15\Â» et elle est bloqu\Ã©e.",
-    q: "O\Ã¹ est son erreur et comment la corrigez-vous ?",
+    ctx: "Emma (3ème) vous montre une équation : «3x + 7 = 22. C\'est quoi x ?» Elle a écrit «x = 22 - 7 = 15» et elle est bloquée.",
+    q: "Où est son erreur et comment la corrigez-vous ?",
     options: [
       {
-        label: "Identifier l\â€™erreur + guider",
-        text: "\Â«T\â€™as bien commenc\Ã© : 22 - 7 = 15, donc 3x = 15. Mais l\Ã , x n\â€™est pas 15 \â€” c\â€™est 3 FOIS x qui vaut 15. Donc x, c\â€™est 15 divis\Ã© par 3 = 5. V\Ã©rifie : 3 \Ã— 5 + 7 = 22. \Ã‡a colle !\Â»",
+        label: "Identifier l\'erreur + guider",
+        text: "«T\'as bien commencé : 22 - 7 = 15, donc 3x = 15. Mais là, x n\'est pas 15 — c\'est 3 FOIS x qui vaut 15. Donc x, c\'est 15 divisé par 3 = 5. Vérifie : 3 × 5 + 7 = 22. Ça colle !»",
         score: 3,
-        fb: "Vous avez identifi\Ã© l\â€™erreur classique (oublier la division par le coefficient) sans humilier Emma (\Â«t\â€™as bien commenc\Ã©\Â»). La v\Ã©rification finale (3\Ã—5+7=22) est un r\Ã©flexe professionnel \Ã  enseigner : toujours v\Ã©rifier en rempla\Ã§ant x.",
+        fb: "Vous avez identifié l\'erreur classique (oublier la division par le coefficient) sans humilier Emma («t\'as bien commencé»). La vérification finale (3×5+7=22) est un réflexe professionnel à enseigner : toujours vérifier en remplaçant x.",
         good: true
       },
       {
-        label: "Faire \Ã  sa place",
-        text: "\Â«x = 5. Tiens.\Â»",
+        label: "Faire à sa place",
+        text: "«x = 5. Tiens.»",
         score: 0,
-        fb: "Emma sait d\Ã©sormais que x = 5 dans CET exercice. Elle ne sait toujours pas r\Ã©soudre le suivant.",
+        fb: "Emma sait désormais que x = 5 dans CET exercice. Elle ne sait toujours pas résoudre le suivant.",
         good: false
       },
       {
-        label: "Ne pas voir l\â€™erreur",
-        text: "\Â«Euh... 15 \Ã§a a l\â€™air juste non ? Ou pas... je suis pas s\Ã»r.\Â»",
+        label: "Ne pas voir l\'erreur",
+        text: "«Euh... 15 ça a l\'air juste non ? Ou pas... je suis pas sûr.»",
         score: 0,
-        fb: "Si l\â€™AED ne voit pas l\â€™erreur dans 3x + 7 = 22, l\â€™aide aux devoirs en maths ne fonctionne pas. Ce module est l\Ã  pour \Ã§a : re-solidifier les bases.",
+        fb: "Si l\'AED ne voit pas l\'erreur dans 3x + 7 = 22, l\'aide aux devoirs en maths ne fonctionne pas. Ce module est là pour ça : re-solidifier les bases.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“", t:"Fractions :", v:"D\Ã©nominateur commun avant d\â€™additionner. M\Ã©taphore : \Â«parler la m\Ãªme langue\Â». Laisser l\â€™\Ã©l\Ã¨ve conclure."},
-  {icon:"âš–ï¸", t:"Proportionnalit\Ã© :", v:"Retour \Ã  l\â€™unit\Ã© > produit en croix pour le sens. \Â«Combien pour 1, puis combien pour X.\Â»"},
-  {icon:"â“", t:"\Ã‰quations :", v:"Isoler x par op\Ã©rations inverses. TOUJOURS v\Ã©rifier en rempla\Ã§ant. L\â€™erreur classique : oublier de diviser par le coefficient."},
-  {icon:"ðŸ’¡", t:"Posture d\â€™aide :", v:"Guider > donner. \Ã‰clairer le chemin, pas porter l\â€™\Ã©l\Ã¨ve. La m\Ã©thode vaut plus que la r\Ã©ponse."},
+  {icon:"📐", t:"Fractions :", v:"Dénominateur commun avant d\'additionner. Métaphore : «parler la même langue». Laisser l\'élève conclure."},
+  {icon:"⚖️", t:"Proportionnalité :", v:"Retour à l\'unité > produit en croix pour le sens. «Combien pour 1, puis combien pour X.»"},
+  {icon:"❓", t:"Équations :", v:"Isoler x par opérations inverses. TOUJOURS vérifier en remplaçant. L\'erreur classique : oublier de diviser par le coefficient."},
+  {icon:"💡", t:"Posture d\'aide :", v:"Guider > donner. Éclairer le chemin, pas porter l\'élève. La méthode vaut plus que la réponse."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Maths coll\Ã¨ge : les bases pour aider',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Maths collège : les bases pour aider',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'BONUS RÃ©visions â€” Maths Ã—1.5 Â· Module 1/5'),
-    e('h1',null,"Maths coll\Ã¨ge : les bases pour aider"),
-    e('p',{className:'quote'},'"'+"Si tu ne peux pas l\â€™expliquer simplement, c\â€™est que tu ne le comprends pas assez bien."+'" â€” Albert Einstein'),
-    e('p',null,"En \Ã©tude, l\â€™\Ã©l\Ã¨ve qui galÃ¨re en maths ne veut pas un cours magistral. Il veut quelqu\â€™un qui l\â€™aide \Ã  d\Ã©bloquer un exercice. Pour \Ã§a, vous n\â€™avez pas besoin d\â€™\Ãªtre prof de maths \â€” mais vous devez ma\Ã®trisez les bases : fractions, proportionnalit\Ã©, g\Ã©om\Ã©trie \Ã©l\Ã©mentaire, \Ã©quations simples."),
-    e('p',null,"Ce module vous met en situation d\â€™aide aux devoirs r\Ã©elle. L\â€™\Ã©l\Ã¨ve pose sa question, vous devez \Ã  la fois conna\Ã®tre la r\Ã©ponse ET savoir comment l\â€™amener sans la donner directement."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Programme maths cycle 4 \â€” M\Ã©thode de Singapour (mod\Ã©lisation) \â€” Didactique des math\Ã©matiques"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'BONUS Révisions — Maths ×1.5 · Module 1/5'),
+    e('h1',null,"Maths collège : les bases pour aider"),
+    e('p',{className:'quote'},'"'+"Si tu ne peux pas l\'expliquer simplement, c\'est que tu ne le comprends pas assez bien."+'" — Albert Einstein'),
+    e('p',null,"En étude, l\'élève qui galère en maths ne veut pas un cours magistral. Il veut quelqu\'un qui l\'aide à débloquer un exercice. Pour ça, vous n\'avez pas besoin d\'être prof de maths — mais vous devez maîtrisez les bases : fractions, proportionnalité, géométrie élémentaire, équations simples."),
+    e('p',null,"Ce module vous met en situation d\'aide aux devoirs réelle. L\'élève pose sa question, vous devez à la fois connaître la réponse ET savoir comment l\'amener sans la donner directement."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Programme maths cycle 4 — Méthode de Singapour (modélisation) — Didactique des mathématiques"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +60 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+PÃ©dagogie'),e('div',{className:'comp-earn'},'+Maths'),
+      e('div',{className:'comp-earn'},'+Pédagogie'),e('div',{className:'comp-earn'},'+Maths'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📐'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +60 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 PÃ©dagogie'),e('div',{className:'comp-earn'},'+1 Maths'),
+      e('div',{className:'comp-earn'},'+1 Pédagogie'),e('div',{className:'comp-earn'},'+1 Maths'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

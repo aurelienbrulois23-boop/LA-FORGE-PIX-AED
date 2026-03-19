@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU03 â€” Ma propre rÃ©gulation face Ã  la provocation</title>
+<title>LA FORGE | AED_NEU03 — Ma propre régulation face à la provocation</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \Ã©l\Ã¨ve de 3\Ã¨me vous dit, devant ses copains : \Â«De toute fa\Ã§on t\â€™es qu\â€™un pion, t\â€™as m\Ãªme pas le bac.\Â» Les autres rient.",
-    q: "Premi\Ã¨re r\Ã©action : que se passe-t-il en vous ?",
+    ctx: "Un élève de 3ème vous dit, devant ses copains : «De toute façon t\'es qu\'un pion, t\'as même pas le bac.» Les autres rient.",
+    q: "Première réaction : que se passe-t-il en vous ?",
     options: [
       {
-        label: "Reconna\Ã®tre le signal + ne pas r\Ã©agir \Ã  chaud",
-        text: "Je sens la mont\Ã©e (chaleur, tension). Je la reconnais : c\â€™est mon \Ã©go qui r\Ã©agit, pas ma fonction. Je respire une seconde, puis : \Â«T\â€™as le droit de penser ce que tu veux de mon poste. Mais l\Ã , maintenant, c\â€™est moi qui g\Ã¨re cette cour \â€” et c\â€™est \Ã§a qui compte.\Â»",
+        label: "Reconnaître le signal + ne pas réagir à chaud",
+        text: "Je sens la montée (chaleur, tension). Je la reconnais : c\'est mon égo qui réagit, pas ma fonction. Je respire une seconde, puis : «T\'as le droit de penser ce que tu veux de mon poste. Mais là, maintenant, c\'est moi qui gère cette cour — et c\'est ça qui compte.»",
         score: 3,
-        fb: "La provocation vise l\â€™identit\Ã© personnelle pour d\Ã©stabiliser la fonction. La cl\Ã© : s\Ã©parer l\â€™ego de la posture professionnelle. R\Ã©pondre depuis la fonction (\Â«je g\Ã¨re cette cour\Â») et non depuis l\â€™ego bless\Ã© (\Â«comment tu me parles\Â») d\Ã©samorce la provocation.",
+        fb: "La provocation vise l\'identité personnelle pour déstabiliser la fonction. La clé : séparer l\'ego de la posture professionnelle. Répondre depuis la fonction («je gère cette cour») et non depuis l\'ego blessé («comment tu me parles») désamorce la provocation.",
         good: true
       },
       {
-        label: "R\Ã©pondre sur le fond",
-        text: "\Â«Figure-toi que j\â€™ai le bac, et m\Ãªme plus.\Â»",
+        label: "Répondre sur le fond",
+        text: "«Figure-toi que j\'ai le bac, et même plus.»",
         score: 1,
-        fb: "Se justifier sur le fond, c\â€™est accepter le terrain de l\â€™ado. Il ne s\â€™int\Ã©resse pas \Ã  votre dipl\Ã´me \â€” il teste votre r\Ã©action. R\Ã©pondre, c\â€™est valider l\â€™attaque comme l\Ã©gitime.",
+        fb: "Se justifier sur le fond, c\'est accepter le terrain de l\'ado. Il ne s\'intéresse pas à votre diplôme — il teste votre réaction. Répondre, c\'est valider l\'attaque comme légitime.",
         good: false
       },
       {
         label: "Exploser",
-        text: "\Â«R\Ã©p\Ã¨te un peu ce que t\â€™as dit ?! Tu vas voir si je suis qu\â€™un pion !\Â»",
+        text: "«Répète un peu ce que t\'as dit ?! Tu vas voir si je suis qu\'un pion !»",
         score: 0,
-        fb: "L\â€™explosion est exactement ce que la provocation cherche. L\â€™ado a prouv\Ã© que l\â€™adulte n\â€™est pas fiable \Ã©motionnellement. Le message pour les t\Ã©moins : \Â«cet AED peut \Ãªtre d\Ã©stabilis\Ã©\Â» \â€” et ils s\â€™en serviront.",
+        fb: "L\'explosion est exactement ce que la provocation cherche. L\'ado a prouvé que l\'adulte n\'est pas fiable émotionnellement. Le message pour les témoins : «cet AED peut être déstabilisé» — et ils s\'en serviront.",
         good: false
       },
     ]
   },
   {
-    ctx: "Apr\Ã¨s cette sc\Ã¨ne, vous rentrez au bureau vie scolaire. Vous \Ãªtes encore en col\Ã¨re. Un coll\Ã¨gue vous demande si \Ã§a va.",
-    q: "Comment g\Ã©rez-vous votre propre \Ã©motion ?",
+    ctx: "Après cette scène, vous rentrez au bureau vie scolaire. Vous êtes encore en colère. Un collègue vous demande si ça va.",
+    q: "Comment gérez-vous votre propre émotion ?",
     options: [
       {
         label: "Verbaliser + analyser",
-        text: "\Â«Ouais, un 3\Ã¨me m\â€™a balanc\Ã© un truc qui m\â€™a touch\Ã©. J\â€™ai g\Ã©r\Ã© sur le moment, mais l\Ã  j\â€™ai besoin de souffler. C\â€™est quoi qui m\â€™a touch\Ã© l\Ã -dedans ? Le \â€˜pion\â€™ ? Le \â€˜bac\â€™ ? Pourquoi ?\Â»",
+        text: "«Ouais, un 3ème m\'a balancé un truc qui m\'a touché. J\'ai géré sur le moment, mais là j\'ai besoin de souffler. C\'est quoi qui m\'a touché là-dedans ? Le \'pion\' ? Le \'bac\' ? Pourquoi ?»",
         score: 3,
-        fb: "Verbaliser l\â€™\Ã©motion entre coll\Ã¨gues est un acte de r\Ã©gulation professionnel. Analyser ce qui a touch\Ã© (\Â«pourquoi le mot pion me blesse\Â») permet de d\Ã©samorcer le d\Ã©clencheur pour la prochaine fois. C\â€™est du d\Ã©briefing \Ã©motionnel \â€” pas de la faiblesse.",
+        fb: "Verbaliser l\'émotion entre collègues est un acte de régulation professionnel. Analyser ce qui a touché («pourquoi le mot pion me blesse») permet de désamorcer le déclencheur pour la prochaine fois. C\'est du débriefing émotionnel — pas de la faiblesse.",
         good: true
       },
       {
         label: "Minimiser",
-        text: "\Â«Non non, \Ã§a va, c\â€™est rien. Un gamin quoi.\Â»",
+        text: "«Non non, ça va, c\'est rien. Un gamin quoi.»",
         score: 1,
-        fb: "Nier l\â€™impact ne le supprime pas \â€” \Ã§a le comprime. L\â€™\Ã©motion non trait\Ã©e se stocke et explose au prochain incident mineur (effet cocotte-minute).",
+        fb: "Nier l\'impact ne le supprime pas — ça le comprime. L\'émotion non traitée se stocke et explose au prochain incident mineur (effet cocotte-minute).",
         good: false
       },
       {
         label: "Ruminer seul",
-        text: "Je ne dis rien et je rumine en regardant mon t\Ã©l\Ã©phone.",
+        text: "Je ne dis rien et je rumine en regardant mon téléphone.",
         score: 0,
-        fb: "La rumination (rejouer la sc\Ã¨ne en boucle) amplifie l\â€™\Ã©motion au lieu de la traiter. Le cerveau revit la situation \Ã  chaque replay comme si elle se passait maintenant \â€” avec la m\Ãªme d\Ã©charge de cortisol.",
+        fb: "La rumination (rejouer la scène en boucle) amplifie l\'émotion au lieu de la traiter. Le cerveau revit la situation à chaque replay comme si elle se passait maintenant — avec la même décharge de cortisol.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le lendemain, le m\Ãªme \Ã©l\Ã¨ve semble chercher \Ã  nouveau la provocation. Il vous fixe du regard en traversant la cour.",
+    ctx: "Le lendemain, le même élève semble chercher à nouveau la provocation. Il vous fixe du regard en traversant la cour.",
     q: "Comment abordez-vous cette nouvelle interaction ?",
     options: [
       {
         label: "Initiative relationnelle calme",
-        text: "Je le salue normalement : \Â«Salut, Mehdi.\Â» Pas de rappel d\â€™hier, pas de rancune affich\Ã©e. Le message : \Â«tu ne m\â€™as pas entam\Ã©, et je ne t\â€™ai pas lach\Ã©.\Â» Si le regard insistant continue, j\â€™ajoute calmement : \Â«T\â€™as besoin de quelque chose ?\Â»",
+        text: "Je le salue normalement : «Salut, Mehdi.» Pas de rappel d\'hier, pas de rancune affichée. Le message : «tu ne m\'as pas entamé, et je ne t\'ai pas laché.» Si le regard insistant continue, j\'ajoute calmement : «T\'as besoin de quelque chose ?»",
         score: 3,
-        fb: "L\â€™initiative relationnelle apr\Ã¨s un conflit est la signature de l\â€™adulte r\Ã©gul\Ã©. Le message implicite est d\Ã©vastateur (positivement) pour l\â€™ado : \Â«ta provocation n\â€™a pas march\Ã©, et je suis toujours l\Ã .\Â» C\â€™est la d\Ã©monstration vivante de la stabilit\Ã© \Ã©motionnelle.",
+        fb: "L\'initiative relationnelle après un conflit est la signature de l\'adulte régulé. Le message implicite est dévastateur (positivement) pour l\'ado : «ta provocation n\'a pas marché, et je suis toujours là.» C\'est la démonstration vivante de la stabilité émotionnelle.",
         good: true
       },
       {
-        label: "\Ã‰vitement",
-        text: "Je l\â€™\Ã©vite pour ne pas recr\Ã©er de tension.",
+        label: "Évitement",
+        text: "Je l\'évite pour ne pas recréer de tension.",
         score: 0,
-        fb: "L\â€™\Ã©vitement est lu par l\â€™ado comme de la peur ou de la rancune. Les deux lui donnent du pouvoir. Un adulte qui \Ã©vite un ado apr\Ã¨s une provocation a perdu.",
+        fb: "L\'évitement est lu par l\'ado comme de la peur ou de la rancune. Les deux lui donnent du pouvoir. Un adulte qui évite un ado après une provocation a perdu.",
         good: false
       },
       {
-        label: "Pr\Ã©venir",
-        text: "\Â«Je te pr\Ã©viens, si tu recommences comme hier...\Â»",
+        label: "Prévenir",
+        text: "«Je te préviens, si tu recommences comme hier...»",
         score: 1,
-        fb: "La menace pr\Ã©ventive remet l\â€™ado en position de pouvoir : il sait qu\â€™il vous a touch\Ã© hier et que vous y pensez encore. C\â€™est exactement le signal qu\â€™il ne faut pas envoyer.",
+        fb: "La menace préventive remet l\'ado en position de pouvoir : il sait qu\'il vous a touché hier et que vous y pensez encore. C\'est exactement le signal qu\'il ne faut pas envoyer.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸŒ¡", t:"Reconna\Ã®tre le signal :", v:"Chaleur, tension, envie de r\Ã©pondre vite \â€” c\â€™est votre amygdale. La reconna\Ã®tre, c\â€™est d\Ã©j\Ã  reprendre le contr\Ã´le."},
-  {icon:"ðŸŽ­", t:"Ego vs fonction :", v:"La provocation vise l\â€™ego. R\Ã©pondre depuis la fonction d\Ã©samorce. \Â«Je g\Ã¨re cette cour\Â» vs \Â«Comment tu me parles\Â»."},
-  {icon:"ðŸ—£", t:"D\Ã©briefing :", v:"Verbaliser entre coll\Ã¨gues n\â€™est pas de la faiblesse \â€” c\â€™est de l\â€™hygi\Ã¨ne \Ã©motionnelle professionnelle."},
-  {icon:"ðŸ¤", t:"Le lendemain :", v:"Saluer normalement apr\Ã¨s un conflit dit : \Â«tu ne m\â€™as pas entam\Ã©\Â». C\â€™est la meilleure r\Ã©ponse \Ã  la provocation."},
+  {icon:"🌡", t:"Reconnaître le signal :", v:"Chaleur, tension, envie de répondre vite — c\'est votre amygdale. La reconnaître, c\'est déjà reprendre le contrôle."},
+  {icon:"🎭", t:"Ego vs fonction :", v:"La provocation vise l\'ego. Répondre depuis la fonction désamorce. «Je gère cette cour» vs «Comment tu me parles»."},
+  {icon:"🗣", t:"Débriefing :", v:"Verbaliser entre collègues n\'est pas de la faiblesse — c\'est de l\'hygiène émotionnelle professionnelle."},
+  {icon:"🤝", t:"Le lendemain :", v:"Saluer normalement après un conflit dit : «tu ne m\'as pas entamé». C\'est la meilleure réponse à la provocation."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Ma propre r\Ã©gulation face \Ã  la provocation',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Ma propre régulation face à la provocation',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie Â· Module 1/5'),
-    e('h1',null,"Ma propre r\Ã©gulation face \Ã  la provocation"),
-    e('p',{className:'quote'},'"'+"Si tu ne contr\Ã´les pas tes \Ã©motions, tes \Ã©motions te contr\Ã´leront \â€” et l\â€™ado le sentira."+'" â€” Daniel Goleman (adapt\Ã©)'),
-    e('p',null,"L\â€™ado provoque. C\â€™est son job d\Ã©veloppemental : tester les limites, v\Ã©rifier que l\â€™adulte tient. Le probl\Ã¨me, c\â€™est quand l\â€™adulte ne tient plus \â€” quand la provocation touche quelque chose de personnel et que l\â€™AED r\Ã©agit \Ã  chaud."),
-    e('p',null,"Ce module ne vous apprend pas \Ã  \Â«ne rien ressentir\Â» \â€” c\â€™est impossible et inutile. Il vous apprend \Ã  reconna\Ã®tre vos propres signaux de mont\Ã©e \Ã©motionnelle et \Ã  activer des strat\Ã©gies avant que la r\Ã©action automatique ne prenne le dessus."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Daniel Goleman, L\â€™intelligence \Ã©motionnelle \â€” Christophe Andr\Ã©, Imparfaits, libres et heureux \â€” Recherche sur la co-r\Ã©gulation adulte-ado"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
+    e('h1',null,"Ma propre régulation face à la provocation"),
+    e('p',{className:'quote'},'"'+"Si tu ne contrôles pas tes émotions, tes émotions te contrôleront — et l\'ado le sentira."+'" — Daniel Goleman (adapté)'),
+    e('p',null,"L\'ado provoque. C\'est son job développemental : tester les limites, vérifier que l\'adulte tient. Le problème, c\'est quand l\'adulte ne tient plus — quand la provocation touche quelque chose de personnel et que l\'AED réagit à chaud."),
+    e('p',null,"Ce module ne vous apprend pas à «ne rien ressentir» — c\'est impossible et inutile. Il vous apprend à reconnaître vos propres signaux de montée émotionnelle et à activer des stratégies avant que la réaction automatique ne prenne le dessus."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Daniel Goleman, L\'intelligence émotionnelle — Christophe André, Imparfaits, libres et heureux — Recherche sur la co-régulation adulte-ado"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+RÃ©gulation'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+Régulation'),e('div',{className:'comp-earn'},'+Posture'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸŒ¡'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'🌡'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 RÃ©gulation'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'comp-earn'},'+1 Régulation'),e('div',{className:'comp-earn'},'+1 Posture'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

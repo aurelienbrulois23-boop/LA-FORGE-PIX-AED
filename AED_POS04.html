@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_POS04 â€” RepÃ©rer et transmettre : la chaÃ®ne de signalement</title>
+<title>LA FORGE | AED_POS04 — Repérer et transmettre : la chaîne de signalement</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \Ã©l\Ã¨ve de 6\Ã¨me arrive avec un \Å“il au beurre noir. Quand vous lui demandez ce qui s\â€™est pass\Ã©, il dit : \Â«Je suis tomb\Ã© dans l\â€™escalier.\Â» Il \Ã©vite votre regard.",
+    ctx: "Un élève de 6ème arrive avec un œil au beurre noir. Quand vous lui demandez ce qui s\'est passé, il dit : «Je suis tombé dans l\'escalier.» Il évite votre regard.",
     q: "Quel niveau de signalement activez-vous ?",
     options: [
       {
         label: "Signalement rapide au CPE",
-        text: "Blessure visible + explication peu coh\Ã©rente + \Ã©vitement du regard = suspicion l\Ã©gitime. Je ne joue pas au d\Ã©tective. Je note les faits (date, heure, blessure observ\Ã©e, r\Ã©ponse de l\â€™\Ã©l\Ã¨ve mot pour mot) et je transmets au CPE dans l\â€™heure. C\â€™est lui qui d\Ã©cide s\â€™il faut alerter l\â€™infirmi\Ã¨re, l\â€™AS, ou le chef d\â€™\Ã©tab.",
+        text: "Blessure visible + explication peu cohérente + évitement du regard = suspicion légitime. Je ne joue pas au détective. Je note les faits (date, heure, blessure observée, réponse de l\'élève mot pour mot) et je transmets au CPE dans l\'heure. C\'est lui qui décide s\'il faut alerter l\'infirmière, l\'AS, ou le chef d\'étab.",
         score: 3,
-        fb: "L\â€™AED n\â€™a pas \Ã  d\Ã©terminer si c\â€™est une chute ou de la maltraitance. Il documente et transmet. La notation \Â«mot pour mot\Â» de la r\Ã©ponse de l\â€™\Ã©l\Ã¨ve est cruciale : c\â€™est un \Ã©l\Ã©ment factuel que l\â€™AS ou le m\Ã©decin pourront recouper.",
+        fb: "L\'AED n\'a pas à déterminer si c\'est une chute ou de la maltraitance. Il documente et transmet. La notation «mot pour mot» de la réponse de l\'élève est cruciale : c\'est un élément factuel que l\'AS ou le médecin pourront recouper.",
         good: true
       },
       {
-        label: "Enqu\Ãªter soi-m\Ãªme",
-        text: "Je pose plus de questions : \Â«Tu es s\Ã»r que c\â€™est une chute ? C\â€™est qui qui t\â€™a fait \Ã§a ?\Â»",
+        label: "Enquêter soi-même",
+        text: "Je pose plus de questions : «Tu es sûr que c\'est une chute ? C\'est qui qui t\'a fait ça ?»",
         score: 1,
-        fb: "L\â€™interrogatoire par un non-professionnel risque de contaminer le t\Ã©moignage (questions suggestives) et de braquer l\â€™\Ã©l\Ã¨ve. L\â€™infirmi\Ã¨re et l\â€™AS ont les techniques d\â€™entretien adapt\Ã©es.",
+        fb: "L\'interrogatoire par un non-professionnel risque de contaminer le témoignage (questions suggestives) et de braquer l\'élève. L\'infirmière et l\'AS ont les techniques d\'entretien adaptées.",
         good: false
       },
       {
         label: "Attendre",
-        text: "C\â€™est peut-\Ãªtre vraiment une chute. J\â€™attends de voir s\â€™il y a d\â€™autres signes.",
+        text: "C\'est peut-être vraiment une chute. J\'attends de voir s\'il y a d\'autres signes.",
         score: 0,
-        fb: "Un \Å“il au beurre noir avec une explication incoh\Ã©rente et un \Ã©vitement du regard n\â€™est pas un signal faible \â€” c\â€™est un signal fort. Attendre, c\â€™est prendre le risque que l\â€™enfant retourne dans la situation de danger ce soir.",
+        fb: "Un œil au beurre noir avec une explication incohérente et un évitement du regard n\'est pas un signal faible — c\'est un signal fort. Attendre, c\'est prendre le risque que l\'enfant retourne dans la situation de danger ce soir.",
         good: false
       },
     ]
   },
   {
-    ctx: "Situation diff\Ã©rente : une \Ã©l\Ã¨ve de 4\Ã¨me vous dit en passant : \Â«Ma m\Ã¨re, elle crie tout le temps depuis que mon beau-p\Ã¨re est parti.\Â» Pas de blessure visible, pas de demande d\â€™aide.",
-    q: "Quel est le bon r\Ã©flexe ?",
+    ctx: "Situation différente : une élève de 4ème vous dit en passant : «Ma mère, elle crie tout le temps depuis que mon beau-père est parti.» Pas de blessure visible, pas de demande d\'aide.",
+    q: "Quel est le bon réflexe ?",
     options: [
       {
         label: "Veille attentive + note",
-        text: "Ce n\â€™est pas une urgence, mais c\â€™est une information. Je la note (date, verbatim) et je reste en veille : changement de comportement, absences, repli. Si d\â€™autres signaux apparaissent, je transmets le faisceau complet au CPE.",
+        text: "Ce n\'est pas une urgence, mais c\'est une information. Je la note (date, verbatim) et je reste en veille : changement de comportement, absences, repli. Si d\'autres signaux apparaissent, je transmets le faisceau complet au CPE.",
         score: 3,
-        fb: "Tous les signaux ne justifient pas un signalement imm\Ã©diat. Certains justifient une veille active : noter, observer, croiser avec d\â€™autres observations. L\â€™AED construit un puzzle \â€” il ne d\Ã©clenche l\â€™alerte que quand les pi\Ã¨ces s\â€™assembent.",
+        fb: "Tous les signaux ne justifient pas un signalement immédiat. Certains justifient une veille active : noter, observer, croiser avec d\'autres observations. L\'AED construit un puzzle — il ne déclenche l\'alerte que quand les pièces s\'assembent.",
         good: true
       },
       {
-        label: "Signaler imm\Ã©diatement",
+        label: "Signaler immédiatement",
         text: "Je transmets au CPE tout de suite : situation de danger.",
         score: 1,
-        fb: "La prudence est louable, mais \Â«ma m\Ã¨re crie\Â» n\â€™est pas en soi un indicateur de maltraitance. Surcharger la cha\Ã®ne avec chaque phrase d\â€™\Ã©l\Ã¨ve dilue les vrais signaux. La veille active est la bonne temporalit\Ã© ici.",
+        fb: "La prudence est louable, mais «ma mère crie» n\'est pas en soi un indicateur de maltraitance. Surcharger la chaîne avec chaque phrase d\'élève dilue les vrais signaux. La veille active est la bonne temporalité ici.",
         good: false
       },
       {
         label: "Ignorer",
-        text: "C\â€™est une confidence banale, tous les ados se plaignent de leurs parents.",
+        text: "C\'est une confidence banale, tous les ados se plaignent de leurs parents.",
         score: 0,
-        fb: "Minimiser les paroles d\â€™un \Ã©l\Ã¨ve est le r\Ã©flexe le plus dangereux. Peut-\Ãªtre que c\â€™est banal. Peut-\Ãªtre que c\â€™est le d\Ã©but d\â€™un basculement familial. La note co\Ã»te 30 secondes et peut tout changer.",
+        fb: "Minimiser les paroles d\'un élève est le réflexe le plus dangereux. Peut-être que c\'est banal. Peut-être que c\'est le début d\'un basculement familial. La note coûte 30 secondes et peut tout changer.",
         good: false
       },
     ]
   },
   {
-    ctx: "Situation d\â€™urgence : un \Ã©l\Ã¨ve s\â€™effondre en larmes dans le bureau vie scolaire et dit : \Â«Je veux mourir, j\â€™en peux plus.\Â»",
+    ctx: "Situation d\'urgence : un élève s\'effondre en larmes dans le bureau vie scolaire et dit : «Je veux mourir, j\'en peux plus.»",
     q: "Que faites-vous ?",
     options: [
       {
-        label: "S\Ã©curiser + alerte imm\Ã©diate",
-        text: "Je reste avec l\â€™\Ã©l\Ã¨ve. Je ne le laisse pas seul. Je dis calmement : \Â«Je t\â€™entends. Tu n\â€™es pas seul, je reste l\Ã .\Â» En parall\Ã¨le, j\â€™alerte le CPE ET l\â€™infirmi\Ã¨re imm\Ã©diatement (SMS, appel, envoyer un coll\Ã¨gue). C\â€™est une urgence absolue.",
+        label: "Sécuriser + alerte immédiate",
+        text: "Je reste avec l\'élève. Je ne le laisse pas seul. Je dis calmement : «Je t\'entends. Tu n\'es pas seul, je reste là.» En parallèle, j\'alerte le CPE ET l\'infirmière immédiatement (SMS, appel, envoyer un collègue). C\'est une urgence absolue.",
         score: 3,
-        fb: "Une verbalisation suicidaire est une urgence m\Ã©dicale. Deux actions simultan\Ã©es : ne jamais laisser l\â€™\Ã©l\Ã¨ve seul (risque de passage \Ã  l\â€™acte) ET alerter la cha\Ã®ne imm\Ã©diatement. L\â€™AED n\â€™est pas psy \â€” mais il est pr\Ã©sent, et la pr\Ã©sence sauve.",
+        fb: "Une verbalisation suicidaire est une urgence médicale. Deux actions simultanées : ne jamais laisser l\'élève seul (risque de passage à l\'acte) ET alerter la chaîne immédiatement. L\'AED n\'est pas psy — mais il est présent, et la présence sauve.",
         good: true
       },
       {
         label: "Relativiser",
-        text: "\Â«Mais non, dis pas \Ã§a, t\â€™as toute la vie devant toi.\Â»",
+        text: "«Mais non, dis pas ça, t\'as toute la vie devant toi.»",
         score: 0,
-        fb: "Relativiser une verbalisation suicidaire, c\â€™est invalider la souffrance. L\â€™\Ã©l\Ã¨ve n\â€™a pas besoin d\â€™encouragements creux \â€” il a besoin qu\â€™on prenne ses mots au s\Ã©rieux. Prendre au s\Ã©rieux = alerter les professionnels comp\Ã©tents.",
+        fb: "Relativiser une verbalisation suicidaire, c\'est invalider la souffrance. L\'élève n\'a pas besoin d\'encouragements creux — il a besoin qu\'on prenne ses mots au sérieux. Prendre au sérieux = alerter les professionnels compétents.",
         good: false
       },
       {
         label: "Reporter au lendemain",
-        text: "\Â«On en reparlera demain avec le CPE, l\Ã  c\â€™est la fin de journ\Ã©e.\Â»",
+        text: "«On en reparlera demain avec le CPE, là c\'est la fin de journée.»",
         score: 0,
-        fb: "Il n\â€™y a pas de \Â«demain\Â» dans une urgence suicidaire. La nuit peut \Ãªtre le moment du passage \Ã  l\â€™acte. Alerte imm\Ã©diate, m\Ãªme \Ã  17h un vendredi.",
+        fb: "Il n\'y a pas de «demain» dans une urgence suicidaire. La nuit peut être le moment du passage à l\'acte. Alerte immédiate, même à 17h un vendredi.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ”´", t:"Urgence absolue :", v:"Verbalisation suicidaire, blessure grave suspecte, danger imm\Ã©diat. Ne pas laisser seul + alerte imm\Ã©diate CPE/infirmi\Ã¨re."},
-  {icon:"ðŸŸ ", t:"Signalement rapide :", v:"Blessure + explication incoh\Ã©rente, confidence grave, changement brutal. Noter les faits + transmettre au CPE dans l\â€™heure."},
-  {icon:"ðŸŸ¢", t:"Veille attentive :", v:"Phrase isol\Ã©e, signal unique. Noter + observer + croiser. Transmettre quand le faisceau se consolide."},
-  {icon:"ðŸ”—", t:"La cha\Ã®ne :", v:"AED (d\Ã©tecte/note) \â†’ CPE (centralise) \â†’ Infirmi\Ã¨re/AS (\Ã©value) \â†’ Chef d\â€™\Ã©tab (d\Ã©cide IP/article 40). Chacun son rÃ´le."},
+  {icon:"🔴", t:"Urgence absolue :", v:"Verbalisation suicidaire, blessure grave suspecte, danger immédiat. Ne pas laisser seul + alerte immédiate CPE/infirmière."},
+  {icon:"🟠", t:"Signalement rapide :", v:"Blessure + explication incohérente, confidence grave, changement brutal. Noter les faits + transmettre au CPE dans l\'heure."},
+  {icon:"🟢", t:"Veille attentive :", v:"Phrase isolée, signal unique. Noter + observer + croiser. Transmettre quand le faisceau se consolide."},
+  {icon:"🔗", t:"La chaîne :", v:"AED (détecte/note) → CPE (centralise) → Infirmière/AS (évalue) → Chef d\'étab (décide IP/article 40). Chacun son rôle."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Rep\Ã©rer et transmettre : la cha\Ã®ne de signalement',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Repérer et transmettre : la chaîne de signalement',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Posture & DÃ©ontologie Â· Module 1/5'),
-    e('h1',null,"Rep\Ã©rer et transmettre : la cha\Ã®ne de signalement"),
-    e('p',{className:'quote'},'"'+"L\â€™AED ne r\Ã©dige pas le signalement. Il est le premier \Å“il de la cha\Ã®ne qui prot\Ã¨ge."+'" â€” Circulaire fonctions AED'),
-    e('p',null,"L\â€™article 40 du Code de proc\Ã©dure p\Ã©nale est r\Ã©dig\Ã© par le chef d\â€™\Ã©tablissement. L\â€™information pr\Ã©occupante est port\Ã©e par l\â€™infirmi\Ã¨re ou l\â€™AS. Mais dans 80% des cas, c\â€™est l\â€™AED qui rep\Ã¨re le premier signal. Votre r\Ã´le : observer, consigner, transmettre factuellement. Ni plus, ni moins \â€” mais surtout pas moins."),
-    e('p',null,"Ce module vous entra\Ã®ne \Ã  distinguer ce qui rel\Ã¨ve de l\â€™urgence absolue (danger imm\Ã©diat), du signalement rapide (suspicion de maltraitance), et de la veille attentive (signaux faibles \Ã  documenter). Trois niveaux, trois temporalit\Ã©s, un seul principe : ne jamais rester seul avec l\â€™information."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Article 40 CPP \â€” Article 434-3 CP \â€” Protocole IP (CRIP) \â€” Guide acad\Ã©mique signalement"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Posture & Déontologie · Module 1/5'),
+    e('h1',null,"Repérer et transmettre : la chaîne de signalement"),
+    e('p',{className:'quote'},'"'+"L\'AED ne rédige pas le signalement. Il est le premier œil de la chaîne qui protège."+'" — Circulaire fonctions AED'),
+    e('p',null,"L\'article 40 du Code de procédure pénale est rédigé par le chef d\'établissement. L\'information préoccupante est portée par l\'infirmière ou l\'AS. Mais dans 80% des cas, c\'est l\'AED qui repère le premier signal. Votre rôle : observer, consigner, transmettre factuellement. Ni plus, ni moins — mais surtout pas moins."),
+    e('p',null,"Ce module vous entraîne à distinguer ce qui relève de l\'urgence absolue (danger immédiat), du signalement rapide (suspicion de maltraitance), et de la veille attentive (signaux faibles à documenter). Trois niveaux, trois temporalités, un seul principe : ne jamais rester seul avec l\'information."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Article 40 CPP — Article 434-3 CP — Protocole IP (CRIP) — Guide académique signalement"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Signalement'),e('div',{className:'comp-earn'},'+Observation'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ”´'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'🔴'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Signalement'),e('div',{className:'comp-earn'},'+1 Observation'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

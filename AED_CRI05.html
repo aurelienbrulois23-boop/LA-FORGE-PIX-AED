@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_CRI05 â€” ScÃ©narios complexes : la cascade</title>
+<title>LA FORGE | AED_CRI05 — Scénarios complexes : la cascade</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "R\Ã©cr\Ã©ation. Une bagarre \Ã©clate entre 3 \Ã©l\Ã¨ves. Un 4\Ã¨me est au sol, en sang (l\Ã¨vre fendue). 30 \Ã©l\Ã¨ves forment un cercle. Certains filment. Vous \Ãªtes le seul adulte visible.",
+    ctx: "Récréation. Une bagarre éclate entre 3 élèves. Un 4ème est au sol, en sang (lèvre fendue). 30 élèves forment un cercle. Certains filment. Vous êtes le seul adulte visible.",
     q: "Dans quel ordre agissez-vous ?",
     options: [
       {
-        label: "S\Ã©curiser \â†’ Alerter \â†’ Disperser \â†’ Documenter",
-        text: "1. Je m\â€™interpose pour arr\Ãªter la bagarre (voix forte, positionnement physique, pas de contact). 2. Je crie \Ã  un \Ã©l\Ã¨ve de confiance : \Â«Va chercher un adulte au bureau, dis qu\â€™il y a un bless\Ã© !\Â» 3. Je m\â€™occupe du bless\Ã© (position, rassurant, pas de d\Ã©placement). 4. \Â«Les t\Ã©l\Ã©phones, dans les poches. Maintenant.\Â» 5. Je s\Ã©pare les bellig\Ã©rants. Je noterai apr\Ã¨s.",
+        label: "Sécuriser → Alerter → Disperser → Documenter",
+        text: "1. Je m\'interpose pour arrêter la bagarre (voix forte, positionnement physique, pas de contact). 2. Je crie à un élève de confiance : «Va chercher un adulte au bureau, dis qu\'il y a un blessé !» 3. Je m\'occupe du blessé (position, rassurant, pas de déplacement). 4. «Les téléphones, dans les poches. Maintenant.» 5. Je sépare les belligérants. Je noterai après.",
         score: 3,
-        fb: "L\â€™ordre S\Ã©curiser-Alerter-Soigner-Disperser est non n\Ã©gociable. La plus grosse erreur serait de s\â€™occuper des filmeurs avant du bless\Ã©, ou de chercher les coupables avant de stopper le danger. Les t\Ã©l\Ã©phones sont un probl\Ã¨me \â€” mais le sang au sol est une urgence.",
+        fb: "L\'ordre Sécuriser-Alerter-Soigner-Disperser est non négociable. La plus grosse erreur serait de s\'occuper des filmeurs avant du blessé, ou de chercher les coupables avant de stopper le danger. Les téléphones sont un problème — mais le sang au sol est une urgence.",
         good: true
       },
       {
-        label: "T\Ã©l\Ã©phones d\â€™abord",
-        text: "\Â«Tous les t\Ã©l\Ã©phones rang\Ã©s ! Qui filme, c\â€™est confiscation imm\Ã©diate !\Â»",
+        label: "Téléphones d\'abord",
+        text: "«Tous les téléphones rangés ! Qui filme, c\'est confiscation immédiate !»",
         score: 1,
-        fb: "Les vid\Ã©os sont un probl\Ã¨me r\Ã©el (diffusion, humiliation), mais le bless\Ã© au sol est la priorit\Ã© absolue. G\Ã©rer les t\Ã©l\Ã©phones avant le sang, c\â€™est inverser l\â€™ordre des urgences.",
+        fb: "Les vidéos sont un problème réel (diffusion, humiliation), mais le blessé au sol est la priorité absolue. Gérer les téléphones avant le sang, c\'est inverser l\'ordre des urgences.",
         good: false
       },
       {
-        label: "Aller chercher de l\â€™aide",
+        label: "Aller chercher de l\'aide",
         text: "Je cours au bureau chercher un adulte.",
         score: 0,
-        fb: "Quitter la sc\Ã¨ne = laisser le bless\Ã© sans adulte ET permettre \Ã  la bagarre de reprendre. L\â€™AED reste sur place et d\Ã©l\Ã¨gue l\â€™alerte (\Ã©l\Ã¨ve, cri, SMS si possible).",
+        fb: "Quitter la scène = laisser le blessé sans adulte ET permettre à la bagarre de reprendre. L\'AED reste sur place et délègue l\'alerte (élève, cri, SMS si possible).",
         good: false
       },
     ]
   },
   {
-    ctx: "Les secours internes sont arriv\Ã©s. Le bless\Ã© est pris en charge. Mais un des bagarreurs, K\Ã©vin, est assis contre un mur, en hyperventilation. Il tremble et ne r\Ã©pond pas aux questions.",
-    q: "Que faites-vous de K\Ã©vin ?",
+    ctx: "Les secours internes sont arrivés. Le blessé est pris en charge. Mais un des bagarreurs, Kévin, est assis contre un mur, en hyperventilation. Il tremble et ne répond pas aux questions.",
+    q: "Que faites-vous de Kévin ?",
     options: [
       {
-        label: "S\Ã©curiser + accompagner",
-        text: "Je m\â€™accroupis \Ã  sa hauteur. \Â«K\Ã©vin, je suis l\Ã . Respire avec moi. Doucement.\Â» Je ne lui demande pas ce qui s\â€™est pass\Ã©. Il est en \Ã©tat de choc \â€” l\â€™interrogatoire viendra plus tard. Je reste jusqu\â€™\Ã  ce qu\â€™un adulte prenne le relais.",
+        label: "Sécuriser + accompagner",
+        text: "Je m\'accroupis à sa hauteur. «Kévin, je suis là. Respire avec moi. Doucement.» Je ne lui demande pas ce qui s\'est passé. Il est en état de choc — l\'interrogatoire viendra plus tard. Je reste jusqu\'à ce qu\'un adulte prenne le relais.",
         score: 3,
-        fb: "Un \Ã©l\Ã¨ve en hyperventilation apr\Ã¨s une bagarre est en \Ã©tat de stress aigu. Son syst\Ã¨me nerveux est en mode survie. L\â€™interroger maintenant est inutile (il ne peut pas raisonner) et dangereux (escalade possible). La co-r\Ã©gulation (pr\Ã©sence calme + respiration) est la priorit\Ã©.",
+        fb: "Un élève en hyperventilation après une bagarre est en état de stress aigu. Son système nerveux est en mode survie. L\'interroger maintenant est inutile (il ne peut pas raisonner) et dangereux (escalade possible). La co-régulation (présence calme + respiration) est la priorité.",
         good: true
       },
       {
         label: "Interroger",
-        text: "\Â«K\Ã©vin ! C\â€™est toi qui as commenc\Ã© ? R\Ã©ponds !\Â»",
+        text: "«Kévin ! C\'est toi qui as commencé ? Réponds !»",
         score: 0,
-        fb: "L\â€™interrogatoire sous stress aigu est inutile (r\Ã©ponses incoh\Ã©rentes) et contre-productif (r\Ã©activation du stress). Le bilan factuel se fera plus tard, au bureau, quand tout le monde sera redescendu.",
+        fb: "L\'interrogatoire sous stress aigu est inutile (réponses incohérentes) et contre-productif (réactivation du stress). Le bilan factuel se fera plus tard, au bureau, quand tout le monde sera redescendu.",
         good: false
       },
       {
-        label: "L\â€™envoyer au bureau",
-        text: "\Â«Aller, debout, tu vas au bureau du CPE.\Â»",
+        label: "L\'envoyer au bureau",
+        text: "«Aller, debout, tu vas au bureau du CPE.»",
         score: 1,
-        fb: "L\â€™intention d\â€™orienter est bonne, mais un \Ã©l\Ã¨ve en hyperventilation ne peut pas marcher seul dans les couloirs. Il peut s\â€™effondrer, se blesser, ou fuir. Il faut l\â€™accompagner ou attendre qu\â€™il soit stabilis\Ã©.",
+        fb: "L\'intention d\'orienter est bonne, mais un élève en hyperventilation ne peut pas marcher seul dans les couloirs. Il peut s\'effondrer, se blesser, ou fuir. Il faut l\'accompagner ou attendre qu\'il soit stabilisé.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le soir m\Ãªme, la vid\Ã©o de la bagarre circule sur Snapchat. Le lendemain matin, le parent du bless\Ã© arrive furieux. Le parent de K\Ã©vin arrive aussi \â€” affirmant que son fils est la victime.",
-    q: "Vous croisez les deux parents dans le hall. Comment g\Ã©rez-vous ?",
+    ctx: "Le soir même, la vidéo de la bagarre circule sur Snapchat. Le lendemain matin, le parent du blessé arrive furieux. Le parent de Kévin arrive aussi — affirmant que son fils est la victime.",
+    q: "Vous croisez les deux parents dans le hall. Comment gérez-vous ?",
     options: [
       {
-        label: "S\Ã©parer + orienter + ne pas juger",
-        text: "Je ne laisse pas les parents se confronter dans le hall. \Â«Monsieur/Madame [bless\Ã©], le CPE va vous recevoir. Monsieur/Madame [K\Ã©vin], vous serez re\Ã§u\Â·e ensuite.\Â» J\â€™installe chacun dans un espace diff\Ã©rent. Je ne donne AUCUNE version des faits. Je ne prends AUCUN parti.",
+        label: "Séparer + orienter + ne pas juger",
+        text: "Je ne laisse pas les parents se confronter dans le hall. «Monsieur/Madame [blessé], le CPE va vous recevoir. Monsieur/Madame [Kévin], vous serez reçu·e ensuite.» J\'installe chacun dans un espace différent. Je ne donne AUCUNE version des faits. Je ne prends AUCUN parti.",
         score: 3,
-        fb: "Deux parents en col\Ã¨re dans le m\Ãªme hall = d\Ã©flagration assur\Ã©e. L\â€™AED s\Ã©pare physiquement, oriente vers des espaces distincts, et ne prend aucune position sur les faits. C\â€™est au CPE et \Ã  la direction de g\Ã©rer les entretiens.",
+        fb: "Deux parents en colère dans le même hall = déflagration assurée. L\'AED sépare physiquement, oriente vers des espaces distincts, et ne prend aucune position sur les faits. C\'est au CPE et à la direction de gérer les entretiens.",
         good: true
       },
       {
         label: "Expliquer",
-        text: "\Â«Voil\Ã  ce qui s\â€™est pass\Ã© hier...\Â»",
+        text: "«Voilà ce qui s\'est passé hier...»",
         score: 0,
-        fb: "Donner une version des faits \Ã  chaud, dans un hall, devant deux parents en col\Ã¨re, est la recette du d\Ã©sastre. Toute version sera contest\Ã©e, d\Ã©form\Ã©e, et utilis\Ã©e contre l\â€™\Ã©tablissement.",
+        fb: "Donner une version des faits à chaud, dans un hall, devant deux parents en colère, est la recette du désastre. Toute version sera contestée, déformée, et utilisée contre l\'établissement.",
         good: false
       },
       {
         label: "Ignorer",
-        text: "C\â€™est pas mon probl\Ã¨me, je continue ma surveillance.",
+        text: "C\'est pas mon problème, je continue ma surveillance.",
         score: 0,
-        fb: "Deux parents en col\Ã¨re dans un hall d\â€™\Ã©tablissement SONT votre probl\Ã¨me \â€” c\â€™est de la s\Ã©curit\Ã©. Ne pas intervenir pour s\Ã©parer et orienter, c\â€™est laisser une confrontation se produire dans un espace scolaire.",
+        fb: "Deux parents en colère dans un hall d\'établissement SONT votre problème — c\'est de la sécurité. Ne pas intervenir pour séparer et orienter, c\'est laisser une confrontation se produire dans un espace scolaire.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ’¥", t:"Ordre des priorit\Ã©s :", v:"S\Ã©curiser \â†’ Alerter \â†’ Soigner \â†’ Disperser \â†’ Documenter. Jamais dans un autre ordre."},
-  {icon:"ðŸ§˜", t:"Stress aigu :", v:"Un \Ã©l\Ã¨ve en hyperventilation ne peut pas \Ãªtre interrog\Ã©. Co-r\Ã©guler d\â€™abord, questionner ensuite."},
-  {icon:"ðŸ“±", t:"Vid\Ã©os :", v:"Probl\Ã¨me r\Ã©el mais secondaire. Le sang au sol passe avant les t\Ã©l\Ã©phones en l\â€™air."},
-  {icon:"ðŸ‘¥", t:"Parents :", v:"S\Ã©parer physiquement, orienter vers des espaces distincts, ne donner aucune version des faits. C\â€™est au CPE/direction."},
+  {icon:"💥", t:"Ordre des priorités :", v:"Sécuriser → Alerter → Soigner → Disperser → Documenter. Jamais dans un autre ordre."},
+  {icon:"🧘", t:"Stress aigu :", v:"Un élève en hyperventilation ne peut pas être interrogé. Co-réguler d\'abord, questionner ensuite."},
+  {icon:"📱", t:"Vidéos :", v:"Problème réel mais secondaire. Le sang au sol passe avant les téléphones en l\'air."},
+  {icon:"👥", t:"Parents :", v:"Séparer physiquement, orienter vers des espaces distincts, ne donner aucune version des faits. C\'est au CPE/direction."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Sc\Ã©narios complexes : la cascade',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Scénarios complexes : la cascade',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Gestion de Crise & MÃ©diation â€” CERTIFICATION Â· Module 1/5'),
-    e('h1',null,"Sc\Ã©narios complexes : la cascade"),
-    e('p',{className:'quote'},'"'+"En crise, tout arrive en m\Ãªme temps. Le bon professionnel sait dans quel ordre traiter."+'" â€” Formation gestion de crise'),
-    e('p',null,"La vraie crise n\â€™est jamais un probl\Ã¨me isol\Ã©. C\â€™est une cascade : un conflit d\Ã©g\Ã©n\Ã¨re, un \Ã©l\Ã¨ve s\â€™effondre, un parent arrive, le portable sort, et tout se passe en 4 minutes."),
-    e('p',null,"Ce module de certification vous confronte \Ã  des sc\Ã©narios multi-couches o\Ã¹ vous devez prioriser : s\Ã©curiser d\â€™abord, alerter ensuite, documenter enfin. La capacit\Ã© \Ã  garder l\â€™ordre des priorit\Ã©s sous pression est la comp\Ã©tence qui s\Ã©pare l\â€™AED form\Ã© de l\â€™AED d\Ã©pass\Ã©."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Formation acad\Ã©mique gestion de crise \â€” Protocole ORSEC \Ã©tablissements \â€” Retex incidents vie scolaire"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Gestion de Crise & Médiation — CERTIFICATION · Module 1/5'),
+    e('h1',null,"Scénarios complexes : la cascade"),
+    e('p',{className:'quote'},'"'+"En crise, tout arrive en même temps. Le bon professionnel sait dans quel ordre traiter."+'" — Formation gestion de crise'),
+    e('p',null,"La vraie crise n\'est jamais un problème isolé. C\'est une cascade : un conflit dégénère, un élève s\'effondre, un parent arrive, le portable sort, et tout se passe en 4 minutes."),
+    e('p',null,"Ce module de certification vous confronte à des scénarios multi-couches où vous devez prioriser : sécuriser d\'abord, alerter ensuite, documenter enfin. La capacité à garder l\'ordre des priorités sous pression est la compétence qui sépare l\'AED formé de l\'AED dépassé."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Formation académique gestion de crise — Protocole ORSEC établissements — Retex incidents vie scolaire"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+SynthÃ¨se'),e('div',{className:'comp-earn'},'+DÃ©cision'),
+      e('div',{className:'comp-earn'},'+Synthèse'),e('div',{className:'comp-earn'},'+Décision'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ’¥'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'💥'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 SynthÃ¨se'),e('div',{className:'comp-earn'},'+1 DÃ©cision'),
+      e('div',{className:'comp-earn'},'+1 Synthèse'),e('div',{className:'comp-earn'},'+1 Décision'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

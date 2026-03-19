@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_POS02 â€” La juste distance professionnelle</title>
+<title>LA FORGE | AED_POS02 — La juste distance professionnelle</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \Ã©l\Ã¨ve de 3\Ã¨me que vous encadrez en \Ã©tude vous envoie une demande d\â€™ami sur Instagram. Il vous appr\Ã©cie visiblement et vous dit en cours : \Â«Vous \Ãªtes le seul adulte cool ici.\Â»",
-    q: "Comment g\Ã©rez-vous la demande et le compliment ?",
+    ctx: "Un élève de 3ème que vous encadrez en étude vous envoie une demande d\'ami sur Instagram. Il vous apprécie visiblement et vous dit en cours : «Vous êtes le seul adulte cool ici.»",
+    q: "Comment gérez-vous la demande et le compliment ?",
     options: [
       {
-        label: "Refus clair + valorisation du lien r\Ã©el",
-        text: "Je refuse la demande Instagram. En pr\Ã©sentiel, je lui dis : \Â«Merci, \Ã§a me fait plaisir. Mais mon r\Ã´le ici, c\â€™est d\â€™\Ãªtre un adulte fiable, pas un pote. Les r\Ã©seaux, c\â€™est ton espace \Ã  toi \â€” ici, on se parle pour de vrai.\Â»",
+        label: "Refus clair + valorisation du lien réel",
+        text: "Je refuse la demande Instagram. En présentiel, je lui dis : «Merci, ça me fait plaisir. Mais mon rôle ici, c\'est d\'être un adulte fiable, pas un pote. Les réseaux, c\'est ton espace à toi — ici, on se parle pour de vrai.»",
         score: 3,
-        fb: "Le refus prot\Ã¨ge l\â€™\Ã©l\Ã¨ve ET l\â€™AED. Un lien num\Ã©rique brouille les fronti\Ã¨res (horaires, contenu, intimit\Ã©). Valoriser le lien r\Ã©el sans rejeter l\â€™\Ã©l\Ã¨ve est la cl\Ã© : on refuse le canal, pas la relation.",
+        fb: "Le refus protège l\'élève ET l\'AED. Un lien numérique brouille les frontières (horaires, contenu, intimité). Valoriser le lien réel sans rejeter l\'élève est la clé : on refuse le canal, pas la relation.",
         good: true
       },
       {
         label: "Accepter pour garder le lien",
-        text: "J\â€™accepte \â€” \Ã§a me permet de garder un \Å“il sur lui et de maintenir la relation.",
+        text: "J\'accepte — ça me permet de garder un œil sur lui et de maintenir la relation.",
         score: 0,
-        fb: "Accepter cr\Ã©e une zone grise : l\â€™\Ã©l\Ã¨ve voit vos publications priv\Ã©es, vous voyez les siennes. En cas de conflit ou d\â€™incident, cette proximit\Ã© num\Ã©rique peut \Ãªtre utilis\Ã©e contre vous. C\â€™est un risque professionnel r\Ã©el.",
+        fb: "Accepter crée une zone grise : l\'élève voit vos publications privées, vous voyez les siennes. En cas de conflit ou d\'incident, cette proximité numérique peut être utilisée contre vous. C\'est un risque professionnel réel.",
         good: false
       },
       {
-        label: "Ignorer sans r\Ã©pondre",
-        text: "Je ne r\Ã©ponds pas \Ã  la demande et je ne lui en parle pas.",
+        label: "Ignorer sans répondre",
+        text: "Je ne réponds pas à la demande et je ne lui en parle pas.",
         score: 1,
-        fb: "L\â€™absence de r\Ã©ponse laisse l\â€™\Ã©l\Ã¨ve dans l\â€™incertitude. Il peut interpr\Ã©ter le silence comme du rejet. Un refus explicite et bienveillant est plus \Ã©ducatif.",
+        fb: "L\'absence de réponse laisse l\'élève dans l\'incertitude. Il peut interpréter le silence comme du rejet. Un refus explicite et bienveillant est plus éducatif.",
         good: false
       },
     ]
   },
   {
-    ctx: "Une \Ã©l\Ã¨ve de 4\Ã¨me vous confie en pleurant qu\â€™elle se dispute avec sa m\Ã¨re tous les soirs et qu\â€™elle \Â«n\â€™en peut plus\Â». Elle vous demande de ne rien dire \Ã  personne.",
+    ctx: "Une élève de 4ème vous confie en pleurant qu\'elle se dispute avec sa mère tous les soirs et qu\'elle «n\'en peut plus». Elle vous demande de ne rien dire à personne.",
     q: "Que faites-vous ?",
     options: [
       {
-        label: "\Ã‰couter + cadrer la confidentialit\Ã©",
-        text: "J\â€™\Ã©coute attentivement sans couper. Puis : \Â«Je suis content que tu me fasses confiance. Je ne vais pas raconter \Ã§a \Ã  tout le monde. Mais si je pense que tu es en danger, j\â€™ai le devoir d\â€™en parler \Ã  quelqu\â€™un qui peut t\â€™aider \â€” le CPE ou l\â€™infirmi\Ã¨re. C\â€™est pas te trahir, c\â€™est te prot\Ã©ger.\Â»",
+        label: "Écouter + cadrer la confidentialité",
+        text: "J\'écoute attentivement sans couper. Puis : «Je suis content que tu me fasses confiance. Je ne vais pas raconter ça à tout le monde. Mais si je pense que tu es en danger, j\'ai le devoir d\'en parler à quelqu\'un qui peut t\'aider — le CPE ou l\'infirmière. C\'est pas te trahir, c\'est te protéger.»",
         score: 3,
-        fb: "L\â€™AED n\â€™est pas un confident priv\Ã©. La promesse de secret total est un pi\Ã¨ge : si la situation s\â€™aggrave, vous \Ãªtes coinc\Ã©. Poser le cadre d\â€™embl\Ã©e (\Â«si danger, je transmets\Â») est honn\Ãªte et prot\Ã¨ge tout le monde.",
+        fb: "L\'AED n\'est pas un confident privé. La promesse de secret total est un piège : si la situation s\'aggrave, vous êtes coincé. Poser le cadre d\'emblée («si danger, je transmets») est honnête et protège tout le monde.",
         good: true
       },
       {
         label: "Promettre le secret",
-        text: "\Â«T\â€™inqui\Ã¨te, je dirai rien \Ã  personne, promis.\Â»",
+        text: "«T\'inquiète, je dirai rien à personne, promis.»",
         score: 0,
-        fb: "La promesse de secret absolu est une erreur professionnelle. Si la situation s\â€™aggrave (scarification, fugue, maltraitance), vous \Ãªtes pris entre votre promesse et votre devoir. L\â€™\Ã©l\Ã¨ve a besoin d\â€™un adulte fiable, pas d\â€™un complice.",
+        fb: "La promesse de secret absolu est une erreur professionnelle. Si la situation s\'aggrave (scarification, fugue, maltraitance), vous êtes pris entre votre promesse et votre devoir. L\'élève a besoin d\'un adulte fiable, pas d\'un complice.",
         good: false
       },
       {
-        label: "Orienter imm\Ã©diatement",
-        text: "\Â«Va voir l\â€™infirmi\Ã¨re, c\â€™est pas de mon ressort.\Â»",
+        label: "Orienter immédiatement",
+        text: "«Va voir l\'infirmière, c\'est pas de mon ressort.»",
         score: 1,
-        fb: "L\â€™orientation est pertinente, mais la mani\Ã¨re compte. L\â€™\Ã©l\Ã¨ve vient de se mettre \Ã  nu \Ã©motionnellement \â€” la renvoyer sans \Ã©couter d\â€™abord, c\â€™est l\â€™humilier. \Ã‰couter, accueillir, PUIS orienter.",
+        fb: "L\'orientation est pertinente, mais la manière compte. L\'élève vient de se mettre à nu émotionnellement — la renvoyer sans écouter d\'abord, c\'est l\'humilier. Écouter, accueillir, PUIS orienter.",
         good: false
       },
     ]
   },
   {
-    ctx: "Vous supervisez la cour. Un groupe de 3\Ã¨me vous interpelle par votre pr\Ã©nom et vous tutoie. Certains vous appellent \Â«fr\Ã¨re\Â».",
-    q: "Comment r\Ã©agissez-vous ?",
+    ctx: "Vous supervisez la cour. Un groupe de 3ème vous interpelle par votre prénom et vous tutoie. Certains vous appellent «frère».",
+    q: "Comment réagissez-vous ?",
     options: [
       {
         label: "Recadrer avec humour",
-        text: "\Â«H\Ã©, c\â€™est Monsieur/Madame [nom], pas Kevin/Sabrina. On n\â€™est pas dans la m\Ãªme \Ã©quipe de foot. Moi je vous respecte en vous appelant par vos pr\Ã©noms \â€” vous, vous me respectez en utilisant mon nom de famille.\Â»",
+        text: "«Hé, c\'est Monsieur/Madame [nom], pas Kevin/Sabrina. On n\'est pas dans la même équipe de foot. Moi je vous respecte en vous appelant par vos prénoms — vous, vous me respectez en utilisant mon nom de famille.»",
         score: 3,
-        fb: "Le vouvoiement et le nom de famille ne sont pas du formalisme vide \â€” ils marquent la diff\Ã©rence de statut qui permet l\â€™autorit\Ã© \Ã©ducative. Si l\â€™AED est \Â«fr\Ã¨re\Â», il ne peut plus \Ãªtre \Â«celui qui cadre\Â». Le recadrage avec humour passe mieux qu\â€™une le\Ã§on de morale.",
+        fb: "Le vouvoiement et le nom de famille ne sont pas du formalisme vide — ils marquent la différence de statut qui permet l\'autorité éducative. Si l\'AED est «frère», il ne peut plus être «celui qui cadre». Le recadrage avec humour passe mieux qu\'une leçon de morale.",
         good: true
       },
       {
         label: "Laisser faire",
-        text: "\Ã‡a cr\Ã©e de la proximit\Ã©, c\â€™est pas grave. L\â€™important c\â€™est qu\â€™ils m\â€™\Ã©coutent.",
+        text: "Ça crée de la proximité, c\'est pas grave. L\'important c\'est qu\'ils m\'écoutent.",
         score: 0,
-        fb: "La familiarit\Ã© n\â€™est pas le respect. Elle fonctionne tant que tout va bien \â€” mais le jour o\Ã¹ vous devrez intervenir fermement, le \Â«fr\Ã¨re\Â» n\â€™aura aucune l\Ã©gitimit\Ã© \Ã  sanctionner. La distance professionnelle est un investissement \Ã  long terme.",
+        fb: "La familiarité n\'est pas le respect. Elle fonctionne tant que tout va bien — mais le jour où vous devrez intervenir fermement, le «frère» n\'aura aucune légitimité à sanctionner. La distance professionnelle est un investissement à long terme.",
         good: false
       },
       {
-        label: "S\â€™\Ã©nerver",
-        text: "\Â«Je ne suis PAS ton fr\Ã¨re ! Un peu de respect !\Â»",
+        label: "S\'énerver",
+        text: "«Je ne suis PAS ton frère ! Un peu de respect !»",
         score: 1,
-        fb: "Le fond est juste mais la forme est disproportionn\Ã©e. S\â€™\Ã©nerver pour un \Â«fr\Ã¨re\Â» montre que \Ã§a vous touche \â€” et donne exactement l\â€™arme que certains ados cherchent. Le calme est la meilleure armure.",
+        fb: "Le fond est juste mais la forme est disproportionnée. S\'énerver pour un «frère» montre que ça vous touche — et donne exactement l\'arme que certains ados cherchent. Le calme est la meilleure armure.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“±", t:"R\Ã©seaux sociaux :", v:"Aucun lien num\Ã©rique avec les \Ã©l\Ã¨ves. On refuse le canal, pas la relation. La protection est mutuelle."},
-  {icon:"ðŸ”", t:"Confidences :", v:"\Ã‰couter oui, promettre le secret total non. Si danger, l\â€™AED transmet. C\â€™est de la protection, pas de la trahison."},
-  {icon:"ðŸŽ­", t:"Tutoiement/pr\Ã©nom :", v:"La distance formelle n\â€™est pas de la froideur. C\â€™est l\â€™armature qui rend l\â€™autorit\Ã© possible quand il le faut."},
-  {icon:"âš–ï¸", t:"Curseur mobile :", v:"La juste distance n\â€™est pas fig\Ã©e. Elle s\â€™ajuste selon l\â€™\Ã©l\Ã¨ve, le moment, le contexte \â€” mais dans un cadre constant."},
+  {icon:"📱", t:"Réseaux sociaux :", v:"Aucun lien numérique avec les élèves. On refuse le canal, pas la relation. La protection est mutuelle."},
+  {icon:"🔐", t:"Confidences :", v:"Écouter oui, promettre le secret total non. Si danger, l\'AED transmet. C\'est de la protection, pas de la trahison."},
+  {icon:"🎭", t:"Tutoiement/prénom :", v:"La distance formelle n\'est pas de la froideur. C\'est l\'armature qui rend l\'autorité possible quand il le faut."},
+  {icon:"⚖️", t:"Curseur mobile :", v:"La juste distance n\'est pas figée. Elle s\'ajuste selon l\'élève, le moment, le contexte — mais dans un cadre constant."},
 ];
 
 
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Posture & DÃ©ontologie Â· Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Posture & Déontologie · Module 1/5'),
     e('h1',null,"La juste distance professionnelle"),
-    e('p',{className:'quote'},'"'+"La bonne distance, c\â€™est celle o\Ã¹ l\â€™\Ã©l\Ã¨ve sent qu\â€™on est l\Ã  sans qu\â€™on soit sur lui."+'" â€” Mireille Cifali'),
-    e('p',null,"Trop proche, on devient le copain \â€” et on perd la capacit\Ã© de cadrer. Trop loin, on devient le maton \â€” et on perd la confiance. La juste distance n\â€™est pas une ligne fixe : c\â€™est un curseur qu\â€™on ajuste en permanence selon l\â€™\Ã©l\Ã¨ve, la situation et le contexte."),
-    e('p',null,"Ce module explore les pi\Ã¨ges classiques (le copinage, le tutoiement, les confidences, les r\Ã©seaux sociaux) et les rep\Ã¨res professionnels qui permettent d\â€™\Ãªtre bienveillant sans \Ãªtre familier, pr\Ã©sent sans \Ãªtre intrusif."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Mireille Cifali, Le lien \Ã©ducatif \â€” Charte de d\Ã©ontologie AED \â€” Circulaire fonctions AED 2003"),
+    e('p',{className:'quote'},'"'+"La bonne distance, c\'est celle où l\'élève sent qu\'on est là sans qu\'on soit sur lui."+'" — Mireille Cifali'),
+    e('p',null,"Trop proche, on devient le copain — et on perd la capacité de cadrer. Trop loin, on devient le maton — et on perd la confiance. La juste distance n\'est pas une ligne fixe : c\'est un curseur qu\'on ajuste en permanence selon l\'élève, la situation et le contexte."),
+    e('p',null,"Ce module explore les pièges classiques (le copinage, le tutoiement, les confidences, les réseaux sociaux) et les repères professionnels qui permettent d\'être bienveillant sans être familier, présent sans être intrusif."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Mireille Cifali, Le lien éducatif — Charte de déontologie AED — Circulaire fonctions AED 2003"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+DÃ©onto'),e('div',{className:'comp-earn'},'+Posture'),
+      e('div',{className:'comp-earn'},'+Déonto'),e('div',{className:'comp-earn'},'+Posture'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“±'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📱'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 DÃ©onto'),e('div',{className:'comp-earn'},'+1 Posture'),
+      e('div',{className:'comp-earn'},'+1 Déonto'),e('div',{className:'comp-earn'},'+1 Posture'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

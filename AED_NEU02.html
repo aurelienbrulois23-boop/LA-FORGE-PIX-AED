@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_NEU02 â€” Ã‰motions : signaux, pas problÃ¨mes</title>
+<title>LA FORGE | AED_NEU02 — Émotions : signaux, pas problèmes</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "\Ã‰tude surveill\Ã©e. Amira (5\Ã¨me) pose brutalement son stylo et dit : \Â«J\â€™y arrive pas, c\â€™est trop nul, j\â€™en ai marre de cette mati\Ã¨re de merde !\Â» Les autres \Ã©l\Ã¨ves se retournent.",
-    q: "Comment r\Ã©agissez-vous ?",
+    ctx: "Étude surveillée. Amira (5ème) pose brutalement son stylo et dit : «J\'y arrive pas, c\'est trop nul, j\'en ai marre de cette matière de merde !» Les autres élèves se retournent.",
+    q: "Comment réagissez-vous ?",
     options: [
       {
-        label: "Validation + d\Ã©codage",
-        text: "Je m\â€™approche calmement : \Â«Je vois que c\â€™est frustrant. C\â€™est quoi qui coince exactement ?\Â» Je ne reprends pas le mot \Â«merde\Â» tout de suite \â€” l\â€™\Ã©motion passe avant la politesse.",
+        label: "Validation + décodage",
+        text: "Je m\'approche calmement : «Je vois que c\'est frustrant. C\'est quoi qui coince exactement ?» Je ne reprends pas le mot «merde» tout de suite — l\'émotion passe avant la politesse.",
         score: 3,
-        fb: "Nommer l\â€™\Ã©motion (frustration) sans la juger la transforme en objet de pens\Ã©e. Demander \Â«qu\â€™est-ce qui coince\Â» redirige vers le probl\Ã¨me concret. L\â€™\Ã©l\Ã¨ve passe de \Â«je suis nulle\Â» \Ã  \Â«cet exercice est difficile\Â» \â€” un changement cognitif majeur.",
+        fb: "Nommer l\'émotion (frustration) sans la juger la transforme en objet de pensée. Demander «qu\'est-ce qui coince» redirige vers le problème concret. L\'élève passe de «je suis nulle» à «cet exercice est difficile» — un changement cognitif majeur.",
         good: true
       },
       {
-        label: "Recadrage imm\Ã©diat",
-        text: "\Â«On ne parle pas comme \Ã§a en \Ã©tude. Tu baisses d\â€™un ton et tu te remets au travail.\Â»",
+        label: "Recadrage immédiat",
+        text: "«On ne parle pas comme ça en étude. Tu baisses d\'un ton et tu te remets au travail.»",
         score: 1,
-        fb: "Le recadrage sur la forme ignore le fond. Amira est en surcharge cognitive \â€” elle ne peut pas \Â«se remettre au travail\Â» tant que l\â€™\Ã©motion n\â€™est pas trait\Ã©e. R\Ã©primer l\â€™expression ne supprime pas l\â€™\Ã©motion \â€” \Ã§a la comprime.",
+        fb: "Le recadrage sur la forme ignore le fond. Amira est en surcharge cognitive — elle ne peut pas «se remettre au travail» tant que l\'émotion n\'est pas traitée. Réprimer l\'expression ne supprime pas l\'émotion — ça la comprime.",
         good: false
       },
       {
         label: "Minimisation",
-        text: "\Â«Allez, c\â€™est pas si grave. Tout le monde galÃ¨re parfois.\Â»",
+        text: "«Allez, c\'est pas si grave. Tout le monde galère parfois.»",
         score: 1,
-        fb: "\Â«C\â€™est pas si grave\Â» est l\â€™un des invalidateurs \Ã©motionnels les plus courants. Pour Amira, \Ã  cet instant, c\â€™est grave. Nier l\â€™intensit\Ã© de l\â€™\Ã©motion, c\â€™est dire : \Â«ce que tu ressens n\â€™a pas d\â€™importance.\Â»",
+        fb: "«C\'est pas si grave» est l\'un des invalidateurs émotionnels les plus courants. Pour Amira, à cet instant, c\'est grave. Nier l\'intensité de l\'émotion, c\'est dire : «ce que tu ressens n\'a pas d\'importance.»",
         good: false
       },
     ]
   },
   {
-    ctx: "Lucas (6\Ã¨me) pleure silencieusement dans un coin de la cour. Quand vous vous approchez, il dit : \Â«Rien, \Ã§a va.\Â»",
+    ctx: "Lucas (6ème) pleure silencieusement dans un coin de la cour. Quand vous vous approchez, il dit : «Rien, ça va.»",
     q: "Comment poursuivez-vous ?",
     options: [
       {
-        label: "Pr\Ã©sence sans pression",
-        text: "\Â«OK. Je suis l\Ã  si tu veux en parler. Ou juste si tu veux pas \Ãªtre tout seul.\Â» Je reste \Ã  proximit\Ã© sans insister, disponible mais pas intrusif.",
+        label: "Présence sans pression",
+        text: "«OK. Je suis là si tu veux en parler. Ou juste si tu veux pas être tout seul.» Je reste à proximité sans insister, disponible mais pas intrusif.",
         score: 3,
-        fb: "\Â«Rien, \Ã§a va\Â» est une porte ferm\Ã©e. Forcer cette porte brise la confiance. Rester disponible sans insister dit : \Â«je respecte ton espace ET je suis l\Ã \Â». Souvent, l\â€™\Ã©l\Ã¨ve revient parler 5 minutes apr\Ã¨s quand la pression de la question directe a disparu.",
+        fb: "«Rien, ça va» est une porte fermée. Forcer cette porte brise la confiance. Rester disponible sans insister dit : «je respecte ton espace ET je suis là». Souvent, l\'élève revient parler 5 minutes après quand la pression de la question directe a disparu.",
         good: true
       },
       {
         label: "Insistance bienveillante",
-        text: "\Â«Lucas, je vois bien que \Ã§a va pas. Dis-moi ce qui se passe.\Â»",
+        text: "«Lucas, je vois bien que ça va pas. Dis-moi ce qui se passe.»",
         score: 1,
-        fb: "L\â€™intention est bonne mais la pression est contre-productive. Un 6\Ã¨me qui pleure en public a d\Ã©j\Ã  honte \â€” insister c\â€™est ajouter de l\â€™exposition. La confiance se construit par la disponibilit\Ã©, pas par l\â€™interrogatoire.",
+        fb: "L\'intention est bonne mais la pression est contre-productive. Un 6ème qui pleure en public a déjà honte — insister c\'est ajouter de l\'exposition. La confiance se construit par la disponibilité, pas par l\'interrogatoire.",
         good: false
       },
       {
         label: "Signaler directement",
         text: "Je note que Lucas pleure et je transmets au CPE sans lui parler.",
         score: 1,
-        fb: "Transmettre est bien, mais ne pas s\â€™approcher du tout envoie un message d\â€™indiff\Ã©rence. L\â€™observation factuelle est n\Ã©cessaire \â€” mais un geste de pr\Ã©sence l\â€™est aussi.",
+        fb: "Transmettre est bien, mais ne pas s\'approcher du tout envoie un message d\'indifférence. L\'observation factuelle est nécessaire — mais un geste de présence l\'est aussi.",
         good: false
       },
     ]
   },
   {
-    ctx: "En sortant de cours, un groupe de 4\Ã¨me rit bruyamment. L\â€™un d\â€™eux donne un coup de pied dans une poubelle en disant : \Â«Trop content, on a pas cours demain !\Â»",
+    ctx: "En sortant de cours, un groupe de 4ème rit bruyamment. L\'un d\'eux donne un coup de pied dans une poubelle en disant : «Trop content, on a pas cours demain !»",
     q: "Faut-il intervenir ?",
     options: [
       {
-        label: "Recadrage l\Ã©ger, pas r\Ã©pression",
-        text: "\Â«H\Ã©, la poubelle t\â€™a rien fait ! Content de la journ\Ã©e, je comprends \â€” mais on exprime \Ã§a sans casser le mobilier.\Â» Ton l\Ã©ger, sourire, pas de confrontation.",
+        label: "Recadrage léger, pas répression",
+        text: "«Hé, la poubelle t\'a rien fait ! Content de la journée, je comprends — mais on exprime ça sans casser le mobilier.» Ton léger, sourire, pas de confrontation.",
         score: 3,
-        fb: "La joie aussi peut \Ãªtre d\Ã©bordante. L\â€™\Ã©nergie est positive \â€” le coup de pied dans la poubelle est juste le d\Ã©bordement physique d\â€™une \Ã©motion forte. Recadrer le geste sans tuer l\â€™\Ã©motion est l\â€™\Ã©quilibre parfait.",
+        fb: "La joie aussi peut être débordante. L\'énergie est positive — le coup de pied dans la poubelle est juste le débordement physique d\'une émotion forte. Recadrer le geste sans tuer l\'émotion est l\'équilibre parfait.",
         good: true
       },
       {
         label: "Sanctionner",
-        text: "\Â«C\â€™est une d\Ã©gradation ! Je note ton nom.\Â»",
+        text: "«C\'est une dégradation ! Je note ton nom.»",
         score: 0,
-        fb: "Disproportionn\Ã©. Un coup de pied dans une poubelle par joie n\â€™est pas du vandalisme \â€” c\â€™est de l\â€™exub\Ã©rance. Sanctionner ici, c\â€™est punir l\â€™expression d\â€™une \Ã©motion positive et cr\Ã©er de la rancune pour rien.",
+        fb: "Disproportionné. Un coup de pied dans une poubelle par joie n\'est pas du vandalisme — c\'est de l\'exubérance. Sanctionner ici, c\'est punir l\'expression d\'une émotion positive et créer de la rancune pour rien.",
         good: false
       },
       {
         label: "Ignorer",
-        text: "Bah, c\â€™est de la joie, pas grave.",
+        text: "Bah, c\'est de la joie, pas grave.",
         score: 1,
-        fb: "L\â€™\Ã©motion est l\Ã©gitime, le geste ne l\â€™est pas. Ignorer systÃ©matiquement les petites d\Ã©gradations installe la norme que \Â«c\â€™est pas grave\Â» \â€” jusqu\â€™au jour o\Ã¹ \Ã§a le devient.",
+        fb: "L\'émotion est légitime, le geste ne l\'est pas. Ignorer systématiquement les petites dégradations installe la norme que «c\'est pas grave» — jusqu\'au jour où ça le devient.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ’¡", t:"\Ã‰motion = information :", v:"La col\Ã¨re dit \Â«quelque chose bloque\Â». La tristesse dit \Â«quelque chose manque\Â». La peur dit \Â«quelque chose menace\Â». D\Ã©coder avant de recadrer."},
-  {icon:"âŒ", t:"Invalidateurs :\Â»", v:"\Â«C\â€™est pas grave\Â», \Â«Calme-toi\Â», \Â«Arr\Ãªte ton cin\Ã©ma\Â». Trois phrases qui ferment le dialogue au lieu de l\â€™ouvrir."},
-  {icon:"ðŸ¤", t:"Pr\Ã©sence sans pression :", v:"\Â«Je suis l\Ã  si tu veux\Â» est souvent plus puissant que \Â«Dis-moi ce qui ne va pas\Â»."},
-  {icon:"âš–ï¸", t:"\Ã‰motion l\Ã©gitime \â‰  geste acceptable :", v:"On ne punit pas l\â€™\Ã©motion. On recadre le geste. La distinction est fondamentale."},
+  {icon:"💡", t:"Émotion = information :", v:"La colère dit «quelque chose bloque». La tristesse dit «quelque chose manque». La peur dit «quelque chose menace». Décoder avant de recadrer."},
+  {icon:"❌", t:"Invalidateurs :»", v:"«C\'est pas grave», «Calme-toi», «Arrête ton cinéma». Trois phrases qui ferment le dialogue au lieu de l\'ouvrir."},
+  {icon:"🤝", t:"Présence sans pression :", v:"«Je suis là si tu veux» est souvent plus puissant que «Dis-moi ce qui ne va pas»."},
+  {icon:"⚖️", t:"Émotion légitime ≠ geste acceptable :", v:"On ne punit pas l\'émotion. On recadre le geste. La distinction est fondamentale."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : \Ã‰motions : signaux, pas probl\Ã¨mes',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Émotions : signaux, pas problèmes',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Cerveau Ado & Empathie Â· Module 1/5'),
-    e('h1',null,"\Ã‰motions : signaux, pas probl\Ã¨mes"),
-    e('p',{className:'quote'},'"'+"Une \Ã©motion n\â€™est pas un d\Ã©faut de fonctionnement. C\â€™est une information."+'" â€” Antonio Damasio'),
-    e('p',null,"La col\Ã¨re d\â€™un \Ã©l\Ã¨ve n\â€™est pas un probl\Ã¨me \Ã  faire taire \â€” c\â€™est un signal \Ã  d\Ã©coder. La peur n\â€™est pas de la faiblesse \â€” c\â€™est un syst\Ã¨me d\â€™alerte. La tristesse n\â€™est pas du caprice \â€” c\â€™est un besoin non satisfait."),
-    e('p',null,"Comprendre les \Ã©motions comme des informations (et non comme des d\Ã©rangements) change radicalement la posture de l\â€™AED. On passe de \Â«calme-toi\Â» \Ã  \Â«qu\â€™est-ce que cette \Ã©motion te dit ?\Â»."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Antonio Damasio, L\â€™erreur de Descartes \â€” Daniel Favre, Cessons de d\Ã©motiver les \Ã©l\Ã¨ves \â€” Marc Brackett, Permission to Feel"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Cerveau Ado & Empathie · Module 1/5'),
+    e('h1',null,"Émotions : signaux, pas problèmes"),
+    e('p',{className:'quote'},'"'+"Une émotion n\'est pas un défaut de fonctionnement. C\'est une information."+'" — Antonio Damasio'),
+    e('p',null,"La colère d\'un élève n\'est pas un problème à faire taire — c\'est un signal à décoder. La peur n\'est pas de la faiblesse — c\'est un système d\'alerte. La tristesse n\'est pas du caprice — c\'est un besoin non satisfait."),
+    e('p',null,"Comprendre les émotions comme des informations (et non comme des dérangements) change radicalement la posture de l\'AED. On passe de «calme-toi» à «qu\'est-ce que cette émotion te dit ?»."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Antonio Damasio, L\'erreur de Descartes — Daniel Favre, Cessons de démotiver les élèves — Marc Brackett, Permission to Feel"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+Empathie'),e('div',{className:'comp-earn'},'+RÃ©gulation'),
+      e('div',{className:'comp-earn'},'+Empathie'),e('div',{className:'comp-earn'},'+Régulation'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ’¡'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'💡'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +80 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 Empathie'),e('div',{className:'comp-earn'},'+1 RÃ©gulation'),
+      e('div',{className:'comp-earn'},'+1 Empathie'),e('div',{className:'comp-earn'},'+1 Régulation'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

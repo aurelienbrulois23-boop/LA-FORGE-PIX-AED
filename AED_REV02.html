@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_REV02 â€” FranÃ§ais : orthographe & rÃ©daction</title>
+<title>LA FORGE | AED_REV02 — Français : orthographe & rédaction</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Moussa (6\Ã¨me) \Ã©crit dans sa r\Ã©daction : \Â«Il a manger toute la tarte.\Â» Il vous demande : \Â«C\â€™est bon \Ã§a ?\Â»",
-    q: "Comment corrigez-vous sans juste donner la r\Ã©ponse ?",
+    ctx: "Moussa (6ème) écrit dans sa rédaction : «Il a manger toute la tarte.» Il vous demande : «C\'est bon ça ?»",
+    q: "Comment corrigez-vous sans juste donner la réponse ?",
     options: [
       {
         label: "Astuce de substitution",
-        text: "\Â«Essaie de remplacer par un verbe du 3\Ã¨me groupe. \â€˜Il a prendre toute la tarte\â€™ ou \â€˜Il a pris toute la tarte\â€™ ? \â€” Pris ! Donc c\â€™est le participe pass\Ã© : mang\Ã©. Le truc : si tu peux dire \â€˜pris\â€™ ou \â€˜vendu\â€™, c\â€™est -\Ã©. Si tu peux dire \â€˜prendre\â€™ ou \â€™vendre\â€™, c\â€™est -er.\Â»",
+        text: "«Essaie de remplacer par un verbe du 3ème groupe. \'Il a prendre toute la tarte\' ou \'Il a pris toute la tarte\' ? — Pris ! Donc c\'est le participe passé : mangé. Le truc : si tu peux dire \'pris\' ou \'vendu\', c\'est -é. Si tu peux dire \'prendre\' ou \'vendre\', c\'est -er.»",
         score: 3,
-        fb: "La substitution par un verbe du 3\Ã¨me groupe est l\â€™astuce la plus efficace et la plus transmissible du fran\Ã§ais. Elle fonctionne \Ã  100% et ne demande aucune analyse grammaticale complexe. Un AED qui la ma\Ã®trise peut d\Ã©bloquer des dizaines de situations.",
+        fb: "La substitution par un verbe du 3ème groupe est l\'astuce la plus efficace et la plus transmissible du français. Elle fonctionne à 100% et ne demande aucune analyse grammaticale complexe. Un AED qui la maîtrise peut débloquer des dizaines de situations.",
         good: true
       },
       {
-        label: "R\Ã¨gle grammaticale",
-        text: "\Â«Apr\Ã¨s l\â€™auxiliaire avoir, on utilise le participe pass\Ã©, pas l\â€™infinitif.\Â»",
+        label: "Règle grammaticale",
+        text: "«Après l\'auxiliaire avoir, on utilise le participe passé, pas l\'infinitif.»",
         score: 1,
-        fb: "Correct mais abstrait. Moussa en 6\Ã¨me ne sait peut-\Ãªtre pas distinguer auxiliaire, participe pass\Ã© et infinitif. L\â€™astuce de substitution est plus concr\Ã¨te et imm\Ã©diatement applicable.",
+        fb: "Correct mais abstrait. Moussa en 6ème ne sait peut-être pas distinguer auxiliaire, participe passé et infinitif. L\'astuce de substitution est plus concrète et immédiatement applicable.",
         good: false
       },
       {
         label: "Corriger directement",
-        text: "\Â«Non, c\â€™est mang\Ã© avec un accent.\Â»",
+        text: "«Non, c\'est mangé avec un accent.»",
         score: 0,
-        fb: "L\â€™erreur est corrig\Ã©e, mais Moussa n\â€™a aucun outil pour la prochaine fois. L\â€™aide aux devoirs qui ne donne pas la m\Ã©thode est un pansement, pas un soin.",
+        fb: "L\'erreur est corrigée, mais Moussa n\'a aucun outil pour la prochaine fois. L\'aide aux devoirs qui ne donne pas la méthode est un pansement, pas un soin.",
         good: false
       },
     ]
   },
   {
-    ctx: "Lina (4\Ã¨me) doit r\Ã©diger un paragraphe argument\Ã© mais dit : \Â«Je sais pas par quoi commencer. J\â€™ai des id\Ã©es mais \Ã§a sort dans le d\Ã©sordre.\Â»",
-    q: "Comment la d\Ã©bloquez-vous ?",
+    ctx: "Lina (4ème) doit rédiger un paragraphe argumenté mais dit : «Je sais pas par quoi commencer. J\'ai des idées mais ça sort dans le désordre.»",
+    q: "Comment la débloquez-vous ?",
     options: [
       {
         label: "Structure en 3 temps",
-        text: "\Â«OK Lina, on va faire simple. Un paragraphe argument\Ã© c\â€™est : 1. Ton id\Ã©e principale en une phrase. 2. Un exemple ou un argument qui la soutient. 3. Une phrase qui conclut ou fait la transition. Commence par \Ã©crire ton id\Ã©e principale \â€” juste une phrase. On s\â€™occupera du reste apr\Ã¨s.\Â»",
+        text: "«OK Lina, on va faire simple. Un paragraphe argumenté c\'est : 1. Ton idée principale en une phrase. 2. Un exemple ou un argument qui la soutient. 3. Une phrase qui conclut ou fait la transition. Commence par écrire ton idée principale — juste une phrase. On s\'occupera du reste après.»",
         score: 3,
-        fb: "D\Ã©composer la t\Ã¢che en micro-\Ã©tapes (id\Ã©e \â†’ argument \â†’ conclusion) d\Ã©bloque la paralysie de la page blanche. Commencer par UNE phrase abaisse la barri\Ã¨re d\â€™entr\Ã©e. C\â€™est du scaffolding p\Ã©dagogique appliqu\Ã©.",
+        fb: "Décomposer la tâche en micro-étapes (idée → argument → conclusion) débloque la paralysie de la page blanche. Commencer par UNE phrase abaisse la barrière d\'entrée. C\'est du scaffolding pédagogique appliqué.",
         good: true
       },
       {
         label: "Encouragement vague",
-        text: "\Â«Allez, lance-toi, t\â€™as des id\Ã©es, \Ã©cris !\Â»",
+        text: "«Allez, lance-toi, t\'as des idées, écris !»",
         score: 0,
-        fb: "L\â€™encouragement sans m\Ã©thode ne r\Ã©sout pas le probl\Ã¨me. Lina SAIT qu\â€™elle a des id\Ã©es \â€” son probl\Ã¨me c\â€™est la structure, pas la motivation.",
+        fb: "L\'encouragement sans méthode ne résout pas le problème. Lina SAIT qu\'elle a des idées — son problème c\'est la structure, pas la motivation.",
         good: false
       },
       {
         label: "Dicter",
-        text: "\Â«Marque : \â€˜Tout d\â€™abord, on peut constater que...\â€™\Â»",
+        text: "«Marque : \'Tout d\'abord, on peut constater que...\'»",
         score: 1,
-        fb: "La formule toute faite peut d\Ã©bloquer ponctuellement, mais Lina n\â€™apprend pas \Ã  structurer sa pens\Ã©e. Au prochain paragraphe, elle sera au m\Ãªme point.",
+        fb: "La formule toute faite peut débloquer ponctuellement, mais Lina n\'apprend pas à structurer sa pensée. Au prochain paragraphe, elle sera au même point.",
         good: false
       },
     ]
   },
   {
-    ctx: "Hugo (5\Ã¨me) \Ã©crit : \Â«Les filles sont all\Ã© au cin\Ã©ma.\Â» Il ne comprend pas pourquoi Word souligne en rouge.",
-    q: "Comment expliquez-vous l\â€™accord du participe pass\Ã© avec \Ãªtre ?",
+    ctx: "Hugo (5ème) écrit : «Les filles sont allé au cinéma.» Il ne comprend pas pourquoi Word souligne en rouge.",
+    q: "Comment expliquez-vous l\'accord du participe passé avec être ?",
     options: [
       {
-        label: "R\Ã¨gle + astuce visuelle",
-        text: "\Â«Avec le verbe \Ãªtre, le participe pass\Ã© s\â€™accorde avec le sujet. Qui est all\Ã© ? Les filles. F\Ã©minin pluriel = all\Ã©es. Le truc : avec \Ãªtre, regarde toujours QUI fait l\â€™action. Si c\â€™est \â€˜elles\â€™, tu ajoutes -es. Si c\â€™est \â€˜ils\â€™, tu ajoutes -s.\Â»",
+        label: "Règle + astuce visuelle",
+        text: "«Avec le verbe être, le participe passé s\'accorde avec le sujet. Qui est allé ? Les filles. Féminin pluriel = allées. Le truc : avec être, regarde toujours QUI fait l\'action. Si c\'est \'elles\', tu ajoutes -es. Si c\'est \'ils\', tu ajoutes -s.»",
         score: 3,
-        fb: "La r\Ã¨gle \Â«avec \Ãªtre, le participe s\â€™accorde avec le sujet\Â» est le deuxi\Ã¨me pilier de l\â€™orthographe grammaticale (apr\Ã¨s \Ã©/er). Le r\Ã©flexe \Â«qui fait l\â€™action ?\Â» est simple et fiable.",
+        fb: "La règle «avec être, le participe s\'accorde avec le sujet» est le deuxième pilier de l\'orthographe grammaticale (après é/er). Le réflexe «qui fait l\'action ?» est simple et fiable.",
         good: true
       },
       {
-        label: "Correction sans r\Ã¨gle",
-        text: "\Â«C\â€™est all\Ã©es, avec un e-s. Corrige.\Â»",
+        label: "Correction sans règle",
+        text: "«C\'est allées, avec un e-s. Corrige.»",
         score: 0,
-        fb: "Hugo corrige cette phrase mais ne comprend pas pourquoi. Au prochain exercice avec \Ãªtre, m\Ãªme erreur.",
+        fb: "Hugo corrige cette phrase mais ne comprend pas pourquoi. Au prochain exercice avec être, même erreur.",
         good: false
       },
       {
         label: "Approximation",
-        text: "\Â«Quand c\â€™est plusieurs personnes, tu mets un s.\Â»",
+        text: "«Quand c\'est plusieurs personnes, tu mets un s.»",
         score: 1,
-        fb: "Incomplet : le -s ne suffit pas ici (il faut aussi le -e du f\Ã©minin). Et la r\Ã¨gle ne distingue pas \Ãªtre/avoir, ce qui cr\Ã©era des erreurs avec avoir.",
+        fb: "Incomplet : le -s ne suffit pas ici (il faut aussi le -e du féminin). Et la règle ne distingue pas être/avoir, ce qui créera des erreurs avec avoir.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"âœ…", t:"\Ã©/er :", v:"Remplace par un verbe du 3\Ã¨me groupe : \Â«pris\Â» = -\Ã©, \Â«prendre\Â» = -er. Astuce 100% fiable."},
-  {icon:"ðŸ“", t:"R\Ã©daction :", v:"Id\Ã©e \â†’ Argument \â†’ Conclusion. D\Ã©composer en micro-\Ã©tapes d\Ã©bloque la page blanche."},
-  {icon:"ðŸ’¡", t:"Accord avec \Ãªtre :", v:"\Â«Qui fait l\â€™action ?\Â» Si f\Ã©minin = -e, si pluriel = -s, si f\Ã©minin pluriel = -es."},
-  {icon:"ðŸŽ¯", t:"Posture :", v:"Donner la m\Ã©thode, pas la r\Ã©ponse. Un \Ã©l\Ã¨ve avec une astuce est autonome. Un \Ã©l\Ã¨ve avec une r\Ã©ponse est d\Ã©pendant."},
+  {icon:"✅", t:"é/er :", v:"Remplace par un verbe du 3ème groupe : «pris» = -é, «prendre» = -er. Astuce 100% fiable."},
+  {icon:"📝", t:"Rédaction :", v:"Idée → Argument → Conclusion. Décomposer en micro-étapes débloque la page blanche."},
+  {icon:"💡", t:"Accord avec être :", v:"«Qui fait l\'action ?» Si féminin = -e, si pluriel = -s, si féminin pluriel = -es."},
+  {icon:"🎯", t:"Posture :", v:"Donner la méthode, pas la réponse. Un élève avec une astuce est autonome. Un élève avec une réponse est dépendant."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Fran\Ã§ais : orthographe & r\Ã©daction',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Français : orthographe & rédaction',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'BONUS RÃ©visions â€” FranÃ§ais Ã—1.5 Â· Module 1/5'),
-    e('h1',null,"Fran\Ã§ais : orthographe & r\Ã©daction"),
-    e('p',{className:'quote'},'"'+"La clart\Ã© est la politesse de ceux qui \Ã©crivent."+'" â€” Jules Renard'),
-    e('p',null,"En \Ã©tude, les demandes d\â€™aide en fran\Ã§ais tournent autour de trois choses : l\â€™orthographe (\Â«est-ce que c\â€™est \Ã© ou er ?\Â»), la grammaire (accords, conjugaison), et la r\Ã©daction (\Â«je sais pas comment commencer\Â»)."),
-    e('p',null,"Ce module rafra\Ã®chit vos r\Ã©flexes sur les pi\Ã¨ges classiques et vous donne des astuces transmissibles aux \Ã©l\Ã¨ves \â€” pas des r\Ã¨gles indigestes, mais des trucs qui marchent."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Programme fran\Ã§ais cycle 3-4 \â€” Bescherelle \â€” Didactique de l\â€™\Ã©criture"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'BONUS Révisions — Français ×1.5 · Module 1/5'),
+    e('h1',null,"Français : orthographe & rédaction"),
+    e('p',{className:'quote'},'"'+"La clarté est la politesse de ceux qui écrivent."+'" — Jules Renard'),
+    e('p',null,"En étude, les demandes d\'aide en français tournent autour de trois choses : l\'orthographe («est-ce que c\'est é ou er ?»), la grammaire (accords, conjugaison), et la rédaction («je sais pas comment commencer»)."),
+    e('p',null,"Ce module rafraîchit vos réflexes sur les pièges classiques et vous donne des astuces transmissibles aux élèves — pas des règles indigestes, mais des trucs qui marchent."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Programme français cycle 3-4 — Bescherelle — Didactique de l\'écriture"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +60 XP'),
       e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+PÃ©dagogie'),e('div',{className:'comp-earn'},'+FranÃ§ais'),
+      e('div',{className:'comp-earn'},'+Pédagogie'),e('div',{className:'comp-earn'},'+Français'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'âœ…'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'✅'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +60 XP'),e('span',{style:{margin:'0 6px'}}),
-      e('div',{className:'comp-earn'},'+1 PÃ©dagogie'),e('div',{className:'comp-earn'},'+1 FranÃ§ais'),
+      e('div',{className:'comp-earn'},'+1 Pédagogie'),e('div',{className:'comp-earn'},'+1 Français'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

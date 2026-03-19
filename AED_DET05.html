@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_DET05 â€” Construire une fiche dâ€™observation</title>
+<title>LA FORGE | AED_DET05 — Construire une fiche d’observation</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Vous observez la sc\Ã¨ne suivante : \Ã  la cantine, trois \Ã©l\Ã¨ves de 4\Ã¨me se l\Ã¨vent syst\Ã©matiquement quand Nadia s\â€™assoit \Ã  leur table. Nadia reste seule. Vous voulez documenter.",
+    ctx: "Vous observez la scène suivante : à la cantine, trois élèves de 4ème se lèvent systématiquement quand Nadia s\'assoit à leur table. Nadia reste seule. Vous voulez documenter.",
     q: "Quelle formulation est correcte pour la fiche ?",
     options: [
       {
         label: "Formulation factuelle",
-        text: "\Â«12/03, 12h20, cantine. X, Y, Z (4\Ã¨meB) se sont lev\Ã©s quand Nadia (4\Ã¨meB) s\â€™est assise \Ã  leur table. Nadia est rest\Ã©e seule. C\â€™est la 3\Ã¨me fois cette semaine (dates pr\Ã©c\Ã©dentes : 10/03, 11/03). Aucun mot \Ã©chang\Ã© audible.\Â»",
+        text: "«12/03, 12h20, cantine. X, Y, Z (4èmeB) se sont levés quand Nadia (4èmeB) s\'est assise à leur table. Nadia est restée seule. C\'est la 3ème fois cette semaine (dates précédentes : 10/03, 11/03). Aucun mot échangé audible.»",
         score: 3,
-        fb: "Fiche mod\Ã¨le : date, heure, lieu, noms, comportement observable, r\Ã©currence chiffr\Ã©e, absence d\â€™\Ã©l\Ã©ment (\Â«aucun mot audible\Â»). Pas d\â€™interpr\Ã©tation, pas de jugement. Le CPE peut travailler avec \Ã§a.",
+        fb: "Fiche modèle : date, heure, lieu, noms, comportement observable, récurrence chiffrée, absence d\'élément («aucun mot audible»). Pas d\'interprétation, pas de jugement. Le CPE peut travailler avec ça.",
         good: true
       },
       {
-        label: "Formulation interpr\Ã©tative",
-        text: "\Â«Nadia est exclue par X, Y, Z qui la rejettent m\Ã©chamment \Ã  la cantine. C\â€™est clairement du harc\Ã¨lement.\Â»",
+        label: "Formulation interprétative",
+        text: "«Nadia est exclue par X, Y, Z qui la rejettent méchamment à la cantine. C\'est clairement du harcèlement.»",
         score: 0,
-        fb: "\Â«Rejettent m\Ã©chamment\Â» est une interpr\Ã©tation (vous ne connaissez pas l\â€™intention). \Â«Clairement du harc\Ã¨lement\Â» est un diagnostic que l\â€™AED n\â€™a pas \Ã  poser. Les faits suffisent \â€” et ils parlent d\â€™eux-m\Ãªmes.",
+        fb: "«Rejettent méchamment» est une interprétation (vous ne connaissez pas l\'intention). «Clairement du harcèlement» est un diagnostic que l\'AED n\'a pas à poser. Les faits suffisent — et ils parlent d\'eux-mêmes.",
         good: false
       },
       {
         label: "Formulation vague",
-        text: "\Â«Nadia a des probl\Ã¨mes avec des filles de sa classe \Ã  la cantine.\Â»",
+        text: "«Nadia a des problèmes avec des filles de sa classe à la cantine.»",
         score: 1,
-        fb: "Trop vague pour \Ãªtre exploitable. Qui ? Quand ? Quel comportement pr\Ã©cis\Ã©ment ? Le CPE ne peut rien faire avec \Â«des probl\Ã¨mes\Â». Les faits pr\Ã©cis sont la mati\Ã¨re premi\Ã¨re du signalement.",
+        fb: "Trop vague pour être exploitable. Qui ? Quand ? Quel comportement précisément ? Le CPE ne peut rien faire avec «des problèmes». Les faits précis sont la matière première du signalement.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le CPE vous demande un retour \Ã©crit sur Sofiane (4\Ã¨me), que vous surveillez depuis 2 semaines pour suspicion de d\Ã©crochage.",
-    q: "Comment structurez-vous votre fiche de synth\Ã¨se ?",
+    ctx: "Le CPE vous demande un retour écrit sur Sofiane (4ème), que vous surveillez depuis 2 semaines pour suspicion de décrochage.",
+    q: "Comment structurez-vous votre fiche de synthèse ?",
     options: [
       {
         label: "Chronologique + factuelle + sans conclusion",
-        text: "\Â«Semaine 1 : Retards 3/03 (15min), 4/03 (10min), 6/03 (20min). Absent cantine 3/03, 5/03. Dort en \Ã©tude 4/03, 6/03. Semaine 2 : Retards quotidiens (10-20min). Ne mange plus \Ã  la cantine depuis lundi 10/03. S\â€™isole en cour. Interaction observ\Ã©e avec un groupe ext\Ã©rieur au portail 11/03 (3 individus non identifi\Ã©s, visiblement plus \Ã¢g\Ã©s). Note : aucune interpr\Ã©tation. \Ã€ croiser avec donn\Ã©es enseignants.\Â»",
+        text: "«Semaine 1 : Retards 3/03 (15min), 4/03 (10min), 6/03 (20min). Absent cantine 3/03, 5/03. Dort en étude 4/03, 6/03. Semaine 2 : Retards quotidiens (10-20min). Ne mange plus à la cantine depuis lundi 10/03. S\'isole en cour. Interaction observée avec un groupe extérieur au portail 11/03 (3 individus non identifiés, visiblement plus âgés). Note : aucune interprétation. À croiser avec données enseignants.»",
         score: 3,
-        fb: "Fiche mod\Ã¨le : chronologique, dat\Ã©e, factuelle, et se termine par \Â«aucune interpr\Ã©tation\Â» \â€” ce qui est la marque d\â€™un professionnel. L\â€™observation du groupe ext\Ã©rieur est un \Ã©l\Ã©ment que seul l\â€™AED au portail peut noter.",
+        fb: "Fiche modèle : chronologique, datée, factuelle, et se termine par «aucune interprétation» — ce qui est la marque d\'un professionnel. L\'observation du groupe extérieur est un élément que seul l\'AED au portail peut noter.",
         good: true
       },
       {
-        label: "R\Ã©sum\Ã© impressionniste",
-        text: "\Â«Sofiane va mal. Il arrive en retard, il mange plus, il tra\Ã®ne avec des gens bizarres dehors.\Â»",
+        label: "Résumé impressionniste",
+        text: "«Sofiane va mal. Il arrive en retard, il mange plus, il traîne avec des gens bizarres dehors.»",
         score: 1,
-        fb: "\Â«Va mal\Â» = interpr\Ã©tation. \Â«Gens bizarres\Â» = jugement. La fiche doit contenir des faits chiffr\Ã©s et dat\Ã©s, pas des impressions. Le CPE a besoin de mat\Ã©riau dur.",
+        fb: "«Va mal» = interprétation. «Gens bizarres» = jugement. La fiche doit contenir des faits chiffrés et datés, pas des impressions. Le CPE a besoin de matériau dur.",
         good: false
       },
       {
         label: "Diagnostic",
-        text: "\Â«Sofiane est en d\Ã©crochage scolaire avanc\Ã©, probablement li\Ã© \Ã  des fr\Ã©quentations ext\Ã©rieures.\Â»",
+        text: "«Sofiane est en décrochage scolaire avancé, probablement lié à des fréquentations extérieures.»",
         score: 0,
-        fb: "L\â€™AED observe, il ne diagnostique pas. \Â«Probablement li\Ã© \Ã \Â» est une hypoth\Ã¨se \â€” pas un fait. Le CPE, l\â€™AS et les enseignants croiseront les donn\Ã©es et poseront le diagnostic.",
+        fb: "L\'AED observe, il ne diagnostique pas. «Probablement lié à» est une hypothèse — pas un fait. Le CPE, l\'AS et les enseignants croiseront les données et poseront le diagnostic.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un coll\Ã¨gue AED vous dit : \Â«J\â€™\Ã©cris rien, j\â€™ai pas le temps. Je dis les trucs \Ã  l\â€™oral au CPE et c\â€™est bon.\Â»",
-    q: "Pourquoi l\â€™\Ã©crit est-il indispensable ?",
+    ctx: "Un collègue AED vous dit : «J\'écris rien, j\'ai pas le temps. Je dis les trucs à l\'oral au CPE et c\'est bon.»",
+    q: "Pourquoi l\'écrit est-il indispensable ?",
     options: [
       {
-        label: "3 raisons concr\Ã¨tes",
-        text: "\Â«1. La m\Ã©moire d\Ã©forme : dans 3 jours, tu auras oubli\Ã© les dates et m\Ã©lang\Ã© les situations. 2. L\â€™\Ã©crit est transmissible : si tu es absent, personne ne sait ce que tu as vu. 3. L\â€™\Ã©crit prot\Ã¨ge : en cas de plainte, d\â€™enqu\Ãªte ou de proc\Ã©dure, seul l\â€™\Ã©crit dat\Ã© fait foi. L\â€™oral ne vaut rien devant un juge.\Â»",
+        label: "3 raisons concrètes",
+        text: "«1. La mémoire déforme : dans 3 jours, tu auras oublié les dates et mélangé les situations. 2. L\'écrit est transmissible : si tu es absent, personne ne sait ce que tu as vu. 3. L\'écrit protège : en cas de plainte, d\'enquête ou de procédure, seul l\'écrit daté fait foi. L\'oral ne vaut rien devant un juge.»",
         score: 3,
-        fb: "Trois arguments imparables : fiabilit\Ã© (contre la d\Ã©formation m\Ã©morielle), transmissibilit\Ã© (continuit\Ã© du suivi), et protection juridique (en cas de proc\Ã©dure, seul l\â€™\Ã©crit dat\Ã© a valeur probante).",
+        fb: "Trois arguments imparables : fiabilité (contre la déformation mémorielle), transmissibilité (continuité du suivi), et protection juridique (en cas de procédure, seul l\'écrit daté a valeur probante).",
         good: true
       },
       {
         label: "Argument moral",
-        text: "\Â«C\â€™est notre devoir professionnel d\â€™\Ã©crire.\Â»",
+        text: "«C\'est notre devoir professionnel d\'écrire.»",
         score: 1,
-        fb: "Vrai mais peu convaincant. Les arguments concrets (m\Ã©moire, transmissibilit\Ã©, protection juridique) parlent plus qu\â€™un rappel au devoir.",
+        fb: "Vrai mais peu convaincant. Les arguments concrets (mémoire, transmissibilité, protection juridique) parlent plus qu\'un rappel au devoir.",
         good: false
       },
       {
         label: "Laisser tomber",
-        text: "\Â«C\â€™est vrai, l\â€™oral suffit si le CPE est r\Ã©actif.\Â»",
+        text: "«C\'est vrai, l\'oral suffit si le CPE est réactif.»",
         score: 0,
-        fb: "L\â€™oral ne laisse aucune trace. Si le CPE est absent, malade, muta\Ã© \â€” l\â€™information dispara\Ã®t. Et en cas de proc\Ã©dure, \Â«je l\â€™ai dit \Ã  l\â€™oral\Â» ne vaut rien.",
+        fb: "L\'oral ne laisse aucune trace. Si le CPE est absent, malade, mutaé — l\'information disparaît. Et en cas de procédure, «je l\'ai dit à l\'oral» ne vaut rien.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“‹", t:"Fait vs interpr\Ã©tation :", v:"\Â«Il est rejet\Ã©\Â» = interpr\Ã©tation. \Â«X, Y, Z se l\Ã¨vent quand Nadia s\â€™assoit\Â» = fait. Seuls les faits sont exploitables."},
-  {icon:"ðŸ“…", t:"Dater + chiffrer :", v:"Dates, heures, fr\Ã©quence. \Â«3 retards en 5 jours\Â» vaut plus que \Â«il est souvent en retard\Â»."},
-  {icon:"âœï¸", t:"\Ã‰crire :", v:"La m\Ã©moire d\Ã©forme, l\â€™oral dispara\Ã®t, seul l\â€™\Ã©crit dat\Ã© fait foi. 30 secondes d\â€™\Ã©criture peuvent changer une proc\Ã©dure."},
-  {icon:"âŒ", t:"Ne pas diagnostiquer :", v:"L\â€™AED observe et transmet. Le diagnostic appartient au CPE, \Ã  l\â€™AS, au m\Ã©decin. Les faits suffisent."},
+  {icon:"📋", t:"Fait vs interprétation :", v:"«Il est rejeté» = interprétation. «X, Y, Z se lèvent quand Nadia s\'assoit» = fait. Seuls les faits sont exploitables."},
+  {icon:"📅", t:"Dater + chiffrer :", v:"Dates, heures, fréquence. «3 retards en 5 jours» vaut plus que «il est souvent en retard»."},
+  {icon:"✍️", t:"Écrire :", v:"La mémoire déforme, l\'oral disparaît, seul l\'écrit daté fait foi. 30 secondes d\'écriture peuvent changer une procédure."},
+  {icon:"❌", t:"Ne pas diagnostiquer :", v:"L\'AED observe et transmet. Le diagnostic appartient au CPE, à l\'AS, au médecin. Les faits suffisent."},
 ];
 
 
@@ -158,7 +158,7 @@ function awardXP(){
   try{
     var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Construire une fiche d\â€™observation',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Construire une fiche d\'observation',d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'DÃ©tection & Signaux Faibles â€” CERTIFICATION Â· Module 1/5'),
-    e('h1',null,"Construire une fiche d\â€™observation"),
-    e('p',{className:'quote'},'"'+"Ce qui n\â€™est pas \Ã©crit n\â€™existe pas. Ce qui est mal \Ã©crit nuit."+'" â€” Principe de documentation professionnelle'),
-    e('p',null,"L\â€™AED observe des dizaines de situations par jour. Sans fiche, ces observations se perdent dans la m\Ã©moire \Ã©motionnelle \â€” d\Ã©form\Ã©es, simplifi\Ã©es, parfois fabul\Ã©es. La fiche d\â€™observation transforme des impressions en donn\Ã©es exploitables."),
-    e('p',null,"Ce module de certification vous apprend \Ã  r\Ã©diger une observation factuelle : distinguer fait et interpr\Ã©tation, noter les verbatims, dater et contextualiser, et transmettre sans alourdir. C\â€™est l\â€™outil de base du d\Ã©tecteur professionnel."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"M\Ã©thodologie d\â€™observation \â€” Protocole pHARe (documentation) \â€” Guide AED acad\Ã©mie de Besan\Ã§on"),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Détection & Signaux Faibles — CERTIFICATION · Module 1/5'),
+    e('h1',null,"Construire une fiche d\'observation"),
+    e('p',{className:'quote'},'"'+"Ce qui n\'est pas écrit n\'existe pas. Ce qui est mal écrit nuit."+'" — Principe de documentation professionnelle'),
+    e('p',null,"L\'AED observe des dizaines de situations par jour. Sans fiche, ces observations se perdent dans la mémoire émotionnelle — déformées, simplifiées, parfois fabulées. La fiche d\'observation transforme des impressions en données exploitables."),
+    e('p',null,"Ce module de certification vous apprend à rédiger une observation factuelle : distinguer fait et interprétation, noter les verbatims, dater et contextualiser, et transmettre sans alourdir. C\'est l\'outil de base du détecteur professionnel."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Méthodologie d\'observation — Protocole pHARe (documentation) — Guide AED académie de Besançon"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Observation'),e('div',{className:'comp-earn'},'+Transmission'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“‹'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📋'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +120 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Observation'),e('div',{className:'comp-earn'},'+1 Transmission'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

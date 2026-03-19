@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_CRI03 â€” Protocole pHARe en situation</title>
+<title>LA FORGE | AED_CRI03 — Protocole pHARe en situation</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "Un \Ã©l\Ã¨ve de 5\Ã¨me, Tom, vient vous trouver pendant la permanence et dit \Ã  voix basse : \Â«Ils me font des trucs sur le groupe Snap. Ils ont mis une photo de moi.\Â» Il est au bord des larmes.",
-    q: "Quelle est votre premi\Ã¨re action ?",
+    ctx: "Un élève de 5ème, Tom, vient vous trouver pendant la permanence et dit à voix basse : «Ils me font des trucs sur le groupe Snap. Ils ont mis une photo de moi.» Il est au bord des larmes.",
+    q: "Quelle est votre première action ?",
     options: [
       {
-        label: "\Ã‰couter + s\Ã©curiser + transmettre",
-        text: "Je l\â€™\Ã©coute sans couper. \Â«Merci de me dire \Ã§a, c\â€™est courageux. Tu n\â€™as rien fait de mal. Je vais en parler au CPE / au r\Ã©f\Ã©rent pHARe qui va t\â€™aider.\Â» Je ne demande PAS \Ã  voir la photo. Je ne contacte PAS les auteurs. Je transmets imm\Ã©diatement.",
+        label: "Écouter + sécuriser + transmettre",
+        text: "Je l\'écoute sans couper. «Merci de me dire ça, c\'est courageux. Tu n\'as rien fait de mal. Je vais en parler au CPE / au référent pHARe qui va t\'aider.» Je ne demande PAS à voir la photo. Je ne contacte PAS les auteurs. Je transmets immédiatement.",
         score: 3,
-        fb: "R\Ã¨gle pHARe n\Â°1 : \Ã©couter et rassurer la victime. Ne jamais confronter auteur et victime. Ne pas enqu\Ãªter soi-m\Ãªme (risque de contamination des t\Ã©moignages). Transmettre au r\Ã©f\Ã©rent pHARe ou au CPE qui active le protocole.",
+        fb: "Règle pHARe n°1 : écouter et rassurer la victime. Ne jamais confronter auteur et victime. Ne pas enquêter soi-même (risque de contamination des témoignages). Transmettre au référent pHARe ou au CPE qui active le protocole.",
         good: true
       },
       {
-        label: "Enqu\Ãªter",
-        text: "\Â«Montre-moi le groupe, je veux voir ce qu\â€™ils ont mis.\Â»",
+        label: "Enquêter",
+        text: "«Montre-moi le groupe, je veux voir ce qu\'ils ont mis.»",
         score: 1,
-        fb: "L\â€™envie de comprendre est naturelle, mais demander \Ã  voir le contenu peut retraumatiser la victime et compromettre la proc\Ã©dure. Le r\Ã©f\Ã©rent pHARe a la m\Ã©thode pour recueillir les preuves correctement.",
+        fb: "L\'envie de comprendre est naturelle, mais demander à voir le contenu peut retraumatiser la victime et compromettre la procédure. Le référent pHARe a la méthode pour recueillir les preuves correctement.",
         good: false
       },
       {
         label: "Confronter les auteurs",
-        text: "\Â«Qui a fait \Ã§a ? Dis-moi les noms, je vais leur parler.\Â»",
+        text: "«Qui a fait ça ? Dis-moi les noms, je vais leur parler.»",
         score: 0,
-        fb: "Confronter les auteurs est la pire erreur : \Ã§a les pr\Ã©vient, \Ã§a les pousse \Ã  effacer les preuves, et \Ã§a peut aggraver le harc\Ã¨lement en repr\Ã©sailles. Le protocole pHARe pr\Ã©voit des entretiens individuels s\Ã©par\Ã©s men\Ã©s par des adultes form\Ã©s.",
+        fb: "Confronter les auteurs est la pire erreur : ça les prévient, ça les pousse à effacer les preuves, et ça peut aggraver le harcèlement en représailles. Le protocole pHARe prévoit des entretiens individuels séparés menés par des adultes formés.",
         good: false
       },
     ]
   },
   {
-    ctx: "Quelques jours plus tard, le r\Ã©f\Ã©rent pHARe a activ\Ã© le protocole. Les ambassadeurs pHARe (\Ã©l\Ã¨ves form\Ã©s) doivent maintenant surveiller discr\Ã¨tement la situation. Un ambassadeur vient vous voir : \Â«Ils continuent, mais en cachette.\Â»",
+    ctx: "Quelques jours plus tard, le référent pHARe a activé le protocole. Les ambassadeurs pHARe (élèves formés) doivent maintenant surveiller discrètement la situation. Un ambassadeur vient vous voir : «Ils continuent, mais en cachette.»",
     q: "Que faites-vous de cette information ?",
     options: [
       {
-        label: "Transmettre imm\Ã©diatement au r\Ã©f\Ã©rent",
-        text: "Je note les faits rapport\Ã©s par l\â€™ambassadeur (date, contexte, comportement observ\Ã©) et je transmets au r\Ã©f\Ã©rent pHARe dans l\â€™heure. L\â€™ambassadeur est un relais d\â€™information, pas un agent d\â€™intervention.",
+        label: "Transmettre immédiatement au référent",
+        text: "Je note les faits rapportés par l\'ambassadeur (date, contexte, comportement observé) et je transmets au référent pHARe dans l\'heure. L\'ambassadeur est un relais d\'information, pas un agent d\'intervention.",
         score: 3,
-        fb: "La cha\Ã®ne de signalement pHARe passe par les adultes r\Ã©f\Ã©rents. L\â€™ambassadeur observe et remonte, l\â€™AED relaie et documente, le r\Ã©f\Ã©rent d\Ã©cide de l\â€™action. Personne ne court-circuite.",
+        fb: "La chaîne de signalement pHARe passe par les adultes référents. L\'ambassadeur observe et remonte, l\'AED relaie et documente, le référent décide de l\'action. Personne ne court-circuite.",
         good: true
       },
       {
-        label: "Demander \Ã  l\â€™ambassadeur d\â€™intervenir",
-        text: "\Â«Essaie de leur parler discr\Ã¨tement, entre \Ã©l\Ã¨ves \Ã§a passe mieux.\Â»",
+        label: "Demander à l\'ambassadeur d\'intervenir",
+        text: "«Essaie de leur parler discrètement, entre élèves ça passe mieux.»",
         score: 0,
-        fb: "L\â€™ambassadeur pHARe n\â€™est PAS un m\Ã©diateur dans les situations de harc\Ã¨lement av\Ã©r\Ã©. Le harc\Ã¨lement n\â€™est pas un conflit entre pairs \â€” c\â€™est une asym\Ã©trie de pouvoir. La m\Ã©diation entre pairs ne fonctionne pas ici.",
+        fb: "L\'ambassadeur pHARe n\'est PAS un médiateur dans les situations de harcèlement avéré. Le harcèlement n\'est pas un conflit entre pairs — c\'est une asymétrie de pouvoir. La médiation entre pairs ne fonctionne pas ici.",
         good: false
       },
       {
         label: "Attendre le prochain point pHARe",
-        text: "\Â«On en reparle \Ã  la prochaine r\Ã©union pHARe.\Â»",
+        text: "«On en reparle à la prochaine réunion pHARe.»",
         score: 1,
-        fb: "La continuit\Ã© du harc\Ã¨lement malgr\Ã© le protocole est une urgence. Attendre une r\Ã©union programm\Ã©e, c\â€™est laisser la situation se d\Ã©grader. Transmission imm\Ã©diate.",
+        fb: "La continuité du harcèlement malgré le protocole est une urgence. Attendre une réunion programmée, c\'est laisser la situation se dégrader. Transmission immédiate.",
         good: false
       },
     ]
   },
   {
-    ctx: "Le parent de Tom vous aborde \Ã  la sortie : \Â«Mon fils est harcel\Ã© et personne ne fait rien ! Je veux des noms !\Â»",
-    q: "Comment g\Ã©rez-vous ce parent ?",
+    ctx: "Le parent de Tom vous aborde à la sortie : «Mon fils est harcelé et personne ne fait rien ! Je veux des noms !»",
+    q: "Comment gérez-vous ce parent ?",
     options: [
       {
         label: "Accueillir + recadrer + orienter",
-        text: "\Â«Je comprends votre inqui\Ã©tude, c\â€™est l\Ã©gitime. Le protocole pHARe est activ\Ã© et la situation est suivie activement. Je ne peux pas vous donner de noms \â€” c\â€™est une proc\Ã©dure qui prot\Ã¨ge aussi votre fils. Pour les d\Ã©tails, je vous oriente vers le CPE ou le chef d\â€™\Ã©tablissement qui suit le dossier.\Â»",
+        text: "«Je comprends votre inquiétude, c\'est légitime. Le protocole pHARe est activé et la situation est suivie activement. Je ne peux pas vous donner de noms — c\'est une procédure qui protège aussi votre fils. Pour les détails, je vous oriente vers le CPE ou le chef d\'établissement qui suit le dossier.»",
         score: 3,
-        fb: "L\â€™AED n\â€™a pas \Ã  communiquer des noms d\â€™\Ã©l\Ã¨ves ni des d\Ã©tails de proc\Ã©dure. Accueillir l\â€™\Ã©motion du parent, confirmer que la situation est prise en charge, et orienter vers le bon interlocuteur. C\â€™est le cadre.",
+        fb: "L\'AED n\'a pas à communiquer des noms d\'élèves ni des détails de procédure. Accueillir l\'émotion du parent, confirmer que la situation est prise en charge, et orienter vers le bon interlocuteur. C\'est le cadre.",
         good: true
       },
       {
         label: "Donner des noms",
-        text: "\Â«C\â€™est Untel et Untel qui font \Ã§a.\Â»",
+        text: "«C\'est Untel et Untel qui font ça.»",
         score: 0,
-        fb: "R\Ã©v\Ã©ler des noms \Ã  un parent en col\Ã¨re peut d\Ã©clencher un conflit entre familles et compromettre le protocole. L\â€™AED n\â€™est pas habilit\Ã© \Ã  communiquer ces informations.",
+        fb: "Révéler des noms à un parent en colère peut déclencher un conflit entre familles et compromettre le protocole. L\'AED n\'est pas habilité à communiquer ces informations.",
         good: false
       },
       {
-        label: "Se d\Ã©fendre",
-        text: "\Â«Mais on fait des choses ! C\â€™est injuste de dire \Ã§a !\Â»",
+        label: "Se défendre",
+        text: "«Mais on fait des choses ! C\'est injuste de dire ça !»",
         score: 1,
-        fb: "Se d\Ã©fendre face \Ã  un parent en col\Ã¨re transforme l\â€™\Ã©change en confrontation. Le parent a besoin d\â€™\Ãªtre entendu d\â€™abord, inform\Ã© ensuite, orient\Ã© enfin.",
+        fb: "Se défendre face à un parent en colère transforme l\'échange en confrontation. Le parent a besoin d\'être entendu d\'abord, informé ensuite, orienté enfin.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“‹", t:"Protocole pHARe \â€” AED :", v:"\Ã‰couter, rassurer, transmettre. Pas enqu\Ãªter, pas confronter, pas m\Ã©dier."},
-  {icon:"âŒ", t:"Jamais de confrontation :", v:"Harc\Ã¨lement \â‰  conflit. Pas de m\Ã©diation auteur/victime. Entretiens s\Ã©par\Ã©s par des adultes form\Ã©s."},
-  {icon:"ðŸ‘¥", t:"Ambassadeurs :", v:"Ils observent et remontent. Ils ne sont pas des m\Ã©diateurs dans le harc\Ã¨lement av\Ã©r\Ã©."},
-  {icon:"ðŸ“ž", t:"Parents :", v:"Accueillir l\â€™\Ã©motion, confirmer la prise en charge, orienter vers CPE/chef. Pas de noms, pas de d\Ã©tails."},
+  {icon:"📋", t:"Protocole pHARe — AED :", v:"Écouter, rassurer, transmettre. Pas enquêter, pas confronter, pas médier."},
+  {icon:"❌", t:"Jamais de confrontation :", v:"Harcèlement ≠ conflit. Pas de médiation auteur/victime. Entretiens séparés par des adultes formés."},
+  {icon:"👥", t:"Ambassadeurs :", v:"Ils observent et remontent. Ils ne sont pas des médiateurs dans le harcèlement avéré."},
+  {icon:"📞", t:"Parents :", v:"Accueillir l\'émotion, confirmer la prise en charge, orienter vers CPE/chef. Pas de noms, pas de détails."},
 ];
 
 
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'Gestion de Crise & MÃ©diation Â· Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Gestion de Crise & Médiation · Module 1/5'),
     e('h1',null,"Protocole pHARe en situation"),
-    e('p',{className:'quote'},'"'+"Un protocole qui reste dans un classeur ne prot\Ã¨ge personne."+'" â€” R\Ã©f\Ã©rent pHARe'),
-    e('p',null,"Le programme pHARe est le dispositif national de lutte contre le harc\Ã¨lement \Ã  l\â€™\Ã©cole. Il ne sert pas \Ã  avoir un classeur dans un bureau \â€” il sert quand un \Ã©l\Ã¨ve vient vous dire \Â«Ils me font des trucs\Â» et que vous devez savoir exactement quoi faire."),
-    e('p',null,"Ce module met en sc\Ã¨ne les situations r\Ã©elles o\Ã¹ le protocole s\â€™active : d\Ã©tection, \Ã©coute de la victime, non-confrontation des parties, signalement au r\Ã©f\Ã©rent, et s\Ã©curisation. L\â€™AED n\â€™est pas le r\Ã©f\Ã©rent pHARe \â€” mais il est souvent le premier maillon."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"Programme pHARe (MEN) \â€” Circulaire harc\Ã¨lement 2023 \â€” Guide acad\Ã©mie de Besan\Ã§on"),
+    e('p',{className:'quote'},'"'+"Un protocole qui reste dans un classeur ne protège personne."+'" — Référent pHARe'),
+    e('p',null,"Le programme pHARe est le dispositif national de lutte contre le harcèlement à l\'école. Il ne sert pas à avoir un classeur dans un bureau — il sert quand un élève vient vous dire «Ils me font des trucs» et que vous devez savoir exactement quoi faire."),
+    e('p',null,"Ce module met en scène les situations réelles où le protocole s\'active : détection, écoute de la victime, non-confrontation des parties, signalement au référent, et sécurisation. L\'AED n\'est pas le référent pHARe — mais il est souvent le premier maillon."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Programme pHARe (MEN) — Circulaire harcèlement 2023 — Guide académie de Besançon"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+pHARe'),e('div',{className:'comp-earn'},'+Signalement'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“‹'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📋'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 pHARe'),e('div',{className:'comp-earn'},'+1 Signalement'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LA FORGE | AED_DET04 â€” Troubles cognitifs en vie scolaire</title>
+<title>LA FORGE | AED_DET04 — Troubles cognitifs en vie scolaire</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <style>
@@ -53,82 +53,82 @@ var BACK_URL  = 'index.html';
 
 var SCENARIOS = [
   {
-    ctx: "En \Ã©tude, Cl\Ã©ment (5\Ã¨me) met 20 minutes \Ã  recopier 5 lignes. Son \Ã©criture est tr\Ã¨s lente, irr\Ã©guli\Ã¨re, et il s\â€™\Ã©nerve contre lui-m\Ãªme. Il n\â€™a pas de PAP \Ã  votre connaissance.",
-    q: "Comment r\Ã©agissez-vous ?",
+    ctx: "En étude, Clément (5ème) met 20 minutes à recopier 5 lignes. Son écriture est très lente, irrégulière, et il s\'énerve contre lui-même. Il n\'a pas de PAP à votre connaissance.",
+    q: "Comment réagissez-vous ?",
     options: [
       {
         label: "Adapter + noter + transmettre",
-        text: "Je ne le force pas \Ã  finir la copie. \Â«Cl\Ã©ment, concentre-toi sur les 3 premi\Ã¨res lignes, c\â€™est d\Ã©j\Ã  bien.\Â» Je note la lenteur et l\â€™irr\Ã©gularit\Ã© de l\â€™\Ã©criture comme observation factuelle. Je transmets au CPE : \Â«suspicion possible de trouble graphique, \Ã  croiser avec les enseignants.\Â»",
+        text: "Je ne le force pas à finir la copie. «Clément, concentre-toi sur les 3 premières lignes, c\'est déjà bien.» Je note la lenteur et l\'irrégularité de l\'écriture comme observation factuelle. Je transmets au CPE : «suspicion possible de trouble graphique, à croiser avec les enseignants.»",
         score: 3,
-        fb: "La lenteur de copie associ\Ã©e \Ã  une \Ã©criture irr\Ã©guli\Ã¨re et \Ã  de la frustration peut signaler une dysgraphie ou une dyspraxie non diagnostiqu\Ã©e. L\â€™AED n\â€™a pas \Ã  diagnostiquer \â€” mais ses observations en \Ã©tude sont un mat\Ã©riau pr\Ã©cieux pour les enseignants et le m\Ã©decin scolaire.",
+        fb: "La lenteur de copie associée à une écriture irrégulière et à de la frustration peut signaler une dysgraphie ou une dyspraxie non diagnostiquée. L\'AED n\'a pas à diagnostiquer — mais ses observations en étude sont un matériau précieux pour les enseignants et le médecin scolaire.",
         good: true
       },
       {
         label: "Pousser",
-        text: "\Â«Tu dois finir ta copie comme les autres. Fais un effort.\Â»",
+        text: "«Tu dois finir ta copie comme les autres. Fais un effort.»",
         score: 0,
-        fb: "Si Cl\Ã©ment est dysgraphique, l\â€™\Â«effort\Â» ne suffira pas. C\â€™est comme demander \Ã  un \Ã©l\Ã¨ve myope de mieux regarder. La pression aggrave la frustration sans r\Ã©soudre le probl\Ã¨me sous-jacent.",
+        fb: "Si Clément est dysgraphique, l\'«effort» ne suffira pas. C\'est comme demander à un élève myope de mieux regarder. La pression aggrave la frustration sans résoudre le problème sous-jacent.",
         good: false
       },
       {
         label: "Ne rien faire",
-        text: "Certains \Ã©l\Ã¨ves sont juste lents, c\â€™est pas un trouble.",
+        text: "Certains élèves sont juste lents, c\'est pas un trouble.",
         score: 1,
-        fb: "Peut-\Ãªtre. Mais 20 minutes pour 5 lignes avec de la frustration visible m\Ã©rite au minimum une note et une transmission. C\â€™est au m\Ã©decin scolaire de trancher \â€” pas \Ã  l\â€™AED de diagnostiquer, ni de ne pas transmettre.",
+        fb: "Peut-être. Mais 20 minutes pour 5 lignes avec de la frustration visible mérite au minimum une note et une transmission. C\'est au médecin scolaire de trancher — pas à l\'AED de diagnostiquer, ni de ne pas transmettre.",
         good: false
       },
     ]
   },
   {
-    ctx: "A\Ã¯cha (6\Ã¨me, dyslexique, PAP) a du mal \Ã  lire la consigne d\â€™un exercice en \Ã©tude. Elle vous demande : \Â«Vous pouvez me lire la consigne ?\Â»",
+    ctx: "Aïcha (6ème, dyslexique, PAP) a du mal à lire la consigne d\'un exercice en étude. Elle vous demande : «Vous pouvez me lire la consigne ?»",
     q: "Que faites-vous ?",
     options: [
       {
         label: "Lire + reformuler",
-        text: "Je lis la consigne \Ã  voix basse. Puis je reformule : \Â«En gros, on te demande de...\Â» V\Ã©rifier qu\â€™elle a compris. Ce n\â€™est pas \Â«lui m\Ã¢cher le travail\Â» \â€” c\â€™est compenser un trouble d\â€™acc\Ã¨s \Ã  l\â€™\Ã©crit. Son intelligence n\â€™est pas en cause, c\â€™est le canal d\â€™entr\Ã©e qui est obstru\Ã©.",
+        text: "Je lis la consigne à voix basse. Puis je reformule : «En gros, on te demande de...» Vérifier qu\'elle a compris. Ce n\'est pas «lui mâcher le travail» — c\'est compenser un trouble d\'accès à l\'écrit. Son intelligence n\'est pas en cause, c\'est le canal d\'entrée qui est obstrué.",
         score: 3,
-        fb: "La dyslexie n\â€™est pas un probl\Ã¨me d\â€™intelligence \â€” c\â€™est un probl\Ã¨me de d\Ã©codage. Lire la consigne \Ã  l\â€™oral est un am\Ã©nagement standard du PAP. L\â€™AED qui le fait en \Ã©tude est un relais direct du dispositif d\â€™inclusion.",
+        fb: "La dyslexie n\'est pas un problème d\'intelligence — c\'est un problème de décodage. Lire la consigne à l\'oral est un aménagement standard du PAP. L\'AED qui le fait en étude est un relais direct du dispositif d\'inclusion.",
         good: true
       },
       {
         label: "Refuser",
-        text: "\Â«C\â€™est ton exercice, tu dois le faire toi-m\Ãªme.\Â»",
+        text: "«C\'est ton exercice, tu dois le faire toi-même.»",
         score: 0,
-        fb: "Refuser de lire la consigne \Ã  un \Ã©l\Ã¨ve dyslexique, c\â€™est refuser les lunettes \Ã  un myope. Le PAP pr\Ã©voit explicitement cette aide. L\â€™autonomie de l\â€™\Ã©l\Ã¨ve porte sur la r\Ã©flexion, pas sur le d\Ã©codage.",
+        fb: "Refuser de lire la consigne à un élève dyslexique, c\'est refuser les lunettes à un myope. Le PAP prévoit explicitement cette aide. L\'autonomie de l\'élève porte sur la réflexion, pas sur le décodage.",
         good: false
       },
       {
-        label: "Faire l\â€™exercice",
-        text: "Je lui explique directement la r\Ã©ponse pour aller plus vite.",
+        label: "Faire l\'exercice",
+        text: "Je lui explique directement la réponse pour aller plus vite.",
         score: 1,
-        fb: "Lire la consigne \â‰  faire l\â€™exercice. La distinction est cruciale : on compense l\â€™acc\Ã¨s, pas la r\Ã©flexion. A\Ã¯cha doit chercher la r\Ã©ponse elle-m\Ãªme \â€” mais avec une consigne qu\â€™elle comprend.",
+        fb: "Lire la consigne ≠ faire l\'exercice. La distinction est cruciale : on compense l\'accès, pas la réflexion. Aïcha doit chercher la réponse elle-même — mais avec une consigne qu\'elle comprend.",
         good: false
       },
     ]
   },
   {
-    ctx: "Un enseignant vous dit : \Â«Ne l\â€™aidez pas trop, sinon elle ne progressera jamais. Elle doit apprendre \Ã  se d\Ã©brouiller.\Â»",
-    q: "Comment r\Ã©agissez-vous ?",
+    ctx: "Un enseignant vous dit : «Ne l\'aidez pas trop, sinon elle ne progressera jamais. Elle doit apprendre à se débrouiller.»",
+    q: "Comment réagissez-vous ?",
     options: [
       {
         label: "Expliquer la compensation",
-        text: "\Â«Je comprends l\â€™intention, mais la dyslexie ne \Â«gu\Ã©rit\Â» pas par l\â€™effort. Lire la consigne, c\â€™est pas lui m\Ã¢cher le travail \â€” c\â€™est lui donner acc\Ã¨s au travail. C\â€™est pr\Ã©vu dans son PAP. Sans \Ã§a, elle ne travaille pas du tout.\Â»",
+        text: "«Je comprends l\'intention, mais la dyslexie ne «guérit» pas par l\'effort. Lire la consigne, c\'est pas lui mâcher le travail — c\'est lui donner accès au travail. C\'est prévu dans son PAP. Sans ça, elle ne travaille pas du tout.»",
         score: 3,
-        fb: "La confusion entre aide excessive et compensation est fr\Ã©quente. L\â€™AED peut (et doit) expliquer la diff\Ã©rence : compenser l\â€™acc\Ã¨s \â‰  supprimer la difficult\Ã©. Le PAP est le cadre l\Ã©gal qui l\Ã©gitime l\â€™am\Ã©nagement.",
+        fb: "La confusion entre aide excessive et compensation est fréquente. L\'AED peut (et doit) expliquer la différence : compenser l\'accès ≠ supprimer la difficulté. Le PAP est le cadre légal qui légitime l\'aménagement.",
         good: true
       },
       {
-        label: "Ob\Ã©ir",
-        text: "\Â«OK, je n\â€™interviens plus.\Â»",
+        label: "Obéir",
+        text: "«OK, je n\'interviens plus.»",
         score: 0,
-        fb: "Ob\Ã©ir \Ã  une consigne qui contredit le PAP, c\â€™est laisser l\â€™\Ã©l\Ã¨ve sans am\Ã©nagement. Le PAP est un document officiel \â€” il s\â€™impose \Ã  tous les adultes de l\â€™\Ã©tablissement.",
+        fb: "Obéir à une consigne qui contredit le PAP, c\'est laisser l\'élève sans aménagement. Le PAP est un document officiel — il s\'impose à tous les adultes de l\'établissement.",
         good: false
       },
       {
         label: "Confronter",
-        text: "\Â«C\â€™est pas \Ã  vous de d\Ã©cider, le PAP dit le contraire.\Â»",
+        text: "«C\'est pas à vous de décider, le PAP dit le contraire.»",
         score: 1,
-        fb: "Le fond est juste mais la forme est frontale. Expliquer le m\Ã©canisme de la compensation (acc\Ã¨s \â‰  facilit\Ã©) est plus efficace que brandir le PAP comme un bouclier.",
+        fb: "Le fond est juste mais la forme est frontale. Expliquer le mécanisme de la compensation (accès ≠ facilité) est plus efficace que brandir le PAP comme un bouclier.",
         good: false
       },
     ]
@@ -136,10 +136,10 @@ var SCENARIOS = [
 ];
 
 var SYNTHESIS = [
-  {icon:"ðŸ“", t:"DYS \â‰  paresse :", v:"Dyslexie, dysgraphie, dyscalculie : troubles neurologiques du traitement, pas manque de volont\Ã©. L\â€™effort ne compense pas un trouble."},
-  {icon:"ðŸ”", t:"D\Ã©tecter en \Ã©tude :", v:"Lenteur anormale, frustration, \Ã©criture irr\Ã©guli\Ã¨re, difficult\Ã© de lecture : noter et transmettre. L\â€™AED voit ce que le prof ne voit pas."},
-  {icon:"âš–ï¸", t:"Compenser \â‰  faciliter :", v:"Lire la consigne = donner acc\Ã¨s. Donner la r\Ã©ponse = supprimer l\â€™apprentissage. Distinction fondamentale."},
-  {icon:"ðŸ“„", t:"PAP/PPS :", v:"Documents officiels qui s\â€™imposent \Ã  tous. L\â€™AED est un relais du dispositif d\â€™inclusion, pas un ex\Ã©cutant optionnel."},
+  {icon:"📝", t:"DYS ≠ paresse :", v:"Dyslexie, dysgraphie, dyscalculie : troubles neurologiques du traitement, pas manque de volonté. L\'effort ne compense pas un trouble."},
+  {icon:"🔍", t:"Détecter en étude :", v:"Lenteur anormale, frustration, écriture irrégulière, difficulté de lecture : noter et transmettre. L\'AED voit ce que le prof ne voit pas."},
+  {icon:"⚖️", t:"Compenser ≠ faciliter :", v:"Lire la consigne = donner accès. Donner la réponse = supprimer l\'apprentissage. Distinction fondamentale."},
+  {icon:"📄", t:"PAP/PPS :", v:"Documents officiels qui s\'imposent à tous. L\'AED est un relais du dispositif d\'inclusion, pas un exécutant optionnel."},
 ];
 
 
@@ -181,66 +181,66 @@ function App(){
     var sep=BACK_URL.indexOf('?')===-1?'?':'&';
     window.location.href=p&&p!=='anonyme'?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
   };
-  var PlayerChip=function(){return e('div',{className:'player-chip'},'ðŸŽ® ',getPlayer());};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🎮 ',getPlayer());};
   var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
   var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
 
   var renderIntro=function(){return e('div',{className:'card'},
-    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'â† La Forge'),PlayerChip()),
-    e('div',{className:'tag'},'DÃ©tection & Signaux Faibles Â· Module 1/5'),
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Détection & Signaux Faibles · Module 1/5'),
     e('h1',null,"Troubles cognitifs en vie scolaire"),
-    e('p',{className:'quote'},'"'+"Un \Ã©l\Ã¨ve qui ne comprend pas la consigne n\â€™est pas un \Ã©l\Ã¨ve qui ne veut pas travailler."+'" â€” Guide inclusion scolaire'),
-    e('p',null,"Dyslexie, dyscalculie, dyspraxie, dysorthographie, trouble du langage oral : ces troubles affectent 6 \Ã  8% des \Ã©l\Ã¨ves. L\â€™AED les rencontre surtout en \Ã©tude \â€” l\Ã  o\Ã¹ l\â€™\Ã©l\Ã¨ve se retrouve seul face \Ã  la t\Ã¢che, sans l\â€™\Ã©tayage du prof."),
-    e('p',null,"Ce module vous donne les cl\Ã©s pour reconna\Ã®tre les difficult\Ã©s li\Ã©es aux troubles DYS en situation de vie scolaire, adapter votre aide sans infantiliser, et transmettre vos observations pour enrichir le suivi."),
-    e('div',{className:'insight-box'},e('strong',null,'ðŸ“š RÃ©fÃ©rences : '),"INSERM, Troubles des apprentissages \â€” HAS, Trouble sp\Ã©cifique du langage \â€” Guide AED inclusion"),
+    e('p',{className:'quote'},'"'+"Un élève qui ne comprend pas la consigne n\'est pas un élève qui ne veut pas travailler."+'" — Guide inclusion scolaire'),
+    e('p',null,"Dyslexie, dyscalculie, dyspraxie, dysorthographie, trouble du langage oral : ces troubles affectent 6 à 8% des élèves. L\'AED les rencontre surtout en étude — là où l\'élève se retrouve seul face à la tâche, sans l\'étayage du prof."),
+    e('p',null,"Ce module vous donne les clés pour reconnaître les difficultés liées aux troubles DYS en situation de vie scolaire, adapter votre aide sans infantiliser, et transmettre vos observations pour enrichir le suivi."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"INSERM, Troubles des apprentissages — HAS, Trouble spécifique du langage — Guide AED inclusion"),
     e('div',{style:{textAlign:'center',margin:'12px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),
       e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+Inclusion'),e('div',{className:'comp-earn'},'+Adaptation'),
       null),
-    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scÃ©nario')
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
   );};
 
   var renderScenario=function(){
     var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
-      e('div',{className:'step-tag'},'ScÃ©nario '+(sIdx+1)+' / '+SCENARIOS.length),
-      e('div',{className:'scenario-ctx'},e('strong',null,'ðŸ“ Contexte : '),sc.ctx),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),
       e('h2',null,sc.q),
       !feedback?
         sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
           e('div',{className:'opt-label'},opt.label),opt.text);})
         :e('div',null,
           e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
-            e('strong',null,feedback.good?'âœ… Posture adaptÃ©e':'âš ï¸ Point dâ€™amÃ©lioration'),
+            e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d’amélioration'),
             e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
-          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'ScÃ©nario suivant â†’':'SynthÃ¨se â†’'))
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
     );
   };
 
   var renderSynthesis=function(){
     var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
-    var v=pc>=80?"CompÃ©tence solide.":pc>=50?"Des rÃ©flexes Ã  affiner.":"Ã€ retravailler.";
+    var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
     return e('div',{className:'card'},
       e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
-      e('div',{className:'step-tag'},'SynthÃ¨se'),e('h2',null,"Ce quâ€™il faut retenir"),
-      e('div',{className:'insight-box'},e('strong',null,'ðŸŽ¯ Score : '),score+'/'+mx+' ('+pc+'%) â€” '+v),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu’il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
       e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
         return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
-      e('button',{className:'btn',onClick:finish},'Valider ce module â†’')
+      e('button',{className:'btn',onClick:finish},'Valider ce module →')
     );
   };
 
   var renderComplete=function(){return e('div',{className:'card'},
-    e('div',{className:'seal'},'ðŸ“'),
-    e('h1',null,"Module validÃ© !"),
-    e('p',{style:{textAlign:'center'}},"CompÃ©tences acquises â€” bravo."),
+    e('div',{className:'seal'},'📝'),
+    e('h1',null,"Module validé !"),
+    e('p',{style:{textAlign:'center'}},"Compétences acquises — bravo."),
     e('div',{style:{textAlign:'center',margin:'10px 0'}},
       e('div',{className:'xp-badge'},'âš¡ +100 XP'),e('span',{style:{margin:'0 6px'}}),
       e('div',{className:'comp-earn'},'+1 Inclusion'),e('div',{className:'comp-earn'},'+1 Adaptation'),
       null),
-    e('button',{className:'btn',onClick:goBack},'â† Retour Ã  La Forge')
+    e('button',{className:'btn',onClick:goBack},'← Retour à La Forge')
   );};
 
   switch(step){

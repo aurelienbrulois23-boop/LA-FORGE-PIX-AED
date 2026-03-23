@@ -625,6 +625,39 @@ function syncCurrentPlayerState(opts){
   if(snapshot&&opts.cloud!==false)queuePlayerSnapshotCloudSync(snapshot.player,snapshot,opts.source||'forge-web');
   return snapshot;
 }
+function readLocalCompletedModulesFromCerts(player){
+  var completed=[];
+  allMods().forEach(function(mod){
+    var raw=localStorage.getItem(ck(mod.id));
+    if(!raw)return;
+    try{
+      var cert=JSON.parse(raw);
+      if(!player||!cert||!cert.n||cert.n===player)completed.push(mod.id);
+    }catch(e){
+      if(!player)completed.push(mod.id);
+    }
+  });
+  return sanitizeCompletedModuleIds(completed);
+}
+function mergeSnapshotWithLocalCerts(player){
+  if(!player)return null;
+  var snapshot=readPlayerSnapshot(player);
+  var localCompleted=readLocalCompletedModulesFromCerts(player);
+  if(!snapshot&&localCompleted.length){
+    return writePlayerSnapshot({version:1,player:player,completedModules:localCompleted});
+  }
+  if(!snapshot)return null;
+  var merged=sanitizeCompletedModuleIds((snapshot.completedModules||[]).concat(localCompleted));
+  var sameLength=merged.length===snapshot.completedModules.length;
+  var sameOrder=sameLength&&merged.every(function(id,idx){return snapshot.completedModules[idx]===id;});
+  if(sameOrder)return snapshot;
+  return writePlayerSnapshot({
+    version:snapshot.version||1,
+    player:player,
+    updatedAt:snapshot.updatedAt,
+    completedModules:merged
+  });
+}
 function applyPlayerSnapshot(snapshot){
   clearAllModuleCerts();
   if(!snapshot||!snapshot.player)return null;
@@ -634,13 +667,14 @@ function applyPlayerSnapshot(snapshot){
   return snapshot;
 }
 function restorePlayerState(player){
+  var snapshot=mergeSnapshotWithLocalCerts(player)||readPlayerSnapshot(player);
   clearAllModuleCerts();
-  var snapshot=readPlayerSnapshot(player);
   if(snapshot)applyPlayerSnapshot(snapshot);
   return snapshot;
 }
 function getCompletedModulesForPlayer(player){
-  var snapshot=readPlayerSnapshot(player);
+  var snapshot=player&&player===gP()?mergeSnapshotWithLocalCerts(player):readPlayerSnapshot(player);
+  if(!snapshot)snapshot=readPlayerSnapshot(player);
   if(snapshot&&Array.isArray(snapshot.completedModules))return snapshot.completedModules.slice();
   if(player&&player===gP())return buildPlayerSnapshot(player).completedModules;
   return [];
@@ -876,7 +910,18 @@ function importPlayerState(evt){
   });
 }
 // Certs
-function ck(id){return'CERT_AED_'+id;}function iD(id){return!!localStorage.getItem(ck(id));}
+function ck(id){return'CERT_AED_'+id;}
+function readModuleCert(id){
+  var raw=localStorage.getItem(ck(id));
+  if(!raw)return null;
+  try{return JSON.parse(raw);}catch(e){return {m:id};}
+}
+function iD(id,player){
+  var cert=readModuleCert(id);
+  var target=player||gP();
+  if(!cert||!target)return false;
+  return !cert.n||cert.n===target;
+}
 function iU(pil,idx){return idx===0||iD(pil.m[idx-1].id);}
 function dC(){var n=0;P.forEach(function(p){p.m.forEach(function(m){if(iD(m.id))n++;});});return n;}
 function bC(){var n=0;B.forEach(function(m){if(iD(m.id))n++;});return n;}

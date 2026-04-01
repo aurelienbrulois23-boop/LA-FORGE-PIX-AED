@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LA FORGE | AED_PSY01 — Observer sans interpréter : les signaux de mal-être</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--bg:#0c0f14;--acc:#8b5cf6;--acc-d:#6d28d9;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--gold:#e2a84b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,#8b5cf622 0%,transparent 55%)}
+#root{width:100%;max-width:820px;position:relative;z-index:1}
+.card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
+h1,h2{font-family:'DM Serif Display',serif;color:var(--acc);text-align:center;margin-bottom:12px}
+h1{font-size:1.45rem}h2{font-size:1.15rem}
+p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
+.quote{font-style:italic;color:var(--muted);border-left:3px solid var(--acc);padding-left:14px;margin-bottom:18px;line-height:1.7;font-size:.88rem}
+.tag{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px;text-align:center}
+.xp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(226,168,75,.08);border:1px solid rgba(226,168,75,.25);padding:4px 12px;border-radius:20px;font-size:.68rem;color:var(--gold);font-family:'JetBrains Mono',monospace}
+.comp-earn{display:inline-flex;align-items:center;gap:4px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);padding:3px 10px;border-radius:12px;font-size:.62rem;color:var(--acc);font-family:'JetBrains Mono',monospace;margin:2px}
+.player-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.btn{background:var(--acc);color:#fff;border:none;padding:12px 26px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:.25s;display:block;margin:18px auto 0;border-radius:6px;font-size:.82rem;font-family:'IBM Plex Sans',sans-serif}
+.btn:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.progress{height:2px;background:rgba(255,255,255,.05);margin-bottom:22px;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));border-radius:2px;transition:width .5s}
+.step-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);color:var(--text);padding:16px 18px;margin:10px 0;cursor:pointer;transition:.2s;border-radius:6px;font-size:.86rem;line-height:1.6;font-family:'IBM Plex Sans',sans-serif}
+.opt:hover{background:rgba(255,255,255,.05);border-color:var(--acc)}
+.opt-label{font-weight:700;color:var(--acc);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-family:'JetBrains Mono',monospace}
+.summary-box{background:rgba(255,255,255,.02);border-left:3px solid var(--acc);padding:16px 18px;margin:16px 0;line-height:1.8}
+.summary-box p{margin-bottom:8px;font-size:.84rem;color:#a0b4cc}
+.insight-box{background:rgba(226,168,75,.04);border:1px solid rgba(226,168,75,.15);padding:14px 16px;border-radius:6px;margin:12px 0;font-size:.82rem;line-height:1.7;color:#d4c4a0}
+.insight-box strong{color:var(--gold)}
+.seal{text-align:center;font-size:2.6rem;margin:14px 0}
+.nav-back{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);padding:6px 12px;cursor:pointer;border-radius:4px;font-size:.68rem;font-weight:600;transition:.2s;margin-bottom:16px;font-family:'IBM Plex Sans',sans-serif}
+.nav-back:hover{background:rgba(255,255,255,.08);color:#fff}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.scenario-ctx{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);padding:14px 16px;border-radius:6px;margin-bottom:14px;font-size:.86rem;line-height:1.7}
+.scenario-ctx strong{color:var(--acc)}
+.fb-box{background:rgba(255,255,255,.03);border-left:3px solid var(--acc);padding:14px 16px;margin:14px 0;font-size:.84rem;line-height:1.7;border-radius:0 6px 6px 0}
+.fb-box.good{border-left-color:#10b981;background:rgba(16,185,129,.04)}
+.fb-box.warn{border-left-color:#f97316;background:rgba(249,115,22,.04)}
+</style></head>
+<body><div id="root"></div>
+<script>
+var e = React.createElement;
+var MODULE_ID = 'AED_PSY01';
+var CERT_KEY  = 'CERT_AED_AED_PSY01';
+var BACK_URL  = 'index.html';
+
+var INTRO = {
+  "pillar": "Santé Psychique · Module 1/5",
+  "pos": "Repérage & Observation",
+  "title": "Observer sans interpréter : les signaux de mal-être",
+  "quote": "L'AED n'est ni médecin, ni psy. Il est un observateur entraîné et un maillon essentiel de la chaîne de protection.",
+  "p1": "Repérer la souffrance psychique d'un élève, ce n'est pas diagnostiquer. C'est observer des faits concrets, les dater, les consigner, et les transmettre aux bons interlocuteurs. Ce module vous entraîne à distinguer l'observation factuelle de l'interprétation — une compétence qui peut littéralement changer une trajectoire de vie.",
+  "p2": "Trois niveaux de signaux : faibles (vigilance), forts (alerte), urgence (action immédiate). Votre rôle couvre les trois — avec des réponses différentes selon le niveau.",
+  "refs": "Santé publique France, ENCLASS 2022 — HAS, Manifestations dépressives à l'adolescence — Columbia C-SSRS (protocole non-clinicien) — Éduscol, Agir pour la santé mentale des élèves"
+};
+
+var SCENARIOS = [
+  {
+    "ctx": "Depuis 10 jours, Lina (4e) arrive à l'accueil avec les yeux rouges. Elle mange seul depuis une semaine. Ses notes ont chuté. Ce matin, elle porte des manches longues alors qu'il fait 24°C.",
+    "q": "Que faites-vous de ces observations ?",
+    "options": [
+      {
+        "label": "Consigner les faits et alerter le CPE",
+        "text": "Je note avec précision et dates : arrivées les yeux rouges (10 jours), repas seule (1 semaine), chute des notes, manches longues par 24°C. Je transmets ces faits factuellement au CPE sans interpréter : 'Voici ce que j'observe depuis 10 jours.'",
+        "score": 3,
+        "fb": "C'est la posture correcte. Quatre signaux convergents sur 10 jours constituent un faisceau d'alerte sérieux. La consignation datée est essentielle : elle objective la situation et donne au CPE, à l'infirmière ou à l'AS un matériau de travail. Les manches longues par forte chaleur peuvent signaler des automutilations — c'est un signal fort qui justifie une alerte sans délai.",
+        "good": true
+      },
+      {
+        "label": "Demander directement à Lina",
+        "text": "Je prends Lina à part : 'Je vois que tu n'as pas l'air bien. Tu peux me dire ce qui se passe ?'",
+        "score": 1,
+        "fb": "L'intention est bonne, mais poser directement la question sur des suspicions d'automutilation peut être contre-productif si l'élève n'est pas prête. Si vous ouvrez cette porte, soyez prêt à la suite — et transmettez quoi qu'il arrive. La question reste possible, mais la transmission au CPE/infirmière est non-négociable.",
+        "good": false
+      },
+      {
+        "label": "Attendre de voir",
+        "text": "Peut-être qu'elle a eu un chagrin d'amour. Je surveille encore quelques jours.",
+        "score": 0,
+        "fb": "Quatre signaux convergents sur 10 jours ne justifient pas l'attente. L'obligation de signalement ne démarre pas à la certitude — elle démarre au soupçon raisonnable. Attendre, c'est prendre le risque que la situation s'aggrave.",
+        "good": false
+      }
+    ]
+  },
+  {
+    "ctx": "Yoann (3e) avait jusqu'ici de bons résultats. Depuis trois semaines, il n'a pas rendu un seul devoir. Il arrive en retard, semble épuisé, et ses professeurs rapportent qu'il 'ne se réveille plus'. Ses parents disent que 'ça va, il est adolescent'.",
+    "q": "Vous avez cinq minutes avec Yoann en permanence. Il est là, casque sur les oreilles. Que faites-vous ?",
+    "options": [
+      {
+        "label": "Observation + signal factuel à l'équipe",
+        "text": "Je note les faits objectifs : 3 semaines sans devoirs, retards systématiques, épuisement apparent signalé par 3 enseignants. Je transmets au CPE avec ces éléments. En permanence, je lui dis simplement : 'Dis, Yoann, ça fait un moment que tu sembles épuisé. Tu vas bien ?' — sans forcer.",
+        "score": 3,
+        "fb": "La chute de motivation et les absences scolaires prolongées chez un élève antérieurement investi sont des signaux forts de trouble dépressif ou anxieux. La phrase 'tu sembles épuisé' est un miroir factuel — elle nomme ce qu'on observe sans accuser ni interpréter. Si Yoann répond, c'est bien. Sinon, la transmission à l'équipe reste nécessaire.",
+        "good": true
+      },
+      {
+        "label": "Relancer la motivation",
+        "text": "Je lui parle de l'enjeu du brevet, des conséquences sur son orientation. 'Tu te rends compte que tu risques de tout rater ?'",
+        "score": 0,
+        "fb": "La pression scolaire sur un élève qui présente possiblement un trouble dépressif peut aggraver la situation. La dépression adolescente s'accompagne souvent de culpabilité et de dévalorisation de soi — rappeler les enjeux alourdit cette charge sans aider. L'urgence est d'évaluer le bien-être, pas les résultats.",
+        "good": false
+      },
+      {
+        "label": "Respecter l'avis des parents",
+        "text": "Les parents disent que ça va. Je fais confiance à leur évaluation et laisse tomber.",
+        "score": 0,
+        "fb": "Les parents ne voient pas ce que vous voyez au quotidien. Leur avis est précieux mais ne suffit pas à clore une observation préoccupante faite par plusieurs adultes sur une durée de trois semaines. Votre devoir d'observation ne s'éteint pas parce que les parents relativisent.",
+        "good": false
+      }
+    ]
+  },
+  {
+    "ctx": "Kamil (5e) vous glisse en passant : 'De toute façon, je serais mieux mort.' Il rit en le disant et continue son chemin.",
+    "q": "Que faites-vous dans les deux minutes qui suivent ?",
+    "options": [
+      {
+        "label": "Stopper et questionner directement",
+        "text": "Je le rattrape immédiatement et lui dis : 'Attends, Kamil. Ce que tu viens de dire, je ne peux pas le laisser passer. Est-ce que parfois tu penses à te faire du mal ?' Je l'emmène dans un endroit calme et j'alerte l'infirmière ou le CPE dans la foulée.",
+        "score": 3,
+        "fb": "Quand un élève exprime une idée suicidaire — même sur le ton de la plaisanterie — la règle absolue est d'y répondre directement et sans délai. La question directe ('est-ce que tu penses à te faire du mal ?') ne donne pas l'idée — elle ouvre la porte. Si Kamil nie, vous l'informez que vous en avez parlé à l'infirmière. Le sourire ou le rire ne neutralise pas l'alerte.",
+        "good": true
+      },
+      {
+        "label": "Considérer que c'est une blague",
+        "text": "Il rigolait. C'est une expression que les jeunes utilisent. Je passe.",
+        "score": 0,
+        "fb": "Le protocole de prévention du suicide est clair : toute expression suicidaire — même humoristique, même minimisée — doit être prise au sérieux. Les études montrent que de nombreux adolescents qui passent à l'acte avaient exprimé des idées suicidaires qui avaient été banalisées par des adultes.",
+        "good": false
+      },
+      {
+        "label": "En parler à d'autres élèves",
+        "text": "Je demande à ses amis si Kamil va bien en ce moment.",
+        "score": 1,
+        "fb": "Interroger les pairs peut avoir un intérêt secondaire, mais ce n'est pas la première action à mener. Cela peut aussi déclencher des rumeurs ou alerter un groupe de façon incontrôlée. La première action est toujours de parler directement à l'élève concerné et d'alerter immédiatement l'infirmière ou le CPE.",
+        "good": false
+      }
+    ]
+  }
+];
+
+var SYNTHESIS = [
+  {
+    "icon": "👁",
+    "t": "Observer, pas diagnostiquer :",
+    "v": "Votre rôle est de collecter des faits datés et de les transmettre. Pas d'interpréter, pas de conclure."
+  },
+  {
+    "icon": "📋",
+    "t": "La consignation factuelle :",
+    "v": "Notez les dates, les comportements observés, les changements. Un seul signal peut être anecdotique. Un faisceau de signaux sur plusieurs jours est une alerte."
+  },
+  {
+    "icon": "🚨",
+    "t": "Expression suicidaire :",
+    "v": "Toute formulation suicidaire — même sur le ton de la blague — exige une réponse directe et immédiate. Toujours."
+  },
+  {
+    "icon": "🔗",
+    "t": "La chaîne de signalement :",
+    "v": "Vous repérez → vous transmettez → l'infirmière/le CPE évalue → l'équipe oriente. Vous êtes le premier maillon. Être le premier maillon, c'est déjà énorme."
+  }
+];
+
+
+function getPlayer(){
+  try{var u=new URLSearchParams(window.location.search),p=u.get('player');
+    if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);return p;}}catch(ex){}
+  return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';
+}
+function awardXP(){
+  try{var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
+    evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
+      module:MODULE_ID,cpTotal:0,label:'LA FORGE : Observer sans interpréter : les signaux de mal-être',d:new Date().toISOString()});
+    if(evts.length>700)evts.splice(0,evts.length-700);
+    localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
+    window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
+  }catch(ex){}
+}
+
+function App(){
+  var _s=React.useState,_step=_s('intro'),step=_step[0],setStep=_step[1];
+  var _si=_s(0),sIdx=_si[0],setSIdx=_si[1];
+  var _sc=_s(0),score=_sc[0],setScore=_sc[1];
+  var _fb=_s(null),feedback=_fb[0],setFeedback=_fb[1];
+
+  var finish=function(){
+    var cert={v:2,d:new Date().toISOString(),m:MODULE_ID,n:getPlayer(),f:true};
+    localStorage.setItem(CERT_KEY,JSON.stringify(cert));
+    awardXP();setStep('complete');
+  };
+  var goBack=function(){
+    var p=getPlayer(),sep=BACK_URL.indexOf('?')===-1?'?':'&';
+    window.location.href=(p&&p!=='anonyme')?BACK_URL+sep+'player='+encodeURIComponent(p):BACK_URL;
+  };
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'\u{1F3AE} ',getPlayer());};
+  var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
+  var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
+
+  var renderIntro=function(){return e('div',{className:'card'},
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'\u2190 La Forge'),PlayerChip()),
+    e('div',{className:'tag'},INTRO.pillar+' \u00B7 '+INTRO.pos),
+    e('h1',null,INTRO.title),
+    e('p',{className:'quote'},'"'+INTRO.quote+'"'),
+    e('p',null,INTRO.p1),
+    e('p',null,INTRO.p2),
+    e('div',{className:'insight-box'},e('strong',null,'\u{1F4DA} R\u00E9f\u00E9rences : '),INTRO.refs),
+    e('div',{style:{textAlign:'center',margin:'12px 0'}},
+      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),
+      e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+Repérage'),e('div',{className:'comp-earn'},'+Observation'),null),
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le sc\u00E9nario')
+  );};
+
+  var renderScenario=function(){
+    var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
+    return e('div',{className:'card'},
+      e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
+      e('div',{className:'step-tag'},'Sc\u00E9nario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'\u{1F4CD} Contexte : '),sc.ctx),
+      e('h2',null,sc.q),
+      !feedback?
+        sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},
+          e('div',{className:'opt-label'},opt.label),opt.text);})
+        :e('div',null,
+          e('div',{className:'fb-box '+(feedback.good?'good':'warn')},
+            e('strong',null,feedback.good?'\u2705 Posture adapt\u00E9e':'\u26A0\uFE0F Point d\u2019am\u00E9lioration'),
+            e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),
+          e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Sc\u00E9nario suivant \u2192':'Synth\u00E8se \u2192'))
+    );};
+
+  var renderSynthesis=function(){
+    var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);
+    var v=pc>=80?"Comp\u00E9tence solide.":pc>=50?"Des r\u00E9flexes \u00E0 affiner.":"\u00C0 retravailler en \u00E9quipe.";
+    return e('div',{className:'card'},
+      e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
+      e('div',{className:'step-tag'},'Synth\u00E8se'),e('h2',null,"Ce qu\u2019il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'\u{1F3AF} Score : '),score+'/'+mx+' ('+pc+'%) \u2014 '+v),
+      e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){
+        return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
+      e('button',{className:'btn',onClick:finish},'Valider ce module \u2192')
+    );};
+
+  var renderComplete=function(){return e('div',{className:'card'},
+    e('div',{className:'seal'},'🔍'),
+    e('h1',null,"Module valid\u00E9 !"),
+    e('p',{style:{textAlign:'center'}},"Comp\u00E9tences acquises \u2014 bravo."),
+    e('div',{style:{textAlign:'center',margin:'10px 0'}},
+      e('div',{className:'xp-badge'},'\u26A1 +80 XP'),e('span',{style:{margin:'0 6px'}}),
+      e('div',{className:'comp-earn'},'+1 Repérage'),e('div',{className:'comp-earn'},'+1 Observation'),null),
+    e('button',{className:'btn',onClick:goBack},'\u2190 Retour \u00E0 La Forge')
+  );};
+
+  switch(step){
+    case 'intro':return renderIntro();case 'scenario':return renderScenario();
+    case 'synthesis':return renderSynthesis();case 'complete':return renderComplete();
+    default:return renderIntro();
+  }
+}
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+</script></body></html>

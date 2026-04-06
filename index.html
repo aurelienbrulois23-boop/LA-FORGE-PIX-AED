@@ -281,7 +281,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     </select>
     <button class="login-btn" id="login-btn" disabled onclick="doLogin()">Entrer dans La Forge</button>
     <div class="login-badge">&#x1F1EB;&#x1F1F7; &Eacute;ducation Nationale &mdash; Acad&eacute;mie BFC</div>
-    <div class="login-footer">29 modules &bull; 5 piliers &bull; Bonus R&eacute;visions &bull; Podcasts<br>Dispositif con&ccedil;u par le CPE &mdash; <a href="index.html">Retour au Portail</a></div>
+    <div class="login-footer">35 modules &bull; 6 piliers &bull; Bonus R&eacute;visions &bull; Podcasts<br>Dispositif con&ccedil;u par le CPE &mdash; <a href="index.html">Retour au Portail</a></div>
   </div>
 </div>
 
@@ -296,7 +296,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <!-- ╚══════════════════════════════════════════════════════════════════╝ -->
     <span class="ticker-item"><strong>LA FORGE</strong> &mdash; Nouveau dispositif d&rsquo;autoformation AED du Coll&egrave;ge Ch&acirc;teau Rance, acad&eacute;mie de Besan&ccedil;on</span>
     <span class="ticker-sep">&bull;</span>
-    <span class="ticker-item"><strong>5 PILIERS</strong> &mdash; Posture &amp; D&eacute;ontologie &bull; Cerveau Ado &bull; Gestion de Crise &bull; D&eacute;tection &bull; Ing&eacute;nierie de la Bienveillance</span>
+    <span class="ticker-item"><strong>6 PILIERS</strong> &mdash; Posture &amp; D&eacute;ontologie &bull; Cerveau Ado &bull; Gestion de Crise &bull; D&eacute;tection &bull; Ing&eacute;nierie de la Bienveillance &bull; Vivre Ensemble Actif</span>
     <span class="ticker-sep">&bull;</span>
     <span class="ticker-item"><strong>MODULES 01 &amp; 02</strong> accessibles &mdash; Formation progressive par sc&eacute;narios-embranchements</span>
     <span class="ticker-sep">&bull;</span>
@@ -348,7 +348,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     </div>
   </div>
   <div class="chat-input-row">
-    <textarea class="chat-input" id="chat-input" rows="1" placeholder="Posez votre question..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
+    <textarea class="chat-input" id="chat-input" rows="1" placeholder="Posez votre question... ou tapez &quot;joue un scénario&quot;" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat();}"></textarea>
     <button class="chat-send" id="chat-send" onclick="sendChat()">Envoyer</button>
   </div>
 </div>
@@ -412,7 +412,20 @@ var P=[
 {id:'AED_ING02',f:'AED_ING02.html',n:'Motivation : de l\u2019XP \u00e0 la joie intrins\u00e8que',x:80,co:['Neuro','P\u00e9dagogie']},
 {id:'AED_ING03',f:'AED_ING03.html',n:'Qu\u00eates de R\u00e9demption : la sanction \u00e9ducative',x:100,co:['Posture','\u00c9thique']},
 {id:'AED_ING04',f:'AED_ING04.html',n:'Preuve sociale et m\u00e9diation par les pairs',x:100,co:['M\u00e9diation','Syst\u00e9mique']},
-{id:'AED_ING05',f:'AED_ING05.html',n:'Devenir architecte du climat scolaire',x:120,co:['Synth\u00e8se','Leadership']}]}
+ {id:'AED_ING05',f:'AED_ING05.html',n:'Devenir architecte du climat scolaire',x:120,co:['Synth\u00e8se','Leadership']}]},
+{i:'\u{1FA7A}',c:'#ec4899',k:'PSY',t:'Sant\u00e9 Psychique & Mal-\u00eatre',d:'Rep\u00e9rage du mal-\u00eatre, \u00e9coute, crise d\u2019angoisse, biais, fatigue compassionnelle',m:[
+{id:'AED_PSY01',f:'AED_PSY01.html',n:'Observer sans interpr\u00e9ter : les signaux de mal-\u00eatre',x:90,co:['Sant\u00e9 mentale','Rep\u00e9rage']},
+{id:'AED_PSY02',f:'AED_PSY02.html',n:'Les biais cognitifs qui nous aveuglent',x:90,co:['Lucidit\u00e9','Sant\u00e9 mentale']},
+{id:'AED_PSY03',f:'AED_PSY03.html',n:'Que dire quand un \u00e9l\u00e8ve se confie : postures verbales',x:100,co:['\u00c9coute','Transmission']},
+{id:'AED_PSY04',f:'AED_PSY04.html',n:'La crise d\u2019angoisse : rester ancr\u00e9',x:100,co:['Ancrage','D\u00e9sescalade']},
+{id:'AED_PSY05',f:'AED_PSY05.html',n:'La fatigue compassionnelle : prendre soin de moi',x:120,co:['Auto-pr\u00e9servation','\u00c9thique']}]},
+{i:'\u{1F331}',c:'#22c55e',k:'VEA',t:'Vivre Ensemble Actif',d:'CPS, bien-\u00eatre, coh\u00e9sion, communication, comportements prosociaux',m:[
+{id:'AED_VEA01',f:'AED_VEA01.html',n:'Le bien-\u00eatre \u00e0 l\u2019\u00e9cole : de quoi parle-t-on ?',x:80,co:['Bien-\u00eatre','Compr\u00e9hension']},
+{id:'AED_VEA02',f:'AED_VEA02.html',n:'Me conna\u00eetre pour mieux accompagner',x:80,co:['Connaissance de soi','R\u00e9gulation']},
+{id:'AED_VEA03',f:'AED_VEA03.html',n:'L\u2019empathie active au quotidien',x:100,co:['Empathie','M\u00e9diation']},
+{id:'AED_VEA04',f:'AED_VEA04.html',n:'La parole qui construit',x:100,co:['Communication','Assertivit\u00e9']},
+{id:'AED_VEA05',f:'AED_VEA05.html',n:'Animer la coh\u00e9sion : gestes et rituels',x:100,co:['Coh\u00e9sion','Leadership']},
+{id:'AED_VEA06',f:'AED_VEA06.html',n:'Devenir architecte du vivre ensemble',x:120,co:['Synth\u00e8se','Proactivit\u00e9']}]}
 ];
 var B=[
 {id:'AED_REV01',f:'AED_REV01.html',n:'Maths coll\u00e8ge : les bases pour aider',x:60,i:'\u{1F4D0}',cf:1.5},
@@ -423,7 +436,9 @@ var B=[
 var AC=['Posture','Cadrage','D\u00e9onto','Juridique','Signalement','Observation','La\u00efcit\u00e9',
 'Neuro','Compr\u00e9hension','Empathie','R\u00e9gulation','Inclusion','Adaptation',
 'D\u00e9sescalade','Communication','Anticipation','pHARe','Rigueur','D\u00e9tection','Transmission',
-'Syst\u00e9mique','P\u00e9dagogie','\u00c9thique','M\u00e9diation','Synth\u00e8se','D\u00e9cision','Leadership'];
+'Syst\u00e9mique','P\u00e9dagogie','\u00c9thique','M\u00e9diation','Synth\u00e8se','D\u00e9cision','Leadership',
+'Sant\u00e9 mentale','Rep\u00e9rage','Lucidit\u00e9','\u00c9coute','Ancrage','Auto-pr\u00e9servation',
+'Bien-\u00eatre','Connaissance de soi','Assertivit\u00e9','Coh\u00e9sion','Proactivit\u00e9'];
 
 var ADULTS=[
 {nom:'ERNWEIN',prenom:'Carole',code:'Panda-Zélé-01'},
@@ -1638,6 +1653,8 @@ function scoreHubDoc(query,doc){
   if(/shadow/.test(qNorm) && /shadow xp/.test(hay))score+=120;
   if(/quete|redemption|reparation/.test(qNorm) && /quete de redemption|reparation/.test(hay))score+=95;
   if(/phare|harcelement/.test(qNorm) && /phare|harcelement/.test(hay))score+=60;
+  if(/scenario|mise en situation|jeu de role|jeu de roles|mal etre|sante mentale|angoisse|idee noire|confie|souffrance psychique|eleve en detresse/.test(qNorm) &&
+     /(aed_psy|sante psychique|mal etre|angoisse|ecoute|fatigue compassionnelle|signaux de mal etre)/.test(hay))score+=90;
   return score;
 }
 function buildHubContextBlock(query, docs){
@@ -1686,7 +1703,7 @@ var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
 var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
 
 var SYSTEM_PROMPT='';
-var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, et les 29 modules de formation. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
+var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, la santé psychique des élèves et les modules de formation du hub. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
 var TSS_APPENDIX=[
   '═══ PROTOCOLE TSS INTÉGRÉ À ÉPICTÈTE ═══',
   '- T = TRONC : réponds d\'abord depuis le contenu explicite du hub La Forge, de son architecture, de ses modules et de son référentiel.',
@@ -1699,6 +1716,365 @@ var TSS_APPENDIX=[
 function getEffectiveSystemPrompt(){
   var base=(SYSTEM_PROMPT&&SYSTEM_PROMPT.trim()?SYSTEM_PROMPT:SYSTEM_PROMPT_FALLBACK).trim();
   return base+'\n\n'+TSS_APPENDIX;
+}
+
+var EPICTETE_SCENARIO_LIBRARY=[
+  {
+    id:'PSY_REPLI_01',
+    level:1,
+    title:'Le retrait silencieux',
+    studentName:'Lina',
+    studentClass:'5e',
+    brief:'Depuis deux semaines, Lina s\'isole davantage, grignote \u00e0 peine au r\u00e9fectoire et r\u00e9pond syst\u00e9matiquement "c\'est bon" quand on lui demande si \u00e7a va.',
+    opening:'Non... c\'est rien. Je suis juste fatigu\u00e9e, j\'ai pas trop envie de parler devant tout le monde.',
+    objective:'Rep\u00e9rer sans diagnostiquer, ouvrir la parole et transmettre des faits utiles.',
+    focus:['observation factuelle','ouverture de parole','transmission'],
+    registers:['mal-\u00eatre','isolement','fatigue'],
+    moduleHints:['AED_PSY01','AED_DET01','AED_POS04'],
+    watchouts:['ne pas banaliser','ne pas interpr\u00e9ter trop vite','ne pas promettre le secret']
+  },
+  {
+    id:'PSY_CONFIDENCE_02',
+    level:1,
+    title:'La phrase qui alerte',
+    studentName:'In\u00e8s',
+    studentClass:'4e',
+    brief:'En fin de permanence, In\u00e8s l\u00e2che une phrase tr\u00e8s lourde sur le fait de dispara\u00eetre et semble attendre de voir si l\'adulte prend vraiment sa parole au s\u00e9rieux.',
+    opening:'Parfois j\'me dis que si j\'\u00e9tais plus l\u00e0, \u00e7a changerait pas grand-chose pour les autres...',
+    objective:'Accueillir une confidence, rester honn\u00eate sur les limites du secret, \u00e9valuer la gravit\u00e9 sans dramatiser.',
+    focus:['\u00e9coute active','reformulation','protection'],
+    registers:['confidence','id\u00e9es noires','solitude'],
+    moduleHints:['AED_PSY03','AED_PSY01','AED_POS04'],
+    watchouts:['pas de fausse r\u00e9assurance','pas de promesse de secret absolu','pas de minimisation']
+  },
+  {
+    id:'PSY_PANIQUE_03',
+    level:2,
+    title:'La crise en permanence',
+    studentName:'Aya',
+    studentClass:'5e',
+    brief:'Aya commence \u00e0 hyperventiler au milieu d\'une permanence charg\u00e9e. Les autres \u00e9l\u00e8ves regardent, certains ricanent, et l\'ambiance peut vite s\'emballer.',
+    opening:'J\'arrive plus \u00e0 respirer... laissez-moi... j\'y arrive pas...',
+    objective:'Garder son calme, prot\u00e9ger l\'\u00e9l\u00e8ve du regard du groupe, ancrer et relayer.',
+    focus:['ancrage','gestion du groupe','co-r\u00e9gulation'],
+    registers:['angoisse','exposition au groupe','urgence relative'],
+    moduleHints:['AED_PSY04','AED_CRI01','AED_NEU03'],
+    watchouts:['ne pas paniquer','ne pas parler trop vite','ne pas humilier devant les pairs']
+  },
+  {
+    id:'PSY_CYBER_04',
+    level:2,
+    title:'Le t\u00e9l\u00e9phone retourn\u00e9',
+    studentName:'Yanis',
+    studentClass:'4e',
+    brief:'Yanis dort mal, a mal au ventre le matin, retourne son t\u00e9l\u00e9phone d\u00e8s qu\'un adulte approche et supplie qu\'on n\'en parle \u00e0 personne.',
+    opening:'Faut juste que \u00e7a s\'arr\u00eate sur le groupe de classe... mais vous dites rien au CPE, hein ? Sinon \u00e7a va empirer.',
+    objective:'Articuler \u00e9coute, protection, cadre pHARe et refus du faux secret.',
+    focus:['cadre pHARe','secret impossible','preuves utiles'],
+    registers:['cyberharc\u00e8lement','sommeil','somatisation'],
+    moduleHints:['AED_CRI03','AED_DET02','AED_PSY03'],
+    watchouts:['ne pas enqu\u00eater seul','ne pas promettre le silence','ne pas opposer victime et auteurs']
+  },
+  {
+    id:'PSY_PROVOC_05',
+    level:3,
+    title:'Le masque du perturbateur',
+    studentName:'Noah',
+    studentClass:'5e',
+    brief:'Noah multiplie les piques, les provocations et les blagues lourdes depuis quelques jours. Derri\u00e8re ce masque, on per\u00e7oit surtout de la honte et une image de soi tr\u00e8s ab\u00eem\u00e9e.',
+    opening:'Vas-y, collez-moi si vous voulez. De toute fa\u00e7on je suis nul, vous le pensez tous.',
+    objective:'Ne pas se faire pi\u00e9ger par la seule surface provocatrice et restaurer un cadre contenant.',
+    focus:['d\u00e9sescalade','r\u00e9gulation','restauration du cadre'],
+    registers:['provocation','honte','auto-d\u00e9valorisation'],
+    moduleHints:['AED_NEU03','AED_CRI01','AED_PSY02'],
+    watchouts:['ne pas entrer dans le duel','ne pas humilier','ne pas confondre posture et personne']
+  },
+  {
+    id:'PSY_SLEEVES_06',
+    level:3,
+    title:'Les manches longues',
+    studentName:'Mila',
+    studentClass:'3e',
+    brief:'Mila garde des manches longues malgr\u00e9 la chaleur, esquive l\'EPS et se crispe d\u00e8s qu\'un adulte lui pose une question personnelle. Rien n\'est explicite, mais les signaux se cumulent.',
+    opening:'J\'veux juste qu\'on me laisse tranquille. J\'ai dit que \u00e7a allait. Arr\u00eatez de me regarder comme \u00e7a.',
+    objective:'Rep\u00e9rer un faisceau d\'indices, rester factuel et relayer rapidement sans forcer la confidence.',
+    focus:['rep\u00e9rage','prudence clinique','alerte rapide'],
+    registers:['retrait','vigilance forte','suspicion de mise en danger'],
+    moduleHints:['AED_PSY01','AED_DET01','AED_POS04'],
+    watchouts:['ne pas inspecter','ne pas accuser','ne pas rester seul avec le doute']
+  },
+  {
+    id:'PSY_REFUS_07',
+    level:3,
+    title:'Le ventre avant les cours',
+    studentName:'Samir',
+    studentClass:'6e',
+    brief:'Samir passe de plus en plus souvent par l\'infirmerie avant certains cours, parle de maux de ventre et commence \u00e0 rater le coll\u00e8ge un jour sur deux. La famille minimise.',
+    opening:'C\'est juste mon ventre... je peux pas aller en maths aujourd\'hui. Dites juste que j\'\u00e9tais malade.',
+    objective:'Travailler l\'articulation entre observation, partenariat interne et vigilance sur le d\u00e9crochage.',
+    focus:['somatisation','d\u00e9crochage','transmission partenariale'],
+    registers:['anxi\u00e9t\u00e9 scolaire','absent\u00e9isme','minimisation familiale'],
+    moduleHints:['AED_DET03','AED_PSY02','AED_POS04'],
+    watchouts:['ne pas r\u00e9duire \u00e0 de la com\u00e9die','ne pas traiter \u00e7a seul','ne pas couper le lien']
+  },
+  {
+    id:'PSY_MIXTE_08',
+    level:4,
+    title:'Tout s\'emm\u00eale',
+    studentName:'Ma\u00eblle',
+    studentClass:'4e',
+    brief:'Depuis une semaine, Ma\u00eblle cumule cybermoqueries, rupture avec son groupe d\'amies, fatigue extr\u00eame et attaques de panique. Elle veut parler, mais refuse qu\'un adulte intervienne.',
+    opening:'Si vous appelez quelqu\'un, c\'est fini pour moi... Je veux juste que \u00e7a s\'arr\u00eate sans que \u00e7a se sache.',
+    objective:'Hi\u00e9rarchiser les priorit\u00e9s entre \u00e9coute, protection, pHARe, relais internes et gestion de crise.',
+    focus:['priorisation','cadre institutionnel','multi-registres'],
+    registers:['cyberharc\u00e8lement','angoisse','rupture sociale','fatigue'],
+    moduleHints:['AED_PSY03','AED_PSY04','AED_DET02','AED_CRI03','AED_POS04'],
+    watchouts:['ne pas c\u00e9der au secret','ne pas vouloir tout r\u00e9gler seul','ne pas perdre le cap de protection']
+  },
+  {
+    id:'PSY_CONTROLE_09',
+    level:4,
+    title:'Le contr\u00f4le absolu',
+    studentName:'Chlo\u00e9',
+    studentClass:'3e',
+    brief:'Chlo\u00e9 refuse r\u00e9guli\u00e8rement de manger au self, s\'\u00e9puise en EPS, veut tout ma\u00eetriser et s\'effondre \u00e0 la moindre remarque sur son travail. Elle nie que quelque chose cloche.',
+    opening:'Je g\u00e8re tr\u00e8s bien, merci. J\'ai juste pas faim. Pourquoi tout le monde me surveille d\'un coup ?',
+    objective:'Tenir une posture sobre face \u00e0 des signaux de contr\u00f4le et de fragilit\u00e9, sans pseudo-diagnostic.',
+    focus:['observation convergente','entretien bref','orientation interne'],
+    registers:['rapport au corps','perfectionnisme','d\u00e9ni'],
+    moduleHints:['AED_PSY01','AED_PSY02','AED_POS04'],
+    watchouts:['ne pas commenter le corps','ne pas diagnostiquer','ne pas rester sur une seule sc\u00e8ne']
+  }
+];
+var EPICTETE_SCENARIO_HISTORY_LIMIT=24;
+var EPICTETE_SCENARIO_MAX_RECENT=4;
+
+function getEpicteteScenarioHistoryKey(player){
+  return 'forge_epictete_scenarios_'+(player||'anon');
+}
+function getEpicteteActiveScenarioKey(player){
+  return 'forge_epictete_active_scenario_'+(player||'anon');
+}
+function readScenarioStorage(key,fallback){
+  try{
+    var raw=localStorage.getItem(key);
+    if(!raw)return fallback;
+    var parsed=JSON.parse(raw);
+    return typeof parsed==='undefined'||parsed===null?fallback:parsed;
+  }catch(e){
+    return fallback;
+  }
+}
+function writeScenarioStorage(key,value){
+  try{localStorage.setItem(key,JSON.stringify(value));}catch(e){}
+}
+function loadEpicteteScenarioHistory(player){
+  var data=readScenarioStorage(getEpicteteScenarioHistoryKey(player),[]);
+  return Array.isArray(data)?data:[];
+}
+function saveEpicteteScenarioHistory(player,history){
+  writeScenarioStorage(getEpicteteScenarioHistoryKey(player),(history||[]).slice(-EPICTETE_SCENARIO_HISTORY_LIMIT));
+}
+function loadActiveEpicteteScenario(player){
+  var data=readScenarioStorage(getEpicteteActiveScenarioKey(player),null);
+  return data&&data.scenarioId?data:null;
+}
+function saveActiveEpicteteScenario(player,state){
+  if(!state)return;
+  writeScenarioStorage(getEpicteteActiveScenarioKey(player),state);
+}
+function clearActiveEpicteteScenario(player){
+  try{localStorage.removeItem(getEpicteteActiveScenarioKey(player));}catch(e){}
+}
+function isEpicteteScenarioLaunchRequest(text){
+  var norm=normalizeHubText(text||'');
+  if(!norm)return false;
+  if(/\b(joue|jouer|jouez|joueur|lance|lancer|demarre|demarrer|simulation)\b/.test(norm) && /\b(scenario|scenarios|jeu de role|jeu de roles|mise en situation)\b/.test(norm))return true;
+  return /^(scenario|scenarios)\b/.test(norm);
+}
+function isEpicteteScenarioStopRequest(text){
+  var norm=normalizeHubText(text||'');
+  return /\b(fin du scenario|stop scenario|arrete le scenario|arret du scenario|quitter le scenario|sortir du scenario)\b/.test(norm);
+}
+function isEpicteteScenarioDebriefRequest(text){
+  var norm=normalizeHubText(text||'');
+  return /\b(debrief|debriefe|debriefer|bilan du scenario|analyse du scenario|retour sur le scenario)\b/.test(norm);
+}
+function findEpicteteScenarioById(id){
+  return EPICTETE_SCENARIO_LIBRARY.find(function(item){return item.id===id;})||null;
+}
+function summarizeScenarioList(items, limit){
+  var list=(items||[]).filter(Boolean);
+  if(!list.length)return 'aucun pour l\'instant';
+  if(list.length<=limit)return list.join(', ');
+  return list.slice(0,limit).join(', ')+' +'+(list.length-limit);
+}
+function countScenarioFocus(history){
+  var counts={};
+  (history||[]).forEach(function(entry){
+    (entry.focus||[]).forEach(function(label){
+      counts[label]=(counts[label]||0)+1;
+    });
+  });
+  return counts;
+}
+function getEpicteteScenarioProfile(player){
+  var target=player||gP()||'anon';
+  var completed=getCompletedModulesForPlayer(target);
+  var history=loadEpicteteScenarioHistory(target);
+  var psyCompleted=completed.filter(function(id){return /^AED_PSY/.test(id);});
+  var supportCompleted=completed.filter(function(id){
+    return /^AED_(DET|CRI|NEU)/.test(id) || id==='AED_POS04' || id==='AED_POS03' || id==='AED_ING03';
+  });
+  var level=1;
+  if(psyCompleted.length>=1 || history.length>=1 || supportCompleted.length>=2)level=2;
+  if(psyCompleted.length>=3 || history.length>=3 || supportCompleted.length>=5)level=3;
+  if(psyCompleted.length>=5 || history.length>=6 || (psyCompleted.length>=3 && supportCompleted.length>=7))level=4;
+  return {
+    player:target,
+    completedModules:completed,
+    psyCompleted:psyCompleted,
+    supportCompleted:supportCompleted,
+    history:history,
+    level:level,
+    focusCounts:countScenarioFocus(history)
+  };
+}
+function pickEpicteteScenario(query,profile){
+  var norm=normalizeHubText(query||'');
+  var desiredLevel=profile.level||1;
+  if(/\b(complexe|avance|avancee|difficile|challenge)\b/.test(norm))desiredLevel=Math.min(4,desiredLevel+1);
+  if(/\b(simple|debut|debutant|facile|premier)\b/.test(norm))desiredLevel=1;
+  var recentIds=(profile.history||[]).slice(-EPICTETE_SCENARIO_MAX_RECENT).map(function(entry){return entry.id;});
+  var scored=EPICTETE_SCENARIO_LIBRARY.map(function(scenario){
+    var score=0;
+    score+=Math.max(0,42-(Math.abs((scenario.level||1)-desiredLevel)*12));
+    if((scenario.level||1)>(profile.level||1) && !/\b(complexe|avance|avancee|difficile|challenge)\b/.test(norm))score-=18;
+    (scenario.registers||[]).forEach(function(tag){
+      if(norm.indexOf(normalizeHubText(tag))!==-1)score+=16;
+    });
+    (scenario.focus||[]).forEach(function(tag){
+      if(norm.indexOf(normalizeHubText(tag))!==-1)score+=12;
+    });
+    (scenario.moduleHints||[]).forEach(function(mid){
+      if(profile.completedModules.indexOf(mid)!==-1)score+=8;
+    });
+    if(recentIds.indexOf(scenario.id)!==-1)score-=55;
+    var priorCount=(profile.history||[]).filter(function(entry){return entry.id===scenario.id;}).length;
+    score-=priorCount*16;
+    return {scenario:scenario,score:score};
+  }).sort(function(a,b){return b.score-a.score;});
+  var finalists=scored.slice(0,Math.min(3,scored.length)).map(function(item){return item.scenario;});
+  if(!finalists.length)return EPICTETE_SCENARIO_LIBRARY[0];
+  return finalists[Math.floor(Math.random()*finalists.length)];
+}
+function archiveActiveEpicteteScenario(player,status){
+  var target=player||gP()||'anon';
+  var active=loadActiveEpicteteScenario(target);
+  if(!active)return null;
+  var history=loadEpicteteScenarioHistory(target);
+  history.push({
+    id:active.scenarioId,
+    title:active.title,
+    level:active.level,
+    focus:active.focus||[],
+    registers:active.registers||[],
+    startedAt:active.startedAt,
+    endedAt:new Date().toISOString(),
+    turns:active.turnCount||0,
+    status:status||'termine'
+  });
+  saveEpicteteScenarioHistory(target,history);
+  clearActiveEpicteteScenario(target);
+  return history[history.length-1];
+}
+function startEpicteteScenario(player,requestText){
+  var target=player||gP()||'anon';
+  var current=loadActiveEpicteteScenario(target);
+  if(current)archiveActiveEpicteteScenario(target,(current.turnCount||0)>0?'termine':'interrompu');
+  var profile=getEpicteteScenarioProfile(target);
+  var chosen=pickEpicteteScenario(requestText,profile);
+  var state={
+    player:target,
+    scenarioId:chosen.id,
+    title:chosen.title,
+    level:chosen.level,
+    studentName:chosen.studentName,
+    studentClass:chosen.studentClass,
+    brief:chosen.brief,
+    opening:chosen.opening,
+    objective:chosen.objective,
+    focus:(chosen.focus||[]).slice(),
+    registers:(chosen.registers||[]).slice(),
+    moduleHints:(chosen.moduleHints||[]).slice(),
+    watchouts:(chosen.watchouts||[]).slice(),
+    startedAt:new Date().toISOString(),
+    turnCount:0
+  };
+  saveActiveEpicteteScenario(target,state);
+  return state;
+}
+function buildEpicteteScenarioProgressSummary(profile){
+  var focusLabels=Object.keys(profile.focusCounts||{}).sort(function(a,b){
+    return (profile.focusCounts[b]||0)-(profile.focusCounts[a]||0);
+  }).slice(0,4);
+  var recentTitles=(profile.history||[]).slice(-3).map(function(entry){
+    return entry.title+' (N'+entry.level+')';
+  });
+  return [
+    'Profil AED : '+profile.player,
+    '- Modules sant\u00e9 psychique valid\u00e9s : '+summarizeScenarioList(profile.psyCompleted,4),
+    '- Autres modules utiles valid\u00e9s : '+summarizeScenarioList(profile.supportCompleted,5),
+    '- Niveau de complexit\u00e9 propos\u00e9 : '+profile.level+'/4',
+    '- Sc\u00e9narios d\u00e9j\u00e0 jou\u00e9s : '+(profile.history||[]).length,
+    '- Derniers sc\u00e9narios : '+summarizeScenarioList(recentTitles,3),
+    '- R\u00e9flexes d\u00e9j\u00e0 travaill\u00e9s : '+summarizeScenarioList(focusLabels,4)
+  ].join('\n');
+}
+function buildEpicteteScenarioRules(activeScenario,profile,mode){
+  var lines=[
+    '═══ MODE SCENARIO AED ACTIF ═══',
+    'Tu ne reponds plus comme simple base de connaissances : tu animes une mise en situation professionnelle encadree.',
+    'Tu simules prioritairement l\'eleve concerne, tout en aidant l\'AED a progresser.',
+    'Le scenario est destine a un adulte AED en formation, pas a un collégien.',
+    'Tu n\'etablis jamais de diagnostic, tu ne fais jamais de therapie, tu ne romanticises jamais la souffrance.',
+    'Aucun detail operatoire dangereux : pas de methode suicidaire, pas de geste auto-agressif detaille, pas de contenu voyeuriste.',
+    'Cadre constant : observation, ecoute, protection, co-regulation, transmission, relais institutionnels.',
+    'Si un risque vital explicite apparait, tu sors brievement du role pour rappeler la protection immediate, l\'infirmiere/CPE/direction et le 15 ou 112 si urgence.',
+    'Scenario actif : '+activeScenario.title+' (niveau '+activeScenario.level+'/4)',
+    'Eleve joue : '+activeScenario.studentName+' ('+activeScenario.studentClass+')',
+    'Situation de depart : '+activeScenario.brief,
+    'Premiere replique de l\'eleve : '+activeScenario.opening,
+    'Objectif pedagogique : '+activeScenario.objective,
+    'Registres en jeu : '+(activeScenario.registers||[]).join(', '),
+    'Focus professionels : '+(activeScenario.focus||[]).join(', '),
+    'Modules a mobiliser si utiles : '+(activeScenario.moduleHints||[]).join(', '),
+    'Points de vigilance : '+(activeScenario.watchouts||[]).join(', '),
+    buildEpicteteScenarioProgressSummary(profile)
+  ];
+  if(mode==='start'){
+    lines.push('Pour ce premier tour, ouvre exactement avec :');
+    lines.push('1. SCENARIO : titre + niveau.');
+    lines.push('2. MISE EN SITUATION : 3 a 5 lignes maximum.');
+    lines.push('3. ELEVE : une premiere replique vivante et plausible.');
+    lines.push('4. REPERE FORMATEUR : 2 ou 3 lignes sur le cap professionnel vise.');
+    lines.push('5. Termine par : Pour cloturer et obtenir le debrief, ecris "fin du scenario".');
+  }else if(mode==='debrief'){
+    lines.push('L\'utilisateur demande le debrief ou la cloture du scenario.');
+    lines.push('Reponds au format :');
+    lines.push('DEBRIEF');
+    lines.push('- Forces professionnelles observees');
+    lines.push('- Point de vigilance');
+    lines.push('- Ce qui etait attendu institutionnellement');
+    lines.push('- Prochain cap de progression');
+    lines.push('- Source locale : ...');
+  }else{
+    lines.push('Tant que le scenario est en cours, reponds au format :');
+    lines.push('ELEVE : la reponse en role de l\'eleve, breve, plausible, sans melodrame.');
+    lines.push('REPERE FORMATEUR : retour bref et concret sur la posture de l\'AED, sans casser inutilement le rythme.');
+    lines.push('Si l\'AED derape, recadre avec bienveillance mais fermement.');
+  }
+  return lines.join('\n');
 }
 
 // Load external system prompt from epictete_system.txt
@@ -1916,6 +2292,7 @@ function clearChatHistory(){
   if(!chatHistory.length)return;
   if(!confirm('Effacer la conversation enregistrée pour '+getCurrentChatDisplayName()+' ?'))return;
   stopChatSpeech();
+  clearActiveEpicteteScenario(gP()||'anon');
   chatHistory=[];
   lastAssistantText='';
   try{localStorage.removeItem(getChatStorageKey());}catch(e){}
@@ -1943,7 +2320,7 @@ function addWelcome(){
   var name=player||'collègue';
   var adult=ADULTS.find(function(a){return a.code===player;});
   if(adult&&adult.prenom&&adult.nom!=='---')name=adult.prenom;
-  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Je réponds en mode TSS ancré au hub : je vérifie d\'abord les contenus locaux, je n\'attribue pas un module au doigt mouillé, et si l\'info manque je te le dis franchement.');
+  addMsg('ai','Salut '+name+' ! Je suis Épictète, ton assistant formation intégré à La Forge. Je réponds en mode TSS ancré au hub : je vérifie d\'abord les contenus locaux, je n\'attribue pas un module au doigt mouillé, et si l\'info manque je te le dis franchement.\n\nTu peux aussi t\'entraîner : écris simplement "joue un scénario" pour lancer une mise en situation guidée, notamment autour du mal-être élève et des modules AED_PSY.');
 }
 
 function addMsg(role,text){
@@ -2008,25 +2385,65 @@ async function sendChat(){
   var btn=document.getElementById('chat-send');
   var text=(input.value||'').trim();
   if(!text)return;
+  var player=gP()||'anon';
+  var startScenario=isEpicteteScenarioLaunchRequest(text);
+  var activeScenario=loadActiveEpicteteScenario(player);
+  var stopScenario=!!activeScenario&&isEpicteteScenarioStopRequest(text);
+  var debriefScenario=!!activeScenario&&isEpicteteScenarioDebriefRequest(text);
+  var scenarioMode=false;
+  var scenarioState=activeScenario;
+  var scenarioPhase='normal';
+  var scenarioProfile=null;
+  var scenarioQuery=text;
   input.value='';btn.disabled=true;
   stopChatSpeech();
   addMsg('user',text);
   // Show typing
   var body=document.getElementById('chat-body');
   var typing=document.createElement('div');typing.className='chat-typing';typing.id='typing';
-  typing.textContent='Épictète recoupe les sources locales...';body.appendChild(typing);body.scrollTop=body.scrollHeight;
+  if(startScenario){
+    scenarioState=startEpicteteScenario(player,text);
+    scenarioProfile=getEpicteteScenarioProfile(player);
+    scenarioMode=true;
+    scenarioPhase='start';
+    scenarioQuery=text+' '+(scenarioState.moduleHints||[]).join(' ')+' '+(scenarioState.registers||[]).join(' ')+' '+(scenarioState.focus||[]).join(' ');
+    typing.textContent='Épictète prépare un scénario de mise en situation...';
+  }else if(stopScenario||debriefScenario){
+    scenarioProfile=getEpicteteScenarioProfile(player);
+    scenarioMode=true;
+    scenarioPhase='debrief';
+    scenarioQuery=(scenarioState.title||'')+' '+(scenarioState.moduleHints||[]).join(' ')+' '+(scenarioState.focus||[]).join(' ');
+    typing.textContent='Épictète prépare le débrief du scénario...';
+  }else if(activeScenario){
+    scenarioState=activeScenario;
+    scenarioState.turnCount=(scenarioState.turnCount||0)+1;
+    saveActiveEpicteteScenario(player,scenarioState);
+    scenarioProfile=getEpicteteScenarioProfile(player);
+    scenarioMode=true;
+    scenarioPhase='turn';
+    scenarioQuery=text+' '+(scenarioState.moduleHints||[]).join(' ')+' '+(scenarioState.registers||[]).join(' ')+' '+(scenarioState.focus||[]).join(' ');
+    typing.textContent='Épictète maintient le cadre du scénario...';
+  }else{
+    typing.textContent='Épictète recoupe les sources locales...';
+  }
+  body.appendChild(typing);body.scrollTop=body.scrollHeight;
   try{
-    var hub=await retrieveHubContext(text);
+    var hub=await retrieveHubContext(scenarioQuery);
     var runtimeRules=[
       '═══ GARDE-FOUS D’EXÉCUTION TSS ═══',
       '- Quand la question porte sur La Forge, ses modules, ses règles, ses récompenses, ses XP, ses procédures ou son organisation interne, tu réponds UNIQUEMENT à partir du CONTEXTE LOCAL RÉCUPÉRÉ.',
       '- Tu n’as PAS le droit de citer un module, un palier, une récompense, un chiffre, un nom propre ou une procédure absents du CONTEXTE LOCAL RÉCUPÉRÉ.',
       '- Les anciens messages assistant peuvent contenir des erreurs : ne les reprends jamais sans preuve dans le contexte récupéré.',
       '- Si le contexte récupéré ne suffit pas pour trancher, tu le dis clairement au lieu d’inventer.',
-      '- Pour toute réponse factuelle, ajoute une dernière ligne : Source locale : ... en citant uniquement les éléments présents dans le contexte récupéré.',
-      '- Réponse attendue : réponse directe d’abord ; puis éventuel complément utile bref ; pas de roman.'
-    ].join('\n');
-    runtimeRules+='\n- Reponds uniquement a la derniere demande utilisateur. L\'historique recent sert seulement de contexte.';
+      '- Réponse attendue : réponse directe d’abord ; puis éventuel complément utile bref ; pas de roman.',
+      '- Réponds uniquement à la dernière demande utilisateur. L\'historique récent sert seulement de contexte.'
+    ];
+    if(scenarioMode){
+      runtimeRules.push('- Dans un scénario, ne termine pas chaque tour par "Source locale". Réserve les références au repère formateur ou au débrief.');
+    }else{
+      runtimeRules.push('- Pour toute réponse factuelle, ajoute une dernière ligne : Source locale : ... en citant uniquement les éléments présents dans le contexte récupéré.');
+      runtimeRules.push('- Si la demande appelle un entraînement pratique autour du mal-être élève, des situations préoccupantes ou de la posture d’écoute, tu peux proposer en fin de réponse : Si tu veux, écris "joue un scénario".');
+    }
 
     var recentContext=chatHistory
       .slice(Math.max(chatHistory.length-7,0),Math.max(chatHistory.length-1,0))
@@ -2036,7 +2453,10 @@ async function sendChat(){
         return role+' : '+content;
       })
       .join('\n');
-    var systemContent=getEffectiveSystemPrompt()+'\n\n'+runtimeRules+'\n\n'+hub.context;
+    var systemContent=getEffectiveSystemPrompt()+'\n\n'+runtimeRules.join('\n')+'\n\n'+hub.context;
+    if(scenarioMode&&scenarioState&&scenarioProfile){
+      systemContent+='\n\n'+buildEpicteteScenarioRules(scenarioState,scenarioProfile,scenarioPhase);
+    }
     if(recentContext){
       systemContent+='\n\nHISTORIQUE RECENT (CONTEXTE UNIQUEMENT)\n'+recentContext;
     }
@@ -2051,8 +2471,8 @@ async function sendChat(){
       body:JSON.stringify({
         model:'mistral-small-latest',
         messages:messages,
-        temperature:0.2,
-        max_tokens:900
+        temperature:scenarioMode?0.55:0.2,
+        max_tokens:scenarioMode?1200:900
       })
     });
     var data=await res.json();
@@ -2066,9 +2486,16 @@ async function sendChat(){
     }else{reply='Pas de réponse. Réessaie.';}
     var t=document.getElementById('typing');if(t)t.remove();
     addMsg('ai',reply);
+    if(scenarioMode&&scenarioState&&scenarioPhase==='debrief'){
+      archiveActiveEpicteteScenario(player,'termine');
+    }else if(scenarioMode&&scenarioState&&scenarioPhase==='start'){
+      scenarioState.turnCount=1;
+      saveActiveEpicteteScenario(player,scenarioState);
+    }
   }catch(e){
     var t2=document.getElementById('typing');if(t2)t2.remove();
     addMsg('ai','Erreur de connexion ou d’indexation locale du hub. Vérifie que tous les fichiers La Forge sont dans le même dossier, puis réessaie.');
+    if(startScenario)clearActiveEpicteteScenario(player);
   }
   btn.disabled=false;
   input.focus();

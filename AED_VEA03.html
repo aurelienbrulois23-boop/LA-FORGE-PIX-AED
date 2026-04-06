@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LA FORGE | AED_VEA03 — L'empathie active au quotidien</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--bg:#0c0f14;--acc:#22c55e;--acc-d:#16a34a;--text:#dce4f0;--muted:#6b7a94;--border:#1e2736;--card:#151921;--green:#22c55e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:28px 16px 60px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,rgba(34,197,94,.05) 0%,transparent 55%)}
+#root{width:100%;max-width:820px;position:relative;z-index:1}
+.card{background:var(--card);border:1px solid var(--border);padding:32px 36px;border-radius:10px;box-shadow:0 4px 40px rgba(0,0,0,.4);position:relative;overflow:hidden}
+.card::before{content:'LA FORGE';position:absolute;top:-18px;right:-8px;font-family:'DM Serif Display';font-size:3.5rem;opacity:.03;transform:rotate(-12deg);color:var(--acc);pointer-events:none}
+h1,h2{font-family:'DM Serif Display',serif;color:var(--acc);text-align:center;margin-bottom:12px}
+h1{font-size:1.45rem}h2{font-size:1.15rem}
+p{line-height:1.8;margin-bottom:14px;color:var(--text);font-size:.92rem}
+.quote{font-style:italic;color:var(--muted);border-left:3px solid var(--acc);padding-left:14px;margin-bottom:18px;line-height:1.7;font-size:.88rem}
+.tag{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-family:'JetBrains Mono',monospace;margin-bottom:10px;text-align:center}
+.xp-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);padding:4px 12px;border-radius:20px;font-size:.68rem;color:var(--green);font-family:'JetBrains Mono',monospace}
+.comp-earn{display:inline-flex;align-items:center;gap:4px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:3px 10px;border-radius:12px;font-size:.62rem;color:var(--acc);font-family:'JetBrains Mono',monospace;margin:2px}
+.player-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:4px 12px;border-radius:20px;font-size:.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.btn{background:var(--acc);color:#000;border:none;padding:12px 26px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:.25s;display:block;margin:18px auto 0;border-radius:6px;font-size:.82rem;font-family:'IBM Plex Sans',sans-serif}
+.btn:hover{filter:brightness(1.1);transform:translateY(-2px)}
+.progress{height:2px;background:rgba(255,255,255,.05);margin-bottom:22px;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--acc-d),var(--acc));border-radius:2px;transition:width .5s}
+.step-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);color:var(--text);padding:16px 18px;margin:10px 0;cursor:pointer;transition:.2s;border-radius:6px;font-size:.86rem;line-height:1.6;font-family:'IBM Plex Sans',sans-serif}
+.opt:hover{background:rgba(255,255,255,.05);border-color:var(--acc)}
+.opt-label{font-weight:700;color:var(--acc);font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;font-family:'JetBrains Mono',monospace}
+.summary-box{background:rgba(255,255,255,.02);border-left:3px solid var(--acc);padding:16px 18px;margin:16px 0;line-height:1.8}
+.summary-box p{margin-bottom:8px;font-size:.84rem;color:#a0b4cc}
+.insight-box{background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.15);padding:14px 16px;border-radius:6px;margin:12px 0;font-size:.82rem;line-height:1.7;color:#c4e8d0}
+.insight-box strong{color:var(--green)}
+.seal{text-align:center;font-size:2.6rem;margin:14px 0}
+.nav-back{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted);padding:6px 12px;cursor:pointer;border-radius:4px;font-size:.68rem;font-weight:600;transition:.2s;margin-bottom:16px;font-family:'IBM Plex Sans',sans-serif}
+.nav-back:hover{background:rgba(255,255,255,.08);color:#fff}
+.top-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.scenario-ctx{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);padding:14px 16px;border-radius:6px;margin-bottom:14px;font-size:.86rem;line-height:1.7}
+.scenario-ctx strong{color:var(--acc)}
+.fb-box{background:rgba(255,255,255,.03);border-left:3px solid var(--acc);padding:14px 16px;margin:14px 0;font-size:.84rem;line-height:1.7;border-radius:0 6px 6px 0}
+.fb-box.good{border-left-color:#22c55e;background:rgba(34,197,94,.04)}
+.fb-box.warn{border-left-color:#f97316;background:rgba(249,115,22,.04)}
+</style></head>
+<body><div id="root"></div>
+<script>
+var e = React.createElement;
+var MODULE_ID = 'AED_VEA03';
+var CERT_KEY  = 'CERT_AED_AED_VEA03';
+var BACK_URL  = 'index.html';
+
+var SCENARIOS = [
+  {
+    ctx: "En surveillance de cour, vous remarquez qu'une élève de 5ème est assise seule, regarde le sol, et n'a pas touché son goûter. Elle ne pleure pas. Elle n'est pas visiblement agitée. Juste… en dehors.",
+    q: "Que faites-vous ?",
+    options: [
+      {
+        label: "Approche empathique douce",
+        text: "'Je m'approche tranquillement, je m'assieds à côté sans forcer. Je dis simplement : «T'as l'air d'avoir la tête ailleurs aujourd'hui.» Et j'attends. Pas de question directe, pas de pression. Juste de la présence.",
+        score: 3,
+        fb: "L'empathie active ne force pas la confidence — elle crée les conditions pour qu'elle soit possible. Une remarque neutre et douce ('T'as l'air d'avoir la tête ailleurs') est une invitation, pas une intrusion. Les neurosciences montrent que la présence calme d'un adulte régule le système nerveux d'un élève en détresse, même sans mots.",
+        good: true
+      },
+      {
+        label: "Questionnement direct",
+        text: "'Tu vas bien ? Il s'est passé quelque chose ? T'as des problèmes avec des camarades ?'",
+        score: 1,
+        fb: "La série de questions directes peut mettre l'élève en position de devoir se justifier plutôt que de se confier. L'empathie active commence par la présence et l'observation, pas par l'interrogatoire. L'élève silencieuse a besoin de sentir qu'elle n'est pas obligée de parler pour être accompagnée.",
+        good: false
+      },
+      {
+        label: "Non-intervention",
+        text: "Elle n'a pas l'air en danger, je ne veux pas m'imposer. Je surveille de loin.",
+        score: 0,
+        fb: "L'isolement silencieux est souvent un signal plus fort que les larmes ou l'agitation. L'empathie active inclut la capacité à détecter les signaux subtils et à y répondre. Rester à distance par peur d'imposer, c'est parfois laisser un élève seul précisément quand il a besoin de savoir qu'on le voit.",
+        good: false
+      },
+    ]
+  },
+  {
+    ctx: "Deux élèves se disputent dans le couloir à la sortie d'un cours. Mathieu accuse Lina de lui avoir 'volé sa place dans le groupe'. Lina répond qu'elle n'a fait que suivre les consignes du prof. Tous les deux sont en colère.",
+    q: "Comment intervenez-vous ?",
+    options: [
+      {
+        label: "Empathie double et reformulation",
+        text: "'Je sépare d'abord. Puis je dis à chacun : «Je veux comprendre ta version.» À Mathieu : «Tu as eu l'impression d'être mis de côté — c'est ça ?» À Lina : «Tu as suivi ce qu'on t'a dit et tu n'as pas choisi d'exclure Mathieu — c'est bien ça ?» J'attends la confirmation de chacun avant d'aller plus loin.'",
+        score: 3,
+        fb: "La reformulation empathique ('c'est ça ?') est une technique clé de médiation. Elle montre à chaque partie qu'elle a été entendue avant d'être jugée. Cette étape désamorce l'escalade émotionnelle et crée les conditions d'une résolution possible. C'est de l'empathie en acte, pas de la gentillesse vague.",
+        good: true
+      },
+      {
+        label: "Arbitrage rapide",
+        text: "'J'arbitre vite : Lina a suivi le prof, donc elle avait raison. Mathieu, tu t'en parles avec le prof.'",
+        score: 0,
+        fb: "L'arbitrage rapide résout le fait immédiat mais ignore le vécu émotionnel des deux élèves. Mathieu partira avec le sentiment de ne pas avoir été entendu. Ce type de résolution hâtive crée des ressentiments durables. L'empathie prend quelques minutes de plus — mais elle évite des escalades futures.",
+        good: false
+      },
+      {
+        label: "Appel à la raison",
+        text: "'Calmez-vous tous les deux. Vous êtes dans un couloir, c'est pas le moment.'",
+        score: 1,
+        fb: "'Calmez-vous' est rarement entendu quand les émotions sont à vif. L'injonction au calme sans reconnaissance du vécu ne calme pas — elle refoule. L'empathie active précède le recadrage.",
+        good: false
+      },
+    ]
+  },
+  {
+    ctx: "Une collègue AED vous confie en salle de repos : 'Je commence à ne plus supporter certains élèves. J'ai l'impression d'être invisible. Les collègues ne me disent bonjour que pour les urgences.' Elle a l'air vraiment épuisée.",
+    q: "Que lui dites-vous ?",
+    options: [
+      {
+        label: "Écoute empathique sans solution précipitée",
+        text: "'Je l'écoute vraiment, sans chercher à résoudre tout de suite. «Ce que tu décris ça ressemble à une vraie fatigue professionnelle. Tu te sens peu reconnue ici ?» Je reste avec elle dans ce qu'elle ressent avant de penser aux solutions.'",
+        score: 3,
+        fb: "L'empathie s'applique aussi entre adultes. Une collègue épuisée n'a pas d'abord besoin de solutions — elle a besoin d'être entendue. Le réflexe de résolution immédiate coupe la parole là où elle vient juste de s'ouvrir. La reconnaissance précède l'aide.",
+        good: true
+      },
+      {
+        label: "Conseil immédiat",
+        text: "'Tu devrais en parler au CPE. Ou prendre un rendez-vous avec la médecine du travail.'",
+        score: 1,
+        fb: "Le conseil n'est pas mauvais en soi, mais trop tôt il déplace la conversation de l'émotion vers l'action. Votre collègue a fait un geste de confiance en se confiant — y répondre immédiatement par une liste d'actions, c'est passer à côté de ce geste.",
+        good: false
+      },
+      {
+        label: "Minimisation rassurante",
+        text: "'T'inquiète pas, c'est la fin d'année, tout le monde est fatigué. Ça va aller.'",
+        score: 0,
+        fb: "'Tout le monde est pareil' invalide le vécu spécifique de votre collègue. La minimisation, même bien intentionnée, isole davantage. Elle vient de partager quelque chose de vulnérable — y répondre par 'c'est normal' ferme la porte.",
+        good: false
+      },
+    ]
+  },
+];
+
+var SYNTHESIS = [
+  {icon:"👁️", t:"Voir avant d'interpréter :", v:"L'empathie active commence par l'observation fine. Un élève silencieux, une collègue qui évite le regard — les signaux non-verbaux précèdent souvent les mots. Entraîner son attention, c'est entraîner son empathie."},
+  {icon:"🔁", t:"La reformulation empathique :", v:"Reformuler ce qu'on entend ('c'est bien ça ?') montre qu'on a vraiment écouté. Elle désamorce l'émotion et crée un espace de clarification. C'est la technique de médiation de base — et elle s'apprend."},
+  {icon:"⏸️", t:"La présence avant la solution :", v:"L'empathie ne cherche pas à régler immédiatement. Elle cherche d'abord à créer un espace sûr. Les solutions viennent après — plus facilement, quand la personne ne se sent plus seule."},
+  {icon:"🌐", t:"Empathie horizontale :", v:"Les adultes aussi ont besoin d'être vus. Un établissement où les adultes s'écoutent vraiment développe une culture de bien-être qui se diffuse aux élèves. L'empathie entre pairs n'est pas anecdotique — c'est systémique."},
+];
+
+function getPlayer(){try{var u=new URLSearchParams(window.location.search),p=u.get('player');if(p&&p.length>2){localStorage.setItem('pvs_current_player',p);localStorage.setItem('pvs_aed_player',p);return p;}}catch(ex){}return localStorage.getItem('pvs_current_player')||localStorage.getItem('pvs_aed_player')||'anonyme';}
+function awardXP(){try{var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),module:MODULE_ID,cpTotal:0,label:"LA FORGE : L'empathie active au quotidien",d:new Date().toISOString()});if(evts.length>700)evts.splice(0,evts.length-700);localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));}catch(ex){}}
+
+function App(){
+  var _s=React.useState,_step=_s('intro'),step=_step[0],setStep=_step[1];
+  var _si=_s(0),sIdx=_si[0],setSIdx=_si[1];
+  var _sc=_s(0),score=_sc[0],setScore=_sc[1];
+  var _fb=_s(null),feedback=_fb[0],setFeedback=_fb[1];
+  var finish=function(){localStorage.setItem(CERT_KEY,JSON.stringify({v:2,d:new Date().toISOString(),m:MODULE_ID,n:getPlayer(),f:true}));awardXP();setStep('complete');};
+  var goBack=function(){var p=getPlayer();window.location.href=p&&p!=='anonyme'?BACK_URL+'?player='+encodeURIComponent(p):BACK_URL;};
+  var PlayerChip=function(){return e('div',{className:'player-chip'},'🤝 ',getPlayer());};
+  var handleChoice=function(opt){setScore(score+opt.score);setFeedback(opt);};
+  var nextScenario=function(){setFeedback(null);if(sIdx<SCENARIOS.length-1){setSIdx(sIdx+1);}else{setStep('synthesis');}};
+
+  var renderIntro=function(){return e('div',{className:'card'},
+    e('div',{className:'top-row'},e('button',{className:'nav-back',onClick:goBack},'← La Forge'),PlayerChip()),
+    e('div',{className:'tag'},'Vivre Ensemble Actif · Module 3/6'),
+    e('h1',null,"L'empathie active au quotidien"),
+    e('p',{className:'quote'},'"'+"L'empathie n'est pas un sentiment — c'est une compétence. Elle s'observe, elle se pratique, elle s'améliore."+'" — Brené Brown'),
+    e('p',null,"L'empathie est souvent pensée comme une disposition innée : 'il est empathique' ou 'elle ne l'est pas'. Les neurosciences montrent le contraire : l'empathie s'entraîne. Elle repose sur des mécanismes cérébraux (neurones miroirs, système limbique) qui répondent à la pratique consciente."),
+    e('p',null,"Ce module explore l'empathie dans trois contextes concrets de la vie d'AED : face à un élève en retrait, entre des élèves en conflit, et entre adultes. La même compétence, trois terrains différents — trois façons de créer du lien là où on pourrait laisser passer."),
+    e('div',{className:'insight-box'},e('strong',null,'📚 Références : '),"Brené Brown, The Gifts of Imperfection — Giacomo Rizzolatti, Les neurones miroirs — Carl Rogers, L\'empathie comme mode d\'être"),
+    e('div',{style:{textAlign:'center',margin:'12px 0'}},e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),e('div',{className:'comp-earn'},'+Empathie'),e('div',{className:'comp-earn'},'+Médiation'),null),
+    e('button',{className:'btn',onClick:function(){setStep('scenario');}},'Entrer dans le scénario')
+  );};
+
+  var renderScenario=function(){var sc=SCENARIOS[sIdx];var pct=15+Math.round(((sIdx+(feedback?1:0))/(SCENARIOS.length))*70);
+    return e('div',{className:'card'},e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:pct+'%'}})),
+      e('div',{className:'step-tag'},'Scénario '+(sIdx+1)+' / '+SCENARIOS.length),
+      e('div',{className:'scenario-ctx'},e('strong',null,'📍 Contexte : '),sc.ctx),e('h2',null,sc.q),
+      !feedback?sc.options.map(function(opt,i){return e('button',{key:i,className:'opt',onClick:function(){handleChoice(opt);}},e('div',{className:'opt-label'},opt.label),opt.text);})
+        :e('div',null,e('div',{className:'fb-box '+(feedback.good?'good':'warn')},e('strong',null,feedback.good?'✅ Posture adaptée':'⚠️ Point d\'amélioration'),e('p',{style:{marginTop:'8px',marginBottom:0}},feedback.fb)),e('button',{className:'btn',onClick:nextScenario},sIdx<SCENARIOS.length-1?'Scénario suivant →':'Synthèse →'))
+    );};
+
+  var renderSynthesis=function(){var mx=SCENARIOS.length*3,pc=Math.round((score/mx)*100);var v=pc>=80?"Compétence solide.":pc>=50?"Des réflexes à affiner.":"À retravailler.";
+    return e('div',{className:'card'},e('div',{className:'progress'},e('div',{className:'progress-fill',style:{width:'90%'}})),
+      e('div',{className:'step-tag'},'Synthèse'),e('h2',null,"Ce qu'il faut retenir"),
+      e('div',{className:'insight-box'},e('strong',null,'🎯 Score : '),score+'/'+mx+' ('+pc+'%) — '+v),
+      e('div',{className:'summary-box'},SYNTHESIS.map(function(s,i){return e('p',{key:i},e('strong',null,s.icon+' '+s.t+' '),s.v);})),
+      e('button',{className:'btn',onClick:finish},'Valider ce module →'));};
+
+  var renderComplete=function(){return e('div',{className:'card'},e('div',{className:'seal'},'🤝'),e('h1',null,"Module validé !"),e('p',{style:{textAlign:'center'}},"L'empathie active est maintenant dans votre boîte à outils. Elle se renforce à chaque situation traversée avec attention."),e('div',{style:{textAlign:'center',margin:'10px 0'}},e('div',{className:'xp-badge'},'⚡ +100 XP'),e('span',{style:{margin:'0 6px'}}),e('div',{className:'comp-earn'},'+1 Empathie'),e('div',{className:'comp-earn'},'+1 Médiation'),null),e('button',{className:'btn',onClick:goBack},'← Retour à La Forge'));};
+
+  switch(step){case 'intro':return renderIntro();case 'scenario':return renderScenario();case 'synthesis':return renderSynthesis();case 'complete':return renderComplete();default:return renderIntro();}
+}
+ReactDOM.createRoot(document.getElementById('root')).render(e(App));
+</script></body></html>

@@ -90,6 +90,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .ai:focus{outline:none;border-color:var(--accent)}
 .aw{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .ax{padding:8px 14px;border-radius:7px;border:none;cursor:pointer;font-weight:700;font-size:.78rem}
+.ax:disabled{opacity:.45;cursor:not-allowed}
 .xp{background:var(--accent);color:#000}.xg{background:var(--emerald);color:#000}
 .xr{background:#ef4444;color:#fff}.xn{background:rgba(255,255,255,.1);color:var(--text)}
 .as{margin-top:12px;border-top:1px solid var(--border);padding-top:10px}
@@ -977,7 +978,17 @@ rw.innerHTML='<div class="mn" style="color:'+col+';border-color:'+col+'">'+(dm?'
 '<div class="mf"><div class="mm">'+mod.n+'</div><div class="ms">'+mod.x+' XP'+(!ul&&!dm?' \u00B7 \u{1F512}':'')+'</div>'+ch+'</div>'+
 '<div class="mi">'+(dm?'\u{1F3C5}':(ul?'\u25B6':'\u{1F512}'))+'</div>';
 if(ul||dm){(function(f,mid){rw.addEventListener('click',function(){oM(f,mid);});})(mod.f,mod.id);}
-ls.appendChild(rw);});bl.appendChild(ls);app.appendChild(bl);});
+ls.appendChild(rw);});
+bl.appendChild(ls);
+var pa=document.createElement('div');pa.className='aw';pa.style.marginTop='10px';
+var replay=document.createElement('button');replay.type='button';replay.className='ax xn';replay.textContent='↺ Rejouer';
+replay.disabled=!pl;replay.addEventListener('click',function(ev){ev.stopPropagation();replayForgePillar(pil.k);});
+var summary=document.createElement('button');summary.type='button';summary.className='ax xp';summary.textContent='Résumé du cours';
+summary.disabled=!pl;summary.addEventListener('click',function(ev){ev.stopPropagation();requestEpictetePillarSummary(pil.k);});
+var coach=document.createElement('button');coach.type='button';coach.className='ax xg';coach.textContent='Coach Épictète';
+coach.disabled=!pl;coach.addEventListener('click',function(ev){ev.stopPropagation();openEpictetePillarCoach(pil.k);});
+pa.appendChild(replay);pa.appendChild(summary);pa.appendChild(coach);
+bl.appendChild(pa);app.appendChild(bl);});
 // Dashboard
 var ec=eC(),dsh=document.getElementById('dash');
 dsh.innerHTML='<div class="dt">\u{1F4CA} Tableau de bord</div>'+
@@ -1653,6 +1664,8 @@ function scoreHubDoc(query,doc){
   if(/shadow/.test(qNorm) && /shadow xp/.test(hay))score+=120;
   if(/quete|redemption|reparation/.test(qNorm) && /quete de redemption|reparation/.test(hay))score+=95;
   if(/phare|harcelement/.test(qNorm) && /phare|harcelement/.test(hay))score+=60;
+  if(/vea|vivre ensemble|bien etre|cohesion|prosocial|assertivite|empathie active|parole qui construit/.test(qNorm) &&
+     /(aed_vea|vivre ensemble|bien etre|cohesion|prosocial|assertivite|empathie active|communication prosociale)/.test(hay))score+=88;
   if(/scenario|mise en situation|jeu de role|jeu de roles|mal etre|sante mentale|angoisse|idee noire|confie|souffrance psychique|eleve en detresse/.test(qNorm) &&
      /(aed_psy|sante psychique|mal etre|angoisse|ecoute|fatigue compassionnelle|signaux de mal etre)/.test(hay))score+=90;
   return score;
@@ -1703,7 +1716,7 @@ var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
 var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
 
 var SYSTEM_PROMPT='';
-var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, la santé psychique des élèves et les modules de formation du hub. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
+var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, la santé psychique des élèves, le vivre ensemble actif et les modules de formation du hub. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
 var TSS_APPENDIX=[
   '═══ PROTOCOLE TSS INTÉGRÉ À ÉPICTÈTE ═══',
   '- T = TRONC : réponds d\'abord depuis le contenu explicite du hub La Forge, de son architecture, de ses modules et de son référentiel.',
@@ -1924,7 +1937,7 @@ function getEpicteteScenarioProfile(player){
   var history=loadEpicteteScenarioHistory(target);
   var psyCompleted=completed.filter(function(id){return /^AED_PSY/.test(id);});
   var supportCompleted=completed.filter(function(id){
-    return /^AED_(DET|CRI|NEU)/.test(id) || id==='AED_POS04' || id==='AED_POS03' || id==='AED_ING03';
+    return /^AED_(DET|CRI|NEU|VEA)/.test(id) || id==='AED_POS04' || id==='AED_POS03' || id==='AED_ING03';
   });
   var level=1;
   if(psyCompleted.length>=1 || history.length>=1 || supportCompleted.length>=2)level=2;
@@ -2101,6 +2114,87 @@ var ttsEnabled=true;
 var ttsVoices=[];
 var activeUtterance=null;
 var lastAssistantText='';
+var epictetePillarFocus=null;
+var EPICTETE_PILLAR_HELP_TEMP=0.12;
+var EPICTETE_PILLAR_SUMMARY_TEMP=0.08;
+
+function getPillarByKey(key){
+  var target=(key||'').toString().toUpperCase();
+  for(var i=0;i<P.length;i++){
+    if(P[i] && String(P[i].k).toUpperCase()===target)return P[i];
+  }
+  return null;
+}
+function getEpictetePillarFocus(){
+  return epictetePillarFocus&&epictetePillarFocus.key?epictetePillarFocus:null;
+}
+function setEpictetePillarFocus(key,mode){
+  var pillar=getPillarByKey(key);
+  if(!pillar)return null;
+  epictetePillarFocus={
+    key:pillar.k,
+    title:pillar.t,
+    desc:pillar.d,
+    mode:mode==='summary'?'summary':'coach',
+    moduleIds:pillar.m.map(function(mod){return mod.id;}),
+    moduleNames:pillar.m.map(function(mod){return mod.n;})
+  };
+  return epictetePillarFocus;
+}
+function clearEpictetePillarFocus(){epictetePillarFocus=null;}
+function ensureChatOpen(){if(!chatOpen)toggleChat();}
+function buildEpictetePillarFocusBlock(focus){
+  if(!focus)return '';
+  var lines=[
+    '=== MODE COACH ÉPICTÈTE : PILIER CIBLÉ ===',
+    'Pilier : '+focus.title,
+    'Description : '+focus.desc,
+    'Modules du pilier : '+focus.moduleIds.map(function(id,idx){return id+' — '+focus.moduleNames[idx];}).join(' | ')
+  ];
+  if(focus.mode==='summary'){
+    lines.push('- But : produire une synthèse de révision fidèle, compacte et immédiatement utile sur ce pilier.');
+  }else{
+    lines.push('- But : aider à comprendre, reformuler, mémoriser et vérifier ce pilier sans partir en simulation libre.');
+  }
+  lines.push('- Reste centré prioritairement sur ce pilier et ses modules. Tu ne mobilises les autres contenus du hub que s ils éclairent directement ce pilier.');
+  lines.push('- Si l utilisateur veut revenir au mode général, invite-le à écrire "mode normal".');
+  return lines.join('\n');
+}
+function isEpictetePillarFocusExitRequest(text){
+  return /\b(mode normal|retour mode normal|quitte le pilier|sort du pilier|mode general|mode generaliste)\b/.test(normalizeHubText(text||''));
+}
+function maybeAddEpictetePillarIntro(focus){
+  if(!focus)return;
+  var intro='Mode coach Épictète activé sur le pilier "'+focus.title+'". Je reste centré sur ce bloc pour t aider à reformuler, mémoriser et clarifier les attendus. Si tu veux revenir au mode général, écris "mode normal".';
+  var last=chatHistory.length?chatHistory[chatHistory.length-1]:null;
+  var lastText=last&&last.parts&&last.parts[0]?last.parts[0].text:'';
+  if(last&&last.role==='model'&&lastText===intro)return;
+  addMsg('ai',intro);
+}
+function replayForgePillar(key){
+  var pillar=getPillarByKey(key);
+  if(!pillar||!pillar.m.length){toast('Pilier introuvable');return;}
+  oM(pillar.m[0].f,pillar.m[0].id);
+}
+function requestEpictetePillarSummary(key){
+  var focus=setEpictetePillarFocus(key,'summary');
+  var input=document.getElementById('chat-input');
+  if(!focus||!input){toast('Pilier introuvable');return;}
+  if(gP())clearActiveEpicteteScenario(gP());
+  ensureChatOpen();
+  input.value='Génère un résumé du cours pour le pilier "'+focus.title+'" : notions essentielles, réflexes professionnels, erreurs à éviter et 3 questions de vérification.';
+  sendChat();
+}
+function openEpictetePillarCoach(key){
+  var focus=setEpictetePillarFocus(key,'coach');
+  var input=document.getElementById('chat-input');
+  if(!focus||!input){toast('Pilier introuvable');return;}
+  if(gP())clearActiveEpicteteScenario(gP());
+  ensureChatOpen();
+  maybeAddEpictetePillarIntro(focus);
+  input.placeholder='Pose une question sur le pilier '+focus.title+'...';
+  input.focus();
+}
 
 function loadTTSPreference(){
   try{
@@ -2386,8 +2480,19 @@ async function sendChat(){
   var text=(input.value||'').trim();
   if(!text)return;
   var player=gP()||'anon';
-  var startScenario=isEpicteteScenarioLaunchRequest(text);
-  var activeScenario=loadActiveEpicteteScenario(player);
+  var pillarFocus=getEpictetePillarFocus();
+  if(pillarFocus&&isEpictetePillarFocusExitRequest(text)){
+    input.value='';
+    stopChatSpeech();
+    addMsg('user',text);
+    clearEpictetePillarFocus();
+    addMsg('ai','Mode coach de pilier désactivé. Épictète revient au mode général.');
+    input.focus();
+    return;
+  }
+  var pillarMode=!!pillarFocus;
+  var startScenario=pillarMode?false:isEpicteteScenarioLaunchRequest(text);
+  var activeScenario=pillarMode?null:loadActiveEpicteteScenario(player);
   var stopScenario=!!activeScenario&&isEpicteteScenarioStopRequest(text);
   var debriefScenario=!!activeScenario&&isEpicteteScenarioDebriefRequest(text);
   var scenarioMode=false;
@@ -2423,6 +2528,9 @@ async function sendChat(){
     scenarioPhase='turn';
     scenarioQuery=text+' '+(scenarioState.moduleHints||[]).join(' ')+' '+(scenarioState.registers||[]).join(' ')+' '+(scenarioState.focus||[]).join(' ');
     typing.textContent='Épictète maintient le cadre du scénario...';
+  }else if(pillarMode){
+    scenarioQuery=text+' '+pillarFocus.title+' '+pillarFocus.desc+' '+pillarFocus.moduleIds.join(' ')+' '+pillarFocus.moduleNames.join(' ');
+    typing.textContent=pillarFocus.mode==='summary'?'Épictète synthétise ce pilier à partir des sources locales...':'Épictète se concentre sur ce pilier du hub...';
   }else{
     typing.textContent='Épictète recoupe les sources locales...';
   }
@@ -2438,7 +2546,16 @@ async function sendChat(){
       '- Réponse attendue : réponse directe d’abord ; puis éventuel complément utile bref ; pas de roman.',
       '- Réponds uniquement à la dernière demande utilisateur. L\'historique récent sert seulement de contexte.'
     ];
-    if(scenarioMode){
+    if(pillarMode){
+      runtimeRules.push('- MODE COACH DE PILIER actif : reste centré sur le pilier "'+pillarFocus.title+'" et ses modules.');
+      runtimeRules.push('- N ouvre pas de scénario libre tant que ce mode ciblé est actif.');
+      if(pillarFocus.mode==='summary'){
+        runtimeRules.push('- Produis une synthèse fidèle et compacte au format : Essentiel / Réflexes à retenir / Pièges à éviter / 3 questions pour se tester.');
+      }else{
+        runtimeRules.push('- Réponds comme un coach de compréhension à basse température : définition claire, reformulation, exemple bref, puis vérification de compréhension si utile.');
+      }
+      runtimeRules.push('- Si la demande sort du pilier, invite l utilisateur à écrire "mode normal" pour revenir au mode général.');
+    }else if(scenarioMode){
       runtimeRules.push('- Dans un scénario, ne termine pas chaque tour par "Source locale". Réserve les références au repère formateur ou au débrief.');
     }else{
       runtimeRules.push('- Pour toute réponse factuelle, ajoute une dernière ligne : Source locale : ... en citant uniquement les éléments présents dans le contexte récupéré.');
@@ -2454,6 +2571,9 @@ async function sendChat(){
       })
       .join('\n');
     var systemContent=getEffectiveSystemPrompt()+'\n\n'+runtimeRules.join('\n')+'\n\n'+hub.context;
+    if(pillarMode&&pillarFocus){
+      systemContent+='\n\n'+buildEpictetePillarFocusBlock(pillarFocus);
+    }
     if(scenarioMode&&scenarioState&&scenarioProfile){
       systemContent+='\n\n'+buildEpicteteScenarioRules(scenarioState,scenarioProfile,scenarioPhase);
     }
@@ -2471,8 +2591,8 @@ async function sendChat(){
       body:JSON.stringify({
         model:'mistral-small-latest',
         messages:messages,
-        temperature:scenarioMode?0.55:0.2,
-        max_tokens:scenarioMode?1200:900
+        temperature:scenarioMode?0.55:(pillarMode?(pillarFocus.mode==='summary'?EPICTETE_PILLAR_SUMMARY_TEMP:EPICTETE_PILLAR_HELP_TEMP):0.2),
+        max_tokens:scenarioMode?1200:(pillarMode?1000:900)
       })
     });
     var data=await res.json();
@@ -2492,10 +2612,12 @@ async function sendChat(){
       scenarioState.turnCount=1;
       saveActiveEpicteteScenario(player,scenarioState);
     }
+    if(pillarMode&&pillarFocus&&pillarFocus.mode==='summary')setEpictetePillarFocus(pillarFocus.key,'coach');
   }catch(e){
     var t2=document.getElementById('typing');if(t2)t2.remove();
     addMsg('ai','Erreur de connexion ou d’indexation locale du hub. Vérifie que tous les fichiers La Forge sont dans le même dossier, puis réessaie.');
     if(startScenario)clearActiveEpicteteScenario(player);
+    if(pillarMode&&pillarFocus&&pillarFocus.mode==='summary')setEpictetePillarFocus(pillarFocus.key,'coach');
   }
   btn.disabled=false;
   input.focus();

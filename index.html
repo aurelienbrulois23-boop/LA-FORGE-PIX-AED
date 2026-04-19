@@ -108,6 +108,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   border-radius:6px;color:var(--accent);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
 @media(max-width:768px){.ph{flex-wrap:wrap}.ps{width:100%;text-align:left;margin-top:3px}}
 
+/* ═══ SIMULATEUR ÉPICTÈTE ═══ */
+.sim-section{max-width:1100px;margin:0 auto;padding:0 16px 32px;}
+.sim-card{background:var(--card);border:1px solid rgba(226,168,75,.22);border-top:3px solid var(--gold);border-radius:12px;padding:22px 24px;display:flex;gap:20px;align-items:flex-start;}
+.sim-icon{font-size:2.4rem;flex-shrink:0;filter:drop-shadow(0 0 10px rgba(226,168,75,.4));}
+.sim-body{flex:1}
+.sim-label{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+.sim-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:#fff;margin-bottom:4px;}
+.sim-sub{font-size:.78rem;color:var(--muted);margin-bottom:10px;line-height:1.5;}
+.sim-desc{font-size:.82rem;color:var(--text);line-height:1.6;margin-bottom:12px;}
+.sim-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.sim-tag{font-size:.58rem;padding:2px 8px;border-radius:4px;font-family:'JetBrains Mono',monospace;background:rgba(226,168,75,.08);border:1px solid rgba(226,168,75,.18);color:var(--accent);}
+.sim-btn{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:.78rem;padding:10px 20px;border-radius:7px;text-decoration:none;font-family:'IBM Plex Sans',sans-serif;letter-spacing:.3px;transition:.2s;}
+.sim-btn:hover{background:#d97706;box-shadow:0 0 14px rgba(226,168,75,.3);}
+.sim-note{font-size:.68rem;color:var(--muted);font-style:italic;margin-left:12px;}
+@media(max-width:580px){.sim-card{flex-direction:column;gap:12px;}.sim-icon{font-size:1.8rem;}}
+
 /* ═══ NEWS TICKER ═══ */
 .ticker-wrap{overflow:hidden;position:relative;z-index:10;background:#0a0d12;border-bottom:1px solid rgba(226,168,75,.15);white-space:nowrap;position:relative}
 .ticker-label{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:.68rem;
@@ -321,6 +337,33 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div id="pbar"><span id="pbs"></span><span id="pbx"></span></div>
 <div class="mw"><div class="cm"><div class="lb" id="leaderboard"></div><div id="app"></div></div>
 <div class="cs"><div class="coll" id="collective"></div><div class="dash" id="dash"></div><div class="bb" id="bonus"></div><div class="pod-block"><div class="pod-title">&#x1F3A7; Podcasts Formation</div><div class="pod-desc">Capsules audio de formation. D&eacute;posez podcast1.mp3 &agrave; podcast200.mp3 dans le dossier.</div><div class="pod-list" id="pod-list"></div></div></div></div>
+
+<!-- ═══ SIMULATEUR ÉPICTÈTE ═══ -->
+<div class="sim-section">
+  <div class="sim-card">
+    <div class="sim-icon">🎭</div>
+    <div class="sim-body">
+      <div class="sim-label">Outil de formation · Simulation IA</div>
+      <div class="sim-title">Simulateur Épictète — Situations d'élèves</div>
+      <div class="sim-sub">Entraînement par jeu de rôle · Évaluation FORCE + AERER · Powered by Mistral AI</div>
+      <div class="sim-desc">Jouez des situations de mal-être, d'angoisse ou de tension avec un élève simulé par IA. À la fin de l'échange, Épictète analyse votre posture sur la grille FORCE (Formulation, Observation, Relation, Conformité éthique, Escalade) et le protocole AERER (PSSM France). Idéal pour préparer les situations difficiles ou réviser les postures professionnelles.</div>
+      <div class="sim-tags">
+        <span class="sim-tag">Mal-être</span>
+        <span class="sim-tag">Angoisse</span>
+        <span class="sim-tag">Violence</span>
+        <span class="sim-tag">FORCE /25</span>
+        <span class="sim-tag">AERER</span>
+        <span class="sim-tag">pHARe</span>
+        <span class="sim-tag">Mistral Small FR</span>
+      </div>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+        <a href="epictete_simulator.html" target="_blank" class="sim-btn">🎭 Lancer le Simulateur</a>
+        <span class="sim-note">Clé API Mistral requise — console.mistral.ai (offre gratuite disponible)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <button class="login-disconnect" id="disconnect-btn" onclick="doLogout()" style="display:none">&#x23FB; D&eacute;connexion</button>
 <input type="file" id="player-state-import" accept=".json,application/json" style="display:none" onchange="importPlayerState(event)"/>
 

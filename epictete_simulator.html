@@ -277,9 +277,9 @@ function md(t){
 }
 
 /* ─────────────────── APP ─────────────────── */
+var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
 function App(){
-  const[screen,setScreen]=useState('setup');
-  const[apiKey,setApiKey]=useState(localStorage.getItem('epi_mk')||'');
+  const[screen,setScreen]=useState('scenario');
   const[scenario,setScenario]=useState(null);
   const[msgs,setMsgs]=useState([]);
   const[input,setInput]=useState('');
@@ -293,8 +293,6 @@ function App(){
   useEffect(()=>{
     if(bottomRef.current)bottomRef.current.scrollIntoView({behavior:'smooth'});
   },[msgs,loading]);
-
-  function saveKey(k){setApiKey(k);localStorage.setItem('epi_mk',k);}
 
   function startScenario(sc){
     setScenario(sc);
@@ -315,7 +313,7 @@ function App(){
     try{
       const res=await fetch('https://api.mistral.ai/v1/chat/completions',{
         method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
         body:JSON.stringify({
           model:'mistral-small-latest',
           messages:[{role:'system',content:scenario.systemPrompt},...newMsgs],
@@ -336,7 +334,7 @@ function App(){
     try{
       const res=await fetch('https://api.mistral.ai/v1/chat/completions',{
         method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
+        headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
         body:JSON.stringify({
           model:'mistral-small-latest',
           messages:[
@@ -368,45 +366,6 @@ function App(){
     e('div',{className:'epi-badge'},'IA · Mistral')
   )}
 
-  /* ── SCREEN: SETUP ── */
-  if(screen==='setup')return e('div',null,e(H),
-    e('div',{className:'screen'},
-      e('div',{className:'screen-title'},'Configuration'),
-      e('div',{className:'setup-box'},
-        e('h3',null,'Qu\'est-ce que le Simulateur Épictète ?'),
-        e('div',{className:'setup-text'},
-          e('b',null,'Épictète'),' est un simulateur d\'entraînement pour AED. Il joue le rôle d\'un adolescent en détresse avec un réalisme psychologique absolu, puis sort de son rôle pour vous évaluer selon deux référentiels :',
-          e('br'),e('br'),
-          '• La grille ',e('b',null,'FORCE'),' (5 critères, /25)',e('br'),
-          '• Le protocole ',e('b',null,'AERER'),' de PSSM France',e('br'),e('br'),
-          'Le simulateur est propulsé par ',e('b',null,'Mistral AI'),'. Il vous faut une clé API Mistral gratuite (créez un compte sur console.mistral.ai).'
-        ),
-        e('div',{className:'method-grid'},
-          e('div',{className:'method-card'},
-            e('div',{className:'method-card-title'},'Grille FORCE'),
-            e('div',null,'F · Formulation du problème',e('br'),'O · Observation des signaux',e('br'),'R · Relation sécurisante',e('br'),'C · Conformité éthique',e('br'),'E · Escalade orientée')
-          ),
-          e('div',{className:'method-card'},
-            e('div',{className:'method-card-title'},'Protocole AERER — PSSM France'),
-            e('div',null,'A · Approche sécurisante',e('br'),'É · Écoute sans jugement',e('br'),'R · Réassurance & information',e('br'),'E · Encourager à consulter',e('br'),'R · Ressources (3114, CPE…)')
-          )
-        ),
-        e('div',null,e('div',{className:'api-label'},'Clé API Mistral'),
-          e('div',{className:'api-row'},
-            e('input',{
-              type:'password',className:'api-input',placeholder:'sk-... (votre clé API Mistral)',
-              value:apiKey,
-              onChange:ev=>saveKey(ev.target.value),
-              onKeyDown:ev=>{if(ev.key==='Enter'&&apiKey.trim())setScreen('scenario')}
-            }),
-            e('button',{className:'btn btn-pri',disabled:!apiKey.trim(),onClick:()=>setScreen('scenario')},'DÉMARRER ►')
-          ),
-          e('div',{className:'api-note'},'🔒 La clé reste dans votre navigateur (localStorage). Elle n\'est pas transmise à nos serveurs.')
-        ),
-        e('div',{className:'warn-box'},'⚠️ Ce simulateur est un outil de formation professionnelle. Les scénarios traitent de détresse psychologique d\'adolescents. À utiliser dans un cadre de formation encadrée.')
-      )
-    )
-  );
 
   /* ── SCREEN: SCENARIO ── */
   if(screen==='scenario')return e('div',null,e(H),

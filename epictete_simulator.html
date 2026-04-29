@@ -29,26 +29,48 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;
 .epi-sub{font-size:.85rem;color:var(--text-m)}
 .epi-badge{background:var(--gold-dim);border:1px solid rgba(245,158,11,.3);padding:5px 14px;border-radius:20px;font-family:'Orbitron',sans-serif;font-size:.7rem;color:var(--gold);white-space:nowrap}
 
+/* LOADING SCREEN */
+.load-screen{padding:60px 22px;text-align:center}
+.load-icon{font-size:3rem;margin-bottom:16px;animation:pulse-g 1.8s infinite}
+@keyframes pulse-g{0%{opacity:1;filter:drop-shadow(0 0 14px var(--gold-glow))}50%{opacity:.6;filter:drop-shadow(0 0 4px transparent)}100%{opacity:1;filter:drop-shadow(0 0 14px var(--gold-glow))}}
+.load-title{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--gold);margin-bottom:8px}
+.load-sub{font-size:.85rem;color:var(--text-m);margin-bottom:20px;line-height:1.6}
+.load-bar-wrap{max-width:360px;margin:16px auto 0;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.load-bar{height:100%;background:linear-gradient(90deg,var(--primary),var(--gold));border-radius:2px;transition:width .3s}
+.load-status{font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--text-d);margin-top:8px;letter-spacing:1px}
+.btn-load{margin-top:20px;background:var(--primary);color:#000;border:none;padding:12px 28px;border-radius:8px;font-family:'Orbitron',sans-serif;font-size:.75rem;cursor:pointer;letter-spacing:1px;transition:.2s}
+.btn-load:hover{background:#00b8e0}.btn-load:disabled{opacity:.4;cursor:not-allowed}
+
+/* TABS */
+.tabs{display:flex;border-bottom:1px solid var(--border);padding:0 22px}
+.tab{background:none;border:none;color:var(--text-d);padding:12px 18px;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:.68rem;letter-spacing:1px;border-bottom:2px solid transparent;transition:.2s}
+.tab:hover{color:var(--primary)}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+
 /* SCREENS */
 .screen{padding:28px 22px}
 .screen-title{font-family:'Orbitron',sans-serif;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;color:var(--primary);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .screen-title::after{content:'';flex:1;height:1px;background:var(--border)}
 
-/* SETUP */
-.setup-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
-.setup-box h3{font-family:'Orbitron',sans-serif;font-size:.85rem;color:var(--gold);margin-bottom:12px;letter-spacing:1px}
-.setup-text{font-size:.9rem;color:var(--text-m);line-height:1.7;margin-bottom:16px}
-.setup-text b{color:var(--text)}
-.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.method-card{background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:.82rem;color:var(--text-m);line-height:1.5}
-.method-card-title{font-family:'Orbitron',sans-serif;font-size:.68rem;color:var(--primary);margin-bottom:6px;letter-spacing:1px}
-.api-row{display:flex;gap:10px;align-items:flex-end;margin-top:16px;flex-wrap:wrap}
-.api-label{font-size:.78rem;color:var(--text-d);font-family:'Orbitron',sans-serif;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
-.api-input{flex:1;background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:.88rem;font-family:'Exo 2',sans-serif;outline:none;min-width:200px}
-.api-input:focus{border-color:var(--primary)}
-.api-input::placeholder{color:var(--text-d)}
-.api-note{font-size:.72rem;color:var(--text-d);margin-top:6px;font-style:italic}
-.warn-box{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:12px 16px;font-size:.82rem;color:rgba(245,158,11,.8);line-height:1.5;margin-top:12px}
+/* COACH MODE */
+.pillar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-bottom:20px}
+.pillar-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;transition:.2s;text-align:center}
+.pillar-card:hover,.pillar-card.active{border-color:var(--primary);background:var(--panel2)}
+.pillar-icon{font-size:1.5rem;margin-bottom:4px}
+.pillar-name{font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--primary);letter-spacing:1px;margin-bottom:2px}
+.pillar-label{font-size:.72rem;color:var(--text-m);line-height:1.3}
+.coach-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:20px}
+.coach-q{display:flex;gap:10px;align-items:flex-end;margin-bottom:14px}
+.coach-input{flex:1;background:var(--panel2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;color:var(--text);font-size:.88rem;font-family:'Exo 2',sans-serif;outline:none;resize:none;min-height:44px;max-height:100px}
+.coach-input:focus{border-color:var(--primary)}
+.coach-input::placeholder{color:var(--text-d)}
+.coach-input:disabled{opacity:.4}
+.btn-coach{background:var(--primary);color:#000;border:none;padding:11px 18px;border-radius:8px;font-family:'Orbitron',sans-serif;font-size:.68rem;cursor:pointer;white-space:nowrap;transition:.2s}
+.btn-coach:disabled{opacity:.4;cursor:not-allowed}
+.coach-answer{background:var(--panel2);border:1px solid rgba(0,212,255,.15);border-radius:8px;padding:16px;font-size:.88rem;line-height:1.7;color:rgba(200,240,255,.85);min-height:60px}
+.coach-answer.streaming::after{content:'▋';animation:blink .8s infinite;color:var(--primary)}
+@keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+.coach-hint{font-size:.7rem;color:var(--text-d);margin-bottom:10px;font-style:italic}
 
 /* SCENARIO CARDS */
 .sc-grid{display:grid;grid-template-columns:1fr;gap:14px}
@@ -95,16 +117,15 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;
 .btn-eval{background:var(--gold-dim);border:1px solid rgba(245,158,11,.4);color:var(--gold);border-radius:8px;padding:11px 18px;font-family:'Orbitron',sans-serif;font-size:.7rem;cursor:pointer;transition:.2s;white-space:nowrap}
 .btn-eval:hover{background:rgba(245,158,11,.2)}
 .btn-eval:disabled{opacity:.4;cursor:not-allowed}
-.err-bar{background:rgba(239,68,68,.08);border-top:1px solid rgba(239,68,68,.2);padding:10px 22px;font-size:.8rem;color:#fca5a5}
+.err-bar{background:rgba(239,68,68,.08);border-top:1px solid rgba(239,68,68,.2);padding:10px 22px;font-size:.8rem;color:#fca5a5;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-retry{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.35);color:#fca5a5;padding:5px 12px;border-radius:6px;font-size:.75rem;font-family:'Exo 2',sans-serif;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn-retry:hover{background:rgba(239,68,68,.28)}
 
 /* EVALUATING */
 .eval-loading{text-align:center;padding:60px 20px}
 .eval-loading-icon{font-size:3rem;margin-bottom:16px;animation:pulse-g 1.8s infinite}
-@keyframes pulse-g{0%{opacity:1;filter:drop-shadow(0 0 14px var(--gold-glow))}50%{opacity:.6;filter:drop-shadow(0 0 4px transparent)}100%{opacity:1;filter:drop-shadow(0 0 14px var(--gold-glow))}}
 .eval-loading-title{font-family:'Orbitron',sans-serif;font-size:1rem;color:var(--gold);margin-bottom:8px}
 .eval-loading-sub{font-size:.85rem;color:var(--text-m)}
-
-/* EVALUATION */
 .eval-result{background:var(--panel);border:1px solid rgba(245,158,11,.25);border-radius:12px;padding:24px;font-size:.9rem;line-height:1.8;color:var(--text-m)}
 .eval-result b{color:var(--text)}
 .eval-restart{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
@@ -114,172 +135,27 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;
 .btn-pri{background:var(--primary);color:#000}.btn-pri:hover{background:#00b8e0}
 .btn-sec{background:transparent;border:1px solid var(--border);color:var(--text-m)}.btn-sec:hover{border-color:var(--primary);color:var(--primary)}
 .btn-gold{background:var(--gold-dim);border:1px solid rgba(245,158,11,.4);color:var(--gold)}.btn-gold:hover{background:rgba(245,158,11,.2)}
-
-@media(max-width:580px){
-  .method-grid{grid-template-columns:1fr}
-  .bubble-user,.bubble-ai{max-width:88%}
-  .chat-window{height:320px}
-}
+.local-badge{font-size:.62rem;padding:2px 8px;border-radius:4px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:#10b981;font-family:'Orbitron',sans-serif;letter-spacing:.5px}
+@media(max-width:580px){.bubble-user,.bubble-ai{max-width:88%}.chat-window{height:320px}.pillar-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}}
 </style>
 </head>
 <body>
 <div id="root"></div>
+<script src="../local_llm.js"></script>
+<script src="epictete_helpers.js"></script>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script>
-const {useState,useEffect,useRef}=React, e=React.createElement;
-
-/* ─────────────────── DONNÉES SCÉNARIOS ─────────────────── */
-const SCENARIOS=[
-{
-  id:'mathis', name:'Mathis', subtitle:'Le Foyer — Violence et angoisse du juge',
-  icon:'🪑', difficulty:'Difficile', diffBg:'rgba(239,68,68,.12)', diffColor:'#ef4444',
-  context:"Mathis, 15 ans, placé en foyer depuis 2 ans, vient de jeter une chaise en permanence. L'AED s'approche. Derrière l'agression : la terreur d'un rendez-vous avec le juge des enfants la semaine prochaine, que personne ne sait encore.",
-  tip:"Repérez la souffrance sous l'agression. Nommez l'émotion avant de parler de la chaise. Ne promettez pas le secret absolu.",
-  systemPrompt:`Tu joues Mathis, 15 ans, en foyer d'accueil depuis 2 ans. Tu viens de jeter une chaise dans la permanence du collège. Une AED s'approche de toi.
-
-CONTEXTE (ne pas révéler directement au début) : Ce matin tu as appris que le juge des enfants te convoque la semaine prochaine pour décider de ton placement. Tu as peur d'être renvoyé dans ta famille (contexte de violence) ou mis en institution fermée. Ta violence n'est pas de la délinquance — c'est de la terreur que tu ne sais pas nommer.
-
-RÈGLES DE JEU :
-- Au départ : agitation, agressivité, refus du contact. Phrases courtes. "laissez-moi tranquille", "j'ai rien fait", "vous comprenez rien", "j'vais rentrer au foyer".
-- Si l'AED dit "calme-toi", "c'est pas grave", te demande de justifier la chaise → braque-toi, coupe le contact, menace de partir.
-- Si l'AED promet le secret absolu ("je dirai rien à personne") → accroche-toi à ça, demande "vous jurez ?". Si il/elle jure → souviens-toi, c'est une faute importante que tu notes.
-- Si l'AED utilise des injonctions à la calmité → résistance totale.
-- Si l'AED nomme ton émotion sans te juger ("je vois que t'es à bout", "c'est normal d'avoir peur de quelque chose") → progressivement, une phrase à la fois, commence à lâcher.
-- Si l'AED crée de l'espace physique et émotionnel ("viens, on s'assoit là, juste toi et moi") → légère ouverture possible.
-- Révèle le contexte du juge seulement après 2-3 échanges bienveillants minimum.
-- Langage : ado de 15 ans sous tension, mots simples, phrases courtes, parfois "...", parfois un rire nerveux bizarre qui cache la peur.
-- Maximum 3 phrases par réponse. Réalisme psychologique absolu.
-
-GARDE-FOUS ABSOLUS :
-- Tu ne détailles jamais de gestes auto-agressifs, de méthodes suicidaires, ni de contenus dangereux.
-- Tu restes dans un cadre éducatif scolaire réaliste. Tu ne bascules pas dans une fiction libre.
-- Si la détresse devient intense, tu peux évoquer "j'en peux plus" ou "j'veux plus venir ici" — jamais de passage à l'acte décrit.
-- Si l'AED gère bien la situation et oriente vers l'infirmière, le CPE ou l'assistante sociale, tu laisses le personnage commencer à accepter cette orientation.`
-},
-{
-  id:'natacha', name:'Natacha', subtitle:"L'Escalier — École inclusive",
-  icon:'🚪', difficulty:'Très délicat', diffBg:'rgba(245,158,11,.12)', diffColor:'#f59e0b',
-  context:"L'AED découvre Natacha, 13 ans, cachée sous un escalier de service depuis 2h pour éviter les urinoirs. Elle n'est pas venue se confier — elle a été trouvée. Derrière le mutisme : une identité de genre non encore formulée et une honte de soi intense.",
-  tip:"Créez l'espace avant de chercher les mots. Ne la nommez pas à sa place. Ne l'exposez surtout pas devant d'autres élèves.",
-  systemPrompt:`Tu joues Natacha, 13 ans, élève de 5e. Une AED vient de te trouver cachée sous l'escalier de service depuis 2 heures. Tu n'es pas venue te confier — tu as été découverte.
-
-CONTEXTE (ne pas révéler directement) : Natacha ne se reconnaît pas dans le genre féminin. Elle doit utiliser les toilettes filles mais s'y sent observée, incomprise, et humiliée. Ce matin un groupe de filles lui a dit qu'elle "marchait comme un garçon". Elle n'a pas encore de mots pour ce qu'elle ressent — elle sait juste qu'elle ne peut pas entrer dans ces toilettes. Elle veut disparaître, pas parler.
-
-RÈGLES DE JEU :
-- Au départ : mutisme ou monosyllabes. "c'est rien", "j'allais juste me reposer", "je veux rentrer en cours", regard au sol.
-- Corps : recroquevillée, évite le contact visuel, voix quasi-inaudible.
-- Si l'AED lui demande de se lever devant d'autres élèves, ou la met en lumière → panique silencieuse, fermeture totale.
-- Si l'AED dit "explique-moi pourquoi tu es là depuis 2h" de façon directe → mur complet.
-- Si l'AED dit "je vais pas te forcer à me dire quoi que ce soit" → légère détente, soupir.
-- Si l'AED propose de s'éloigner pour être seules → légère ouverture progressive.
-- Si l'AED dit "les autres peuvent pas nous entendre" → possibilité d'une première vraie phrase.
-- Ne jamais révéler le fond si l'AED ne crée pas les conditions de sécurité physique et émotionnelle.
-- Langage : ado introvertie de 13 ans, voix basse, mots très courts, pas de ponctuation, parfois juste "...".
-- Maximum 2-3 phrases par réponse.
-
-GARDE-FOUS ABSOLUS :
-- Tu ne détailles jamais de gestes auto-agressifs, de méthodes suicidaires, ni de contenus dangereux.
-- Tu restes dans un cadre éducatif scolaire réaliste. Tu ne bascules pas dans une fiction libre.
-- Si la détresse devient intense, tu peux exprimer un désir de disparaître de la situation ("j'veux juste qu'on me laisse") — jamais de passage à l'acte décrit.
-- Si l'AED crée les conditions de sécurité et propose l'infirmière ou un espace confidentiel, le personnage peut progressivement accepter.`
-},
-{
-  id:'camille', name:'Camille', subtitle:"La Note — Effondrement silencieux",
-  icon:'📚', difficulty:'Subtil', diffBg:'rgba(16,185,129,.1)', diffColor:'#10b981',
-  context:"Camille, 14 ans, excellente élève, s'est effondrée en larmes aux toilettes après un 15/20. La note n'est que le déclencheur. Derrière : 3 mois d'épuisement silencieux, de perfectionnisme et d'isolement que personne n'a vu.",
-  tip:"Le vrai problème n'est pas la note. Ne validez pas la minimisation. Ne proposez pas l'infirmière avant d'avoir créé le lien.",
-  systemPrompt:`Tu joues Camille, 14 ans, excellente élève (18/20 de moyenne habituelle). Une AED t'a trouvée en larmes aux toilettes après avoir reçu 15/20. Tu essaies immédiatement de minimiser.
-
-CONTEXTE (ne pas révéler directement) : La note est le déclencheur, pas la cause. Derrière : 3 mois de pression auto-infligée intense, sommeil réduit à 5-6h/nuit, plus d'amis proches ("les autres parlent de trucs qui m'intéressent pas"), parents qui répètent "on compte sur toi pour les études". Tu n'as dit à personne que tu n'allais pas bien. Tu ne sais pas vraiment ce qui ne va pas. Tu es juste épuisée — mais tu ne t'autorises pas à le dire.
-
-RÈGLES DE JEU :
-- Au départ : "non ça va, c'est rien, c'est ridicule, désolée de vous déranger" — tu veux partir.
-- Tu minimises constamment car tu as honte d'être "faible pour si peu".
-- Si l'AED dit "ça va aller" ou "c'est juste une note" → fermeture immédiate, "oui vous avez raison, c'est rien" + tu te lèves pour partir.
-- Si l'AED dit "je te crois pas trop quand tu dis que ça va" → silence, puis légère hésitation.
-- Si l'AED dit "t'as l'air épuisée depuis un moment, pas juste aujourd'hui" → possible crack progressif, larmes qui reviennent.
-- Si l'AED propose l'infirmière avant d'avoir créé le lien → "non c'est excessif pour une note, inquiétez-vous pas".
-- Si l'AED dit "c'est pas pour la note que je le propose, c'est pour toi" → réflexion visible, hésitation.
-- Alterne entre minimisation et larmes — profil difficile à lire.
-- Langage : ado polie et articulée de 14 ans, mais voix qui tremble parfois, phrases qui commencent fort et finissent doucement.
-- Maximum 3 phrases par réponse.
-
-GARDE-FOUS ABSOLUS :
-- Tu ne détailles jamais de gestes auto-agressifs, de méthodes suicidaires, ni de contenus dangereux.
-- Tu restes dans un cadre éducatif scolaire réaliste. Tu ne bascules pas dans une fiction libre.
-- Si la détresse devient intense, tu peux évoquer "je me sens à bout" ou "je sais plus comment tenir" — jamais de passage à l'acte décrit.
-- Si l'AED propose l'infirmière de façon juste (centrée sur Camille, pas sur la note), le personnage peut progressivement envisager d'accepter.`
-}
-];
-
-/* ─────────────────── PROMPT ÉVALUATION ÉPICTÈTE ─────────────────── */
-const EVAL_SYSTEM=`Tu es ÉPICTÈTE, assistant de formation de La Forge du Collège Château Rance, intégré à PIX AED.
-Tu sors définitivement du personnage que tu jouais. Tu n'es plus l'élève.
-Tu es un formateur fiable — pas un oracle, pas un thérapeute, pas un moteur de fiction libre.
-
-Tes principes d'évaluation (tirés du cadre institutionnel La Forge) :
-- Distinguer clairement les faits observés dans la conversation, les inférences prudentes, et les conseils de posture.
-- Ne jamais diagnostiquer un élève, une famille ou un collègue.
-- Ne jamais encourager le secret face à une situation préoccupante.
-- Ramener systématiquement aux bons relais : CPE, infirmière, assistante sociale, direction, protocole pHARe, secours si urgence.
-- Favoriser l'observation, l'écoute, la protection, la co-régulation, la transmission et l'escalade adaptée.
-
-Évalue l'intervention de l'AED (messages "user" = ce que l'AED a dit) d'après la conversation ci-dessus.
-
-GRILLE FORCE — note chaque critère sur 5 :
-F — Formulation : L'AED a-t-il identifié que le comportement exprimait une souffrance psychique (et non un simple problème disciplinaire) ?
-O — Observation des signaux : A-t-il repéré et nommé des signaux de détresse (corps, ton, contexte, rupture de comportement) ?
-R — Relation sécurisante : A-t-il maintenu le lien sans promettre le secret absolu, sans mentir, sans sur-promettre ? A-t-il utilisé la formulation juste sur la confidentialité ("je ne raconterai pas ça à tes camarades, mais si tu es en danger, je dois en parler à quelqu'un qui peut t'aider") ?
-C — Conformité éthique et légale : A-t-il évité les fautes : promettre le secret absolu, injonctions ("calme-toi"), minimisation ("c'est pas grave"), diagnostic non qualifié ("t'es déprimé(e)"), encourager à tout garder pour soi ?
-E — Escalade orientée : A-t-il su orienter vers l'infirmière, le CPE, l'assistante sociale ou le protocole pHARe sans couper brutalement la relation ? A-t-il maintenu sa présence après le signalement ?
-
-PROTOCOLE AERER (PSSM France) :
-A - Approche sécurisante (espace physique et émotionnel créé, pas de mise en lumière publique)
-É - Écoute sans jugement (validation émotionnelle, pas d'interprétation ni de diagnostic)
-R - Réassurance et information (normaliser la détresse sans minimiser, donner des repères)
-E - Encouragement à consulter un professionnel (infirmière, Psy-EN, médecin — avec la bonne formulation)
-R - Renseignement sur les ressources (3114, infirmerie, CPE, assistante sociale, protocole pHARe)
-
-FORMAT DE RÉPONSE OBLIGATOIRE (respecte ce format exactement) :
-
-📊 SCORE FORCE
-F — [X]/5 · [1 phrase de justification, cite les mots exacts de l'AED si pertinent]
-O — [X]/5 · [justification]
-R — [X]/5 · [justification — mentionne si le secret absolu a été promis ou correctement cadré]
-C — [X]/5 · [justification — mentionne les fautes déontologiques précises si présentes]
-E — [X]/5 · [justification — nomme le relais proposé ou absent]
-**TOTAL : [X]/25**
-
-✅ PROTOCOLE AERER
-A : [respecté / partiellement / manquant] · [raison en quelques mots]
-É : [respecté / partiellement / manquant] · [raison]
-R : [respecté / partiellement / manquant] · [raison]
-E : [respecté / partiellement / manquant] · [relais nommé ou absent]
-R : [respecté / partiellement / manquant] · [ressources citées ou absentes]
-
-⚠️ ERREURS À CORRIGER
-[2-3 erreurs précises. Cite les mots exacts de l'AED quand c'est possible. Distingue faute déontologique (ex : promesse de secret absolu) et maladresse relationnelle (ex : injonction à se calmer).]
-
-💪 POINTS FORTS
-[2-3 réussites. Cite les formulations de l'AED qui ont fonctionné et explique pourquoi elles étaient justes.]
-
-💬 PHRASE-CLÉ À RETENIR
-[Une seule formulation courte et mémorisable — soit un réflexe à ancrer, soit la faute principale à ne plus commettre.]`;
-
-/* ─────────────────── HELPERS ─────────────────── */
-function md(t){
-  if(!t)return'';
-  return t
-    .replace(/\*\*(.+?)\*\*/g,'<b>$1</b>')
-    .replace(/^(📊|✅|⚠️|💪|💬)/gm,'<br>$1')
-    .replace(/\n/g,'<br>');
-}
+const {useState,useEffect,useRef,useCallback}=React, e=React.createElement;
 
 /* ─────────────────── APP ─────────────────── */
-var MISTRAL_KEY='';
 function App(){
-  const[screen,setScreen]=useState('scenario');
+  const[ready,setReady]=useState(false);
+  const[activating,setActivating]=useState(false);
+  const[loadProgress,setLoadProgress]=useState({text:'Initialisation...',progress:0});
+  const[loadErr,setLoadErr]=useState('');
+  const[tab,setTab]=useState('scenario'); // 'scenario' | 'coach'
+  const[screen,setScreen]=useState('list'); // list | chat | evaluating | evaluation
   const[scenario,setScenario]=useState(null);
   const[msgs,setMsgs]=useState([]);
   const[input,setInput]=useState('');
@@ -287,73 +163,32 @@ function App(){
   const[evaluation,setEvaluation]=useState('');
   const[exchanges,setExchanges]=useState(0);
   const[err,setErr]=useState('');
+  // Coach state
+  const[coachPillar,setCoachPillar]=useState(null);
+  const[coachInput,setCoachInput]=useState('');
+  const[coachAnswer,setCoachAnswer]=useState('');
+  const[coachLoading,setCoachLoading]=useState(false);
   const bottomRef=useRef(null);
   const inputRef=useRef(null);
+  const coachInputRef=useRef(null);
+
+  useEffect(()=>{
+    if(window.LocalLLM&&window.LocalLLM.isReady()){setReady(true);}
+  },[]);
 
   useEffect(()=>{
     if(bottomRef.current)bottomRef.current.scrollIntoView({behavior:'smooth'});
   },[msgs,loading]);
 
-  function startScenario(sc){
-    setScenario(sc);
-    setMsgs([]);
-    setExchanges(0);
-    setErr('');
-    setScreen('chat');
+  function activateModel(){
+    if(activating||ready)return;
+    setActivating(true);setLoadErr('');
+    window.LocalLLM.activate({
+      onProgress:function(p){setLoadProgress({text:p.text,progress:p.progress});},
+      onReady:function(){setReady(true);setActivating(false);},
+      onError:function(err){setLoadErr(err.message||String(err));setActivating(false);}
+    });
   }
-
-  async function send(){
-    const txt=input.trim();
-    if(!txt||loading)return;
-    const userMsg={role:'user',content:txt};
-    const newMsgs=[...msgs,userMsg];
-    setMsgs(newMsgs);
-    setInput('');
-    setLoading(true);setErr('');
-    try{
-      const res=await fetch('https://api.mistral.ai/v1/chat/completions',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
-        body:JSON.stringify({
-          model:'mistral-small-latest',
-          messages:[{role:'system',content:scenario.systemPrompt},...newMsgs],
-          temperature:0.88,max_tokens:220
-        })
-      });
-      if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error('Erreur Mistral '+res.status+(d.message?' : '+d.message:''));}
-      const data=await res.json();
-      const aMsg={role:'assistant',content:data.choices[0].message.content};
-      setMsgs(m=>[...m,aMsg]);
-      setExchanges(x=>x+1);
-    }catch(ex){setErr(ex.message);}
-    finally{setLoading(false);if(inputRef.current)inputRef.current.focus();}
-  }
-
-  async function evaluate(){
-    setScreen('evaluating');setLoading(true);setErr('');
-    try{
-      const res=await fetch('https://api.mistral.ai/v1/chat/completions',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
-        body:JSON.stringify({
-          model:'mistral-small-latest',
-          messages:[
-            {role:'system',content:EVAL_SYSTEM},
-            ...msgs,
-            {role:'user',content:"SIMULATION TERMINÉE. Évalue maintenant l'AED selon la grille FORCE et le protocole AERER. Respecte exactement le format demandé."}
-          ],
-          temperature:0.15,max_tokens:950
-        })
-      });
-      if(!res.ok)throw new Error('Erreur Mistral '+res.status);
-      const data=await res.json();
-      setEvaluation(data.choices[0].message.content);
-      setScreen('evaluation');
-    }catch(ex){setErr(ex.message);setScreen('chat');}
-    finally{setLoading(false);}
-  }
-
-  function restart(){setScreen('scenario');setMsgs([]);setExchanges(0);setEvaluation('');setErr('');}
 
   /* ── HEADER ── */
   function H(){return e('div',{className:'epi-header'},
@@ -361,116 +196,274 @@ function App(){
     e('div',{className:'epi-meta'},
       e('div',{className:'epi-pilier'},'PIX AED · Formation Vie Scolaire'),
       e('div',{className:'epi-title'},'Simulateur Épictète'),
-      e('div',{className:'epi-sub'},'Entraînement aux situations d\'élèves en détresse — Évaluation FORCE / PSSM')
+      e('div',{className:'epi-sub'},'Coach AED · Simulations · Évaluation PSSM')
     ),
-    e('div',{className:'epi-badge'},'IA · Mistral')
-  )}
+    ready
+      ?e('div',{className:'local-badge'},'IA LOCALE ✓')
+      :e('div',{className:'epi-badge'},'IA · Local')
+  );}
 
-
-  /* ── SCREEN: SCENARIO ── */
-  if(screen==='scenario')return e('div',null,e(H),
-    e('div',{className:'screen'},
-      e('div',{className:'screen-title'},'Choisir un scénario'),
-      e('div',{className:'sc-grid'},
-        SCENARIOS.map(sc=>e('div',{key:sc.id,className:'sc-card'},
-          e('div',{className:'sc-icon'},sc.icon),
-          e('div',{className:'sc-content'},
-            e('div',{className:'sc-header'},
-              e('div',{className:'sc-name'},sc.name+' — '+sc.subtitle),
-              e('div',{className:'sc-diff',style:{background:sc.diffBg,color:sc.diffColor}},sc.difficulty)
-            ),
-            e('div',{className:'sc-ctx'},sc.context),
-            e('div',{className:'sc-tip'},'💡 '+sc.tip),
-            e('button',{className:'sc-cta',onClick:()=>startScenario(sc)},'[ LANCER LA SIMULATION ]')
-          )
-        ))
-      )
-    )
-  );
-
-  /* ── SCREEN: CHAT ── */
-  if(screen==='chat')return e('div',null,e(H),
-    e('div',{className:'chat-banner'},
-      e('div',{className:'chat-persona'},
-        e('div',{className:'chat-persona-icon'},scenario.icon),
-        e('div',null,
-          e('div',{className:'chat-persona-name'},scenario.name),
-          e('div',{className:'chat-persona-sub'},scenario.subtitle)
-        )
+  /* ── LOADING ── */
+  if(!ready){return e('div',null,e(H),
+    e('div',{className:'load-screen'},
+      e('div',{className:'load-icon'},'🧠'),
+      e('div',{className:'load-title'},activating?'Chargement du modèle local...':'Épictète — Mode local'),
+      e('div',{className:'load-sub'},
+        activating
+          ?loadProgress.text
+          :'Ce simulateur fonctionne entièrement dans votre navigateur.\nAucune donnée n\'est envoyée à un serveur.\n\nPremier lancement : téléchargement du modèle (~500 MB, mis en cache ensuite).'
       ),
-      e('div',{style:{display:'flex',gap:'10px',alignItems:'center',flexWrap:'wrap'}},
-        e('div',{className:'chat-counter '+(exchanges>=4?'warn':'')},
-          exchanges===0?'Aucun échange':'Échange '+(exchanges>5?5:exchanges)+'/5'
+      activating&&e('div',{className:'load-bar-wrap'},
+        e('div',{className:'load-bar',style:{width:Math.round((loadProgress.progress||0)*100)+'%'}})),
+      activating&&e('div',{className:'load-status'},Math.round((loadProgress.progress||0)*100)+'%'),
+      loadErr&&e('div',{style:{color:'#ef4444',fontSize:'.8rem',marginTop:'12px',maxWidth:'400px',margin:'12px auto 0'}},
+        '⚠ ',loadErr),
+      !activating&&e('button',{className:'btn-load',onClick:activateModel},'Lancer Épictète')
+    )
+  );}
+
+  /* ── TABS ── */
+  function Tabs(){return e('div',{className:'tabs'},
+    e('button',{className:'tab'+(tab==='scenario'?' active':''),onClick:()=>{setTab('scenario');setScreen('list');}},'SIMULATIONS'),
+    e('button',{className:'tab'+(tab==='coach'?' active':''),onClick:()=>setTab('coach')},'COACH')
+  );}
+
+  /* ══════════════════════════════════════════
+     TAB COACH
+  ══════════════════════════════════════════ */
+  var PM=window.EpicteteHelpers?window.EpicteteHelpers.PILLAR_META:{};
+  var SCS=window.EpicteteHelpers?window.EpicteteHelpers.SCENARIOS:{};
+  var MD=window.EpicteteHelpers?window.EpicteteHelpers.MODE_DEFAULTS:{coach:{maxTokens:180,temperature:.45}};
+
+  async function askCoach(){
+    var q=coachInput.trim();
+    if(!q||coachLoading)return;
+    setCoachLoading(true);setCoachAnswer('');
+    var promptData=window.EpicteteHelpers.buildCoachPrompt(coachPillar,q);
+    var answer='';
+    var result=await window.LocalLLM.ask({
+      fullPrompt:promptData.full,
+      options:{
+        maxTokens:MD.coach.maxTokens,
+        temperature:MD.coach.temperature,
+        onChunk:function(chunk){answer+=chunk;setCoachAnswer(answer);}
+      }
+    });
+    setCoachAnswer(result.text||answer);
+    setCoachLoading(false);
+    if(coachInputRef.current)coachInputRef.current.focus();
+  }
+
+  function renderCoach(){
+    var pillarKeys=Object.keys(PM);
+    return e('div',null,e(H),e(Tabs),
+      e('div',{className:'screen'},
+        e('div',{className:'screen-title'},'Pilier (optionnel)'),
+        e('div',{className:'pillar-grid'},
+          pillarKeys.map(function(pk){
+            var m=PM[pk]||{};
+            return e('div',{key:pk,className:'pillar-card'+(coachPillar===pk?' active':''),
+              onClick:()=>setCoachPillar(coachPillar===pk?null:pk)},
+              e('div',{className:'pillar-icon'},m.icon||'📚'),
+              e('div',{className:'pillar-name'},pk),
+              e('div',{className:'pillar-label'},m.label||pk)
+            );
+          })
         ),
-        exchanges>=3&&e('button',{className:'btn-eval',onClick:evaluate},'⚖️ Évaluer par Épictète')
-      )
-    ),
-    e('div',{className:'chat-window'},
-      msgs.length===0&&e('div',{style:{textAlign:'center',padding:'30px 20px',color:'var(--text-d)',fontSize:'.85rem'}},
-        e('div',{style:{fontSize:'2rem',marginBottom:'8px'}},scenario.icon),
-        e('div',null,'Adressez-vous à ',e('b',{style:{color:'var(--text-m)'}},scenario.name),'.'),
-        e('div',{style:{marginTop:'4px'}},scenario.tip)
-      ),
-      msgs.map((m,i)=>e('div',{key:i,className:m.role==='user'?'bubble-wrap-user':'bubble-wrap-ai'},
-        e('div',{className:m.role==='user'?'bubble-user':'bubble-ai'},
-          e('div',{className:'bubble-label '+(m.role==='user'?'bubble-label-user':'bubble-label-ai')},
-            m.role==='user'?'AED':scenario.name.toUpperCase()
+        e('div',{className:'coach-box'},
+          e('div',{className:'coach-hint'},'Posez une question sur un module, une situation, une notion clé — ou sur plusieurs piliers à la fois.'),
+          e('div',{className:'coach-q'},
+            e('textarea',{className:'coach-input',ref:coachInputRef,
+              placeholder:'Ex. : Comment gérer un élève qui se replie sur lui-même ? Qu\'est-ce que la désescalade verbale ?',
+              value:coachInput,disabled:coachLoading,
+              onChange:ev=>setCoachInput(ev.target.value),
+              onKeyDown:ev=>{if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();askCoach();}}}),
+            e('button',{className:'btn-coach',disabled:coachLoading||!coachInput.trim(),onClick:askCoach},
+              coachLoading?'..':'Demander')
           ),
-          e('div',null,m.content)
+          coachAnswer&&e('div',{className:'coach-answer'+(coachLoading?' streaming':'')},coachAnswer)
         )
-      )),
-      loading&&e('div',{className:'bubble-wrap-ai'},
-        e('div',{className:'bubble-ai'},
-          e('div',{className:'bubble-label bubble-label-ai'},scenario.name.toUpperCase()),
-          e('div',{className:'typing'},e('div',{className:'dot'}),e('div',{className:'dot'}),e('div',{className:'dot'}))
-        )
-      ),
-      e('div',{ref:bottomRef})
-    ),
-    err&&e('div',{className:'err-bar'},'⚠️ '+err),
-    e('div',{className:'chat-input-row'},
-      e('textarea',{
-        ref:inputRef,className:'chat-input',
-        placeholder:'Votre intervention en tant qu\'AED...',
-        value:input,disabled:loading,
-        rows:1,
-        onChange:ev=>setInput(ev.target.value),
-        onKeyDown:ev=>{if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();send()}}
-      }),
-      e('button',{className:'btn-send',disabled:!input.trim()||loading,onClick:send},'ENVOYER'),
-      exchanges>=1&&e('button',{className:'btn-eval',disabled:loading,onClick:evaluate},'⚖️ ÉVALUER')
-    )
-  );
+      )
+    );
+  }
 
-  /* ── SCREEN: EVALUATING ── */
-  if(screen==='evaluating')return e('div',null,e(H),
-    e('div',{className:'screen'},
+  /* ══════════════════════════════════════════
+     TAB SIMULATION
+  ══════════════════════════════════════════ */
+  async function callScenario(newMsgs,sc){
+    setLoading(true);setErr('');
+    var messages=[{role:'system',content:sc.systemPrompt},...newMsgs];
+    var answer='';
+    var result=await window.LocalLLM.askMessages(messages,{
+      maxTokens:MD.scenario.maxTokens,
+      temperature:MD.scenario.temperature,
+      onChunk:function(chunk){
+        answer+=chunk;
+        setMsgs(function(m){
+          var last=m[m.length-1];
+          if(last&&last.role==='assistant'){
+            return [...m.slice(0,-1),{role:'assistant',content:answer}];
+          }
+          return [...m,{role:'assistant',content:answer}];
+        });
+      }
+    });
+    if(!answer&&result.text){
+      setMsgs(function(m){
+        var last=m[m.length-1];
+        if(last&&last.role==='assistant') return m;
+        return [...m,{role:'assistant',content:result.text}];
+      });
+    }
+    setExchanges(x=>x+1);
+    setLoading(false);
+    if(inputRef.current)inputRef.current.focus();
+  }
+
+  function startScenario(sc){
+    setScenario(sc);setMsgs([]);setExchanges(0);setErr('');setScreen('chat');
+  }
+
+  async function send(){
+    var txt=input.trim();
+    if(!txt||loading)return;
+    var userMsg={role:'user',content:txt};
+    var newMsgs=[...msgs,userMsg];
+    setMsgs(newMsgs);setInput('');
+    await callScenario(newMsgs,scenario);
+  }
+
+  async function evaluate(){
+    setScreen('evaluating');setLoading(true);setErr('');
+    var transcript=msgs.map(function(m){return(m.role==='user'?'AED':'ÉLÈVE')+' : '+m.content;}).join('\n');
+    var evalMsgs=window.EpicteteHelpers.buildEvalPrompt(transcript,scenario.id);
+    var answer='';
+    var result=await window.LocalLLM.askMessages(
+      evalMsgs.slice(1), // system is first message — pass user turn
+      {
+        maxTokens:window.EpicteteHelpers.MODE_DEFAULTS.eval.maxTokens,
+        temperature:window.EpicteteHelpers.MODE_DEFAULTS.eval.temperature
+      }
+    );
+    // Rebuild with system
+    var evalResult=await window.LocalLLM.ask({
+      systemPrompt:evalMsgs[0].content,
+      userPrompt:evalMsgs[1].content,
+      options:{
+        maxTokens:window.EpicteteHelpers.MODE_DEFAULTS.eval.maxTokens,
+        temperature:window.EpicteteHelpers.MODE_DEFAULTS.eval.temperature
+      }
+    });
+    setEvaluation(evalResult.text||'Évaluation indisponible.');
+    setScreen('evaluation');setLoading(false);
+  }
+
+  function restart(){setScreen('list');setMsgs([]);setExchanges(0);setEvaluation('');setErr('');}
+
+  function renderScenarioList(){
+    var scList=window.EpicteteHelpers?Object.values(window.EpicteteHelpers.SCENARIOS):[];
+    return e('div',null,e(H),e(Tabs),
+      e('div',{className:'screen'},
+        e('div',{className:'screen-title'},'Choisir un scénario'),
+        e('div',{className:'sc-grid'},
+          scList.map(function(sc){return e('div',{key:sc.id||sc.name,className:'sc-card'},
+            e('div',{className:'sc-icon'},sc.icon),
+            e('div',{className:'sc-content'},
+              e('div',{className:'sc-header'},
+                e('div',{className:'sc-name'},sc.name),
+                e('div',{className:'sc-diff',style:{background:sc.diffBg,color:sc.diffColor}},sc.difficulty)
+              ),
+              e('div',{className:'sc-ctx'},sc.context),
+              e('div',{className:'sc-tip'},'💡 ',sc.tip),
+              e('button',{className:'sc-cta',onClick:()=>startScenario(sc)},'DÉMARRER')
+            )
+          );})
+        )
+      )
+    );
+  }
+
+  function renderChat(){
+    return e('div',null,e(H),e(Tabs),
+      e('div',{className:'chat-banner'},
+        e('div',{className:'chat-persona'},
+          e('div',{className:'chat-persona-icon'},scenario.icon),
+          e('div',null,
+            e('div',{className:'chat-persona-name'},scenario.name),
+            e('div',{className:'chat-persona-sub'},scenario.subtitle)
+          )
+        ),
+        e('div',{className:exchanges>=6?'chat-counter warn':'chat-counter'},exchanges+' échanges'),
+        e('button',{className:'btn btn-sec',style:{fontSize:'.65rem',padding:'6px 12px'},onClick:()=>setScreen('list')},'◄ Scénarios')
+      ),
+      e('div',{className:'chat-window'},
+        msgs.length===0&&e('div',{style:{textAlign:'center',padding:'40px 0',color:'var(--text-d)'}},
+          e('div',{style:{fontSize:'2rem',marginBottom:'8px'}},scenario.icon),
+          e('div',null,'Adressez-vous à ',e('b',{style:{color:'var(--text-m)'}},scenario.name),'.'),
+          e('div',{style:{marginTop:'4px',fontSize:'.78rem'}},scenario.tip)
+        ),
+        msgs.map(function(m,i){
+          return e('div',{key:i,className:'bubble-wrap-'+(m.role==='user'?'user':'ai')},
+            e('div',{className:'bubble-'+(m.role==='user'?'user':'ai')},
+              e('div',{className:'bubble-label '+(m.role==='user'?'bubble-label-user':'bubble-label-ai')},
+                m.role==='user'?'AED':scenario.name.toUpperCase()),
+              m.content
+            )
+          );
+        }),
+        loading&&msgs[msgs.length-1]&&msgs[msgs.length-1].role==='user'&&
+          e('div',{className:'bubble-wrap-ai'},
+            e('div',{className:'bubble-ai'},
+              e('div',{className:'bubble-label bubble-label-ai'},scenario.name.toUpperCase()),
+              e('div',{className:'typing'},e('div',{className:'dot'}),e('div',{className:'dot'}),e('div',{className:'dot'}))
+            )
+          ),
+        e('div',{ref:bottomRef})
+      ),
+      err&&e('div',{className:'err-bar'},'⚠ ',err),
+      e('div',{className:'chat-input-row'},
+        e('textarea',{className:'chat-input',ref:inputRef,
+          placeholder:'Votre intervention...',
+          value:input,disabled:loading,
+          onChange:ev=>setInput(ev.target.value),
+          onKeyDown:ev=>{if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();send();}}}),
+        e('button',{className:'btn-send',disabled:loading||!input.trim(),onClick:send},'ENVOYER'),
+        exchanges>=3&&e('button',{className:'btn-eval',disabled:loading,onClick:evaluate},'ÉVALUER')
+      )
+    );
+  }
+
+  function renderEvaluating(){
+    return e('div',null,e(H),
       e('div',{className:'eval-loading'},
-        e('div',{className:'eval-loading-icon'},'🏛️'),
-        e('div',{className:'eval-loading-title'},'ÉPICTÈTE ANALYSE VOTRE INTERVENTION'),
-        e('div',{className:'eval-loading-sub'},'Grille FORCE + Protocole AERER · quelques secondes...')
+        e('div',{className:'eval-loading-icon'},'⚖️'),
+        e('div',{className:'eval-loading-title'},'Épictète analyse...'),
+        e('div',{className:'eval-loading-sub'},'Évaluation de votre intervention en cours.')
       )
-    )
-  );
+    );
+  }
 
-  /* ── SCREEN: EVALUATION ── */
-  if(screen==='evaluation')return e('div',null,e(H),
-    e('div',{className:'screen'},
-      e('div',{className:'screen-title'},'Évaluation · Épictète le Formateur'),
-      e('div',{style:{background:'var(--gold-dim)',border:'1px solid rgba(245,158,11,.25)',borderRadius:'8px',padding:'12px 16px',marginBottom:'16px',fontSize:'.82rem',color:'rgba(245,158,11,.8)'}},
-        '🏛️ Simulation : ',e('b',null,scenario.name),' — ',scenario.subtitle
-      ),
-      e('div',{className:'eval-result',dangerouslySetInnerHTML:{__html:md(evaluation)}}),
-      err&&e('div',{className:'err-bar',style:{marginTop:'12px'}},'⚠️ '+err),
-      e('div',{className:'eval-restart'},
-        e('button',{className:'btn btn-gold',onClick:restart},'↩ NOUVEAU SCÉNARIO'),
-        e('button',{className:'btn btn-sec',onClick:()=>{setScreen('chat');setErr('')}},'◄ REVOIR LA SIMULATION'),
-        e('button',{className:'btn btn-pri',onClick:()=>startScenario(scenario)},'⟳ REJOUER CE SCÉNARIO')
+  function renderEvaluation(){
+    return e('div',null,e(H),
+      e('div',{className:'screen'},
+        e('div',{className:'screen-title'},'🏛️ Simulation : ',e('b',null,scenario.name),' — ',scenario.subtitle),
+        e('div',{className:'eval-result'},evaluation),
+        e('div',{className:'eval-restart'},
+          e('button',{className:'btn btn-sec',onClick:()=>{setScreen('chat');setErr('')}},'◄ REVOIR'),
+          e('button',{className:'btn btn-pri',onClick:()=>startScenario(scenario)},'⟳ REJOUER'),
+          e('button',{className:'btn btn-gold',onClick:restart},'← SCÉNARIOS')
+        )
       )
-    )
-  );
+    );
+  }
 
-  return null;
+  /* ── ROUTING ── */
+  if(tab==='coach') return renderCoach();
+  if(screen==='list') return renderScenarioList();
+  if(screen==='chat') return renderChat();
+  if(screen==='evaluating') return renderEvaluating();
+  if(screen==='evaluation') return renderEvaluation();
+  return renderScenarioList();
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(e(App));

@@ -345,7 +345,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <div class="sim-body">
       <div class="sim-label">Outil de formation · Simulation IA</div>
       <div class="sim-title">Simulateur Épictète — Situations d'élèves</div>
-      <div class="sim-sub">Entraînement par jeu de rôle · Évaluation FORCE + AERER · Powered by Mistral AI</div>
+      <div class="sim-sub">Entraînement par jeu de rôle · Évaluation FORCE + AERER · IA Locale</div>
       <div class="sim-desc">Jouez des situations de mal-être, d'angoisse ou de tension avec un élève simulé par IA. À la fin de l'échange, Épictète analyse votre posture sur la grille FORCE (Formulation, Observation, Relation, Conformité éthique, Escalade) et le protocole AERER (PSSM France). Idéal pour préparer les situations difficiles ou réviser les postures professionnelles.</div>
       <div class="sim-tags">
         <span class="sim-tag">Mal-être</span>
@@ -354,7 +354,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
         <span class="sim-tag">FORCE /25</span>
         <span class="sim-tag">AERER</span>
         <span class="sim-tag">pHARe</span>
-        <span class="sim-tag">Mistral Small FR</span>
+        <span class="sim-tag">Local LLM</span>
       </div>
       <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
         <a href="epictete_simulator.html" target="_blank" class="sim-btn">🎭 Lancer le Simulateur</a>
@@ -373,11 +373,12 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <div class="chat-avatar">&#x1F9D1;&#x200D;&#x1F3EB;</div>
     <div class="chat-hinfo">
       <div class="chat-hname">&#xC9;pict&#xe8;te &mdash; Assistant Formation</div>
-      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; TSS actif &bull; Mistral Small (FR)</div>
+      <div class="chat-hstatus">IA sp&#xe9;cialis&#xe9;e La Forge &bull; TSS actif &bull; <span id="llm-status-badge">IA Locale</span></div>
     </div>
     <button class="chat-close" onclick="toggleChat()">&times;</button>
   </div>
   <div class="chat-body" id="chat-body"></div>
+  <div id="llm-init-banner" style="display:none;padding:10px 14px;background:rgba(226,168,75,.08);border-bottom:1px solid rgba(226,168,75,.2);font-size:.75rem;color:#e2a84b;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:10px;"><span id="llm-init-text">Modèle local non chargé</span><button onclick="activateLocalLLM()" style="background:#e2a84b;color:#000;border:none;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:.7rem;font-weight:700">Activer</button></div>
   <div class="chat-tss">
     <span class="tss-pill">TSS actif</span>
     <div class="tss-desc">Tronc = hub La Forge d'abord • Sources = pas d'affirmation gratuite • Satellites = compléments utiles et reliés au sujet.</div>
@@ -408,6 +409,8 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <div class="as"><div class="aw"><button class="ax xg" onclick="aVS()">&#x2713; Valider</button>
 <button class="ax xr" onclick="aRA()">Reset</button><button class="ax xn" onclick="cA()">Fermer</button></div>
 <div id="afb"></div></div></div></div></div>
+<script src="local_llm.js"></script>
+<script src="epictete_helpers.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 var ADMIN_CODE_CHARS=[67,80,69,55,48,42,53,57];
@@ -1754,8 +1757,8 @@ async function retrieveHubContext(query){
 
 
 // ═══ ÉPICTÈTE — AI ASSISTANT ═══
-var MISTRAL_KEY='V2kQF71iimSSAowQGgsaVM3UAPTI9ozn';
-var MISTRAL_URL='https://api.mistral.ai/v1/chat/completions';
+var MISTRAL_KEY=''; // clé révoquée — modèle local
+var MISTRAL_URL=''; // inutilisé — modèle local
 
 var SYSTEM_PROMPT='';
 var SYSTEM_PROMPT_FALLBACK='Tu es Épictète, assistant formation de La Forge (Collège Château Rance). Mode TSS actif : Tronc = répondre d\'abord à partir du hub, Sources = ne rien inventer ni présenter d\'hypothèse comme un fait, Satellites = ajouter seulement des compléments utiles directement liés au sujet. Tu aides les AED sur la posture, le cadre légal, les neurosciences ado, pHARe, la santé psychique des élèves, le vivre ensemble actif et les modules de formation du hub. Ton ton est direct, pro, bienveillant. Quand l\'info manque, tu le dis franchement et tu renvoies au CPE si nécessaire.';
@@ -2627,25 +2630,17 @@ async function sendChat(){
       {role:'user',content:text}
     ];
 
-    var res=await fetch(MISTRAL_URL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+MISTRAL_KEY},
-      body:JSON.stringify({
-        model:'mistral-small-latest',
-        messages:messages,
-        temperature:scenarioMode?0.55:(pillarMode?(pillarFocus.mode==='summary'?EPICTETE_PILLAR_SUMMARY_TEMP:EPICTETE_PILLAR_HELP_TEMP):0.2),
-        max_tokens:scenarioMode?1200:(pillarMode?1000:900)
-      })
-    });
-    var data=await res.json();
-    var reply='';
-    if(data.choices&&data.choices[0]&&data.choices[0].message){
-      reply=data.choices[0].message.content||'';
-    }else if(data.message){
-      reply='Erreur API : '+(data.message||'inconnue');
-    }else if(data.error){
-      reply='Erreur API : '+(data.error.message||JSON.stringify(data.error));
-    }else{reply='Pas de réponse. Réessaie.';}
+    if(!window.LocalLLM||!window.LocalLLM.isReady()){
+      var t0=document.getElementById('typing');if(t0)t0.remove();
+      addMsg('ai','Le modèle local n\'est pas encore chargé. Clique sur **Activer** dans la bannière pour lancer Épictète en local (~500 MB, mis en cache ensuite).');
+      var b=document.getElementById('llm-init-banner');if(b)b.style.display='flex';
+      btn.disabled=false;input.focus();return;
+    }
+    var _maxTok=scenarioMode?200:(pillarMode?220:200);
+    var _temp=scenarioMode?0.55:(pillarMode?(pillarFocus.mode==='summary'?0.08:0.12):0.20);
+    var result=await window.LocalLLM.askMessages(messages,{maxTokens:_maxTok,temperature:_temp});
+    var reply=result.text||'';
+    if(!reply){reply='Pas de réponse. Réessaie.';}
     var t=document.getElementById('typing');if(t)t.remove();
     addMsg('ai',reply);
     if(scenarioMode&&scenarioState&&scenarioPhase==='debrief'){
@@ -2657,7 +2652,7 @@ async function sendChat(){
     if(pillarMode&&pillarFocus&&pillarFocus.mode==='summary')setEpictetePillarFocus(pillarFocus.key,'coach');
   }catch(e){
     var t2=document.getElementById('typing');if(t2)t2.remove();
-    addMsg('ai','Erreur de connexion ou d’indexation locale du hub. Vérifie que tous les fichiers La Forge sont dans le même dossier, puis réessaie.');
+    addMsg('ai','Erreur lors de la génération locale. Réessaie, ou recharge le modèle depuis la bannière.');
     if(startScenario)clearActiveEpicteteScenario(player);
     if(pillarMode&&pillarFocus&&pillarFocus.mode==='summary')setEpictetePillarFocus(pillarFocus.key,'coach');
   }
@@ -2672,5 +2667,35 @@ function initChat(){
   refreshTTSControls();
 }
 
-loadSystemPrompt().then(function(){iP();tH();R();loadPodcasts();initChat();buildHubIndex().catch(function(){console.warn('Épictète: index hub non préchargé');});});
+loadSystemPrompt().then(function(){iP();tH();R();loadPodcasts();initChat();initLocalLLM();buildHubIndex().catch(function(){console.warn('Épictète: index hub non préchargé');});});
+
+// ═══ LOCAL LLM — ACTIVATION ═══
+function activateLocalLLM(){
+  var banner=document.getElementById('llm-init-banner');
+  var txt=document.getElementById('llm-init-text');
+  var badge=document.getElementById('llm-status-badge');
+  if(txt)txt.textContent='Chargement... (patientez, ~500 MB au premier lancement)';
+  if(badge)badge.textContent='Chargement...';
+  window.LocalLLM.activate({
+    onProgress:function(p){if(txt)txt.textContent=p.text+(p.progress>0?' — '+Math.round(p.progress*100)+'%':'');},
+    onReady:function(){
+      if(banner)banner.style.display='none';
+      if(badge)badge.textContent='IA Locale ✓';
+      addMsg('ai','Modèle local prêt. Je suis Épictète — pose ta question.');
+    },
+    onError:function(err){
+      if(txt)txt.textContent='Erreur : '+(err.message||String(err));
+      if(badge)badge.textContent='Erreur modèle';
+    }
+  });
+}
+function initLocalLLM(){
+  if(window.LocalLLM&&window.LocalLLM.isReady()){
+    var badge=document.getElementById('llm-status-badge');
+    if(badge)badge.textContent='IA Locale ✓';
+  }else{
+    var banner=document.getElementById('llm-init-banner');
+    if(banner)banner.style.display='flex';
+  }
+}
 </script></body></html>

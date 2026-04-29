@@ -8,7 +8,7 @@
   'use strict';
 
   var MODEL_REPO = 'bartowski/Qwen3-1.7B-GGUF';
-  var MODEL_FILE = 'Qwen3-1.7B-Q4_K_M.gguf';
+  var MODEL_FILE = 'Qwen3-1.7B-Q3_K_M.gguf';
   var N_CTX = 2048;
   var N_THREADS = 1;
 
@@ -117,7 +117,7 @@
 
         wllama = new Wllama(WLLAMA_WASM_PATHS, { allowOffline: false });
 
-        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3-1.7B (~1.1 Go, 1 seul telechargement)..." });
+        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3-1.7B (~870 Mo, 1 seul telechargement)..." });
 
         await wllama.loadModelFromHF(MODEL_REPO, MODEL_FILE, {
           n_ctx: N_CTX,
@@ -228,7 +228,7 @@
     lastError: function () { return lastError; },
     SOCLE_COMMUN: SOCLE_COMMUN, DEFAULTS: DEFAULTS, STOP_PROMPTS: STOP_PROMPTS,
     MODEL_INFO: { repo: MODEL_REPO, file: MODEL_FILE, contextSize: N_CTX,
-      paramSize: '1.7B', quantization: 'Q4_K_M', sizeMB: 1100,
+      paramSize: '1.7B', quantization: 'Q3_K_M', sizeMB: 870,
       wllamaVersion: WLLAMA_VERSION, threading: 'single-thread' }
   };
   console.log('[LocalLLM] v2.6 La Forge — Qwen3-1.7B (single-thread, wllama@' + WLLAMA_VERSION + ', /no_think actif).');

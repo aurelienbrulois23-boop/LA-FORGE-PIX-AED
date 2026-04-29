@@ -1,17 +1,14 @@
-/* LOCAL LLM v2.4 - moteur partage Kern / Helene / Agora / Epictete
-   Pile : wllama (jsDelivr) + Qwen3.5-0.8B-Q4_K_M (HuggingFace/bartowski).
-   Fix v2.2 : single-thread strict (multi-thread casse sur Github Pages
-   sans headers COOP/COEP), version wllama epinglee.
-   Fix v2.3 : sampling anti-boucle. temp 0.05=>0.45, top_k 20=>40,
-   penalty 1.20=>1.35. Temp quasi-zero = greedy pur = boucles clclcl
-   impossibles a briser. N_CTX 768=>1024 pour plus de coherence.
-   Fix v2.4 : upgrade Qwen3.5-0.8B. N_CTX 1024=>2048. Thinking mode
-   desactive via prefill <think> vide (requis par Qwen3.5). */
+/* LOCAL LLM v2.6 - La Forge / PIX AED (Epictete)
+   Pile : wllama (jsDelivr) + Qwen3-1.7B-Q4_K_M (bartowski).
+   v2.6 : upgrade Qwen2.5-1.5B → Qwen3-1.7B (avr. 2025, meilleur raisonnement).
+   ~1.1 Go, tourne sur PC 4 Go RAM. Qwen3 a un thinking mode hybride :
+   desactive via /no_think en debut de message utilisateur.
+   Single-thread strict pour Github Pages. */
 (function () {
   'use strict';
 
-  var MODEL_REPO = 'bartowski/Qwen_Qwen3.5-0.8B-GGUF';
-  var MODEL_FILE = 'Qwen_Qwen3.5-0.8B-Q4_K_M.gguf';
+  var MODEL_REPO = 'bartowski/Qwen3-1.7B-GGUF';
+  var MODEL_FILE = 'Qwen3-1.7B-Q4_K_M.gguf';
   var N_CTX = 2048;
   var N_THREADS = 1;
 
@@ -45,16 +42,12 @@
 
   var wllama = null, activated = false, activating = null, loadedAt = null, lastError = null;
 
-  // Qwen3.5 : desactiver thinking mode via bloc <think> vide en prefill.
-  // Sans ce prefill, le modele genere <think>...</think> avant chaque reponse.
-  // Le template officiel Qwen3.5 injecte ce prefill quand enable_thinking=false.
-  // En mode wllama (prompt manuel), on le fait nous-memes.
-  var NO_THINK_PREFIX = '<think>\n\n</think>\n\n';
 
+  // /no_think en debut de message user desactive le mode thinking de Qwen3
   function buildChatML(systemPrompt, userPrompt) {
     return ('<|im_start|>system\n' + (systemPrompt || '').trim() + '\n<|im_end|>\n' +
-            '<|im_start|>user\n'   + (userPrompt   || '').trim() + '\n<|im_end|>\n' +
-            '<|im_start|>assistant\n' + NO_THINK_PREFIX);
+            '<|im_start|>user\n/no_think '   + (userPrompt   || '').trim() + '\n<|im_end|>\n' +
+            '<|im_start|>assistant\n');
   }
 
   function buildPrompt(parts) {
@@ -81,24 +74,29 @@
     return { systemPrompt: systemPrompt, userPrompt: userPrompt, full: buildChatML(systemPrompt, userPrompt) };
   }
 
+  // Pour askMessages : injecte /no_think sur le premier message 'user' uniquement
   function messagesToChatML(messages) {
     var prompt = '';
     var arr = messages || [];
+    var noThinkInjected = false;
     for (var i = 0; i < arr.length; i++) {
       var m = arr[i];
       if (!m || !m.role || m.content == null) continue;
-      prompt += '<|im_start|>' + m.role + '\n' + String(m.content).trim() + '\n<|im_end|>\n';
+      var content = String(m.content).trim();
+      if (m.role === 'user' && !noThinkInjected) {
+        content = '/no_think ' + content;
+        noThinkInjected = true;
+      }
+      prompt += '<|im_start|>' + m.role + '\n' + content + '\n<|im_end|>\n';
     }
-    prompt += '<|im_start|>assistant\n' + NO_THINK_PREFIX;
+    prompt += '<|im_start|>assistant\n';
     return prompt;
   }
 
   function cleanOutput(raw) {
     if (!raw) return '';
     var out = raw;
-    // Supprimer eventuels blocs <think>...</think> residuels (Qwen3.5 thinking mode)
-    out = out.replace(/<think>[\s\S]*?<\/think>\s*/g, '');
-    var stops = STOP_PROMPTS.concat(['<|endoftext|>']);
+      var stops = STOP_PROMPTS.concat(['<|endoftext|>']);
     for (var i = 0; i < stops.length; i++) {
       var idx = out.indexOf(stops[i]);
       if (idx >= 0) out = out.slice(0, idx);
@@ -119,7 +117,7 @@
 
         wllama = new Wllama(WLLAMA_WASM_PATHS, { allowOffline: false });
 
-        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3.5-0.8B (~500 MB)..." });
+        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3-1.7B (~1.1 Go, 1 seul telechargement)..." });
 
         await wllama.loadModelFromHF(MODEL_REPO, MODEL_FILE, {
           n_ctx: N_CTX,
@@ -230,8 +228,8 @@
     lastError: function () { return lastError; },
     SOCLE_COMMUN: SOCLE_COMMUN, DEFAULTS: DEFAULTS, STOP_PROMPTS: STOP_PROMPTS,
     MODEL_INFO: { repo: MODEL_REPO, file: MODEL_FILE, contextSize: N_CTX,
-      paramSize: '0.8B', quantization: 'Q4_K_M', sizeMB: 500,
+      paramSize: '1.7B', quantization: 'Q4_K_M', sizeMB: 1100,
       wllamaVersion: WLLAMA_VERSION, threading: 'single-thread' }
   };
-  console.log('[LocalLLM] v2.4 charge (Qwen3.5-0.8B, no-think, single-thread, wllama@' + WLLAMA_VERSION + ').');
+  console.log('[LocalLLM] v2.6 La Forge — Qwen3-1.7B (single-thread, wllama@' + WLLAMA_VERSION + ', /no_think actif).');
 })();

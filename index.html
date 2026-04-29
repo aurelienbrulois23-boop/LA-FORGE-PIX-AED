@@ -2644,7 +2644,7 @@ async function sendChat(){
       var b=document.getElementById('llm-init-banner');if(b)b.style.display='flex';
       btn.disabled=false;input.focus();return;
     }
-    var _maxTok=scenarioMode?200:(pillarMode?220:200);
+    var _maxTok=scenarioMode?200:(pillarMode?300:280);
     var _temp=scenarioMode?0.55:(pillarMode?(pillarFocus.mode==='summary'?0.08:0.12):0.20);
     var result=await window.LocalLLM.askMessages(messages,{maxTokens:_maxTok,temperature:_temp});
     var reply=result.text||'';

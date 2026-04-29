@@ -2625,9 +2625,17 @@ async function sendChat(){
     if(recentContext){
       systemContent+='\n\nHISTORIQUE RECENT (CONTEXTE UNIQUEMENT)\n'+recentContext;
     }
+    // Tronquer le contexte pour N_CTX=2048 (Qwen3.5-0.8B)
+    var _basePrompt = getEffectiveSystemPrompt().slice(0, 400);
+    var _rules = runtimeRules.slice(0, 3).join('\n').slice(0, 200);
+    var _hub = hub && hub.context ? '\nContexte : ' + hub.context.slice(0, 500) : '';
+    var _pillar = (pillarMode && pillarFocus) ? ('\n' + buildEpictetePillarFocusBlock(pillarFocus).slice(0, 300)) : '';
+    var _scenario = (scenarioMode && scenarioState && scenarioProfile) ? ('\n' + buildEpicteteScenarioRules(scenarioState, scenarioProfile, scenarioPhase).slice(0, 350)) : '';
+    var _localSystem = _basePrompt + '\n' + _rules + _hub + _pillar + _scenario;
+    // Pas d'historique long : le modèle local ne peut pas tout tenir
     var messages=[
-      {role:'system',content:systemContent},
-      {role:'user',content:text}
+      {role:'system', content:_localSystem},
+      {role:'user', content:text}
     ];
 
     if(!window.LocalLLM||!window.LocalLLM.isReady()){

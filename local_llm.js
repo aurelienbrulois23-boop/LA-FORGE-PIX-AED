@@ -1,14 +1,14 @@
-/* LOCAL LLM v2.7 - La Forge / PIX AED (Epictete)
-   Pile : wllama (jsDelivr) + Qwen3-0.6B-Q4_K_M (bartowski).
-   v2.7 : downsize → Qwen3-0.6B pour compatibilite PC scolaires 4 Go RAM.
-   ~400 Mo, allocation memoire sure. Qwen3 thinking mode hybride :
-   desactive via /no_think en debut de message utilisateur.
+/* LOCAL LLM v2.8-test - La Forge / PIX AED (Epictete)
+   Pile : wllama (jsDelivr) + Qwen3.5-2B-Q4_K_M (bartowski).
+   v2.8-test : TEST limite memoire — Qwen3.5-2B Q4_K_M = 1.24 Go.
+   Si Invalid typed array length reapparait → confirme limite ~1 Go V8/wllama.
+   Qwen3.5 : thinking desactive par defaut, /no_think conserve par securite.
    Single-thread strict pour Github Pages. */
 (function () {
   'use strict';
 
-  var MODEL_REPO = 'bartowski/Qwen3-0.6B-GGUF';
-  var MODEL_FILE = 'Qwen3-0.6B-Q4_K_M.gguf';
+  var MODEL_REPO = 'bartowski/Qwen_Qwen3.5-2B-GGUF';
+  var MODEL_FILE = 'Qwen_Qwen3.5-2B-Q4_K_M.gguf';
   var N_CTX = 2048;
   var N_THREADS = 1;
 
@@ -117,7 +117,7 @@
 
         wllama = new Wllama(WLLAMA_WASM_PATHS, { allowOffline: false });
 
-        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3-0.6B (~400 Mo, 1 seul telechargement)..." });
+        if (opts.onProgress) opts.onProgress({ stage: 'model_download', progress: 0.05, text: "Telechargement Qwen3.5-2B (~1.24 Go, 1 seul telechargement)..." });
 
         await wllama.loadModelFromHF(MODEL_REPO, MODEL_FILE, {
           n_ctx: N_CTX,
@@ -228,8 +228,8 @@
     lastError: function () { return lastError; },
     SOCLE_COMMUN: SOCLE_COMMUN, DEFAULTS: DEFAULTS, STOP_PROMPTS: STOP_PROMPTS,
     MODEL_INFO: { repo: MODEL_REPO, file: MODEL_FILE, contextSize: N_CTX,
-      paramSize: '0.6B', quantization: 'Q4_K_M', sizeMB: 400,
+      paramSize: '2B', quantization: 'Q4_K_M', sizeMB: 1240,
       wllamaVersion: WLLAMA_VERSION, threading: 'single-thread' }
   };
-  console.log('[LocalLLM] v2.7 La Forge — Qwen3-0.6B (single-thread, wllama@' + WLLAMA_VERSION + ', /no_think actif).');
+  console.log('[LocalLLM] v2.8-test La Forge — Qwen3.5-2B Q4_K_M (single-thread, wllama@' + WLLAMA_VERSION + ', /no_think actif).');
 })();

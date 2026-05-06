@@ -177,7 +177,7 @@ function getPlayer(){
 function awardXP(){
   try{var raw=localStorage.getItem('pvs_bridge_events'),evts=raw?JSON.parse(raw):[];
     evts.push({id:'AED-'+MODULE_ID+'-'+Date.now(),type:'AED_PROGRESS',player:getPlayer(),
-      module:MODULE_ID,cpTotal:0,label:'LA FORGE : La crise d'angoisse : rester ancré',d:new Date().toISOString()});
+      module:MODULE_ID,cpTotal:0,label:"LA FORGE : La crise d'angoisse : rester ancré",d:new Date().toISOString()});
     if(evts.length>700)evts.splice(0,evts.length-700);
     localStorage.setItem('pvs_bridge_events',JSON.stringify(evts));
     window.dispatchEvent(new StorageEvent('storage',{key:'pvs_bridge_events'}));
